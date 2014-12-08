@@ -5,7 +5,7 @@
 %   \par\nobreak\begin{center}\nobreak}
 %   {\par\nobreak\end{center}}
 
-
+\usepackage{amsmath}
 \usepackage[utf8x]{inputenc}
 \usepackage{caption}
 \usepackage{subcaption}
@@ -1079,21 +1079,27 @@ the last one is the area of pile.
 
 
 \begin{figure}[H]
-\centerline{\includegraphics[scale=0.5]{IMAGES/xextent.png}}
-\caption{Esxtension of pile in X direction}
+\centerline{\includegraphics[scale=0.5]{IMAGES/xextend.png}}
+\caption{Extension of pile in X direction}
 \label{xextent}
 \end{figure}
 
 
 \begin{figure}[H]
-\centerline{\includegraphics[scale=0.5]{IMAGES/yextent.png}}
-\caption{Esxtension of pile in Y direction}
+\centerline{\includegraphics[scale=0.5]{IMAGES/yextend.png}}
+\caption{Extension of pile in Y direction}
 \label{yextent}
 \end{figure}
 
 \begin{figure}[H]
-\centerline{\includegraphics[scale=0.5]{IMAGES/Wet_area.png}}
+\centerline{\includegraphics[scale=0.5]{IMAGES/area.png}}
 \caption{Area of pile}
+\label{wet_area}
+\end{figure}
+
+\begin{figure}[H]
+\centerline{\includegraphics[scale=0.5]{IMAGES/perimeter.png}}
+\caption{Perimeter of pile}
 \label{wet_area}
 \end{figure}
 
@@ -1103,16 +1109,25 @@ that is reported in \cite{}.
 
 % \end{figure}
 \subsection{Colima Volcano}
-In this section we verified our different interface capturing methods with a real field data of Colima volcano. 
-Colima volcano in Mexico is one of the most active volcanos in North America. Here we try to duplicate the eruption happened April 16-17, 1991. 
-For more detail information about this eruption can be found in \cite{}. We selected this volcano and this particular eruption, because 
-the resulted outline of the flow has some charecteristic that if the interface capturing method can capture it, we can  
-rely on that for similar flows. 
-The resolution of the digital elevation model (DEM) of colima volcano that here we used is 5 meter which is the finest DEM 
+In this section, we verify our different interface capturing methods with a field data of an eruption of Colima volcano. 
+Colima volcano in Mexico is one of the most active volcano in North America, and this eruption has happened in 16-17 April 1991 \cite{}. 
+The topography of Colima volcano is such that small changes the initial location of the pile leads to a completely different 
+path of flow, so a good performance of any of the interface capturing methods for this case promises a reliable method for other volcanoes.
+To be able to compare our results with the outline of deposit of flow, we record the history of all points with the finest 
+resolution of the mesh during the simulation to check the points that are placed exactly on the boundary of the flow. 
+As a definition boundary here means that the points that the flow passed from them, but has not passed one of their neighbors 
+in different directions. For phase field and level set just with recording the maximum absolute value of phi we can find 
+these points by plotting $\phi=0$, this contour produces deposit line of flow during the time. For the heuristic method we 
+recorded the minimum of the pile height during time and plotted the contour of $ h = h_{scale} \times GEOFLOW_TINY$, where 
+$ h_{scale} =Volume^\frac{1}{3} $.
+
+% \text{Height_Scale}
+% \text{Height_Scale}
+The resolution of the digital elevation model (DEM) of Colima volcano that here we used is 5 meter which is the finest DEM 
 that we have ever used for this volcano.
 
 The outline of this eruption is available in \cite{namikawa}, we used the method that described in \cite{namikawa} to 
-extract the skleton line of the flow to be able to comprae the results quantitavely. The procedure of the extraction of the 
+extract the skeleton line of the flow to be able to compare the results quantitatively. The procedure of the extraction of the 
 skeleton line is shown in the following pictures. 
 
 \begin{figure}
@@ -1124,59 +1139,90 @@ skeleton line is shown in the following pictures.
         \end{subfigure}%
         \begin{subfigure}[b]{0.45\textwidth}
                 \includegraphics[width=\textwidth]{IMAGES/pics/Delaunay_Triangulation_of_Colima_clean.png}
-                \caption{Delaunay triangulation based on the ouline of the flow}
+                \caption{Delaunay triangulation based on the outline of the flow}
                 \label{fig:Delaunay}
         \end{subfigure}\\
         \begin{subfigure}[b]{0.45\textwidth}
                 \includegraphics[width=\textwidth]{IMAGES/pics/Skeleton_line.png}
-                \caption{Finding the midle of the edges of the trangles that connects the ouline of the flow}
+                \caption{Finding the middle of the edges of the triangles that connects the outline of the flow}
                 \label{fig:veroni}
         \end{subfigure}
         \begin{subfigure}[b]{0.45\textwidth}
                 \includegraphics[width=\textwidth]{IMAGES/pics/Outline_Skeleton_line.png}
-                \caption{Connecting the middle verticies that are inside of the outline of the flow, in this picture thei
+                \caption{Connecting the middle verticals that are inside of the outline of the flow, in this picture the
                 outline of the flow (blue line) and the skeleton line of the flow (red line) can be seen}
                 \label{fig:skeleton}
         \end{subfigure}
                 
-        \caption{In this set of pictures the steps that have to be taken for finding the ouline of the flow is displayed 
+        \caption{In this set of pictures the steps that have to be taken for finding the outline of the flow is displayed 
         respectively}\label{fig:skeleton_line_proc}
 \end{figure}
 
 \newpage
 
-\subsubsection{HEURISTIC}
-The following pictures shows the outline of flow resulted from the Heuristic method:
+After finding the skeleton line, we mapped the outline of the flow and the skeleton line on the Colima volcano 
+using KML language and Google earth application \ref{skel_outline}. In pictures \ref{phasefieldfig}-
+% \ref{compfig} 
+the result of each methods and their comparison can be seen. 
+
 \begin{figure}[H]
-\centerline{\includegraphics[width=.9\textwidth]{IMAGES/pics/tiny0.jpg}}
-\caption{T=0 s}
-\label{yextent}
+\centerline{\includegraphics[width=\textwidth]{IMAGES/skeleton_outline.jpg}}
+\caption{Skeleton line (white line) and outline of the deposit of eruption 1991 (yellow line)}
+\label{skel_outline}
 \end{figure}
+
 \begin{figure}[H]
-\centerline{\includegraphics[width=.9\textwidth]{IMAGES/pics/tiny1.jpg}}
-\caption{T=10 s}
-\label{yextent}
+\centerline{\includegraphics[width=\textwidth]{IMAGES/phasefield.jpg}}
+\caption{}
+\label{phasefieldfig}
 \end{figure}
+
 \begin{figure}[H]
-\centerline{\includegraphics[width=.9\textwidth]{IMAGES/pics/tiny3.jpg}}
-\caption{T=30 s}
-\label{yextent}
+\centerline{\includegraphics[width=\textwidth]{IMAGES/levelset.jpg}}
+\caption{Skeleton line (white line) and outline of the deposit of eruption 1991 (yellow line)}
+\label{skel_outline}
 \end{figure}
-\begin{figure}[H]
-\centerline{\includegraphics[width=.9\textwidth]{IMAGES/pics/tiny6.jpg}}
-\caption{T=60 s}
-\label{yextent}
-\end{figure}
-\begin{figure}[H]
-\centerline{\includegraphics[width=.9\textwidth]{IMAGES/pics/tiny12.jpg}}
-\caption{T=120 s}
-\label{geoflow_interface}
-\end{figure}
-\begin{figure}[H]
-\centerline{\includegraphics[width=.9\textwidth]{IMAGES/pics/tiny36.jpg}}
-\caption{T=360 s}
-\label{geoflow_interface}
-\end{figure}
+% 
+% \begin{figure}[H]
+% \centerline{\includegraphics[scale=0.5]{tiny.jpg}}
+% \caption{Skeleton line (white line) and outline of the deposit of erution 1991 (yellow line)}
+% \label{compfig}
+% \end{figure}
+
+
+
+% \subsubsection{HEURISTIC}
+% The following pictures shows the outline of flow resulted from the Heuristic method:
+% \begin{figure}[H]
+% \centerline{\includegraphics[width=.9\textwidth]{IMAGES/pics/tiny0.jpg}}
+% \caption{T=0 s}
+% \label{yextent}
+% \end{figure}
+% \begin{figure}[H]
+% \centerline{\includegraphics[width=.9\textwidth]{IMAGES/pics/tiny1.jpg}}
+% \caption{T=10 s}
+% \label{yextent}
+% \end{figure}
+% \begin{figure}[H]
+% \centerline{\includegraphics[width=.9\textwidth]{IMAGES/pics/tiny3.jpg}}
+% \caption{T=30 s}
+% \label{yextent}
+% \end{figure}
+% \begin{figure}[H]
+% \centerline{\includegraphics[width=.9\textwidth]{IMAGES/pics/tiny6.jpg}}
+% \caption{T=60 s}
+% \label{yextent}
+% \end{figure}
+% \begin{figure}[H]
+% \centerline{\includegraphics[width=.9\textwidth]{IMAGES/pics/tiny12.jpg}}
+% \caption{T=120 s}
+% \label{geoflow_interface}
+% \end{figure}
+% \begin{figure}[H]
+% \centerline{\includegraphics[width=.9\textwidth]{IMAGES/pics/tiny36.jpg}}
+% \caption{T=360 s}
+% \label{geoflow_interface}
+% \end{figure}
 % \begin{figure}[H]
 %         \centering
 %         \begin{subfigure}{0.9\textwidth}
@@ -1213,105 +1259,105 @@ The following pictures shows the outline of flow resulted from the Heuristic met
 %         \caption{The interface position of the flow at differet time steps}\label{fig:tiny}
 % \end{figure}
 
-
-\subsubsection{Phase Field}
-
-\begin{figure}[H]
-\centerline{\includegraphics[width=.9\textwidth]{IMAGES/pics/phase0.jpg}}
-\caption{T=0 s}
-\label{yextent}
-\end{figure}
-\begin{figure}[H]
-\centerline{\includegraphics[width=.9\textwidth]{IMAGES/pics/phase1.jpg}}
-\caption{T=10 s}
-\label{yextent}
-\end{figure}
-\begin{figure}[H]
-\centerline{\includegraphics[width=.9\textwidth]{IMAGES/pics/phase3.jpg}}
-\caption{T=30 s}
-\label{yextent}
-\end{figure}
-\begin{figure}[H]
-\centerline{\includegraphics[width=.9\textwidth]{IMAGES/pics/phase6.jpg}}
-\caption{T=60 s}
-\label{yextent}
-\end{figure}
-\begin{figure}[H]
-\centerline{\includegraphics[width=.9\textwidth]{IMAGES/pics/phase12.jpg}}
-\caption{T=120 s}
-\label{geoflow_interface}
-\end{figure}
-\begin{figure}[H]
-\centerline{\includegraphics[width=.9\textwidth]{IMAGES/pics/phase36.jpg}}
-\caption{T=360 s}
-\label{geoflow_interface}
-\end{figure}
-
-
-\subsubsection{Level Set}
-
-
-\begin{figure}[H]
-\centerline{\includegraphics[width=.9\textwidth]{IMAGES/pics/level0.jpg}}
-\caption{T=0 s}
-\label{level0}
-\end{figure}
-\begin{figure}[H]
-\centerline{\includegraphics[width=.9\textwidth]{IMAGES/pics/level1.jpg}}
-\caption{T=10 s}
-\label{level01}
-\end{figure}
-\begin{figure}[H]
-\centerline{\includegraphics[width=.9\textwidth]{IMAGES/pics/level3.jpg}}
-\caption{T=30 s}
-\label{level02}
-\end{figure}
-\begin{figure}[H]
-\centerline{\includegraphics[width=.9\textwidth]{IMAGES/pics/level6.jpg}}
-\caption{T=60 s}
-\label{level06}
-\end{figure}
-\begin{figure}[H]
-\centerline{\includegraphics[width=.9\textwidth]{IMAGES/pics/level12.jpg}}
-\caption{T=120 s}
-\label{level12}
-\end{figure}
-\begin{figure}[H]
-\centerline{\includegraphics[width=.9\textwidth]{IMAGES/pics/level36.jpg}}
-\caption{T=360 s}
-\label{level36}
-\end{figure}
-
-\subsubsection{Comparison}
-
-In this part of the paper we show the obtained results of different time steps that is obtained from different methods in a same picture for to comprae them 
-qualitatively.
-
-\begin{figure}[H]
-\centerline{\includegraphics[width=.9\textwidth]{IMAGES/pics/comp1.jpg}}
-\caption{T=0 s}
-\label{comp1}
-\end{figure}
-\begin{figure}[H]
-\centerline{\includegraphics[width=.9\textwidth]{IMAGES/pics/comp3.jpg}}
-\caption{T=10 s}
-\label{comp3}
-\end{figure}
-\begin{figure}[H]
-\centerline{\includegraphics[width=.9\textwidth]{IMAGES/pics/comp6.jpg}}
-\caption{T=30 s}
-\label{comp6}
-\end{figure}
-\begin{figure}[H]
-\centerline{\includegraphics[width=.9\textwidth]{IMAGES/pics/comp12.jpg}}
-\caption{T=60 s}
-\label{comp12}
-\end{figure}
-\begin{figure}[H]
-\centerline{\includegraphics[width=.9\textwidth]{IMAGES/pics/comp36.jpg}}
-\caption{T=120 s}
-\label{comp36}
-\end{figure}
+% 
+% \subsubsection{Phase Field}
+% 
+% \begin{figure}[H]
+% \centerline{\includegraphics[width=.9\textwidth]{IMAGES/pics/phase0.jpg}}
+% \caption{T=0 s}
+% \label{yextent}
+% \end{figure}
+% \begin{figure}[H]
+% \centerline{\includegraphics[width=.9\textwidth]{IMAGES/pics/phase1.jpg}}
+% \caption{T=10 s}
+% \label{yextent}
+% \end{figure}
+% \begin{figure}[H]
+% \centerline{\includegraphics[width=.9\textwidth]{IMAGES/pics/phase3.jpg}}
+% \caption{T=30 s}
+% \label{yextent}
+% \end{figure}
+% \begin{figure}[H]
+% \centerline{\includegraphics[width=.9\textwidth]{IMAGES/pics/phase6.jpg}}
+% \caption{T=60 s}
+% \label{yextent}
+% \end{figure}
+% \begin{figure}[H]
+% \centerline{\includegraphics[width=.9\textwidth]{IMAGES/pics/phase12.jpg}}
+% \caption{T=120 s}
+% \label{geoflow_interface}
+% \end{figure}
+% \begin{figure}[H]
+% \centerline{\includegraphics[width=.9\textwidth]{IMAGES/pics/phase36.jpg}}
+% \caption{T=360 s}
+% \label{geoflow_interface}
+% \end{figure}
+% 
+% 
+% \subsubsection{Level Set}
+% 
+% 
+% \begin{figure}[H]
+% \centerline{\includegraphics[width=.9\textwidth]{IMAGES/pics/level0.jpg}}
+% \caption{T=0 s}
+% \label{level0}
+% \end{figure}
+% \begin{figure}[H]
+% \centerline{\includegraphics[width=.9\textwidth]{IMAGES/pics/level1.jpg}}
+% \caption{T=10 s}
+% \label{level01}
+% \end{figure}
+% \begin{figure}[H]
+% \centerline{\includegraphics[width=.9\textwidth]{IMAGES/pics/level3.jpg}}
+% \caption{T=30 s}
+% \label{level02}
+% \end{figure}
+% \begin{figure}[H]
+% \centerline{\includegraphics[width=.9\textwidth]{IMAGES/pics/level6.jpg}}
+% \caption{T=60 s}
+% \label{level06}
+% \end{figure}
+% \begin{figure}[H]
+% \centerline{\includegraphics[width=.9\textwidth]{IMAGES/pics/level12.jpg}}
+% \caption{T=120 s}
+% \label{level12}
+% \end{figure}
+% \begin{figure}[H]
+% \centerline{\includegraphics[width=.9\textwidth]{IMAGES/pics/level36.jpg}}
+% \caption{T=360 s}
+% \label{level36}
+% \end{figure}
+% 
+% \subsubsection{Comparison}
+% 
+% In this part of the paper we show the obtained results of different time steps that is obtained from different methods in a same picture for to comprae them 
+% qualitatively.
+% 
+% \begin{figure}[H]
+% \centerline{\includegraphics[width=.9\textwidth]{IMAGES/pics/comp1.jpg}}
+% \caption{T=0 s}
+% \label{comp1}
+% \end{figure}
+% \begin{figure}[H]
+% \centerline{\includegraphics[width=.9\textwidth]{IMAGES/pics/comp3.jpg}}
+% \caption{T=10 s}
+% \label{comp3}
+% \end{figure}
+% \begin{figure}[H]
+% \centerline{\includegraphics[width=.9\textwidth]{IMAGES/pics/comp6.jpg}}
+% \caption{T=30 s}
+% \label{comp6}
+% \end{figure}
+% \begin{figure}[H]
+% \centerline{\includegraphics[width=.9\textwidth]{IMAGES/pics/comp12.jpg}}
+% \caption{T=60 s}
+% \label{comp12}
+% \end{figure}
+% \begin{figure}[H]
+% \centerline{\includegraphics[width=.9\textwidth]{IMAGES/pics/comp36.jpg}}
+% \caption{T=120 s}
+% \label{comp36}
+% \end{figure}
 
 % \begin{figure}[H]
 % \centerline{\includegraphics[width=.9\textwidth]{IMAGES/pics/level6.jpg}}

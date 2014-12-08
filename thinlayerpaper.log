@@ -1,4 +1,4 @@
-This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2014.7.2)  21 SEP 2014 14:26
+This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2014.7.2)  8 DEC 2014 18:06
 entering extended mode
  %&-line parsing enabled.
 **thinlayerpaper.tex
@@ -28,10 +28,68 @@ File: size10.clo 2005/09/16 v1.4f Standard LaTeX file (size option)
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
 )
+(/usr/share/texmf/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2000/07/18 v2.13 AMS math features
+\@mathmargin=\skip43
+
+For additional information on amsmath, use the `?' option.
+(/usr/share/texmf/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01
+
+(/usr/share/texmf/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0
+\@emptytoks=\toks14
+\ex@=\dimen103
+))
+(/usr/share/texmf/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d
+\pmbraise@=\dimen104
+)
+(/usr/share/texmf/tex/latex/amsmath/amsopn.sty
+Package: amsopn 1999/12/14 v2.01 operator names
+)
+\inf@bad=\count87
+LaTeX Info: Redefining \frac on input line 211.
+\uproot@=\count88
+\leftroot@=\count89
+LaTeX Info: Redefining \overline on input line 307.
+\classnum@=\count90
+\DOTSCASE@=\count91
+LaTeX Info: Redefining \ldots on input line 379.
+LaTeX Info: Redefining \dots on input line 382.
+LaTeX Info: Redefining \cdots on input line 467.
+\Mathstrutbox@=\box26
+\strutbox@=\box27
+\big@size=\dimen105
+LaTeX Font Info:    Redeclaring font encoding OML on input line 567.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
+\macc@depth=\count92
+\c@MaxMatrixCols=\count93
+\dotsspace@=\muskip10
+\c@parentequation=\count94
+\dspbrk@lvl=\count95
+\tag@help=\toks15
+\row@=\count96
+\column@=\count97
+\maxfields@=\count98
+\andhelp@=\toks16
+\eqnshift@=\dimen106
+\alignsep@=\dimen107
+\tagshift@=\dimen108
+\tagwidth@=\dimen109
+\totwidth@=\dimen110
+\lineht@=\dimen111
+\@envbody=\toks17
+\multlinegap=\skip44
+\multlinetaggap=\skip45
+\mathdisplay@stack=\toks18
+LaTeX Info: Redefining \[ on input line 2666.
+LaTeX Info: Redefining \] on input line 2667.
+)
 (/usr/share/texmf/tex/latex/base/inputenc.sty
 Package: inputenc 2006/05/05 v1.1b Input encoding file
-\inpenc@prehook=\toks14
-\inpenc@posthook=\toks15
+\inpenc@prehook=\toks19
+\inpenc@posthook=\toks20
 
 (/usr/share/texmf/tex/latex/ucs/utf8x.def
 File: utf8x.def 2004/10/17 UCS: Input encoding UTF-8
@@ -42,10 +100,10 @@ Package: ucs 2004/10/17 UCS: Unicode input support
 (/usr/share/texmf/tex/latex/ucs/data/uni-global.def
 File: uni-global.def 2004/10/17 UCS: Unicode global data
 )
-\uc@secondtry=\count87
-\uc@combtoks=\toks16
-\uc@combtoksb=\toks17
-\uc@temptokena=\toks18
+\uc@secondtry=\count99
+\uc@combtoks=\toks21
+\uc@combtoksb=\toks22
+\uc@temptokena=\toks23
 ) (./caption.sty
 Package: caption 2013/05/02 v3.3-89 Customizing captions (AR)
 
@@ -54,22 +112,22 @@ Package: caption3 2013/05/02 v1.6-88 caption3 kernel (AR)
 Package caption3 Info: TeX engine: e-TeX on input line 57.
  (/usr/share/texmf/tex/latex/graphics/keyval.sty
 Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
-\KV@toks@=\toks19
+\KV@toks@=\toks24
 )
-\captionmargin=\dimen103
-\captionmargin@=\dimen104
-\captionwidth=\dimen105
-\caption@tempdima=\dimen106
-\caption@indent=\dimen107
-\caption@parindent=\dimen108
-\caption@hangindent=\dimen109
+\captionmargin=\dimen112
+\captionmargin@=\dimen113
+\captionwidth=\dimen114
+\caption@tempdima=\dimen115
+\caption@indent=\dimen116
+\caption@parindent=\dimen117
+\caption@hangindent=\dimen118
 )
-\c@ContinuedFloat=\count88
+\c@ContinuedFloat=\count100
 )
 (./subcaption.sty
 Package: subcaption 2013/04/16 v1.1-75 Sub-captions (AR)
-\c@subfigure=\count89
-\c@subtable=\count90
+\c@subfigure=\count101
+\c@subtable=\count102
 ) (/usr/share/texmf/tex/latex/graphics/graphicx.sty
 Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
 
@@ -86,27 +144,27 @@ Package graphics Info: Driver file: pdftex.def on input line 90.
 
 (/usr/share/texmf/tex/latex/pdftex-def/pdftex.def
 File: pdftex.def 2007/01/08 v0.04d Graphics/color for pdfTeX
-\Gread@gobject=\count91
+\Gread@gobject=\count103
 ))
-\Gin@req@height=\dimen110
-\Gin@req@width=\dimen111
+\Gin@req@height=\dimen119
+\Gin@req@width=\dimen120
 ) (./subfig.sty
 Package: subfig 2005/06/28 ver: 1.3 subfig package
-\c@KVtest=\count92
-\sf@farskip=\skip43
-\sf@captopadj=\dimen112
-\sf@capskip=\skip44
-\sf@nearskip=\skip45
-\sf@top=\skip46
-\sf@bottom=\skip47
+\c@KVtest=\count104
+\sf@farskip=\skip46
+\sf@captopadj=\dimen121
+\sf@capskip=\skip47
+\sf@nearskip=\skip48
+\sf@top=\skip49
+\sf@bottom=\skip50
 )
 (/usr/share/texmf/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count93
-\float@exts=\toks20
-\float@box=\box26
-\@float@everytoks=\toks21
-\@floatcapt=\box27
+\c@float@type=\count105
+\float@exts=\toks25
+\float@box=\box28
+\@float@everytoks=\toks26
+\@floatcapt=\box29
 )
 (/usr/share/texmf/tex/latex/anysize/anysize.sty
 Package: anysize 1994/08/13 setting margin sizes
@@ -114,86 +172,28 @@ Package: anysize 1994/08/13 setting margin sizes
 document style option `anysize' loaded
 Michael Salzenberg, Thomas Esser, Dirk Hillbrecht
 Version 1.0, Aug 13, 1994
-\@Leftmargin=\dimen113
-\@Rightmargin=\dimen114
-\@Topmargin=\dimen115
-\@Bottommargin=\dimen116
+\@Leftmargin=\dimen122
+\@Rightmargin=\dimen123
+\@Topmargin=\dimen124
+\@Bottommargin=\dimen125
 ) (/usr/share/texmf/tex/latex/tools/tabularx.sty
 Package: tabularx 1999/01/07 v2.07 `tabularx' package (DPC)
 
 (/usr/share/texmf/tex/latex/tools/array.sty
 Package: array 2005/08/23 v2.4b Tabular extension package (FMi)
-\col@sep=\dimen117
-\extrarowheight=\dimen118
-\NC@list=\toks22
-\extratabsurround=\skip48
-\backup@length=\skip49
+\col@sep=\dimen126
+\extrarowheight=\dimen127
+\NC@list=\toks27
+\extratabsurround=\skip51
+\backup@length=\skip52
 )
-\TX@col@width=\dimen119
-\TX@old@table=\dimen120
-\TX@old@col=\dimen121
-\TX@target=\dimen122
-\TX@delta=\dimen123
-\TX@cols=\count94
-\TX@ftn=\toks23
-)
-(/usr/share/texmf/tex/latex/amsmath/amsmath.sty
-Package: amsmath 2000/07/18 v2.13 AMS math features
-\@mathmargin=\skip50
-
-For additional information on amsmath, use the `?' option.
-(/usr/share/texmf/tex/latex/amsmath/amstext.sty
-Package: amstext 2000/06/29 v2.01
-
-(/usr/share/texmf/tex/latex/amsmath/amsgen.sty
-File: amsgen.sty 1999/11/30 v2.0
-\@emptytoks=\toks24
-\ex@=\dimen124
-))
-(/usr/share/texmf/tex/latex/amsmath/amsbsy.sty
-Package: amsbsy 1999/11/29 v1.2d
-\pmbraise@=\dimen125
-)
-(/usr/share/texmf/tex/latex/amsmath/amsopn.sty
-Package: amsopn 1999/12/14 v2.01 operator names
-)
-\inf@bad=\count95
-LaTeX Info: Redefining \frac on input line 211.
-\uproot@=\count96
-\leftroot@=\count97
-LaTeX Info: Redefining \overline on input line 307.
-\classnum@=\count98
-\DOTSCASE@=\count99
-LaTeX Info: Redefining \ldots on input line 379.
-LaTeX Info: Redefining \dots on input line 382.
-LaTeX Info: Redefining \cdots on input line 467.
-\Mathstrutbox@=\box28
-\strutbox@=\box29
-\big@size=\dimen126
-LaTeX Font Info:    Redeclaring font encoding OML on input line 567.
-LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
-\macc@depth=\count100
-\c@MaxMatrixCols=\count101
-\dotsspace@=\muskip10
-\c@parentequation=\count102
-\dspbrk@lvl=\count103
-\tag@help=\toks25
-\row@=\count104
-\column@=\count105
-\maxfields@=\count106
-\andhelp@=\toks26
-\eqnshift@=\dimen127
-\alignsep@=\dimen128
-\tagshift@=\dimen129
-\tagwidth@=\dimen130
-\totwidth@=\dimen131
-\lineht@=\dimen132
-\@envbody=\toks27
-\multlinegap=\skip51
-\multlinetaggap=\skip52
-\mathdisplay@stack=\toks28
-LaTeX Info: Redefining \[ on input line 2666.
-LaTeX Info: Redefining \] on input line 2667.
+\TX@col@width=\dimen128
+\TX@old@table=\dimen129
+\TX@old@col=\dimen130
+\TX@target=\dimen131
+\TX@delta=\dimen132
+\TX@cols=\count106
+\TX@ftn=\toks28
 )
 (/usr/share/texmf/tex/latex/amsfonts/amssymb.sty
 Package: amssymb 2002/01/22 v2.2d
@@ -223,37 +223,10 @@ LaTeX Warning: Label `explicit' multiply defined.
 LaTeX Warning: Label `Phase field1' multiply defined.
 
 
-LaTeX Warning: Label `yextent' multiply defined.
+LaTeX Warning: Label `wet_area' multiply defined.
 
 
-LaTeX Warning: Label `yextent' multiply defined.
-
-
-LaTeX Warning: Label `yextent' multiply defined.
-
-
-LaTeX Warning: Label `yextent' multiply defined.
-
-
-LaTeX Warning: Label `geoflow_interface' multiply defined.
-
-
-LaTeX Warning: Label `yextent' multiply defined.
-
-
-LaTeX Warning: Label `yextent' multiply defined.
-
-
-LaTeX Warning: Label `yextent' multiply defined.
-
-
-LaTeX Warning: Label `yextent' multiply defined.
-
-
-LaTeX Warning: Label `geoflow_interface' multiply defined.
-
-
-LaTeX Warning: Label `geoflow_interface' multiply defined.
+LaTeX Warning: Label `skel_outline' multiply defined.
 
 )
 \openout1 = `thinlayerpaper.aux'.
@@ -818,143 +791,67 @@ Overfull \hbox (2.2222pt too wide) in paragraph at lines 1052--1071
 [20 <./IMAGES/phase_field/1.png (PNG copy)> <./IMAGES/phase_field/2.png (PNG co
 py)> <./IMAGES/phase_field/3.png (PNG copy)> <./IMAGES/phase_field/4.png (PNG c
 opy)> <./IMAGES/phase_field/5.png (PNG copy)> <./IMAGES/phase_field/6.png (PNG 
-copy)>] <IMAGES/xextent.png, id=114, 578.16pt x 433.62pt>
-File: IMAGES/xextent.png Graphic file (type png)
+copy)>] <IMAGES/xextend.png, id=114, 578.16pt x 433.62pt>
+File: IMAGES/xextend.png Graphic file (type png)
 
-<use IMAGES/xextent.png> [21 <./IMAGES/level_set/1.png (PNG copy)> <./IMAGES/le
+<use IMAGES/xextend.png> [21 <./IMAGES/level_set/1.png (PNG copy)> <./IMAGES/le
 vel_set/2.png (PNG copy)> <./IMAGES/level_set/3.png (PNG copy)> <./IMAGES/level
 _set/4.png (PNG copy)> <./IMAGES/level_set/5.png (PNG copy)> <./IMAGES/level_se
-t/6.png (PNG copy)>] <IMAGES/yextent.png, id=118, 578.16pt x 433.62pt>
-File: IMAGES/yextent.png Graphic file (type png)
+t/6.png (PNG copy)>] <IMAGES/yextend.png, id=118, 578.16pt x 433.62pt>
+File: IMAGES/yextend.png Graphic file (type png)
 
-<use IMAGES/yextent.png> <IMAGES/Wet_area.png, id=119, 578.16pt x 433.62pt>
-File: IMAGES/Wet_area.png Graphic file (type png)
+<use IMAGES/yextend.png> <IMAGES/area.png, id=119, 578.16pt x 433.62pt>
+File: IMAGES/area.png Graphic file (type png)
 
-<use IMAGES/Wet_area.png> [22 <./IMAGES/xextent.png (PNG copy)> <./IMAGES/yexte
-nt.png (PNG copy)>]
+<use IMAGES/area.png> [22 <./IMAGES/xextend.png (PNG copy)> <./IMAGES/yextend.p
+ng (PNG copy)>] <IMAGES/perimeter.png, id=123, 578.16pt x 433.62pt>
+File: IMAGES/perimeter.png Graphic file (type png)
 
-LaTeX Warning: Citation `namikawa' on page 23 undefined on input line 1114.
+<use IMAGES/perimeter.png> [23 <./IMAGES/area.png (PNG copy)> <./IMAGES/perimet
+er.png (PNG copy)>]
+
+LaTeX Warning: Citation `namikawa' on page 24 undefined on input line 1129.
 
 
-LaTeX Warning: Citation `namikawa' on page 23 undefined on input line 1114.
+LaTeX Warning: Citation `namikawa' on page 24 undefined on input line 1129.
 
-<IMAGES/pics/outline.png, id=123, 578.16pt x 433.62pt>
+<IMAGES/pics/outline.png, id=127, 578.16pt x 433.62pt>
 File: IMAGES/pics/outline.png Graphic file (type png)
 
 <use IMAGES/pics/outline.png>
-<IMAGES/pics/Delaunay_Triangulation_of_Colima_clean.png, id=124, 578.16pt x 433
+<IMAGES/pics/Delaunay_Triangulation_of_Colima_clean.png, id=128, 578.16pt x 433
 .62pt>
 File: IMAGES/pics/Delaunay_Triangulation_of_Colima_clean.png Graphic file (type
  png)
  <use IMAGES/pics/Delaunay_Triangulation_of_Colima_clean.png>
-<IMAGES/pics/Skeleton_line.png, id=125, 578.16pt x 433.62pt>
+<IMAGES/pics/Skeleton_line.png, id=129, 578.16pt x 433.62pt>
 File: IMAGES/pics/Skeleton_line.png Graphic file (type png)
 
 <use IMAGES/pics/Skeleton_line.png>
-<IMAGES/pics/Outline_Skeleton_line.png, id=126, 578.16pt x 433.62pt>
+<IMAGES/pics/Outline_Skeleton_line.png, id=130, 578.16pt x 433.62pt>
 File: IMAGES/pics/Outline_Skeleton_line.png Graphic file (type png)
 
-<use IMAGES/pics/Outline_Skeleton_line.png> [23 <./IMAGES/Wet_area.png (PNG cop
-y)>] [24 <./IMAGES/pics/outline.png (PNG copy)> <./IMAGES/pics/Delaunay_Triangu
-lation_of_Colima_clean.png (PNG copy)> <./IMAGES/pics/Skeleton_line.png (PNG co
-py)> <./IMAGES/pics/Outline_Skeleton_line.png (PNG copy)>]
-<IMAGES/pics/tiny0.jpg, id=133, 1654.18pt x 972.63374pt>
-File: IMAGES/pics/tiny0.jpg Graphic file (type jpg)
+<use IMAGES/pics/Outline_Skeleton_line.png> [24] [25 <./IMAGES/pics/outline.png
+ (PNG copy)> <./IMAGES/pics/Delaunay_Triangulation_of_Colima_clean.png (PNG cop
+y)> <./IMAGES/pics/Skeleton_line.png (PNG copy)> <./IMAGES/pics/Outline_Skeleto
+n_line.png (PNG copy)>]
+<IMAGES/skeleton_outline.jpg, id=138, 1654.18pt x 972.63374pt>
+File: IMAGES/skeleton_outline.jpg Graphic file (type jpg)
 
-<use IMAGES/pics/tiny0.jpg>
-<IMAGES/pics/tiny1.jpg, id=134, 1654.18pt x 972.63374pt>
-File: IMAGES/pics/tiny1.jpg Graphic file (type jpg)
+<use IMAGES/skeleton_outline.jpg>
+<IMAGES/phasefield.jpg, id=139, 1654.18pt x 972.63374pt>
+File: IMAGES/phasefield.jpg Graphic file (type jpg)
 
-<use IMAGES/pics/tiny1.jpg>
-<IMAGES/pics/tiny3.jpg, id=135, 1654.18pt x 972.63374pt>
-File: IMAGES/pics/tiny3.jpg Graphic file (type jpg)
+<use IMAGES/phasefield.jpg> [26 <./IMAGES/skeleton_outline.jpg>]
+<IMAGES/levelset.jpg, id=143, 1654.18pt x 972.63374pt>
+File: IMAGES/levelset.jpg Graphic file (type jpg)
 
-<use IMAGES/pics/tiny3.jpg> [25 <./IMAGES/pics/tiny0.jpg>]
-<IMAGES/pics/tiny6.jpg, id=140, 1654.18pt x 972.63374pt>
-File: IMAGES/pics/tiny6.jpg Graphic file (type jpg)
-
-<use IMAGES/pics/tiny6.jpg>
-<IMAGES/pics/tiny12.jpg, id=141, 1654.18pt x 972.63374pt>
-File: IMAGES/pics/tiny12.jpg Graphic file (type jpg)
-
-<use IMAGES/pics/tiny12.jpg> [26 <./IMAGES/pics/tiny1.jpg> <./IMAGES/pics/tiny3
-.jpg>] <IMAGES/pics/tiny36.jpg, id=145, 1654.18pt x 972.63374pt>
-File: IMAGES/pics/tiny36.jpg Graphic file (type jpg)
-
-<use IMAGES/pics/tiny36.jpg> [27 <./IMAGES/pics/tiny6.jpg> <./IMAGES/pics/tiny1
-2.jpg>] <IMAGES/pics/phase0.jpg, id=149, 1654.18pt x 972.63374pt>
-File: IMAGES/pics/phase0.jpg Graphic file (type jpg)
-
-<use IMAGES/pics/phase0.jpg>
-<IMAGES/pics/phase1.jpg, id=150, 1654.18pt x 972.63374pt>
-File: IMAGES/pics/phase1.jpg Graphic file (type jpg)
-
-<use IMAGES/pics/phase1.jpg> [28 <./IMAGES/pics/tiny36.jpg>]
-<IMAGES/pics/phase3.jpg, id=154, 1654.18pt x 972.63374pt>
-File: IMAGES/pics/phase3.jpg Graphic file (type jpg)
-
-<use IMAGES/pics/phase3.jpg> [29 <./IMAGES/pics/phase0.jpg>]
-<IMAGES/pics/phase6.jpg, id=158, 1654.18pt x 972.63374pt>
-File: IMAGES/pics/phase6.jpg Graphic file (type jpg)
-
-<use IMAGES/pics/phase6.jpg>
-<IMAGES/pics/phase12.jpg, id=159, 1654.18pt x 972.63374pt>
-File: IMAGES/pics/phase12.jpg Graphic file (type jpg)
-
-<use IMAGES/pics/phase12.jpg> [30 <./IMAGES/pics/phase1.jpg> <./IMAGES/pics/pha
-se3.jpg>] <IMAGES/pics/phase36.jpg, id=163, 1654.18pt x 972.63374pt>
-File: IMAGES/pics/phase36.jpg Graphic file (type jpg)
-
-<use IMAGES/pics/phase36.jpg> [31 <./IMAGES/pics/phase6.jpg> <./IMAGES/pics/pha
-se12.jpg>] <IMAGES/pics/level0.jpg, id=168, 1654.18pt x 972.63374pt>
-File: IMAGES/pics/level0.jpg Graphic file (type jpg)
-
-<use IMAGES/pics/level0.jpg>
-<IMAGES/pics/level1.jpg, id=169, 1654.18pt x 972.63374pt>
-File: IMAGES/pics/level1.jpg Graphic file (type jpg)
-
-<use IMAGES/pics/level1.jpg> [32 <./IMAGES/pics/phase36.jpg>]
-<IMAGES/pics/level3.jpg, id=173, 1654.18pt x 972.63374pt>
-File: IMAGES/pics/level3.jpg Graphic file (type jpg)
-
-<use IMAGES/pics/level3.jpg> [33 <./IMAGES/pics/level0.jpg>]
-<IMAGES/pics/level6.jpg, id=177, 1654.18pt x 972.63374pt>
-File: IMAGES/pics/level6.jpg Graphic file (type jpg)
-
-<use IMAGES/pics/level6.jpg>
-<IMAGES/pics/level12.jpg, id=178, 1654.18pt x 972.63374pt>
-File: IMAGES/pics/level12.jpg Graphic file (type jpg)
-
-<use IMAGES/pics/level12.jpg> [34 <./IMAGES/pics/level1.jpg> <./IMAGES/pics/lev
-el3.jpg>] <IMAGES/pics/level36.jpg, id=182, 1654.18pt x 972.63374pt>
-File: IMAGES/pics/level36.jpg Graphic file (type jpg)
-
-<use IMAGES/pics/level36.jpg> [35 <./IMAGES/pics/level6.jpg> <./IMAGES/pics/lev
-el12.jpg>] <IMAGES/pics/comp1.jpg, id=186, 1654.18pt x 972.63374pt>
-File: IMAGES/pics/comp1.jpg Graphic file (type jpg)
-
-<use IMAGES/pics/comp1.jpg>
-<IMAGES/pics/comp3.jpg, id=187, 1654.18pt x 972.63374pt>
-File: IMAGES/pics/comp3.jpg Graphic file (type jpg)
-
-<use IMAGES/pics/comp3.jpg> [36 <./IMAGES/pics/level36.jpg>]
-<IMAGES/pics/comp6.jpg, id=191, 1654.18pt x 972.63374pt>
-File: IMAGES/pics/comp6.jpg Graphic file (type jpg)
-
-<use IMAGES/pics/comp6.jpg>
-<IMAGES/pics/comp12.jpg, id=192, 1654.18pt x 972.63374pt>
-File: IMAGES/pics/comp12.jpg Graphic file (type jpg)
-
-<use IMAGES/pics/comp12.jpg> [37 <./IMAGES/pics/comp1.jpg> <./IMAGES/pics/comp3
-.jpg>] <IMAGES/pics/comp36.jpg, id=197, 1654.18pt x 972.63374pt>
-File: IMAGES/pics/comp36.jpg Graphic file (type jpg)
-
-<use IMAGES/pics/comp36.jpg> [38 <./IMAGES/pics/comp6.jpg> <./IMAGES/pics/comp1
-2.jpg>] [39 <./IMAGES/pics/comp36.jpg>] (./thinlayerpaper.bbl
+<use IMAGES/levelset.jpg> [27 <./IMAGES/phasefield.jpg>] [28 <./IMAGES/levelset
+.jpg>] (./thinlayerpaper.bbl
 
 LaTeX Warning: Empty `thebibliography' environment on input line 3.
 
-) [40] (./thinlayerpaper.aux)
+) [29] (./thinlayerpaper.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 4.5pt have occurred.
@@ -967,10 +864,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 3619 strings out of 256216
- 54663 string characters out of 1917073
- 113587 words of memory out of 1500000
- 6798 multiletter control sequences out of 10000+200000
+ 3514 strings out of 256216
+ 52370 string characters out of 1917073
+ 113458 words of memory out of 1500000
+ 6712 multiletter control sequences out of 10000+200000
  15715 words of font info for 64 fonts, out of 1200000 for 2000
  645 hyphenation exceptions out of 8191
  36i,18n,38p,334b,448s stack positions out of 5000i,500n,6000p,200000b,15000s
@@ -988,9 +885,9 @@ ts/type1/bluesky/cm/cmr8.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmr9.pfb>
 </usr/share/texmf/fonts/type1/bluesky/cm/cmsy10.pfb></usr/share/texmf/fonts/typ
 e1/bluesky/cm/cmsy7.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmti10.pfb></u
 sr/share/texmf/fonts/type1/bluesky/cm/cmtt10.pfb>
-Output written on thinlayerpaper.pdf (40 pages, 8330581 bytes).
+Output written on thinlayerpaper.pdf (29 pages, 3642543 bytes).
 PDF statistics:
- 274 PDF objects out of 1000 (max. 8388607)
+ 218 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 131072)
- 276 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 181 words of extra memory for PDF output out of 10000 (max. 10000000)
 
