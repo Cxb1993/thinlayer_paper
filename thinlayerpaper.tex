@@ -335,7 +335,7 @@ material that either effuses or erodes out of the ground. $S_x$ is
 the sum of a gravitational driving force, the friction that resists motion 
 of the material relative to the bed, and the friction that resists the 
 internal shearing motion of the material see eq. \eqref{momsourceterms}.
-\begin{equation}\label{momsourceterms}
+\begin{equation}
 \begin{aligned}
   S_x &=g_x h - \frac{V_x}{\sqrt{V_x^2+V_y^2}}\max\left(g_z+\frac{V_x^2}{r_x},0\right) h \tan(\phi_{bed}) 
   - {\rm sgn}\left({\frac{\partial V_x}{\partial y}}\right) h k_{ap} \frac{\partial (g_zh)}{\partial y} \sin(\phi_{int}) \\
@@ -826,7 +826,7 @@ figure \ref{figintegrator} shows the operator splitting time integration schemat
 
 
 \begin{equation} 
-\label{explicit}
+\label{explicit_phi}
 \begin{array}{l}
 \displaystyle \large \frac{\partial \varphi_1}{\partial t} + \overrightarrow{V} \cdot \bigtriangledown \varphi_1 = f(\varphi_1) \\
 \displaystyle \large L_1 = V_x \frac{\partial }{\partial x} + V_y \frac{\partial }{\partial y}\\
@@ -837,7 +837,7 @@ figure \ref{figintegrator} shows the operator splitting time integration schemat
 
 
 \begin{equation}
-\label{implcit}
+\label{implcit_phi}
 \begin{array}{l}
 \displaystyle \large \frac{\partial \varphi_2}{\partial t} = \alpha \bigtriangledown^2 \varphi_2 \\
 \displaystyle \large L_2 = \alpha (\frac{\partial^2 }{\partial x^2} + \frac{\partial^2 }{\partial y^2}) \\
@@ -1043,7 +1043,7 @@ is displayed.
     \subcaption{t=0.6 sec}
   \end{minipage}
   \caption{Pile height contour and interface location at diffeternt time steps}
-  \label{Phase field1}
+  \label{Phase_field1}
 \end{figure}
 
 \subsubsection{Level set Method}
@@ -1069,7 +1069,7 @@ is displayed.
     \subcaption{t=0.6 sec}
   \end{minipage}
   \caption{Pile height contour and interface location at diffeternt time steps}
-  \label{Phase field1}
+  \label{level_set1}
 \end{figure}
 \subsubsection{Comparison}
 
@@ -1100,7 +1100,7 @@ the last one is the area of pile.
 \begin{figure}[H]
 \centerline{\includegraphics[scale=0.5]{IMAGES/perimeter.png}}
 \caption{Perimeter of pile}
-\label{wet_area}
+\label{wet_peram}
 \end{figure}
 
 In these figures, the DG is the result of Dicountinouse Galerkin (DG) version of TITAN2D \cite{}, and the experiment is the result of experiment 
@@ -1166,28 +1166,34 @@ using KML language and Google earth application \ref{skel_outline}. In pictures 
 the result of each methods and their comparison can be seen. 
 
 \begin{figure}[H]
-\centerline{\includegraphics[width=\textwidth]{IMAGES/skeleton_outline.jpg}}
+\centerline{\includegraphics[width=\textwidth]{IMAGES/skeleton_outline1.jpg}}
 \caption{Skeleton line (white line) and outline of the deposit of eruption 1991 (yellow line)}
 \label{skel_outline}
 \end{figure}
 
 \begin{figure}[H]
-\centerline{\includegraphics[width=\textwidth]{IMAGES/phasefield.jpg}}
+\centerline{\includegraphics[width=\textwidth]{IMAGES/phasefield1.jpg}}
 \caption{}
-\label{phasefieldfig}
+\label{phasecolima}
 \end{figure}
 
 \begin{figure}[H]
-\centerline{\includegraphics[width=\textwidth]{IMAGES/levelset.jpg}}
+\centerline{\includegraphics[width=\textwidth]{IMAGES/levelset1.jpg}}
 \caption{Skeleton line (white line) and outline of the deposit of eruption 1991 (yellow line)}
-\label{skel_outline}
+\label{level_colima}
 \end{figure}
-% 
-% \begin{figure}[H]
-% \centerline{\includegraphics[scale=0.5]{tiny.jpg}}
-% \caption{Skeleton line (white line) and outline of the deposit of erution 1991 (yellow line)}
-% \label{compfig}
-% \end{figure}
+ 
+ \begin{figure}[H]
+ \centerline{\includegraphics[scale=0.5]{IMAGES/tiny1.jpg}}
+ \caption{Skeleton line (white line) and outline of the deposit of erution 1991 (yellow line)}
+ \label{compfig}
+ \end{figure}
+ 
+ \begin{figure}[H]
+ \centerline{\includegraphics[scale=0.5]{IMAGES/comparison1.jpg}}
+ \caption{Skeleton line (white line) and outline of the deposit of erution 1991 (yellow line)}
+ \label{compfig}
+ \end{figure}
 
 
 

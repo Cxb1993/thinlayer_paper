@@ -1166,19 +1166,19 @@ using KML language and Google earth application \ref{skel_outline}. In pictures 
 the result of each methods and their comparison can be seen. 
 
 \begin{figure}[H]
-\centerline{\includegraphics[scale=0.5]{IMAGES/skeleton_outline.jpg}}
+\centerline{\includegraphics[width=\textwidth]{IMAGES/skeleton_outline1.jpg}}
 \caption{Skeleton line (white line) and outline of the deposit of eruption 1991 (yellow line)}
 \label{skel_outline}
 \end{figure}
 
 \begin{figure}[H]
-\centerline{\includegraphics[scale=0.5]{IMAGES/phasefield.jpg}}
+\centerline{\includegraphics[width=\textwidth]{IMAGES/phasefield1.jpg}}
 \caption{}
 \label{phasefieldfig}
 \end{figure}
 
 \begin{figure}[H]
-\centerline{\includegraphics[scale=0.5]{IMAGES/levelset.jpg}}
+\centerline{\includegraphics[width=\textwidth]{IMAGES/levelset1.jpg}}
 \caption{Skeleton line (white line) and outline of the deposit of eruption 1991 (yellow line)}
 \label{skel_outline}
 \end{figure}
