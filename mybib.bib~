@@ -1,0 +1,1989 @@
+@book{AskeyWilson1985,
+author={Richard Askey and James Wilson},
+title={Some basic hypergeometric orthogonal polynomials that generalize Jacobi polynomials},
+series={Memoirs of the American Mathematical Society},
+year={1985},
+month={April},
+number={319},
+publisher={American Mathematical Society},
+address={Providence, R.I., U.S.A.}
+}
+
+@article{aulisa2003mma,
+  title={{A mixed markers and volume-of-fluid method for the reconstruction and advection of interfaces in two-phase and free-boundary flows}},
+  author={Aulisa, E. and Manservisi, S. and Scardovelli, R.},
+  journal={Journal of Computational Physics},
+  volume={188},
+  number={2},
+  pages={611--639},
+  year={2003},
+  publisher={Elsevier}
+}
+
+@article{Babuska2002ses,
+  title={On solving elliptic stochastic partial differential equations},
+  author={Babuska, I. and Chatzipantelidis, P.},
+  journal={Computer Methods in Applied Mechanics and Engineering},
+  volume={191},
+  number={37},
+  pages={4093-4122},
+  year={2002}
+}
+
+@article{barber1996qac,
+  title={{The quickhull algorithm for convex hulls}},
+  author={Barber, C.B. and Dobkin, D.P. and Huhdanpaa, H.},
+  journal={ACM Transactions on Mathematical Software (TOMS)},
+  volume={22},
+  number={4},
+  pages={469--483},
+  year={1996},
+  publisher={ACM Press New York, NY, USA}
+}
+
+@unpublished{bayarriusc,
+author={M.J. Bayarri and James O. Berger and Eliza S. Calder and Keith Dalbey and Simon Lunagomez and Abani K. Patra and E. Bruce Pitman and Elaine T. Spiller and Robert L. Wolpert},
+title={Using Statistical and Computer Models to Quantify Volcanic Hazards},
+note={submitted to Technometrics January 25, 2008},
+year={2008},
+}
+
+@article{bayarri2007fvc,
+  title={{A Framework for Validation of Computer Models}},
+  author={Bayarri, M.J. and Berger, J.O. and Paulo, R. and Sacks, J. and Cafeo, J.A. and Cavendish, J. and Lin, C.H. and Tu, J.},
+  journal={Technometrics},
+  volume={49},
+  number={2},
+  pages={138--154},
+  year={2007},
+  publisher={American Statistical Association}
+}
+
+@article{bayarri2007cmv,
+  title={{Computer model validation with functional output}},
+  author={Bayarri, MJ and Berger, JO and Cafeo, J. and Garcia-Donato, G. and Liu, F. and Palomo, J. and Parthasarathy, RJ and Paulo, R. and Sacks, J. and Walsh, D.},
+  journal={The Annals of Statistics},
+  volume={35},
+  number={5},
+  pages={1874--1906},
+  year={2007}
+}
+
+
+@article{BoxDraper1959,
+author={G.E.P. Box and Norman R. Draper},
+year={1959},
+title={A basis for the selection of a response surface design},
+journal={Journal of the American Statistical Association}, 
+volume={54},
+issue={287},
+month={September},
+pages={622-654},
+}
+
+@book{BoxDraper1987,
+  title={Empirical model-building and response surfaces.},
+  author={George E. P. Box and Norman R. Draper},
+  series={Wiley Series in Probability and Mathematical Statistics. Applied Probability and Statistics Section},
+  year={1987},
+  address={New York, NY},
+  publisher={John Wiley \& Sons, Inc.},
+}
+
+
+@article{BoxHunter1957,
+author={G.E.P. Box and J.S. Hunter},
+year={1957},
+title={Multi-factor experimental designs for exploring response surfaces},
+journal={The Annals of Mathematical Statistics},
+volume={28},
+number={1},
+pages={195-241},
+}
+
+@article{BradfordSanders2002,
+author="S.F. Bradford and B.F. Sanders",
+year="2002",
+title="Finite-volume model for shallow-water flooding of arbitrary topography", 
+journal="Journal of Hydraulic Engineering",
+volume="128", 
+pages="289-298",
+}
+
+@manual{MCNP4B,
+key={MCNP4B},
+title={MCNP-A General Monte Carlo N-Particle Transport Code},
+version={4B},
+editor={Judith F. Briesmeister},
+month={March},
+year={1997},
+note={downloaded from \url{http://mightylib.mit.edu/Student\%20Materials/books/mcnp4b.pdf} accessed on October 3, 2007}
+}
+
+@unpublished{Busbydraft,
+author="D. Busby and C. Farmer and A. Iske",
+title="Uncertainty Evaluation in Reservoir Forecasting by Bayes Linear Methodology",
+note="website: \url{http://www.math.uni-hamburg.de/home/iske/papers/blpunq.pdf}",
+}
+
+@conference{busby:uer,
+title={{Uncertainty Evaluation in Reservoir Forecasting by Bayes Linear Methodology}},
+booktitle={{Algorithms for Approximation Proceedings of the 5th International Conference}},
+year={2005},
+month={July},
+pages={187-196},
+author={Busby, D. and Farmer, C.L. and Iske, A.},
+publisher={Springer}
+}
+
+
+@article{Cameron1947odn,
+  title={{The Orthogonal Development of Non-Linear Functionals in Series of Fourier-Hermite Functionals}},
+  author={Cameron, RH and Martin, WT},
+  journal={The Annals of Mathematics},
+  volume={48},
+  number={2},
+  pages={385-392},
+  year={1947},
+  publisher={JSTOR}
+}
+
+@misc{whatisalahar,
+author="Kim Carsell",
+title="Lahars (at Mount Rainier)",
+note="website: \url{http://www.uccs.edu/~geogenvs/ges199/rainier/lahars.htm} Date accessed: August 15, 2007",
+}
+
+@techreport{hazmapdef,
+author="Central Disaster Management Council", 
+year="2005",
+institution="Cabinet Office, Government of Japan",
+title="Business Continuity Guidelines 1st ed. -Reducing the Impact of Disasters and Improving Responses to Disasters by Japanese Companies-",
+month="August",
+note="website: \url{www.bousai.go.jp/MinkanToShijyou/guideline01e.pdf}",
+}
+
+%K. Dalbey, A. Patra, V. Pateel, S. Arumugasundaram, I. Hatziprokopiou, and R. Galganski, "Incorporating Input Data Uncertainties in Computer Models of Vehicle Systems Using the Polynomial Chaos Quadrature Method," SAE Paper 2006-01-1139, SAE 2006 World Congress,  April 3-6, 2006.
+
+
+
+
+
+@article{Christian1999pem,
+  title={{Point-Estimate Method as Numerical Quadrature}},
+  author={Christian, John T. and Baecher, Gregory B.},
+  journal={Journal of Geotechnical and Geoenvironmental Engineering},
+  volume={125},
+  number={9},
+  pages={779-786},
+  year={1999},
+  publisher={American Society of Civil Engineers}
+}
+
+@article{Christian2002pem,
+  title={{The point-estimate method with large numbers of variables}},
+  author={Christian, J.T. and Baecher, G.B.},
+  journal={International Journal for Numerical and Analytical Methods in Geomechanics},
+  volume={26},
+  number={15},
+  pages={1515-1529},
+  year={2002}
+}
+
+
+@article{chiu1994mjs,
+  title={{Multi-jittered sampling}},
+  author={Chiu, K. and Shirley, P. and Wang, C.},
+  journal={Academic Press Graphics Gems Series},
+  pages={370--374},
+  year={1994},
+  publisher={Academic Press Professional, Inc. San Diego, CA, USA}
+}
+
+@article{CioffiGallerano2003,
+author="Francesco Cioffi and Fransesco Gallerano",
+year="2003",
+title="A two-dimensional self-adaptive hydrodynamic scheme for the assessment of the effects of structures on flooding phenomena in river basins",
+journal="River Research and Applications",
+volume="19",
+pages="1-26",
+}
+
+@unpublished{ContiOHagan,
+author="Stefano Conti and Anthony O'Hagan",
+title="Bayesian Emulation of Complex Multi-Output and Dynamic Computer Models",
+note="Research Report No. 569/07, Department of Probability and Statistics, University of Sheffield. Submitted to Journal of Statistical Planning and Inference. website: \url{http://www.tonyohagan.co.uk/academic/ps/multioutput.ps}",
+}
+
+@article{rougier:eem,
+  author={Rougier, J.},
+  title={{Efficient Emulators for Multivariate Deterministic Functions}},
+  note={downloaded from \url{http://mucm.group.shef.ac.uk/Pages/Downloads/Technical\%20Reports/07-12.pdf}}
+}
+
+@incollection{Craig1996,
+author="P.S. Craig and M. Goldstein and A.H. Seheult and J.A. Smith",
+year="1996", 
+title="Bayes Linear Strategies for Matching Hydrocarbon Reservoir History",
+booktitle="Bayesian Statistics 5",
+publisher="Oxford University Press", 
+pages="69-95",
+}
+
+@article{craig1997pmh,
+  title={{Pressure matching for hydrocarbon reservoirs: a case study in the use of Bayes linear strategies for large computer experiments}},
+  author={Craig, P.S. and Goldstein, M. and Seheult, A.H. and Smith, J.A.},
+  journal={LECTURE NOTES IN STATISTICS-NEW YORK-SPRINGER VERLAG-},
+  pages={37--94},
+  year={1997},
+  publisher={SPRINGER VERLAG KG}
+}
+
+@article{craig1998cpp,
+author={Peter S. Craig and Michael Goldstein and Allan H. Seheult and James A. Smith},
+title={Constructing Partial Prior Specifications for Models of Complex Physical Systems},
+journal={The Statistician},
+volume={47},
+number={1},
+pages={37-53},
+year={1998},
+publisher={Royal Statistical Society},
+}
+
+@article{craig2001bfc,
+  title={{Bayesian forecasting for complex systems using computer simulators}},
+  author={Craig, P.S. and Goldstein, M. and Rougier, J.C. and Seheult, A.H.},
+  journal={Journal of the American Statistical Association},
+  volume={96},
+  number={454},
+  pages={717--729},
+  year={2001},
+  publisher={ASA}
+}
+
+@article{cuetofelgueroso2006hof,
+  title={{High order finite volume schemes on unstructured grids using Moving Least Squares reconstruction. Application to shallow water dynamics}},
+  author={Cueto-Felgueroso, L. and Colominas, I. and Fe, J. and Navarrina, F. and Casteleiro, M.},
+  journal={International Journal for Numerical Methods in Engineering},
+  volume={65},
+  pages={295--331},
+  year={2006}
+}
+
+@article{Currin1991bpd,
+  title={{Bayesian Prediction of Deterministic Functions, with Applications to the Design and Analysis of Computer Experiments.}},
+  author={Currin, C. and Mitchell, T. and Morris, M. and Ylvisaker, D.},
+  journal={Journal of the American Statistical Association},
+  volume={86},
+  number={416},
+  year={1991},
+  publisher={American Statistical Association}
+}
+
+@article{Dalbey2008iup,
+  title={{Input uncertainty propagation methods and hazard mapping of geophysical mass flows}},
+  author={Dalbey, K. and Patra, A.K. and Pitman, E.B. and Bursik, M.I. and Sheridan, M.F.},
+  journal={J. Geophys. Res},
+  volume={113},
+  year={2008}
+}
+@article{dalbey2006iid,
+  title={{Incorporating Input Data Uncertainties in Computer Models of Vehicle Systems using the Polynomial Chaos Quadrature Method}},
+  author={Dalbey, K. and Patra, A. and Pateel, V. and Arumugasundaram, S. and Hatziprokopiou, I. and Galganski, R.},
+  year={2006},
+  publisher={Society of Automotive Engineers, 400 Commonwealth Dr, Warrendale, PA, 15096, USA,}
+}
+
+@article{Debusschere2005ncu,
+  title={{Numerical challenges in the use of polynomial chaos representations for stochastic processes}},
+  author={Debusschere, B.J. and Najm, H.N. and P{\'e}bay, P.P. and Knio, O.M. and Ghanem, R.G. and Le Ma{\^\i}tre, O.P.},
+  journal={SIAM journal on scientific computing},
+  volume={26},
+  number={2},
+  pages={698-719},
+  year={2005},
+  publisher={SIAM}
+}
+
+@misc{whatisdelaunay,
+author="Wikipedia",
+title="Delaunay triangulation",
+note="website: \url{http://en.wikipedia.org/wiki/Delaunay_triangulation} Date accessed: July 27, 2008",
+}
+
+@article{DenlingerIverson2001,
+   author = {{Denlinger}, R.~P. and {Iverson}, R.~M.},
+    title = "{Flow of variably fluidized granular masses across three-dimensional terrain 2. Numerical predictions and experimental tests}",
+  journal = {Journal of Geophysical Research},
+     year = 2001,
+   volume = 106,
+    pages = {553-566},
+      doi = {10.1029/2000JB900330},
+   adsurl = {http://adsabs.harvard.edu/abs/2001JGR...106..553D},
+  adsnote = {Provided by the Smithsonian/NASA Astrophysics Data System}
+}
+
+@article{Denlinger2004gaa,
+  title={{Granular avalanches across irregular three-dimensional terrain: 1. Theory and computation}},
+  author={Denlinger, R.P. and Iverson, R.M.},
+  journal = {Journal of Geophysical Research (Earth Surface)},
+  volume={109},
+  number={F1},
+  pages={F01014},
+  year={2004},
+  month=mar,
+  doi={10.1029/2003JF000085},
+  publisher={American Geophysical Union},
+}
+
+@misc{whatiscomminuted,
+key={Dictionary.com},
+title={comminuted},
+author={Dictionary.com Unabridged (v 1.1)},
+publisher={Random House, Inc.},
+note={website: \url{http://dictionary.reference.com/browse/comminuted} Date accessed: September 27, 2007},
+}
+
+@misc{whatisvesicle,
+key={Dictionary.com},
+title={vesicle},
+author={Dictionary.com Unabridged (v 1.1)}, 
+publisher={Random House, Inc.},
+note={website: \url{http://dictionary.reference.com/browse/vesicle} Date accessed: September 27, 2007},
+}
+
+@article{eglit1980mms,
+  title={{Matematicheskoye modelirovaniye snezhnykh lavin; mathematical
+modeling of snowavalanches}},
+  author={M. E. Eglit and Ye I Sveshnikova},
+  journal={Materialy Glyatsiologicheskikh Issledovaniy, Khronika Obsuzhdeniya},
+  volume={38},
+  pages={79-84},
+  year={1980}
+}
+
+@book{fang2006dam,
+  title={{Design and Modeling for Computer Experiments}},
+  author={Kai-Tai Fang and Runze Li and Agus Sudjianto},
+  year={2006},
+  publisher={Chapman \& Hall/CRC},
+  address={London, UK}
+}
+
+@article{fang2000udt,
+  title={{Uniform design: Theory and application}},
+  author={Fang, K.T. and Lin, D.K.J. and Winker, P. and Zhang, Y.},
+  journal={Technometrics},
+  volume={42},
+  number={3},
+  pages={237--248},
+  year={2000},
+  publisher={American Society for Quality Control}
+}
+
+@article{fang2001wal,
+  title={{Wrap-Around L2-Discrepancy of Random Sampling, Latin Hypercube and Uniform Designs}},
+  author={Fang, K.T. and Ma, C.X.},
+  journal={Journal of Complexity},
+  volume={17},
+  number={4},
+  pages={608--624},
+  year={2001},
+  publisher={Elsevier}
+}
+
+@article{field2000ase,
+  title={{Accounting for Site Effects in Probabilistic Seismic Hazard Analyses of Southern California: Overview of the SCEC Phase III Report}},
+  author={Field, E.H.},
+  journal={Bulletin of the Seismological Society of America},
+  volume={90},
+  number={6 B},
+  pages={1--31},
+  year={2000},
+  publisher={Seismol Soc America}
+}
+
+@article{fokker1914mer,
+  title={{Die mittlere Energie rotierender elektrischer Dipole im Strahlungsfeld}},
+  author={Fokker, AD},
+  journal={Annalen der Physik},
+  volume={43},
+  pages={810--820},
+  year={1914},
+  note={{The median energy of rotating electrical dipoles in radiation fields}}
+}
+
+@article{FraccarolloToro1995,
+author="L. Fraccarollo and E.F. Toro",
+year="1995",
+title="Experimental and numerical assessment of the shallow water model for two dimensional dam-break type problems",
+journal="Journal of Hydraulic Research",
+volume="33",
+pages="843-864",
+}
+
+@book{FrancisBook2004,
+  author={Peter Francis and Clive Oppenheimer},
+  year={2004},
+  title={Volcanoes},
+  publisher={Oxford University Press},
+  address={Oxford},
+}
+
+@manual{Titan2.0userguide,
+title={TITAN2D User Guide},
+edition={2.0.0, 2007.07.09},
+author={Geophysical Mass Flow Group (GMFG)}, 
+organization={University at Buffalo}, 
+address={Buffalo, NY, USA},
+note={available at \url{http://www.gmfg.buffalo.edu/}},
+}
+
+@article{gerlach2006cvf,
+  title={{Comparison of volume-of-fluid methods for surface tension-dominant two-phase flows}},
+  author={Gerlach, D. and Tomar, G. and Biswas, G. and Durst, F.},
+  journal={International Journal of Heat and Mass Transfer},
+  volume={49},
+  number={3-4},
+  pages={740--754},
+  year={2006},
+  publisher={Elsevier}
+}
+
+@article{Gerstner1998niu,
+  title={{Numerical integration using sparse grids}},
+  author={Gerstner, T. and Griebel, M.},
+  journal={Numerical Algorithms},
+  volume={18},
+  number={3},
+  pages={209--232},
+  year={1998},
+  publisher={Springer}
+}
+
+@article{Gerstner2003dat,
+  title={{Dimension-Adaptive Tensor-Product Quadrature}},
+  author={Gerstner, T. and Griebel, M.},
+  journal={Computing},
+  volume={71},
+  number={1},
+  pages={65-87},
+  year={2003},
+  publisher={Springer}
+}
+
+@article{ghanem2002pmf,
+  title={{Probabilistic modeling of flow over rough terrain: Special section on quantifying uncertainty in CFD}},
+  author={Ghanem, R. and Hayek, B.},
+  journal={Journal of fluids engineering},
+  volume={124},
+  number={1},
+  pages={42--50},
+  year={2002},
+  publisher={American Society of Mechanical Engineers}
+}
+
+
+@book{GhanemSpanos1991,
+ author = {Roger G. Ghanem and Pol D. Spanos},
+ title = {Stochastic finite elements: a spectral approach},
+ year = {1991},
+ isbn = {0-387-97456-3},
+ publisher = {Springer-Verlag New York, Inc.},
+ address = {New York, NY, USA},
+ }
+
+@article{goldstein2005pft,
+  title={{Probabilistic formulations for transferring inferences from mathematical models to physical systems}},
+  author={Goldstein, M. and Rougier, J.},
+  journal={SIAM journal on scientific computing},
+  volume={26},
+  number={2},
+  pages={467--487},
+  year={2005},
+  publisher={Philadelphia, PA: SIAM, c1993-}
+}
+
+@article{goldstein2006blc,
+  title={{Bayes Linear Calibrated Prediction for Complex Systems}},
+  author={Goldstein, M. and Rougier, J.},
+  journal={Journal of the American Statistical Association},
+  volume={101},
+  number={475},
+  pages={1132--1143},
+  year={2006},
+  publisher={American Statistical Association}
+}
+@article{goldstein2009rbm,
+  title={{Reified Bayesian modelling and inference for physical systems}},
+  author={Goldstein, M. and Rougier, J.},
+  journal={Journal of Statistical Planning and Inference},
+  volume={139},
+  number={3},
+  pages={1221--1239},
+  year={2009},
+  publisher={Elsevier}
+}
+
+@unpublished{blm1tutor,
+author="M. Goldstein",
+title="Bayes Linear Methods I Adjusting Beliefs: Concepts and Properties",
+note="Part 1 of 3 of online tutorial, website: \url{http://maths.dur.ac.uk/stats/bd}",
+}
+
+@article{gopala2008vfm,
+  title={{Volume of fluid methods for immiscible-fluid and free-surface flows}},
+  author={Gopala, V.R. and van Wachem, B.G.M.},
+  journal={Chemical Engineering Journal},
+  year={2008},
+  publisher={Elsevier}
+}
+
+@article{Gopalakrishnan1989,
+author="T.C. Gopalakrishnan",
+year="1989",
+title="A moving boundary circulation model for regions with large tidal flats",
+journal="International Journal for Numerical Methods in Engineering",
+volume="28",
+pages="245-260",
+}
+
+@inproceedings{gramacy2004pse,
+ author = {Robert B. Gramacy and Herbert K. H. Lee and William G. Macready},
+ title = {Parameter space exploration with Gaussian process trees},
+ booktitle = {ICML '04: Proceedings of the twenty-first international conference on Machine learning},
+ year = {2004},
+ isbn = {1-58113-828-5},
+ pages = {45},
+ location = {Banff, Alberta, Canada},
+ doi = {http://doi.acm.org/10.1145/1015330.1015367},
+ publisher = {ACM Press},
+ address = {New York, NY, USA},
+}
+
+@article{Gray1999,
+   author = {{Gray}, J.~M.~N.~T. and {Wieland}, M. and {Hutter}, K.},
+    title = "{Gravity-driven free surface flow of granular avalanches over complex basal topography}",
+  journal = {Royal Society of London Proceedings Series A},
+     year = 1999,
+    month = may,
+   volume = 455,
+    pages = {1841-1874},
+   adsurl = {http://adsabs.harvard.edu/abs/1999RSPSA.455.1841G},
+  adsnote = {Provided by the Smithsonian/NASA Astrophysics Data System}
+}
+
+@article{GreveHutter1993,
+   author = {{Greve}, R. and {Hutter}, K.},
+    title = "{Motion of a Granular Avalanche in a Convex and Concave Curved Chute: Experiments and Theoretical Predictions}",
+  journal = {Royal Society of London Philosophical Transactions Series A},
+     year = 1993,
+    month = mar,
+   volume = 342,
+    pages = {573-600},
+   adsurl = {http://adsabs.harvard.edu/abs/1993RSPTA.342..573G},
+  adsnote = {Provided by the Smithsonian/NASA Astrophysics Data System}
+}
+
+@article{Hall1873edp,
+author={A Hall}, 
+title={On an Experimental Determination of Pi},
+journal={Messenger of Mathematics}, 
+volume={2},
+pages={113-114},
+year={1873},
+}
+
+@article{HammerStroud1958nem,
+  title={{Numerical Evaluation of Multiple Integrals II}},
+  author={Hammer, P.C. and Stroud, A.H.},
+  journal={Mathematical Tables and Other Aids to Computation},
+  volume={12},
+  number={64},
+  pages={272-280},
+  year={1958},
+  publisher={JSTOR}
+}
+
+@article{Harr1989pem,
+  title={{Probabilistic estimates for multivariate analyses.}},
+  author={Harr, M.E.},
+  journal={Applied Mathematical Modelling},
+  volume={13},
+  number={5},
+  pages={313-318},
+  year={1989}
+}
+
+@book{hedayat1999oat,
+  title={{Orthogonal Arrays: Theory and Applications}},
+  author={Hedayat, A. and Sloane, NJA and Stufken, J.},
+  year={1999},
+  publisher={Springer}
+}
+
+@article{hesterberg1995wai,
+  title={{Weighted average importance sampling and defensive mixture distributions}},
+  author={Hesterberg, T.},
+  journal={Technometrics},
+  volume={37},
+  number={2},
+  pages={185--194},
+  year={1995},
+  publisher={JSTOR}
+}
+
+@article{hickernell1998gda,
+  title={{A generalized discrepancy and quadrature error bound}},
+  author={Hickernell, F.J.},
+  journal={Mathematics of Computation},
+  volume={67},
+  number={221},
+  pages={299--322},
+  year={1998},
+  publisher={American Mathematical Society}
+}
+
+@incollection{hickernell1998lrw,
+  title={{Lattice rules: How well do they measure up}},
+  booktitle={{Random and Quasi-Random Point Sets}},
+  author={Hickernell, F.J.},
+  editor={P. Hellekalek and G. Larcher},
+  pages={109--166},
+  year={1998},
+  publisher={Springer}
+}
+
+@incollection{higdon2006pst,
+  author={David Higdon},
+  editor={Barbel Finkenstadt and Leonhard Held and Valerie Isham},
+  title={A Primer on Space-Time Modeling from a Bayesian Perspective},
+  booktitle={Statistical Methods for Spatio-Temporal Systems},
+  pages={217-280},
+  year={2007},
+  publisher={Chapman \& Hall/CRC},
+  series={Monographs on Statistics and Applied Probability},
+  volume={107},
+}
+
+@article{hirt1981vfv,
+  title={{Volume of fluid/VOF/ method for the dynamics of free boundaries}},
+  author={HIRT, C.W. and NICHOLS, BD},
+  journal={Journal of Computational Physics},
+  volume={39},
+  number={1},
+  pages={201--225},
+  year={1981}
+}
+
+@article{Huard2006bpi,
+  title={{A Bayesian perspective on input uncertainty in model calibration: Application to hydrological model "abc"}},
+  author={David Huard and Alain Mailhot},
+  journal={Water Resources Research},
+  volume={42},
+  number={7},
+  pages={W07416},
+  year={2006},
+  publisher={American Geophysical Union},
+}
+
+@article{Hubbard2007clh,
+  title={{Comparative lahar hazard mapping at Volcan Citlalt{\'e}petl, Mexico using SRTM, ASTER and DTED-1 digital topographic data}},
+  author={Hubbard, B.E. and Sheridan, M.F. and Carrasco-N{\'u}{\~n}ez, G. and D{\'\i}az-Castell{\'o}n, R. and Rodr{\'\i}guez, S.R.},
+  journal={Journal of Volcanology and Geothermal Research},
+  volume={160},
+  number={1-2},
+  pages={99-124},
+  year={2007},
+  publisher={Elsevier}
+}
+
+@article{Hutter1993,
+author={K.Hutter and M. Siegel and S.B. Savage and Y. Nohguchi},
+year={1993},
+title={Two-dimensional spreading of a granular avalanche down an inclined plane part I. Theory},
+journal={Acta Mechanica},
+volume={100},
+pages={37-68},
+}
+
+@article{HutterGreve1993,
+author={K. Hutter and R. Greve},
+year={1993},
+title={Two-dimensional similarity solutions for finite-mass granular avalanches with Coulomb- and viscous-type frictional resistance},
+journal={Journal of Glaciology},
+volume={39},
+pages={357-372},
+}
+
+@article{Iverson1997,
+   author = {{Iverson}, R.~M.},
+    title = "{The physics of debris flows}",
+  journal = {Reviews of Geophysics},
+     year = 1997,
+   volume = 35,
+    pages = {245-296},
+      doi = {10.1029/97RG00426},
+   adsurl = {http://adsabs.harvard.edu/abs/1997RvGeo..35..245I},
+  adsnote = {Provided by the Smithsonian/NASA Astrophysics Data System}
+}
+
+@article{IversonDenlinger2001,
+   author = {{Iverson}, R.~M. and {Denlinger}, R.~P.},
+    title = "{Flow of variably fluidized granular masses across three-dimensional terrain 1. Coulomb mixture theory}",
+  journal = {Journal of Geophysical Research},
+     year = 2001,
+   volume = 106,
+    pages = {537-552},
+      doi = {10.1029/2000JB900329},
+   adsurl = {http://adsabs.harvard.edu/abs/2001JGR...106..537I},
+  adsnote = {Provided by the Smithsonian/NASA Astrophysics Data System},
+}
+
+@article{jackson1996shs,
+  title={{Seismic hazards in southern California: probable earthquakes, 1994 to 2024}},
+  author={Jackson, DD},
+  journal={International Journal of Rock Mechanics and Mining Sciences and Geomechanics Abstracts},
+  volume={33},
+  number={2},
+  pages={54A--54A},
+  year={1996},
+  publisher={Elsevier Science}
+}
+
+@article{Jaeger1989rar,
+  author={Jaeger, HM and Liu, C. and Nagel, S.R.},
+  title={{Relaxation at the Angle of Repose}},
+  journal={Physical Review Letters},
+  volume={62},
+  number={1},
+  pages={40-43},
+  year={1989},
+  month = jan,
+  publisher={American Physical Society},
+  doi = {10.1103/PhysRevLett.62.40},
+}
+@article{Jankovic1994end,
+  title={{Exact nth derivatives of eigenvalues and eigenvectors}},
+  author={Jankovic, M.S.},
+  journal={Journal of Guidance, Control, and Dynamics},
+  volume={17},
+  number={1},
+  pages={136--144},
+  year={1994},
+  publisher={American Institute of Aeronautics and Astronautics}
+}
+
+@article{Jin2005eac,
+  title={{An efficient algorithm for constructing optimal design of computer experiments}},
+  author={Jin, R. and Chen, W. and Sudjianto, A.},
+  journal={Journal of Statistical Planning and Inference},
+  volume={134},
+  number={1},
+  pages={268--287},
+  year={2005},
+  publisher={Elsevier}
+}
+
+@article{Johnson1990mam,
+  title={{Minimax and maximin distance designs}},
+  author={Johnson, ME and Moore, LM and Ylvisaker, D.},
+  journal={Journal of Statistical Planning and Inference},
+  volume={26},
+  number={2},
+  pages={131--148},
+  year={1990}
+}
+
+@incollection{Johnson1984df,
+  title={Debris flow},
+  author={Johnson, AM and Rodine, JR},
+  editor={Brunsden, D. and Prior D.B},
+  booktitle={Slope Instability},
+  chapter={8},
+  pages={257-362},
+  year={1984},
+  publisher={John Wiley \& Sons},
+  address={New York},
+}
+
+@article{Jones2005,
+  author={Jones, MD and Pitman, EB and Patra, AK and Dalbey, K. and Bauer, AC},
+  title={{Adaptive Simulation: Dynamic Data Driven Application in Geophysical Mass Flows}},
+  journal={Parallel and Distributed Processing Symposium, 2005. Proceedings. 19th IEEE International},
+  pages={33b},
+  year={2005},
+  publisher={IEEE Computer Society Washington, DC, USA}
+}
+
+@article{kahn1951ept,
+  title={{Estimation of particle transmission by random sampling}},
+  author={Kahn, H. and Harris, TE},
+  journal={National Bureau of Standards Applied Mathematics Series},
+  volume={12},
+  pages={27--30},
+  year={1951}
+}
+
+@article{kahn1953mrs,
+  title={{Methods of reducing sample size in Monte Carlo computations}},
+  author={Kahn, H. and Marshall, AW},
+  journal={Journal of the Operations Research Society of America},
+  volume={1},
+  number={5},
+  pages={263--278},
+  year={1953},
+  publisher={JSTOR}
+}
+
+@article{Karhunen1947ulm,
+  title={{Uber lineare Methoden in der Wahrscheinlichkeitsrechnung}},
+  author={Karhunen, K.},
+  journal={Annales Academiae Scientiarum Fennicae},
+  series={A1: Mathematica-Physica},
+  volume={37},
+  pages={3-79},
+  year={1947}
+}
+
+@article{kelfoun2005nme,
+  title={{Numerical modeling of the emplacement of Socompa rock avalanche, Chile}},
+  author={Kelfoun, K. and Druitt, TH},
+  journal={Journal of geophysical research},
+  volume={110},
+  number={B 12},
+  pages={12202--12202},
+  year={2005},
+  publisher={American Geophysical Union}
+}
+
+@article{Kennedy2000,
+author="A.B. Kennedy and Q. Chen and J.T. Kirby and R.A. Dalrymple",
+year="2000", 
+title="Boussinesq modeling of wave transformation, breaking, and runup. I:1D",
+journal="Journal of Waterway, Port, Coastal, and Ocean Engineering",
+volume="126",
+pages="39-47",
+}
+
+@article{kennedy2001bcc,
+  title={{Bayesian calibration of computer models}},
+  author={Kennedy, M.C. and O'Hagan, A.},
+  journal={Journal of the Royal Statistical Society: Series B (Statistical Methodology)},
+  volume={63},
+  number={3},
+  pages={425--464},
+  year={2001},
+  publisher={Blackwell Synergy}
+}
+
+@book{Kleiber1992sfe,
+  title={{The Stochastic Finite Element Method: Basic Perturbation Technique and Computer Implementation}},
+  author={Kleiber, M. and Hien, T.D.},
+  year={1992},
+  publisher={John Wiley \& Sons}
+}
+
+@incollection{KoehlerOwen1996,
+author={Koehler, J.R. and Owen, A.B.},
+editor={Ghosh, S. and Rao, C.R.},
+title={Computer Experiments},
+booktitle={Design and Analysis of Experiments},
+series={Handbook of Statistics},
+volume={13},
+chapter={9},
+pages={261-308},
+year={1996},
+publisher={Elsevier Science},
+}
+
+@conference{kollig2002ems,
+  title={{Efficient Multidimensional Sampling}},
+  author={Kollig, T. and Keller, A.},
+  booktitle={Computer Graphics Forum},
+  volume={21},
+  number={3},
+  pages={557--563},
+  year={2002},
+  organization={Blackwell Synergy}
+}
+
+@article{kolmogorov1931uam,
+  title={{Uber die Analytischen Methoden in der Wahrscheinlichkeitsrechnung}},
+  author={Kolmogorov, AN},
+  journal={Mathematische Annalen},
+  volume={104},
+  pages={415--458},
+  year={1931},
+  note={{On analytic methods in probability calculation}}
+}
+
+@article{Kosambi1943sfs,
+  title={{Statistics in function space}},
+  author={Kosambi, DD},
+  journal={Journal of the Indian Mathematical Society},
+  volume={7},
+  pages={76-88},
+  year={1943},
+}
+
+@article{lemaitre2001spm,
+  title={{A stochastic projection method for fluid flow. I: basic formulation}},
+  author={Le Maitre, O.P. and Kino, O.M. and Najm, H.N. and Ghanem, R.G.},
+  journal={Journal of Computational Physics},
+  volume={173},
+  number={2},
+  pages={481--511},
+  year={2001},
+  publisher={Academic Press Professional, Inc. San Diego, CA, USA}
+}
+
+@article{lindley1972bel,
+  title={{Bayes estimates for the linear model}},
+  author={Lindley, DV and Smith, AFM},
+  journal={Journal of the Royal Statistical Society. Series B (Methodological)},
+  pages={1--41},
+  year={1972},
+  publisher={Royal Statistical Society}
+}
+
+@misc{lin:ccl,
+  title={{Constructing Cascading Latin Hypercubes}},
+  author={C. Devon Lin and Derek Bingham and Randy Sitter and Boxin Tang},
+  note={downloaded from \url{http://www.stat.sfu.ca/~dbingham/NICDS_CompExpt/postercclh.pdf} accessed on February 10, 2009}
+}
+
+@article{liu1965ebj,
+  title={{Error bounds for jittered sampling}},
+  author={Liu, B. and Stanley, T.},
+  journal={IEEE Transactions on Automatic Control},
+  volume={10},
+  number={4},
+  pages={449--454},
+  year={1965}
+}
+@article{Liu1986rff,
+  title={{Random field finite elements}},
+  author={Liu, W.K.A.M. and Belytschko, T. and Mani, A.},
+  journal={International journal for numerical methods in engineering},
+  volume={23},
+  number={10},
+  pages={1831-1845},
+  year={1986},
+  publisher={Wiley}
+}
+
+@article{Loeve1948fad,
+  title={{Fonctions aleatoires du second ordre}},
+  author={Loeve, M.},
+  journal={Processus Stochastiques et Mouvement Brownien (P. Levy), Gauthier-Villars, Paris},
+  year={1948}
+}
+
+@article{lopez2004vfm,
+  title={{A volume of fluid method based on multidimensional advection and spline interface reconstruction}},
+  author={L{\'o}pez, J. and Hern{\'a}ndez, J. and G{\'o}mez, P. and Faura, F.},
+  journal={Journal of Computational Physics},
+  volume={195},
+  number={2},
+  pages={718--742},
+  year={2004},
+  publisher={Elsevier}
+}
+
+
+@article{Lube2004,
+author={Gert Lube and Herbert E. Huppert and R. Stephen J. Sparks and Mark A. Hallworth},
+title={Axisymmetric collapses of granular columns},
+journal={Journal of Fluid Mechanics},
+year={2004},
+volume={508},
+pages={175-199},
+doi={10.1017/S0022112004009036},
+}
+
+@article{Lucor2001sru,
+  title={{Spectral representations of uncertainty in simulations: Algorithms and applications}},
+  author={Lucor, D. and Xiu, D. and Karniadakis, G.},
+  journal={Proceedings of the International Conference on Spectral and High Order Methods (ICOSAHOM-01), Uppsala, Sweden},
+  year={2001},
+}
+
+@article{lynch1980fes,
+  title={{Finite Element Simulation of Flow in Deforming Regions}},
+  author={Lynch, D.R. and Gray, W.G.},
+  journal={Journal of Computational Physics},
+  volume={36},
+  pages={135},
+  year={1980}
+}
+
+@article{Lynett2002,
+author={P.J. Lynett and T. Wu and P.L.-F. Liu},
+year={2002},
+title={Modeling wave runup with depth-integrated equations},
+journal={Coastal Engineering},
+volume={46},
+pages={89-107},
+}
+
+@article{mackay1998igp,
+  title={{Introduction to Gaussian processes}},
+  author={MacKay, D.J.C.},
+  journal={Neural Networks and Machine Learning},
+  volume={168},
+  pages={133--165},
+  year={1998},
+  note={I don't think this was ever published}
+}
+
+@article{mackay:igp,
+  title={{Introduction to Gaussian processes}},
+  author={MACKAY, DJC},
+  journal={NATO ASI series. Series F: computer and system sciences},
+  pages={133--165},
+  publisher={Springer},
+  note={I don't think this was ever published}
+}
+
+
+@article{maechling2005scc,
+  title={{Simplifying construction of complex workflows for non-expert users of the Southern California Earthquake Center Community Modeling Environment}},
+  author={Maechling, P. and Chalupsky, H. and Dougherty, M. and Deelman, E. and Gil, Y. and Gullapalli, S. and Gupta, V. and Kesselman, C. and Kim, J. and Mehta, G. and others},
+  journal={SIGMOD Record},
+  volume={34},
+  number={3},
+  pages={24--30},
+  year={2005}
+}
+
+
+@article{mangeneycastelnau2005usv,
+  title={{On the use of Saint Venant equations to simulate the spreading of a granular mass}},
+  author={Mangeney-Castelnau, A. and Bouchut, F. and Vilotte, JP and Lajeunesse, E. and Aubertin, A. and Pirulli, M.},
+  journal={J. Geophys. Res},
+  volume={110},
+  pages={B09103},
+  year={2005}
+}
+
+@techreport{Mathelin2003sca,
+  author={Mathelin, L. and Hussaini, M.Y.},
+  title={A Stochastic Collocation Algorithm for Uncertainty Analysis},
+  institution={National Aeronautics and Space Administration},
+  year={2003},
+  month={February},
+  number={NASA/CR-2003-212153},
+}
+
+@article{Mathelin2004upt,
+  title={Uncertainty Propagation for a Turbulent, Compressible Nozzle Flow Using Stochastic Methods},
+  author={Mathelin, L. and Hussaini, M.Y. and Zang, T.A. and Bataille, F.},
+  journal={AIAA Journal},
+  volume={42},
+  number={8},
+  pages={1669-1676},
+  year={2004}
+}
+
+@article{Mathelin2005sau,
+  title={Stochastic Approaches to Uncertainty Quantification in CFD Simulations},
+  author={Mathelin, L. and Hussaini, M.Y. and Zang, T.A.},
+  journal={Numerical Algorithms},
+  volume={38},
+  number={1},
+  pages={209-236},
+  year={2005},
+  publisher={Springer}
+}
+
+@article{McKay1979ctm,
+  title={{Comparison the three methods for selecting values of input variable in the analysis of output from a computer code}},
+  author={McKay, MD and Beckman, RJ and Conover, WJ},
+  journal={Technometrics},
+  volume={21},
+  number={2},
+  pages={239-245},
+  year={1979},
+  month={May},
+}
+
+@conference{mitchell1996css,
+  title={{Consequences of stratified sampling in graphics}},
+  author={Mitchell, D.P.},
+  booktitle={Proceedings of the 23rd annual conference on Computer graphics and interactive techniques},
+  pages={277--280},
+  year={1996},
+  organization={ACM Press New York, NY, USA}
+}
+
+@article{Moody1990,
+   author = {Moody, D.~M.},
+    title = {Unsteady expansion of an ideal gas into a vacuum},
+  journal = {Journal of Fluid Mechanics},
+     year = 1990,
+    month = may,
+   volume = 214,
+    pages = {455-468},
+   adsurl = {http://adsabs.harvard.edu/abs/1990JFM...214..455M},
+  adsnote = {Provided by the Smithsonian/NASA Astrophysics Data System}
+}
+
+@article{Morris1995edc,
+  title={{Exploratory designs for computational experiments}},
+  author={Morris, M.D. and Mitchell, T.J.},
+  journal={Journal of Statistical Planning and Inference},
+  volume={43},
+  number={3},
+  pages={381--402},
+  year={1995},
+  publisher={Elsevier Science}
+}
+
+@article{mugunthan2006aip,
+  title={{Assessing the impacts of parameter uncertainty for computationally expensive groundwater models}},
+  author={Mugunthan, P. and Shoemaker, C.A.},
+  journal={Water Resources Research},
+  volume={42},
+  number={10},
+  year={2006}
+}
+
+@book{MyersMontgomery1995,
+author={Raymond H. Myers and Douglas C. Montgomery},
+year={1995},
+title={Response Surface Methodology},
+publisher={John Wiley and Sons, Inc.},
+address={New York},
+}
+
+@misc{NamikawaDEMuncertainty,
+author="Laercio M. Namikawa and Chris S. Renschler",
+title="Uncertainty in Digital Elevation Data Used for Geophysical Flow Simulation",
+note="preprint: \url{http://www.geoinfo.info/geoinfo2004/papers/6341.pdf} Date accessed: September 21, 2007",
+}
+
+@phdthesis{NamikawaPhD,
+author={Laercio M. Namikawa},
+title={Multiple Representations of Elevation for Dynamic Process Modeling},
+school={Department of Geography, University at Buffalo},
+year={2006},
+month={July},
+}
+
+@book{niederreiter1992rng,
+  title={{Random Number Generation and Quasi-Monte Carlo Methods}},
+  author={Harald Niederreiter},
+  year={1992},
+  publisher={Society for Industrial Mathematics},
+  series={CBMS-NSF Regional Conference Series In Applied Mathematics},
+  volume={63},
+  pages={241},
+  address={Philadelphia, Pennsylvania}
+}
+
+@article{Owen1992clt,
+  title={{A Central Limit Theorem for Latin Hypercube Sampling}},
+  author={A.B. Owen},
+  journal={Journal of the Royal Statistical Society. Series B (Methodological)},
+  volume={54},
+  number={2},
+  pages={541-551},
+  year={1992},
+  publisher={JSTOR}
+}
+
+@article{Owen1994ccl,
+  title={{Controlling correlations in latin hypercube samples}},
+  author={A.B. Owen},
+  journal={Journal of the American Statistical Association},
+  volume={89},
+  number={428},
+  pages={1517-1522},
+  year={1994},
+  publisher={American Statistical Association}
+}
+
+@article{owen1995rpt,
+  title={{Randomly Permuted (t, m, s)-Nets and (t, s)-Sequences, Monte Carlo and Quasi-Monte Carlo Methods in Scientific Computing (H. Niederreiter and P. Shiue, eds.)}},
+  author={Owen, AB},
+  journal={Lecture Notes in Statistics},
+  volume={106},
+  pages={299--317},
+  year={1995}
+}
+
+@article{owen2000sae,
+  title={{Safe and Effective Importance Sampling.}},
+  author={Owen, A. and Zhou, Y.},
+  journal={Journal of the American Statistical Association},
+  volume={95},
+  number={449},
+  year={2000},
+  publisher={American Statistical Association}
+}
+
+@article{PanchalingamHaar1994mmc,
+  title={{Modelling of many correlated and skewed random variables}},
+  author={G. Panchalingam and M.E. HARR},
+  journal={Applied mathematical modelling},
+  volume={18},
+  number={11},
+  pages={635--640},
+  year={1994},
+  publisher={Elsevier Science}
+}
+
+@book{Papoulis1984,
+author={A. Papoulis},
+year={1984},
+title={Probability, Random Variables, and Stochastic Processes},
+publisher={McGraw-Hill},
+address={New York},
+}
+
+@article{Park1994olh,
+  title={{Optimal Latin-hypercube designs for computer experiments}},
+  author={PARK, J.S.O.O.},
+  journal={Journal of statistical planning and inference},
+  volume={39},
+  number={1},
+  pages={95-111},
+  year={1994},
+  publisher={Elsevier Science}
+}
+
+@article{gmfg1,
+author="A.K. Patra and A.C. Bauer and C.C. Nichita and E.B. Pitman and M.F. Sheridan and M.I. Bursik and B. Rupp and A. Webber and A.J. Stinton and L.M. Namikawa and C.S. Renschler",
+year="2005",
+title="Parallel adaptive numerical simulation of dry avalanches over natural terrain",
+journal="Journal of Volcanology and Geothermal Research",
+volume="139",
+pages="1-21",
+}
+
+@article{dgtitanpaper,
+author="A.K. Patra and C.C. Nichita and A.C. Bauer and E.B. Pitman and M.I. Bursik and M.F. Sheridan",
+year="2006",
+title="Parallel adaptive discontinuous galerkin approximation for thin layer avalanche modeling",
+journal="Computers and Geosciences",
+volume="32",
+pages="912-926",
+}
+
+@phdthesis{peraire1986fem,
+  title={{A finite element method for convection dominated flows}},
+  author={Peraire, J.},
+  year={1986},
+  school={University of Wales, Swansea},
+}
+
+@article{peraire1986swp,
+  title={{Shallow water problems: A general explicit formulation.}},
+  author={Peraire, J. and Zienkiewicz, OC and Morgan, K.},
+  journal={International Journal for Numerical Methods in Engineering},
+  volume={22},
+  number={3},
+  pages={547--574},
+  year={1986}
+}
+
+@article{Perez2005icp,
+  title={{An Implicit Compact Polynomial Chaos Formulation for the Euler Equations}},
+  author={Perez, R. and Walters, RW},
+  journal={43 rd AIAA Aerospace Sciences Meeting and Exhibit},
+  pages={AIAA 2005-1406},
+  year={2005}
+}
+
+@article{PeteraNassehi1996,
+author="J. Petera and V. Nassehi",
+year="1996",
+title="A new two-dimensional finite element model for the shallow water equations using a lagrangian framework constructed along fluid particle trajectories",
+journal="International Journal for Numerical Methods in Engineering",
+volume="39",
+pages="4159-4182",
+}
+
+
+
+@article{Peterson1988vha,
+   author = {{Peterson}, D.~W.},
+    title = "{Volcanic hazards and public response}",
+  journal ={Journal of Geophysical Research},
+     year = 1988,
+    month = may,
+   volume = 93,
+    pages = {4161-4170},
+   adsurl = {http://adsabs.harvard.edu/abs/1988JGR....93.4161P},
+  adsnote = {Provided by the Smithsonian/NASA Astrophysics Data System}
+}
+
+@book{petersen2008duu,
+  title={{Documentation for the 2008 update of the United States national seismic hazard maps}},
+  author={Petersen, M.D. and Geological Survey (US)},
+  year={2008},
+  publisher={US Geological Survey}
+}
+
+@article{Pirulli2007eep,
+  title={{The effect of the earth pressure coefficients on the runout of granular material}},
+  author={Pirulli, M. and Bristeau, M.O. and Mangeney, A. and Scavia, C.},
+  journal={Environmental Modelling \& Software},
+  volume={22},
+  number={10},
+  pages={1437-1454},
+  year={2007},
+  publisher={Elsevier}
+}
+
+@article{pirulli2008rba,
+  title={{Results of Back-Analysis of the Propagation of Rock Avalanches as a Function of the Assumed Rheology}},
+  author={Pirulli, M. and Mangeney, A.},
+  journal={Rock Mechanics and Rock Engineering},
+  volume={41},
+  number={1},
+  pages={59-84},
+  year={2008},
+  publisher={Springer}
+}
+
+@article{PitmanLe2005,
+author="E. Bruce Pitman and Long Le",
+year="2005",
+title="A two-fluid model for avalanche and debris flow",
+journal="Philosophical Transactions of the Royal Society A",
+volume="363",
+pages="1573-1601",
+}
+
+@article{PitmanNichitaErode2003,
+author={E.B. Pitman and C.C. Nichita and A.K. Patra and A.C. Baur and M. Bursik and A. Weber},
+year={2003},
+title={A model of granular flows over an erodible surface},
+journal={Discrete and Continuous Dynamical Systems Series B},
+volume={3},
+issue={4},
+month={November},
+pages={589-599},
+}
+
+@article{pitmanpof,
+author="E.B. Pitman and A. Patra and A. Bauer and C. Nichita and M. Sheridan and M.Bursik",
+year="2003",
+title="Computing debris flows",
+journal="Physics of Fluids",
+volume="15",
+pages="3638-3646",
+}
+
+@article{planck1917uss,
+  title={{Ueber einen Satz der statistichen Dynamik und eine Erweiterung in der Quantumtheorie}},
+  author={Planck, M.},
+  journal={Sitzungberichte der Preussischen Akadademie der Wissenschaften},
+  pages={324--341},
+  year={1917},
+  note={{An essay on statistical dynamics and its amplification in the quantum theory}}
+}
+
+@misc{historyofmontecarlomethod,
+author="Sabri Pllana",
+title="History of Monte Carlo Method",
+note="website: \url{http://www.geocities.com/CollegePark/Quad/2435/history.html} Date accessed: July 3, 2008",
+}
+
+@article{PudasainiHutter2003,
+   author = {{Pudasaini}, S.~P. and {Hutter}, K.},
+    title = "{Rapid shear flows of dry granular masses down curved and twisted channels}",
+  journal = {Journal of Fluid Mechanics},
+     year = 2003,
+    month = nov,
+   volume = 495,
+    pages = {193-208},
+   adsurl = {http://adsabs.harvard.edu/abs/2003JFM...495..193P},
+  adsnote = {Provided by the Smithsonian/NASA Astrophysics Data System}
+}
+
+@article{putko2002aiu,
+  title={{Approach for input uncertainty propagation and robust design in CFD using sensitivity derivatives: Special section on quantifying uncertainty in CFD}},
+  author={Putko, M.M. and Taylor, A.C. and Newman, P.A. and Green, L.L.},
+  journal={Journal of fluids engineering},
+  volume={124},
+  number={1},
+  pages={60--69},
+  year={2002},
+  publisher={American Society of Mechanical Engineers}
+}
+
+@article{quecedo2002rtg,
+  title={{A reappraisal of Taylor-Galerkin algorithm for drying-wetting areas in shallow water computations}},
+  author={Quecedo, M. and Pastor, M.},
+  journal={International Journal for Numerical Methods in Fluids},
+  volume={38},
+  number={6},
+  pages={515--531},
+  year={2002}
+}
+
+@article{quecedo2003fem,
+  title={{Finite element modelling of free surface flows on inclined and curved beds}},
+  author={Quecedo, M. and Pastor, M.},
+  journal={Journal of Computational Physics},
+  volume={189},
+  number={1},
+  pages={45--62},
+  year={2003},
+  publisher={Elsevier}
+}
+
+@book{risken1989fpe,
+  title={{The Fokker-Planck equation: Methods of solution and applications}},
+  author={Risken, H.},
+  year={1989},
+  publisher={Springer-Verlag Berlin and Heidelberg GmbH \& Co. K}
+}
+
+@article{Robinson1991bgt,
+  title={{That BLUP is a Good Thing: The Estimation of Random Effects}},
+  author={Robinson, G. K.},
+  journal={Statistical Science},
+  volume={6},
+  number={1},
+  pages={15-32},
+  year={1991},
+  publisher={JSTOR}
+}
+
+@article{Rosenblueth1975pep,
+  title={{Point Estimates for Probability Moments}},
+  author={Rosenblueth, E.},
+  journal={Proceedings of the National Academy of Sciences},
+  volume={72},
+  number={10},
+  pages={3812-3814},
+  year={1975},
+  publisher={National Academy of Sciences}
+}
+
+
+@phdthesis{RuppThesis2004,
+author="B. Rupp",
+year="2004", 
+title="An analysis of granular flows over natural terrain",
+school="Department of Geology, University at Buffalo",
+}
+
+@article{sacks1989dac,
+  title={{Design and Analysis of Computer Experiments}},
+  author={Jerome Sacks and William J. Welch and Toby J. Mitchell and Henry P. Wynn},
+  year={1989},
+  journal={Statistical Science},
+  volume={4},
+  number={4},
+  pages={409-435},
+  publisher={Institute of Mathematical Statistics}
+}
+
+@article{Saucedo2005mpf,
+  title={{Modeling of pyroclastic flows of Colima Volcano, Mexico: implications for hazard assessment}},
+  author={Saucedo, R. and Macias, JL and Sheridan, MF and Bursik, MI and Komorowski, JC},
+  journal={Journal of Volcanology and Geothermal Research},
+  volume={139},
+  number={1-2},
+  pages={103-115},
+  year={2005},
+  publisher={Elsevier}
+}
+
+@article{SavageHutter1989,
+author="S.B. Savage and K. Hutter",
+year="1989",
+title="The motion of a finite mass of granular material down a rough incline",
+journal="Journal of Fluid Mechanics",
+volume="199", 
+pages="177-215",
+}
+
+@article{SavageIverson2003,
+  title={{Surge dynamics coupled to pore-pressure evolution in debris flows}},
+  author={Savage, SB and Iverson, RM},
+  journal={Debris-Flow Hazards Mitigation: Mechanics, Prediction and Assessment, edited by: Rickenmann, D. and Chen, C.-L., Millpress},
+  volume={1},
+  pages={503-514},
+  year={2003}
+}
+
+@book{sethian1996lsm,
+  title={{Level set methods: evolving interfaces in geometry, fluid mechanics, computer vision, and materials science}},
+  author={Sethian, J.A.},
+  year={1996},
+  publisher={Cambridge University Press Cambridge, MA}
+}
+
+@article{sheridan1995erp,
+  title={{Estimation of risk probability for gravity-driven pyroclastic flows at Volcan Colima, Mexico}},
+  author={Sheridan, M.F. and Mac{\'\i}as, J.L.},
+  journal={Journal of Volcanology and Geothermal Research},
+  volume={66},
+  number={1-4},
+  pages={251--256},
+  year={1995},
+  publisher={Elsevier}
+}
+
+@article{Sheridan2001gst,
+   author = {{Sheridan}, M.~F. and {Hubbard}, B. and {Bursik}, M.~I. and 
+	{Abrams}, M. and {Siebe}, C. and {Macias}, J.~L.~[. and {Delgado}, H.
+	},
+    title = {{Gauging short-term volcanic hazards at Popocat\'{e}petl}},
+  journal = {EOS Transactions of the American Geophysical Union},
+     year = 2001,
+   volume = 82,
+    pages = {185-185},
+      doi = {10.1029/01EO00097},
+   adsurl = {http://adsabs.harvard.edu/abs/2001EOSTr..82..185S},
+  adsnote = {Provided by the Smithsonian/NASA Astrophysics Data System}
+}
+
+@article{sheridan2002mpv,
+  title={{Mapa de peligros del Volc{\'a}n Citlalt{\'e}petl (Pico de Orizaba), escala 1: 25 000: Universidad Nacional Aut{\'o}noma de M{\'e}xico}},
+  author={Sheridan, MF and Carrasco-Nu{\~n}ez, G. and Hubbard, BE and Siebe, C. and Rodr{\'\i}guez-Elizarrar{\'a}s, S.},
+  journal={Instituto de Geolog{\'\i}a},
+  volume={1},
+  year={2002}
+}
+
+@article{Sheridan2004pfh,
+  title={{Pyroclastic Flow Hazard at Volc{\'a}n Citlalt{\'e}petl}},
+  author={Sheridan, M.F. and Hubbard, B. and Carrasco-n{\'u}{\~n}ez, G. and Siebe, C.},
+  journal={Natural Hazards},
+  volume={33},
+  number={2},
+  pages={209-221},
+  year={2004},
+  publisher={Springer}
+}
+
+@incollection{sheridan2009pdh,
+  title={{Probabilistic
+digital hazard maps for avalanches and pyroclastic flows using TITAN2D}},
+  author={M.F. Sheridan and A.K. Patra and K. Dalbey and B.I. Hubbard},
+  booktitle={Stratigraphy and geology of volcanic areas},
+  year={in press},
+  editor={G. Gropelli and L. Vierek},
+  publisher={GSA Books}
+}
+
+@article{sheu2001hrf,
+  title={{High resolution finite-element analysis of shallow water equations in two dimensions}},
+  author={Sheu, T.W.H. and Fang, CC},
+  journal={Computer Methods in Applied Mechanics and Engineering},
+  volume={190},
+  number={20-21},
+  pages={2581--2601},
+  year={2001},
+  publisher={Elsevier}
+}
+
+@article{Simpson2001,
+author={T.W. Simpson and J.D. Peplinski and P.N. Kock and J.K. Allen},
+year={2001},
+title={Metamodels for computer-based engineering design: survey and recommendations},
+journal={Engineering with Computers},
+volume={17},
+pages={129-150},
+}
+
+@article{Shi1997,
+author="F. Shi and W. Sun and G. Wei",
+year="1997",
+title="A WDM method on a generalized curvilinear grid for calculation of storm surge flooding",
+journal="Applied Ocean Research",
+volume="19",
+pages="275-282",
+}
+
+@article{Singer1983aso,
+  title={{Axisymmetric scrape-off plasma transport}},
+  author={Singer, CE and Langer, W.D.},
+  journal={Physical Review A},
+  volume={28},
+  number={2},
+  pages={994-999},
+  year={1983},
+  month = aug,
+  publisher={American Physical Society},
+  doi = {10.1103/PhysRevA.28.994},
+}
+
+@article{smith1973gbl,
+  title={{A general Bayesian linear model}},
+  author={Smith, AFM},
+  journal={Journal of the Royal Statistical Society. Series B (Methodological)},
+  pages={67--75},
+  year={1973},
+  publisher={Royal Statistical Society}
+}
+
+@article{Smolyak1960iaq,
+author={Smolyak, S. A.}, 
+title={Interpolation and quadrature formulas for the classes W a s and E a a},
+journal={Doklady Akademii Nauk SSSR},
+volume={131}, 
+pages={1028-1031},
+year={1960},
+note={in Russian, English Translation: Soviet Mathematics Doklady 4, 240-243 (1963)},
+}
+
+@article{Stein1987lsp,
+  title={{Large Sample Properties of Simulations Using Latin Hypercube Sampling}},
+  author={Stein, M.},
+  journal={Technometrics},
+  volume={29},
+  number={2},
+  pages={143-151},
+  year={1987},
+}
+
+@article{Stinton2004,
+author={A.J. Stinton and M.F Sheridan and A. Patra and K. Dalbey and L.M. Namikawa},
+year={2004},
+title={Integrating Variable Bed Friction into Titan2D Mass-Flow Model: Application to the Little Tahoma Peak Avalanches, Washington},
+journal={Acta Volcanologica},
+volume={16},
+pages={153-163},
+}
+
+@article{Stroud1957rdp,
+  title={{Remarks on the Disposition of Points in Numerical Integration Formulas}},
+  author={Stroud, AH},
+  journal={Mathematical Tables and Other Aids to Computation},
+  volume={11},
+  number={60},
+  pages={257-261},
+  year={1957},
+  publisher={JSTOR},
+}
+
+@article{Stroud1960qmf,
+  title={{Quadrature methods for functions of more than one variable}},
+  author={Stroud, A.H.},
+  journal={Annals of the New York Academy of Sciences},
+  volume={86},
+  pages={776-791},
+  year={1960},
+}
+
+@article{Stroud1967ifa,
+  title={{Integration Formulas and Orthogonal Polynomials}},
+  author={Stroud, AH},
+  journal={SIAM Journal on Numerical Analysis},
+  volume={4},
+  number={3},
+  pages={381-389},
+  year={1967},
+  publisher={JSTOR}
+}
+
+@book{Stroud1971acm,
+  title={{Approximate calculation of multiple integrals}},
+  author={Stroud, A.H.},
+  series={Automatic Computation},
+  year={1971},
+  publisher={Prentice-Hall},
+  address={Englewood Cliffs, New Jersey}
+}
+
+@article{sussman1994lsa,
+  title={{A level set approach for computing solutions to incompressible two-phase flow}},
+  author={Sussman, M. and Smereka, P. and Osher, S.},
+  journal={Journal of Computational Physics},
+  volume={114},
+  number={1},
+  pages={146--159},
+  year={1994},
+  publisher={Academic Press Professional, Inc. San Diego, CA, USA}
+}
+
+@article{Tai2001asc,
+  title={{An accurate shock-capturing finite-difference method to solve the SavageHutter equations in avalanche dynamics}},
+  author={Tai, YC and Noelle, S. and Gray, J. and Hutter, K.},
+  journal={Annals of Glaciology},
+  volume={32},
+  number={1},
+  pages={263-267},
+  year={2001},
+  publisher={International Glaciological Society}
+}
+
+
+@article{Tai2002,
+author = {Y. C. Tai and S. Noelle and J. M. N. T. Gray and K. Hutter},
+title = {Shock-capturing and front-tracking methods for granular avalanches},
+journal = {Journal of Computational Physics},
+volume = {175},
+number = {1},
+year = {2002},
+issn = {0021-9991},
+pages = {269-301},
+doi = {http://dx.doi.org/10.1006/jcph.2001.6946},
+publisher = {Academic Press Professional, Inc.},
+address = {San Diego, CA, USA},
+}
+
+@article{Talenti1987rff,
+  title={{Recovering a function from a finite number of moments}},
+  author={Talenti, G.},
+  journal={Inverse Problems},
+  volume={3},
+  number={3},
+  pages={501-517},
+  year={1987},
+}
+
+@article{Tang1993oab,
+  title={{Orthogonal Array-Based Latin Hypercubes}},
+  author={Tang, B.},
+  journal={Journal of the American Statistical Association},
+  volume={88},
+  number={424},
+  pages={1392-1397},
+  year={1993},
+  publisher={JSTOR},
+}
+
+@article{Tartakovsky2006sat,
+  title={{Stochastic analysis of transport in tubes with rough walls}},
+  author={Tartakovsky, D.M. and Xiu, D.},
+  journal={Journal of Computational Physics},
+  volume={217},
+  number={1},
+  pages={248-259},
+  year={2006},
+  publisher={Academic Press Professional, Inc. San Diego, CA, USA}
+}
+
+@book{ToroBook2001,
+author="E.F. Toro",
+year="2001",
+title="Shock-Capturing Methods for Free-Surface Shallow Flows",
+publisher="Wiley",
+address="New York",
+}
+
+@misc{whatisquasirandom,
+title={Quasirandom Sequence},
+author={Trandafir, Aurel and Weisstein, Eric W.},
+note={From MathWorld--A Wolfram Web Resource. \url{http://mathworld.wolfram.com/QuasirandomSequence.html} accessed October 4, 2007},  
+}
+
+@misc{whatispumice,
+author="United States Geological Survey",
+title="Photo glossary of volcanic terms: Pumice",
+note="website: \url{http://volcanoes.usgs.gov/Products/Pglossary/pumice.html} Date accessed: September 24, 2007",
+}
+
+@article{Wang2004,
+author="Y. Wang and  K. Hutter and S.P. Pudasaini",
+title="The Savage-Hutter theory: A system of partial differential equations for avalanche flows of snow, debris, and mud",
+journal="ZAMM",
+volume="84",
+number="8",
+pages="507-527",
+year="2004",
+publisher="WILEY-VCH Verlag GmbH & Co. KGaA", 
+address="Weinheim",
+doi="10.1002/zamm.200310123",
+URL="http://dx.doi.org/10.1002/zamm.200310123",
+}
+
+@inproceedings{WelchWitkin1994,
+author="William Welch and Andrew Witkin",
+title="Free-form shape design using triangulated surfaces",
+booktitle="SIGGRAPH '94: Proceedings of the 21st annual conference on Computer graphics and interactive techniques",
+year="1994",
+isbn="0-89791-667-0",
+pages="247-256",
+doi="http://doi.acm.org/10.1145/192161.192216",
+publisher="ACM Press",
+address="New York, NY, USA",
+}
+
+@article{Wiener1938hc,
+  title={{The Homogeneous Chaos}},
+  author={Wiener, N.},
+  journal={American Journal of Mathematics},
+  volume={60},
+  number={4},
+  pages={897--936},
+  year={1938},
+  publisher={JSTOR}
+}
+
+@misc{whatisfokkerplanck,
+author="Wikipedia",
+title="Fokker-Planck equation",
+note="website: \url{http://en.wikipedia.org/wiki/Fokker-Planck_equation} Date accessed: March 10, 2009",
+}
+
+@misc{whatisperturbation,
+author="Wikipedia",
+title="Perturbation theory",
+note="website: \url{http://en.wikipedia.org/wiki/Perturbation_theory} Date accessed: October 8, 2007",
+}
+
+@misc{whatisapyroclasticflow,
+author="Wikipedia",
+title="Pyroclastic flow",
+note="website: \url{http://en.wikipedia.org/wiki/Pyroclastic_flow} Date accessed: September 18, 2007",
+}
+
+@phdthesis{WilkinsonPhDthesis1995,
+author="Darren James Wilkinson",
+title="Bayes linear covariance matrix adjustment",
+school="Department of Mathematical Sciences, University of Durham",
+year="1995",
+month="September",
+}
+
+@misc{WilkinsonGoldstein1997,
+author="D. Wilkinson and M. Goldstein",
+title="Bayes linear covariance matrix adjustment for multivariate dynamic linear models",
+text="D. J. Wilkinson and M. Goldstein. Bayes linear covariance matrix adjustment for multivariate dynamic linear models. U. Ncle. Stats. Tech. report STA97,12, http://www.ncl.ac.uk/nstat/preprints/, 1997.",
+year="1997",
+url="citeseer.ist.psu.edu/172077.html", 
+}
+
+@unpublished{blm2tutor,
+author="D. Woof",
+title="Bayes Linear Methods II An Example with an Introduction to [B/D]",
+note="Part 2 of 3 of online tutorial, website: \url{http://maths.dur.ac.uk/stats/bd}",
+}
+
+@unpublished{blm3tutor,
+author="D. Woof and M. Goldstein", 
+title="Bayes Linear Methods III Analyzing Bayes Linear Influence Diagrams and Exchangeability in [B/D]",
+note="Part 3 of 3 of online tutorial, website: \url{http://maths.dur.ac.uk/stats/bd}",
+}
+
+@article{working1995shs,
+  title={{Seismic Hazards in Southern California: Probable Earthquakes}},
+  author={Working, G.},
+  journal={Bulletin of the Seismological Society of America},
+  volume={85},
+  pages={379--439},
+  year={1995}
+}
+
+@article{Xiu2005hoc,
+author = {Dongbin Xiu and Jan S. Hesthaven},
+collaboration = {},
+title = {High-Order Collocation Methods for Differential Equations with Random Inputs},
+publisher = {SIAM},
+year = {2005},
+journal = {SIAM Journal on Scientific Computing},
+volume = {27},
+number = {3},
+pages = {1118-1139},
+keywords = {collocation methods; stochastic inputs; differential equations; uncertainty quantification},
+url = {http://link.aip.org/link/?SCE/27/1118/1},
+doi = {10.1137/040615201}
+}
+
+@article{XiuKarniadakis2002wap,
+  title={{The Wiener-Askey Polynomial Chaos for Stochastic Differential Equations}},
+  author={Xiu, D. and Karniadakis, G.E.},
+  journal={SIAM Journal on Scientific Computing},
+  volume={24},
+  number={2},
+  pages={619-644},
+  year={2002}
+}
+
+@article{xiu2003muf,
+  title={{Modeling uncertainty in flow simulations via generalized polynomial chaos}},
+  author={Xiu, D. and Karniadakis, G.E.},
+  journal={Journal of Computational Physics},
+  volume={187},
+  number={1},
+  pages={137--167},
+  year={2003},
+  publisher={Elsevier}
+}
+
+@article{Xiu2006nmd,
+author = {Dongbin Xiu and Daniel M. Tartakovsky},
+collaboration = {},
+title = {Numerical Methods for Differential Equations in Random Domains},
+publisher = {SIAM},
+year = {2006},
+journal = {SIAM Journal on Scientific Computing},
+volume = {28},
+number = {3},
+pages = {1167-1185},
+keywords = {random domain; stochastic inputs; differential equations; uncertainty quantification},
+url = {http://link.aip.org/link/?SCE/28/1167/1},
+doi = {10.1137/040613160}
+}
+
+@article{yamamoto1993pfe,
+  title={{Pyroclastic flows from the 1991 eruption of Unzen volcano, Japan}},
+  author={Yamamoto, T. and Takarada, S. and Suto, S.},
+  journal={Bulletin of Volcanology},
+  volume={55},
+  number={3},
+  pages={166--175},
+  year={1993},
+  publisher={Springer}
+}
+
+@article{Ye2000aco,
+  title={{Algorithmic construction of optimal symmetric Latin hypercube designs}},
+  author={K.Q. Ye and W. Li and A. Sudjianto},
+  journal={Journal of statistical planning and inference},
+  volume={90},
+  number={1},
+  pages={145-159},
+  year={2000},
+  publisher={Elsevier Science}
+}
+
+
+@incollection{youngs1982tdm,
+  title={{Time-dependent multi-material flow with large fluid distortion}},
+  author={Youngs, DL},
+  editor={K. W. Morton and M. J. Baines},
+  booktitle={Numerical Methods for Fluid Dynamics},
+  pages={273-285},
+  year={1982},
+  publisher={Academic Press}
+}
+
+@article{yu2009nic,
+  title={{Numerical issues in computing inundation areas over natural terrains using Savage-Hutter theory}},
+  author={Bin Yu and Keith Dalbey and Amy Webb and Marcus Bursik and Abani Patra and E. Bruce Pitman and Camil Nichita},
+  journal={Natural Hazards},
+  doi={10.1007/s11069-008-9339-1},
+  publisher={Springer},
+  year={in press}
+}
+
+@article{Zelt1991,
+author="J.A. Zelt",
+year="1991",
+title="The runup of nonbreaking and breaking solitary waves",
+journal="Coastal Engineering",
+volume="15",
+pages="205-246",
+}
+
+@article{zickfeld2004lom,
+  title={{A low-order model for the response of the Atlantic thermohaline circulation to climate change}},
+  author={Zickfeld, K. and Slawig, T. and Rahmstorf, S.},
+  journal={Ocean Dynamics},
+  volume={54},
+  number={1},
+  pages={8--26},
+  year={2004},
+  publisher={Springer}
+}

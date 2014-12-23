@@ -1,10 +1,5 @@
  \documentclass[letterpaper,10pt]{article}
 
-% \renewenvironment{figure}[1][]{%
-%   \def\@captype{figure}%
-%   \par\nobreak\begin{center}\nobreak}
-%   {\par\nobreak\end{center}}
-
 \usepackage{amsmath}
 \usepackage[utf8x]{inputenc}
 \usepackage{caption}
@@ -12,35 +7,31 @@
 \usepackage{graphicx}
 \usepackage{subfig}
 \usepackage{float}
-
-
+\usepackage{natbib}
 \usepackage{anysize}
-
 \usepackage{float}
 \usepackage{tabularx}
 \usepackage{amsmath}
-
 \usepackage{amssymb}
 \usepackage{amsfonts}
-% \usepackage{yfonts}
 \usepackage{mathrsfs}
 \usepackage{setspace}
 \usepackage{relsize}
 
+\usepackage{multicol}
 
-\marginsize{1.in}{1.in}{1in}{1in}
-\linespread{1.25}
-\setlength\parindent{0pt}
+%
+%\marginsize{1.in}{1.in}{1in}{1in}
+%\linespread{1.25}
+%\setlength\parindent{0pt}
 
 
 \title{Comparison Between Heuristic and Eulerian Interface Capturing Approaches for Shallow Water Type Flow}
 \author{Hossein Aghakhani, Keith Dalbey, Abani Patra, David Salac}
 \date{}
 
-
-
 \begin{document}
-\bibliographystyle{plain}
+
 \maketitle
 
 \begin {abstract}{
@@ -73,9 +64,8 @@ wide range of SW flows.
 % =============================================================================
 %                 INTRODUCTION
 % =============================================================================
-
-\section{Introduction} \label{introduction}
-
+\section{Introduction} 
+\label{introduction}
 % Basic introduction about the Shallow water
 Shallow water (SW) flows include a wide range of fluid flows. In SW flows that the fluid depth is much 
 smaller than the characteristic length of the fluid body. In driving the corresponding 
@@ -88,10 +78,9 @@ conservation equations with some minor modifications could be used to study thes
 To this aim, Eglit and Sveshnikova \cite{eglit1980mms} modified the depth-averaged Saint Venant equations 
 to simulate granular snow avalanches, and almost a decade later Savage and Hutter\cite{SavageHutter1989} 
 were the first to adapt the depth averaged Saint Venant equations to accommodate  geophysical mass flow. 
-
 % introducing WD problem
-Since this type of flow is free moving boundary flows, one of the basic difficulties 
-of the numerical solution of them, which itself 
+Since this type of flow is free moving boundary flow, one of the basic difficulties 
+of the numerical solution, which itself 
 causes a large group of other difficulties, is finding the location of flow interface. 
 More clearly, the governing equations are just valid in wet areas, so there must be a way to discriminate 
 between wet and dry areas in numerical simulation. 
@@ -178,7 +167,7 @@ compares them very briefly.
 \end{tabular}
 \end{center}
 
-On the other hand, with the interface tracking/capturing methods one can find the interface
+On the other hand, with the interface tracking/capturing m ethods one can find the interface
 of a moving boundary flow in a more rigorous way.
 Based upon the employed frame of work, these methods are divided into Lagrangian and Eulerian methods.
 Roughly speaking in Lagrangian type methods, the initial interface is replaced with some of the material 
@@ -395,8 +384,9 @@ simulation at Colima Volcano, Mexico, is displayed in Figure \ref{bufcell}.
 
 \begin{figure}[!h]
 \begin{center}
-\includegraphics[width=4.5truein]{IMAGES/buffercells.png}\label{bufcell}
+\includegraphics[width=4.5truein]{IMAGES/buffercells.png}
 \caption{Buffer cells}
+\label{bufcell}
 \end{center}
 \end{figure} 
 
@@ -748,7 +738,7 @@ In this method, a continuous
 order parameter is augmented into the state variables. This order parameter that is displayed here with $\varphi$, 
 implicitly represent the interface in the domain. To this aim, a new transfer equation 
 must be solved which is coupled with the other state variables.
-Papers \cite{ , } are good references about the history and evolution of the method.
+Papers [??] are good references about the history and evolution of the method.
 Phase diffusion methods and particularly phase field method is base upon the notion that the interface between phases is a 
 diffusive region rather than a sharp interface with a finite width. 
 As described in the introduction \ref{introduction} of this paper, $\phi$ is constant inside the bulk phases but changes 
@@ -759,7 +749,7 @@ topological changes especially for the problems that the interface motion depend
 to the interface and on the local curvature of the interface \cite{Beckermann2006}.
 Cahn-Hilliard and Allen-Cahn are the two principal phase field formulations that 
 are displayed in eq. \eqref{cahnhilliard} and eq. \eqref{allencahn} respectively.The derivation of the equations in more detail could be 
-found in \cite{,}. As could be seen in these equations, the time material derivative of phi is related to the product of the 
+found in [??]. As could be seen in these equations, the time material derivative of phi is related to the product of the 
 mobility and derivative of the free energy with respect to $\phi$. The basic difference between these formulations is that the 
 Cahn-Hilliard is mass conservative but the Allen-Cahn is not. On other hand, there is a biharmonic term in the right hand side of 
 the Cahn-Hilliard equation which is forth order derivative and makes it more difficult to implement. Usually, people try to 
@@ -776,13 +766,12 @@ which \newline
 \begin{equation}
 \mu = F'(\varphi)- \varepsilon^2 \Delta (\varphi)
 \end{equation}
-In the above equation F is Helmholtz free energy of a unit volume of homogeneous material of composition $\varphi$. \newline 
+In the above equation F is Helmholtz free energy of a unit volume of homogeneous material of composition $\varphi$. 
 
-\begin{equation} \label{allencahn}
-% \begin{array}{c} 
- \large \frac{\partial \varphi }{\partial t} + \overrightarrow{V} \cdot \bigtriangledown \varphi = 
+\begin{equation} 
+\label{allencahn}
+\frac{\partial \varphi }{\partial t} + \overrightarrow{V} \cdot \bigtriangledown \varphi = 
 \frac{1}{Pe}(-f(\varphi)+\varepsilon^2\bigtriangleup\varphi+\xi(t))
-% \end{array}
 \end{equation}
 As discussed before, the Allen-Cahn formulation is not mass conservative, so to conserve the mass a Lagrange multiplier is added into 
 the equation as a source term that is displayed in eq. \eqref{allencahn} by $\xi(t)$
@@ -828,10 +817,10 @@ figure \ref{figintegrator} shows the operator splitting time integration schemat
 \begin{equation} 
 \label{explicit_phi}
 \begin{array}{l}
-\displaystyle \large \frac{\partial \varphi_1}{\partial t} + \overrightarrow{V} \cdot \bigtriangledown \varphi_1 = f(\varphi_1) \\
-\displaystyle \large L_1 = V_x \frac{\partial }{\partial x} + V_y \frac{\partial }{\partial y}\\
-\displaystyle \large \frac{\varphi_{1}^{n+1}-\varphi_{1}^{n}}{\bigtriangledown t} = f(\varphi_{1}^{n}) - L_1 \varphi_{1}^{n}\\
-\displaystyle \large \varphi_{1}^{n+1} = \bigtriangledown t ( f(\varphi_{1}^{n}) - L_1 \varphi_{1}^{n}) \\
+\frac{\partial \varphi_1}{\partial t} + \overrightarrow{V} \cdot \bigtriangledown \varphi_1 = f(\varphi_1) \\
+ L_1 = V_x \frac{\partial }{\partial x} + V_y \frac{\partial }{\partial y}\\
+\frac{\varphi_{1}^{n+1}-\varphi_{1}^{n}}{\bigtriangledown t} = f(\varphi_{1}^{n}) - L_1 \varphi_{1}^{n}\\
+\varphi_{1}^{n+1} = \bigtriangledown t ( f(\varphi_{1}^{n}) - L_1 \varphi_{1}^{n}) \\
 \end{array} 
 \end{equation}
 
@@ -839,10 +828,10 @@ figure \ref{figintegrator} shows the operator splitting time integration schemat
 \begin{equation}
 \label{implcit_phi}
 \begin{array}{l}
-\displaystyle \large \frac{\partial \varphi_2}{\partial t} = \alpha \bigtriangledown^2 \varphi_2 \\
-\displaystyle \large L_2 = \alpha (\frac{\partial^2 }{\partial x^2} + \frac{\partial^2 }{\partial y^2}) \\
+\frac{\partial \varphi_2}{\partial t} = \alpha \bigtriangledown^2 \varphi_2 \\
+L_2 = \alpha (\frac{\partial^2 }{\partial x^2} + \frac{\partial^2 }{\partial y^2}) \\
 \displaystyle \large \frac{\varphi_{1}^{n+1}-\varphi_{1}^{n}}{\bigtriangledown t} = \alpha L_2 \varphi_{2}^{n+1}\\
-\displaystyle \large ( 1- \bigtriangledown t \alpha L_2 ) \varphi_{1}^{n+1} = \varphi_{2}^{n}\\
+( 1- \bigtriangledown t \alpha L_2 ) \varphi_{1}^{n+1} = \varphi_{2}^{n}\\
 \end{array} 
 \end{equation}
 
@@ -993,7 +982,7 @@ Initial friction angle    & $37.3^o$ \\
 \subsubsection{Heuristic Method}
 
 \begin{figure}[H]
-  \begin{minipage}[b]{.5\linewidth}
+  \begin{minipage}[b]{.48\linewidth}
     \centering
     \includegraphics[width=1\textwidth]{IMAGES/ordinary/1.png}
     \subcaption{t=0.1 sec}
@@ -1003,7 +992,7 @@ Initial friction angle    & $37.3^o$ \\
     \subcaption{t=0.3 sec}
   \end{minipage}
 %   \hfill
-  \begin{minipage}[b]{.5\linewidth}
+  \begin{minipage}[b]{.48 \linewidth}
     \centering
     \includegraphics[width=1\textwidth]{IMAGES/ordinary/4.png}
     \subcaption{t=0.4 sec}
@@ -1118,7 +1107,7 @@ resolution of the mesh during the simulation to check the points that are placed
 As a definition boundary here means that the points that the flow passed from them, but has not passed one of their neighbors 
 in different directions. For phase field and level set just with recording the maximum absolute value of phi we can find 
 these points by plotting $\phi=0$, this contour produces deposit line of flow during the time. For the heuristic method we 
-recorded the minimum of the pile height during time and plotted the contour of $ h = h_{scale} \times GEOFLOW_TINY$, where 
+recorded the minimum of the pile height during time and plotted the contour of $ h = h_{scale} \times GEOFLOW \_ TINY$, where 
 $ h_{scale} =Volume^\frac{1}{3} $.
 
 % \text{Height_Scale}
@@ -1126,7 +1115,7 @@ $ h_{scale} =Volume^\frac{1}{3} $.
 The resolution of the digital elevation model (DEM) of Colima volcano that here we used is 5 meter which is the finest DEM 
 that we have ever used for this volcano.
 
-The outline of this eruption is available in \cite{namikawa}, we used the method that described in \cite{namikawa} to 
+The outline of this eruption is available in \cite{NamikawaPhD}, we used the method that described in \cite{NamikawaPhD} to 
 extract the skeleton line of the flow to be able to compare the results quantitatively. The procedure of the extraction of the 
 skeleton line is shown in the following pictures. 
 
@@ -1161,9 +1150,7 @@ skeleton line is shown in the following pictures.
 \newpage
 
 After finding the skeleton line, we mapped the outline of the flow and the skeleton line on the Colima volcano 
-using KML language and Google earth application \ref{skel_outline}. In pictures \ref{phasefieldfig}-
-% \ref{compfig} 
-the result of each methods and their comparison can be seen. 
+using KML language and Google earth application \ref{skel_outline}. In pictures \ref{phasecolima}- \ref{compfig} the result of each methods and their comparison can be seen. 
 
 \begin{figure}[H]
 \centerline{\includegraphics[width=\textwidth]{IMAGES/skeleton_outline1.jpg}}
@@ -1186,7 +1173,7 @@ the result of each methods and their comparison can be seen.
  \begin{figure}[H]
  \centerline{\includegraphics[scale=0.5]{IMAGES/tiny1.jpg}}
  \caption{Skeleton line (white line) and outline of the deposit of erution 1991 (yellow line)}
- \label{compfig}
+ \label{tiny_colima}
  \end{figure}
  
  \begin{figure}[H]
@@ -1194,222 +1181,6 @@ the result of each methods and their comparison can be seen.
  \caption{Skeleton line (white line) and outline of the deposit of erution 1991 (yellow line)}
  \label{compfig}
  \end{figure}
-
-
-
-% \subsubsection{HEURISTIC}
-% The following pictures shows the outline of flow resulted from the Heuristic method:
-% \begin{figure}[H]
-% \centerline{\includegraphics[width=.9\textwidth]{IMAGES/pics/tiny0.jpg}}
-% \caption{T=0 s}
-% \label{yextent}
-% \end{figure}
-% \begin{figure}[H]
-% \centerline{\includegraphics[width=.9\textwidth]{IMAGES/pics/tiny1.jpg}}
-% \caption{T=10 s}
-% \label{yextent}
-% \end{figure}
-% \begin{figure}[H]
-% \centerline{\includegraphics[width=.9\textwidth]{IMAGES/pics/tiny3.jpg}}
-% \caption{T=30 s}
-% \label{yextent}
-% \end{figure}
-% \begin{figure}[H]
-% \centerline{\includegraphics[width=.9\textwidth]{IMAGES/pics/tiny6.jpg}}
-% \caption{T=60 s}
-% \label{yextent}
-% \end{figure}
-% \begin{figure}[H]
-% \centerline{\includegraphics[width=.9\textwidth]{IMAGES/pics/tiny12.jpg}}
-% \caption{T=120 s}
-% \label{geoflow_interface}
-% \end{figure}
-% \begin{figure}[H]
-% \centerline{\includegraphics[width=.9\textwidth]{IMAGES/pics/tiny36.jpg}}
-% \caption{T=360 s}
-% \label{geoflow_interface}
-% \end{figure}
-% \begin{figure}[H]
-%         \centering
-%         \begin{subfigure}{0.9\textwidth}
-%                 \includegraphics[width=\textwidth]{IMAGES/pics/tiny0.jpg}
-%                 \caption{T=0 sec}
-%                 \label{fig:h1}
-%         \end{subfigure}\\
-%         \begin{subfigure}[H]{0.9\textwidth}
-%                 \includegraphics[width=\textwidth]{IMAGES/pics/tiny1.jpg}
-%                 \caption{T=10 sec}
-%                 \label{fig:h2}
-%         \end{subfigure}\\
-%         \begin{subfigure}[H]{0.9\textwidth}
-%                 \includegraphics[width=\textwidth]{IMAGES/pics/tiny3.jpg}
-%                 \caption{T=30 sec}
-%                 \label{fig:h3}
-%         \end{subfigure}\\
-%         \begin{subfigure}[H]{0.9\textwidth}
-%                 \includegraphics[width=\textwidth]{IMAGES/pics/tiny6.jpg}
-%                 \caption{T=60 sec}
-%                 \label{fig:h3}
-%         \end{subfigure}\\
-%         \begin{subfigure}[H]{0.9\textwidth}
-%                 \includegraphics[width=\textwidth]{IMAGES/pics/tiny12.jpg}
-%                 \caption{T=120 sec}
-%                 \label{fig:h3}
-%         \end{subfigure}\\
-%         \begin{subfigure}[H]{0.9\textwidth}
-%                 \includegraphics[width=\textwidth]{IMAGES/pics/tiny36.jpg}
-%                 \caption{T=360 sec}
-%                 \label{fig:h3}
-%         \end{subfigure}\\
-%                 
-%         \caption{The interface position of the flow at differet time steps}\label{fig:tiny}
-% \end{figure}
-
-% 
-% \subsubsection{Phase Field}
-% 
-% \begin{figure}[H]
-% \centerline{\includegraphics[width=.9\textwidth]{IMAGES/pics/phase0.jpg}}
-% \caption{T=0 s}
-% \label{yextent}
-% \end{figure}
-% \begin{figure}[H]
-% \centerline{\includegraphics[width=.9\textwidth]{IMAGES/pics/phase1.jpg}}
-% \caption{T=10 s}
-% \label{yextent}
-% \end{figure}
-% \begin{figure}[H]
-% \centerline{\includegraphics[width=.9\textwidth]{IMAGES/pics/phase3.jpg}}
-% \caption{T=30 s}
-% \label{yextent}
-% \end{figure}
-% \begin{figure}[H]
-% \centerline{\includegraphics[width=.9\textwidth]{IMAGES/pics/phase6.jpg}}
-% \caption{T=60 s}
-% \label{yextent}
-% \end{figure}
-% \begin{figure}[H]
-% \centerline{\includegraphics[width=.9\textwidth]{IMAGES/pics/phase12.jpg}}
-% \caption{T=120 s}
-% \label{geoflow_interface}
-% \end{figure}
-% \begin{figure}[H]
-% \centerline{\includegraphics[width=.9\textwidth]{IMAGES/pics/phase36.jpg}}
-% \caption{T=360 s}
-% \label{geoflow_interface}
-% \end{figure}
-% 
-% 
-% \subsubsection{Level Set}
-% 
-% 
-% \begin{figure}[H]
-% \centerline{\includegraphics[width=.9\textwidth]{IMAGES/pics/level0.jpg}}
-% \caption{T=0 s}
-% \label{level0}
-% \end{figure}
-% \begin{figure}[H]
-% \centerline{\includegraphics[width=.9\textwidth]{IMAGES/pics/level1.jpg}}
-% \caption{T=10 s}
-% \label{level01}
-% \end{figure}
-% \begin{figure}[H]
-% \centerline{\includegraphics[width=.9\textwidth]{IMAGES/pics/level3.jpg}}
-% \caption{T=30 s}
-% \label{level02}
-% \end{figure}
-% \begin{figure}[H]
-% \centerline{\includegraphics[width=.9\textwidth]{IMAGES/pics/level6.jpg}}
-% \caption{T=60 s}
-% \label{level06}
-% \end{figure}
-% \begin{figure}[H]
-% \centerline{\includegraphics[width=.9\textwidth]{IMAGES/pics/level12.jpg}}
-% \caption{T=120 s}
-% \label{level12}
-% \end{figure}
-% \begin{figure}[H]
-% \centerline{\includegraphics[width=.9\textwidth]{IMAGES/pics/level36.jpg}}
-% \caption{T=360 s}
-% \label{level36}
-% \end{figure}
-% 
-% \subsubsection{Comparison}
-% 
-% In this part of the paper we show the obtained results of different time steps that is obtained from different methods in a same picture for to comprae them 
-% qualitatively.
-% 
-% \begin{figure}[H]
-% \centerline{\includegraphics[width=.9\textwidth]{IMAGES/pics/comp1.jpg}}
-% \caption{T=0 s}
-% \label{comp1}
-% \end{figure}
-% \begin{figure}[H]
-% \centerline{\includegraphics[width=.9\textwidth]{IMAGES/pics/comp3.jpg}}
-% \caption{T=10 s}
-% \label{comp3}
-% \end{figure}
-% \begin{figure}[H]
-% \centerline{\includegraphics[width=.9\textwidth]{IMAGES/pics/comp6.jpg}}
-% \caption{T=30 s}
-% \label{comp6}
-% \end{figure}
-% \begin{figure}[H]
-% \centerline{\includegraphics[width=.9\textwidth]{IMAGES/pics/comp12.jpg}}
-% \caption{T=60 s}
-% \label{comp12}
-% \end{figure}
-% \begin{figure}[H]
-% \centerline{\includegraphics[width=.9\textwidth]{IMAGES/pics/comp36.jpg}}
-% \caption{T=120 s}
-% \label{comp36}
-% \end{figure}
-
-% \begin{figure}[H]
-% \centerline{\includegraphics[width=.9\textwidth]{IMAGES/pics/level6.jpg}}
-% \caption{T=60 s}
-% \label{yextent}
-% \end{figure}
-% \begin{figure}[H]
-% \centerline{\includegraphics[width=.9\textwidth]{IMAGES/pics/level12.jpg}}
-% \caption{T=120 s}
-% \label{geoflow_interface}
-% \end{figure}
-% \begin{figure}[H]
-% \centerline{\includegraphics[width=.8\textwidth]{IMAGES/pics/level36.jpg}}
-% \caption{T=360 s}
-% \label{geoflow_interface}
-% \end{figure}
-
-% \begin{figure}
-%         \centering
-%         \begin{subfigure}[b]{0.8\textwidth}
-%                 \includegraphics[width=\textwidth]{IMAGES/pics/tiny0.jpg}
-%                 \caption{}
-%                 \label{fig:h1}
-%         \end{subfigure}%
-%         \begin{subfigure}[b]{0.8\textwidth}
-%                 \includegraphics[width=\textwidth]{IMAGES/pics/tiny1.jpg}
-%                 \caption{}
-%                 \label{fig:h2}
-%         \end{subfigure}
-%         \begin{subfigure}[b]{0.8\textwidth}
-%                 \includegraphics[width=\textwidth]{IMAGES/pics/tiny3.jpg}
-%                 \caption{}
-%                 \label{fig:h3}
-%         \end{subfigure}
-%                 \begin{subfigure}[b]{0.8\textwidth}
-%                 \includegraphics[width=\textwidth]{IMAGES/pics/tiny6.jpg}
-%                 \caption{}
-%                 \label{fig:h3}
-%         \end{subfigure}
-%                 \begin{subfigure}[b]{0.8\textwidth}
-%                 \includegraphics[width=\textwidth]{IMAGES/pics/tiny12.jpg}
-%                 \caption{}
-%                 \label{fig:h3}
-%         \end{subfigure}
-%         \caption{Pictures of animals}\label{fig:tiny}
-% \end{figure}
 
 
 
@@ -1464,6 +1235,6 @@ context of Titan2D's capabilities, much of it should be appropriate
 for use in depth-averaged flow solvers with different numerical 
 implementations.
 
-
-\bibliography{thinlayerpaper}
+\bibliographystyle{plain}
+\bibliography{mybib}
 \end{document}

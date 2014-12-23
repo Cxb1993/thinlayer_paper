@@ -1,4 +1,4 @@
-This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2014.7.2)  22 DEC 2014 14:35
+This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2014.7.2)  23 DEC 2014 12:51
 entering extended mode
  %&-line parsing enabled.
 **thinlayerpaper.tex
@@ -166,6 +166,13 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \@float@everytoks=\toks26
 \@floatcapt=\box29
 )
+(/usr/share/texmf/tex/latex/natbib/natbib.sty
+Package: natbib 2007/02/05 8.0 (PWD)
+\bibhang=\skip51
+\bibsep=\skip52
+LaTeX Info: Redefining \cite on input line 602.
+\c@NAT@ctr=\count106
+)
 (/usr/share/texmf/tex/latex/anysize/anysize.sty
 Package: anysize 1994/08/13 setting margin sizes
 
@@ -184,15 +191,15 @@ Package: array 2005/08/23 v2.4b Tabular extension package (FMi)
 \col@sep=\dimen126
 \extrarowheight=\dimen127
 \NC@list=\toks27
-\extratabsurround=\skip51
-\backup@length=\skip52
+\extratabsurround=\skip53
+\backup@length=\skip54
 )
 \TX@col@width=\dimen128
 \TX@old@table=\dimen129
 \TX@old@col=\dimen130
 \TX@target=\dimen131
 \TX@delta=\dimen132
-\TX@cols=\count106
+\TX@cols=\count107
 \TX@ftn=\toks28
 )
 (/usr/share/texmf/tex/latex/amsfonts/amssymb.sty
@@ -215,667 +222,482 @@ Package: setspace 2000/12/01 6.7 Contributed and Supported LaTeX2e package
 Package: `setspace' 6.7 <2000/12/01>
 ) (/usr/share/texmf/tex/latex/ltxmisc/relsize.sty
 Package: relsize 2003/07/04 ver 3.1
-) (./thinlayerpaper.aux
-
-LaTeX Warning: Label `compfig' multiply defined.
-
 )
+(/usr/share/texmf/tex/latex/tools/multicol.sty
+Package: multicol 2006/05/18 v1.6g multicolumn formatting (FMi)
+\c@tracingmulticols=\count108
+\mult@box=\box30
+\multicol@leftmargin=\dimen133
+\c@unbalance=\count109
+\c@collectmore=\count110
+\doublecol@number=\count111
+\multicoltolerance=\count112
+\multicolpretolerance=\count113
+\full@width=\dimen134
+\page@free=\dimen135
+\premulticols=\dimen136
+\postmulticols=\dimen137
+\multicolsep=\skip55
+\multicolbaselineskip=\skip56
+\partial@page=\box31
+\last@line=\box32
+\mult@rightbox=\box33
+\mult@grightbox=\box34
+\mult@gfirstbox=\box35
+\mult@firstbox=\box36
+\@tempa=\box37
+\@tempa=\box38
+\@tempa=\box39
+\@tempa=\box40
+\@tempa=\box41
+\@tempa=\box42
+\@tempa=\box43
+\@tempa=\box44
+\@tempa=\box45
+\@tempa=\box46
+\@tempa=\box47
+\@tempa=\box48
+\@tempa=\box49
+\@tempa=\box50
+\@tempa=\box51
+\@tempa=\box52
+\@tempa=\box53
+\c@columnbadness=\count114
+\c@finalcolumnbadness=\count115
+\last@try=\dimen138
+\multicolovershoot=\dimen139
+\multicolundershoot=\dimen140
+\mult@nat@firstbox=\box54
+\colbreak@box=\box55
+) (./thinlayerpaper.aux)
 \openout1 = `thinlayerpaper.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
- (/usr/share/texmf/tex/latex/ucs/ucsencs.def
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+
+(/usr/share/texmf/tex/latex/ucs/ucsencs.def
 File: ucsencs.def 2003/11/29 Fixes to fontencodings LGR, T3
 )
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: subfig package v1.3 is loaded.
 Package caption Info: float package is loaded.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Font Info:    Try loading font information for U+msa on input line 44.
+LaTeX Font Info:    Try loading font information for U+msa on input line 35.
 
 (/usr/share/texmf/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2002/01/19 v2.2g AMS font definitions
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 44.
+LaTeX Font Info:    Try loading font information for U+msb on input line 35.
 
 (/usr/share/texmf/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2002/01/19 v2.2g AMS font definitions
 )
-LaTeX Font Info:    Try loading font information for U+rsfs on input line 44.
+LaTeX Font Info:    Try loading font information for U+rsfs on input line 35.
 
 (/usr/share/texmf/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
+Underfull \hbox (badness 10000) in paragraph at lines 70--100
 
-LaTeX Warning: Citation `eglit1980mms' on page 1 undefined on input line 88.
-
-
-LaTeX Warning: Citation `SavageHutter1989' on page 1 undefined on input line 89
-.
+ []
 
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 93--111
+
+Package natbib Warning: Citation `Chen1997' on page 2 undefined on input line 1
+34.
+
+
+Package natbib Warning: Citation `DAnderson1998' on page 2 undefined on input l
+ine 134.
+
+
+Package natbib Warning: Citation `Hirt1981' on page 2 undefined on input line 1
+34.
+
+[2]
+Underfull \hbox (badness 10000) in paragraph at lines 170--187
 
  []
 
 
-LaTeX Warning: Citation `Medeiros2013' on page 2 undefined on input line 133.
+Underfull \hbox (badness 10000) in paragraph at lines 189--195
+
+ []
 
 
-LaTeX Warning: Citation `Balzano1998' on page 2 undefined on input line 133.
+Package natbib Warning: Citation `more recent' on page 3 undefined on input lin
+e 207.
 
 
-LaTeX Warning: Citation `Chen1997' on page 2 undefined on input line 145.
+Underfull \hbox (badness 10000) in paragraph at lines 211--219
+
+ []
 
 
-LaTeX Warning: Citation `Sethian2003' on page 2 undefined on input line 145.
-
-
-LaTeX Warning: Citation `DAnderson1998' on page 2 undefined on input line 145.
-
-
-LaTeX Warning: Citation `Hirt1981' on page 2 undefined on input line 145.
-
-
-LaTeX Warning: Citation `Medeiros2013' on page 2 undefined on input line 148.
-
-[2]
-
-LaTeX Warning: Citation `Tai2002' on page 3 undefined on input line 195.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 181--198
+Underfull \hbox (badness 10000) in paragraph at lines 220--225
 
  []
 
 [3]
-Underfull \hbox (badness 10000) in paragraph at lines 200--206
+Underfull \hbox (badness 10000) in paragraph at lines 228--243
 
  []
 
 
-LaTeX Warning: Citation `hirt1981vfv' on page 4 undefined on input line 210.
-
-
-LaTeX Warning: Citation `youngs1982tdm' on page 4 undefined on input line 214.
-
-
-LaTeX Warning: Citation `gerlach2006cvf' on page 4 undefined on input line 217.
-
-
-
-LaTeX Warning: Citation `gopala2008vfm' on page 4 undefined on input line 217.
-
-
-LaTeX Warning: Citation `more recent' on page 4 undefined on input line 218.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 222--230
+Underfull \hbox (badness 10000) in paragraph at lines 245--251
 
  []
 
 
-LaTeX Warning: Citation `quecedo2002rtg' on page 4 undefined on input line 231.
-
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 231--236
+Underfull \hbox (badness 10000) in paragraph at lines 252--254
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 239--254
+Underfull \hbox (badness 10000) in paragraph at lines 255--259
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 260--266
 
  []
 
 [4]
-Underfull \hbox (badness 10000) in paragraph at lines 256--262
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 263--265
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 266--270
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 271--277
-
- []
-
-
-LaTeX Warning: Citation `Hutter1993' on page 5 undefined on input line 292.
-
-
-LaTeX Warning: Citation `Iverson1997' on page 5 undefined on input line 292.
-
-
-LaTeX Warning: Citation `Gray1999' on page 5 undefined on input line 292.
-
-
-LaTeX Warning: Citation `IversonDenlinger2001' on page 5 undefined on input lin
-e 292.
-
-
-LaTeX Warning: Citation `PudasainiHutter2003' on page 5 undefined on input line
- 292.
-
-
-LaTeX Warning: Citation `SavageIverson2003' on page 5 undefined on input line 2
-92.
-
-
-LaTeX Warning: Citation `pitmanpof' on page 5 undefined on input line 293.
-
-
-LaTeX Warning: Citation `gmfg1' on page 5 undefined on input line 293.
-
-
-LaTeX Warning: Citation `dgtitanpaper' on page 5 undefined on input line 293.
-
-[5]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 310.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 299.
 
  (/usr/share/texmf/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 310.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 299.
 
-<IMAGES/1.jpg, id=27, 820.06375pt x 354.32375pt>
+<IMAGES/1.jpg, id=24, 820.06375pt x 354.32375pt>
 File: IMAGES/1.jpg Graphic file (type jpg)
- <use IMAGES/1.jpg> [6]
-
-LaTeX Warning: Citation `ToroBook2001' on page 7 undefined on input line 362.
-
-[7 <./IMAGES/1.jpg>]
-
-LaTeX Warning: Citation `FraccarolloToro1995' on page 8 undefined on input line
- 374.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 370--384
+ <use IMAGES/1.jpg> [5]
+Underfull \hbox (badness 10000) in paragraph at lines 359--373
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 386--391
+Underfull \hbox (badness 10000) in paragraph at lines 375--380
 
  []
 
-
-Package caption Warning: \label without proper \caption on input line 398.
-See the caption package documentation for explanation.
-
-
-LaTeX Warning: Reference `bufcell' on page 8 undefined on input line 394.
-
-<IMAGES/buffercells.png, id=40, 590.205pt x 536.0025pt>
+<IMAGES/buffercells.png, id=32, 590.205pt x 536.0025pt>
 File: IMAGES/buffercells.png Graphic file (type png)
 
-<use IMAGES/buffercells.png>
+<use IMAGES/buffercells.png> [6 <./IMAGES/1.jpg>]
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-LaTeX Warning: Reference `CausesSubSec' on page 8 undefined on input line 421.
+LaTeX Warning: Reference `CausesSubSec' on page 7 undefined on input line 411.
 
 
-LaTeX Warning: Reference `problemunstableA' on page 8 undefined on input line 4
-26.
+LaTeX Warning: Reference `problemunstableA' on page 7 undefined on input line 4
+16.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 410--427
+Underfull \hbox (badness 10000) in paragraph at lines 400--417
 
  []
 
-[8] <IMAGES/rupps1.png, id=45, 921.4425pt x 672.5125pt>
+[7 <./IMAGES/buffercells.png (PNG copy)>]
+<IMAGES/rupps1.png, id=42, 921.4425pt x 672.5125pt>
 File: IMAGES/rupps1.png Graphic file (type png)
-
-<use IMAGES/rupps1.png> <IMAGES/rupps2.png, id=46, 904.37875pt x 692.5875pt>
+ <use IMAGES/rupps1.png>
+<IMAGES/rupps2.png, id=43, 904.37875pt x 692.5875pt>
 File: IMAGES/rupps2.png Graphic file (type png)
-
-<use IMAGES/rupps2.png>
-Overfull \hbox (18.67078pt too wide) in paragraph at lines 487--501
+ <use IMAGES/rupps2.png>
+Overfull \hbox (18.67078pt too wide) in paragraph at lines 477--491
 [][]   [] 
  []
 
-[9 <./IMAGES/buffercells.png (PNG copy)>]
-Underfull \hbox (badness 10000) in paragraph at lines 510--518
+
+Underfull \hbox (badness 10000) in paragraph at lines 500--508
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 519--529
+Underfull \hbox (badness 10000) in paragraph at lines 509--519
+
+ []
+
+[8 <./IMAGES/rupps1.png> <./IMAGES/rupps2.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 520--526
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 530--536
-
- []
-
-[10 <./IMAGES/rupps1.png> <./IMAGES/rupps2.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 557--569
+Underfull \hbox (badness 10000) in paragraph at lines 547--559
 
  []
 
 
-LaTeX Warning: Citation `Tai2002' on page 11 undefined on input line 592.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 586--597
+Underfull \hbox (badness 10000) in paragraph at lines 576--587
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 598--605
+Underfull \hbox (badness 10000) in paragraph at lines 588--595
 
  []
 
-<IMAGES/flux.png, id=57, 529.98pt x 598.235pt>
+<IMAGES/flux.png, id=51, 529.98pt x 598.235pt>
 File: IMAGES/flux.png Graphic file (type png)
  <use IMAGES/flux.png>
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 613--636
+Underfull \hbox (badness 10000) in paragraph at lines 603--626
 
  []
 
-[11] [12 <./IMAGES/flux.png (PNG copy)>]
-Underfull \hbox (badness 10000) in paragraph at lines 637--648
+[9]
+Underfull \hbox (badness 10000) in paragraph at lines 627--638
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 658--667
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 670--677
+[10 <./IMAGES/flux.png (PNG copy)>]
+Underfull \hbox (badness 10000) in paragraph at lines 648--657
 
  []
 
 
-LaTeX Warning: Citation `' on page 13 undefined on input line 751.
-
-
-LaTeX Warning: Citation `' on page 13 undefined on input line 751.
-
-
-LaTeX Warning: Citation `Beckermann2006' on page 13 undefined on input line 759
-.
-
-
-LaTeX Warning: Citation `' on page 13 undefined on input line 762.
-
-
-LaTeX Warning: Citation `' on page 13 undefined on input line 762.
-
-[13]
-Underfull \hbox (badness 10000) in paragraph at lines 774--776
+Underfull \hbox (badness 10000) in paragraph at lines 660--667
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 778--780
+Package natbib Warning: Citation `Beckermann2006' on page 11 undefined on input
+ line 749.
+
+[11]
+Underfull \hbox (badness 10000) in paragraph at lines 764--766
 
  []
 
 
-LaTeX Font Warning: Command \large invalid in math mode on input line 783.
-
-LaTeX Font Info:    Calculating math sizes for size <> on input line 786.
-
-LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <> not available
-(Font)              size <5> substituted on input line 786.
+LaTeX Warning: Reference `implicit' on page 12 undefined on input line 808.
 
 
-LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <0.7> not available
-(Font)              size <5> substituted on input line 786.
-
-
-LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <0.5> not available
-(Font)              size <5> substituted on input line 786.
-
-
-LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <> not available
-(Font)              size <5> substituted on input line 786.
-
-
-LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <0.7> not available
-(Font)              size <5> substituted on input line 786.
-
-
-LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <0.5> not available
-(Font)              size <5> substituted on input line 786.
-
-
-LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <> not available
-(Font)              size <5> substituted on input line 786.
-
-
-LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <0.7> not available
-(Font)              size <5> substituted on input line 786.
-
-
-LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <0.5> not available
-(Font)              size <5> substituted on input line 786.
-
-
-LaTeX Font Warning: Font shape `U/msa/m/n' in size <> not available
-(Font)              size <5> substituted on input line 786.
-
-
-LaTeX Font Warning: Font shape `U/msa/m/n' in size <0.7> not available
-(Font)              size <5> substituted on input line 786.
-
-
-LaTeX Font Warning: Font shape `U/msa/m/n' in size <0.5> not available
-(Font)              size <5> substituted on input line 786.
-
-
-LaTeX Font Warning: Font shape `U/msb/m/n' in size <> not available
-(Font)              size <5> substituted on input line 786.
-
-
-LaTeX Font Warning: Font shape `U/msb/m/n' in size <0.7> not available
-(Font)              size <5> substituted on input line 786.
-
-
-LaTeX Font Warning: Font shape `U/msb/m/n' in size <0.5> not available
-(Font)              size <5> substituted on input line 786.
-
-
-LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <> not available
-(Font)              size <5> substituted on input line 786.
-
-
-LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <0.7> not available
-(Font)              size <5> substituted on input line 786.
-
-
-LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <0.5> not available
-(Font)              size <5> substituted on input line 786.
-
-
-LaTeX Warning: Reference `implicit' on page 14 undefined on input line 819.
-
-
-Package caption Warning: \label without proper \caption on input line 851.
+Package caption Warning: \label without proper \caption on input line 840.
 See the caption package documentation for explanation.
 
 
-LaTeX Warning: Reference `figintegrator' on page 14 undefined on input line 820
+LaTeX Warning: Reference `figintegrator' on page 12 undefined on input line 809
 .
-
-[14]
-
-LaTeX Font Warning: Command \large invalid in math mode on input line 831.
-
-
-LaTeX Font Warning: Command \large invalid in math mode on input line 832.
 
 
 LaTeX Font Warning: Command \large invalid in math mode on input line 833.
 
-
-LaTeX Font Warning: Command \large invalid in math mode on input line 834.
-
-
-LaTeX Font Warning: Command \large invalid in math mode on input line 842.
-
-
-LaTeX Font Warning: Command \large invalid in math mode on input line 843.
-
-
-LaTeX Font Warning: Command \large invalid in math mode on input line 844.
-
-
-LaTeX Font Warning: Command \large invalid in math mode on input line 845.
-
-<IMAGES/integrator.png, id=74, 230.36063pt x 137.7647pt>
+<IMAGES/integrator.png, id=63, 230.36063pt x 137.7647pt>
 File: IMAGES/integrator.png Graphic file (type png)
 
 <use IMAGES/integrator.png>
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[15]
+[12]
 
-LaTeX Warning: Citation `levelsetbook' on page 16 undefined on input line 923.
+Package natbib Warning: Citation `levelsetbook' on page 13 undefined on input l
+ine 912.
 
+[13 <./IMAGES/integrator.png>]
 
-LaTeX Warning: Citation `Sussman' on page 16 undefined on input line 924.
+LaTeX Warning: Reference `' on page 14 undefined on input line 923.
 
-[16 <./IMAGES/integrator.png>]
-
-LaTeX Warning: Reference `' on page 17 undefined on input line 934.
-
-<IMAGES/initialconf.jpg, id=82, 919.435pt x 609.27625pt>
+<IMAGES/initialconf.jpg, id=72, 919.435pt x 609.27625pt>
 File: IMAGES/initialconf.jpg Graphic file (type jpg)
 
-<use IMAGES/initialconf.jpg> [17]
-<IMAGES/ordinary/1.png, id=86, 1489.565pt x 822.07124pt>
+<use IMAGES/initialconf.jpg> [14]
+<IMAGES/ordinary/1.png, id=76, 1489.565pt x 822.07124pt>
 File: IMAGES/ordinary/1.png Graphic file (type png)
 
 <use IMAGES/ordinary/1.png>
-<IMAGES/ordinary/2.png, id=87, 1489.565pt x 822.07124pt>
+<IMAGES/ordinary/2.png, id=77, 1489.565pt x 822.07124pt>
 File: IMAGES/ordinary/2.png Graphic file (type png)
 
 <use IMAGES/ordinary/2.png>
-<IMAGES/ordinary/3.png, id=88, 1489.565pt x 822.07124pt>
+<IMAGES/ordinary/3.png, id=78, 1489.565pt x 822.07124pt>
 File: IMAGES/ordinary/3.png Graphic file (type png)
 
 <use IMAGES/ordinary/3.png>
-<IMAGES/ordinary/4.png, id=89, 1489.565pt x 822.07124pt>
+<IMAGES/ordinary/4.png, id=79, 1489.565pt x 822.07124pt>
 File: IMAGES/ordinary/4.png Graphic file (type png)
 
 <use IMAGES/ordinary/4.png>
-<IMAGES/ordinary/5.png, id=90, 1489.565pt x 822.07124pt>
+<IMAGES/ordinary/5.png, id=80, 1489.565pt x 822.07124pt>
 File: IMAGES/ordinary/5.png Graphic file (type png)
 
 <use IMAGES/ordinary/5.png>
-<IMAGES/ordinary/6.png, id=91, 1489.565pt x 822.07124pt>
+<IMAGES/ordinary/6.png, id=81, 1489.565pt x 822.07124pt>
 File: IMAGES/ordinary/6.png Graphic file (type png)
 
-<use IMAGES/ordinary/6.png>
-Overfull \hbox (2.2222pt too wide) in paragraph at lines 996--1015
-[][] [] 
- []
-
-[18 <./IMAGES/initialconf.jpg>]
-<IMAGES/phase_field/1.png, id=95, 1489.565pt x 822.07124pt>
+<use IMAGES/ordinary/6.png> [15 <./IMAGES/initialconf.jpg>]
+<IMAGES/phase_field/1.png, id=85, 1489.565pt x 822.07124pt>
 File: IMAGES/phase_field/1.png Graphic file (type png)
 
 <use IMAGES/phase_field/1.png>
-<IMAGES/phase_field/2.png, id=96, 1489.565pt x 822.07124pt>
+<IMAGES/phase_field/2.png, id=86, 1489.565pt x 822.07124pt>
 File: IMAGES/phase_field/2.png Graphic file (type png)
 
 <use IMAGES/phase_field/2.png>
-<IMAGES/phase_field/3.png, id=97, 1489.565pt x 822.07124pt>
+<IMAGES/phase_field/3.png, id=87, 1489.565pt x 822.07124pt>
 File: IMAGES/phase_field/3.png Graphic file (type png)
 
 <use IMAGES/phase_field/3.png>
-<IMAGES/phase_field/4.png, id=98, 1489.565pt x 822.07124pt>
+<IMAGES/phase_field/4.png, id=88, 1489.565pt x 822.07124pt>
 File: IMAGES/phase_field/4.png Graphic file (type png)
 
 <use IMAGES/phase_field/4.png>
-<IMAGES/phase_field/5.png, id=99, 1489.565pt x 822.07124pt>
+<IMAGES/phase_field/5.png, id=89, 1489.565pt x 822.07124pt>
 File: IMAGES/phase_field/5.png Graphic file (type png)
 
 <use IMAGES/phase_field/5.png>
-<IMAGES/phase_field/6.png, id=100, 1489.565pt x 822.07124pt>
+<IMAGES/phase_field/6.png, id=90, 1489.565pt x 822.07124pt>
 File: IMAGES/phase_field/6.png Graphic file (type png)
 
 <use IMAGES/phase_field/6.png>
-Overfull \hbox (2.2222pt too wide) in paragraph at lines 1026--1045
+Overfull \hbox (2.2222pt too wide) in paragraph at lines 1015--1034
 [][] [] 
  []
 
-[19 <./IMAGES/ordinary/1.png (PNG copy)> <./IMAGES/ordinary/2.png (PNG copy)> <
+[16 <./IMAGES/ordinary/1.png (PNG copy)> <./IMAGES/ordinary/2.png (PNG copy)> <
 ./IMAGES/ordinary/3.png (PNG copy)> <./IMAGES/ordinary/4.png (PNG copy)> <./IMA
 GES/ordinary/5.png (PNG copy)> <./IMAGES/ordinary/6.png (PNG copy)>]
-<IMAGES/level_set/1.png, id=105, 1489.565pt x 822.07124pt>
+<IMAGES/level_set/1.png, id=94, 1489.565pt x 822.07124pt>
 File: IMAGES/level_set/1.png Graphic file (type png)
 
 <use IMAGES/level_set/1.png>
-<IMAGES/level_set/2.png, id=106, 1489.565pt x 822.07124pt>
+<IMAGES/level_set/2.png, id=95, 1489.565pt x 822.07124pt>
 File: IMAGES/level_set/2.png Graphic file (type png)
 
 <use IMAGES/level_set/2.png>
-<IMAGES/level_set/3.png, id=107, 1489.565pt x 822.07124pt>
+<IMAGES/level_set/3.png, id=96, 1489.565pt x 822.07124pt>
 File: IMAGES/level_set/3.png Graphic file (type png)
 
 <use IMAGES/level_set/3.png>
-<IMAGES/level_set/4.png, id=108, 1489.565pt x 822.07124pt>
+<IMAGES/level_set/4.png, id=97, 1489.565pt x 822.07124pt>
 File: IMAGES/level_set/4.png Graphic file (type png)
 
 <use IMAGES/level_set/4.png>
-<IMAGES/level_set/5.png, id=109, 1489.565pt x 822.07124pt>
+<IMAGES/level_set/5.png, id=98, 1489.565pt x 822.07124pt>
 File: IMAGES/level_set/5.png Graphic file (type png)
 
 <use IMAGES/level_set/5.png>
-<IMAGES/level_set/6.png, id=110, 1489.565pt x 822.07124pt>
+<IMAGES/level_set/6.png, id=99, 1489.565pt x 822.07124pt>
 File: IMAGES/level_set/6.png Graphic file (type png)
 
 <use IMAGES/level_set/6.png>
-Overfull \hbox (2.2222pt too wide) in paragraph at lines 1052--1071
+Overfull \hbox (2.2222pt too wide) in paragraph at lines 1041--1060
 [][] [] 
  []
 
-[20 <./IMAGES/phase_field/1.png (PNG copy)> <./IMAGES/phase_field/2.png (PNG co
+[17 <./IMAGES/phase_field/1.png (PNG copy)> <./IMAGES/phase_field/2.png (PNG co
 py)> <./IMAGES/phase_field/3.png (PNG copy)> <./IMAGES/phase_field/4.png (PNG c
 opy)> <./IMAGES/phase_field/5.png (PNG copy)> <./IMAGES/phase_field/6.png (PNG 
-copy)>] <IMAGES/xextend.png, id=114, 578.16pt x 433.62pt>
+copy)>] <IMAGES/xextend.png, id=103, 578.16pt x 433.62pt>
 File: IMAGES/xextend.png Graphic file (type png)
 
-<use IMAGES/xextend.png> [21 <./IMAGES/level_set/1.png (PNG copy)> <./IMAGES/le
+<use IMAGES/xextend.png> [18 <./IMAGES/level_set/1.png (PNG copy)> <./IMAGES/le
 vel_set/2.png (PNG copy)> <./IMAGES/level_set/3.png (PNG copy)> <./IMAGES/level
 _set/4.png (PNG copy)> <./IMAGES/level_set/5.png (PNG copy)> <./IMAGES/level_se
-t/6.png (PNG copy)>] <IMAGES/yextend.png, id=118, 578.16pt x 433.62pt>
+t/6.png (PNG copy)>] <IMAGES/yextend.png, id=107, 578.16pt x 433.62pt>
 File: IMAGES/yextend.png Graphic file (type png)
 
-<use IMAGES/yextend.png> <IMAGES/area.png, id=119, 578.16pt x 433.62pt>
+<use IMAGES/yextend.png> <IMAGES/area.png, id=108, 578.16pt x 433.62pt>
 File: IMAGES/area.png Graphic file (type png)
 
-<use IMAGES/area.png> [22 <./IMAGES/xextend.png (PNG copy)> <./IMAGES/yextend.p
-ng (PNG copy)>] <IMAGES/perimeter.png, id=123, 578.16pt x 433.62pt>
+<use IMAGES/area.png> [19 <./IMAGES/xextend.png (PNG copy)> <./IMAGES/yextend.p
+ng (PNG copy)>] <IMAGES/perimeter.png, id=113, 578.16pt x 433.62pt>
 File: IMAGES/perimeter.png Graphic file (type png)
 
-<use IMAGES/perimeter.png> [23 <./IMAGES/area.png (PNG copy)> <./IMAGES/perimet
-er.png (PNG copy)>]
-
-LaTeX Warning: Citation `namikawa' on page 24 undefined on input line 1129.
-
-
-LaTeX Warning: Citation `namikawa' on page 24 undefined on input line 1129.
-
-<IMAGES/pics/outline.png, id=127, 578.16pt x 433.62pt>
+<use IMAGES/perimeter.png> [20 <./IMAGES/area.png (PNG copy)> <./IMAGES/perimet
+er.png (PNG copy)>] <IMAGES/pics/outline.png, id=117, 578.16pt x 433.62pt>
 File: IMAGES/pics/outline.png Graphic file (type png)
 
 <use IMAGES/pics/outline.png>
-<IMAGES/pics/Delaunay_Triangulation_of_Colima_clean.png, id=128, 578.16pt x 433
+<IMAGES/pics/Delaunay_Triangulation_of_Colima_clean.png, id=118, 578.16pt x 433
 .62pt>
 File: IMAGES/pics/Delaunay_Triangulation_of_Colima_clean.png Graphic file (type
  png)
  <use IMAGES/pics/Delaunay_Triangulation_of_Colima_clean.png>
-<IMAGES/pics/Skeleton_line.png, id=129, 578.16pt x 433.62pt>
+<IMAGES/pics/Skeleton_line.png, id=119, 578.16pt x 433.62pt>
 File: IMAGES/pics/Skeleton_line.png Graphic file (type png)
 
 <use IMAGES/pics/Skeleton_line.png>
-<IMAGES/pics/Outline_Skeleton_line.png, id=130, 578.16pt x 433.62pt>
+<IMAGES/pics/Outline_Skeleton_line.png, id=120, 578.16pt x 433.62pt>
 File: IMAGES/pics/Outline_Skeleton_line.png Graphic file (type png)
 
-<use IMAGES/pics/Outline_Skeleton_line.png> [24] [25 <./IMAGES/pics/outline.png
- (PNG copy)> <./IMAGES/pics/Delaunay_Triangulation_of_Colima_clean.png (PNG cop
-y)> <./IMAGES/pics/Skeleton_line.png (PNG copy)> <./IMAGES/pics/Outline_Skeleto
-n_line.png (PNG copy)>]
-
-LaTeX Warning: Reference `phasefieldfig' on page 26 undefined on input line 116
-4.
-
-<IMAGES/skeleton_outline1.jpg, id=138, 1004.75375pt x 801.99625pt>
+<use IMAGES/pics/Outline_Skeleton_line.png> [21 <./IMAGES/pics/outline.png (PNG
+ copy)> <./IMAGES/pics/Delaunay_Triangulation_of_Colima_clean.png (PNG copy)> <
+./IMAGES/pics/Skeleton_line.png (PNG copy)> <./IMAGES/pics/Outline_Skeleton_lin
+e.png (PNG copy)>]
+<IMAGES/skeleton_outline1.jpg, id=124, 1004.75375pt x 801.99625pt>
 File: IMAGES/skeleton_outline1.jpg Graphic file (type jpg)
 
 <use IMAGES/skeleton_outline1.jpg>
-<IMAGES/phasefield1.jpg, id=139, 1002.74625pt x 831.105pt>
+<IMAGES/phasefield1.jpg, id=125, 1002.74625pt x 831.105pt>
 File: IMAGES/phasefield1.jpg Graphic file (type jpg)
 
-<use IMAGES/phasefield1.jpg> [26 <./IMAGES/skeleton_outline1.jpg>]
-<IMAGES/levelset1.jpg, id=143, 1002.74625pt x 800.9925pt>
+<use IMAGES/phasefield1.jpg> [22 <./IMAGES/skeleton_outline1.jpg>]
+<IMAGES/levelset1.jpg, id=129, 1002.74625pt x 800.9925pt>
 File: IMAGES/levelset1.jpg Graphic file (type jpg)
 
-<use IMAGES/levelset1.jpg> [27 <./IMAGES/phasefield1.jpg>]
-<IMAGES/tiny1.jpg, id=147, 1001.7425pt x 827.09pt>
+<use IMAGES/levelset1.jpg> [23 <./IMAGES/phasefield1.jpg>]
+<IMAGES/tiny1.jpg, id=133, 1001.7425pt x 827.09pt>
 File: IMAGES/tiny1.jpg Graphic file (type jpg)
  <use IMAGES/tiny1.jpg>
-[28 <./IMAGES/levelset1.jpg>]
-<IMAGES/comparison1.jpg, id=151, 1001.7425pt x 825.0825pt>
+[24 <./IMAGES/levelset1.jpg>]
+<IMAGES/comparison1.jpg, id=137, 1001.7425pt x 825.0825pt>
 File: IMAGES/comparison1.jpg Graphic file (type jpg)
 
-<use IMAGES/comparison1.jpg> [29 <./IMAGES/tiny1.jpg>] [30 <./IMAGES/comparison
-1.jpg>] (./thinlayerpaper.bbl
+<use IMAGES/comparison1.jpg> [25 <./IMAGES/tiny1.jpg>] [26 <./IMAGES/comparison
+1.jpg>] (./thinlayerpaper.bbl [27])
 
-LaTeX Warning: Empty `thebibliography' environment on input line 3.
+Package natbib Warning: There were undefined citations.
 
-) [31] (./thinlayerpaper.aux)
-
-LaTeX Font Warning: Size substitutions with differences
-(Font)              up to 4.5pt have occurred.
-
+[28] (./thinlayerpaper.aux)
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: There were multiply-defined labels.
-
  ) 
 Here is how much of TeX's memory you used:
- 3530 strings out of 256216
- 52676 string characters out of 1917073
- 113507 words of memory out of 1500000
- 6726 multiletter control sequences out of 10000+200000
- 15715 words of font info for 64 fonts, out of 1200000 for 2000
+ 3844 strings out of 256216
+ 56511 string characters out of 1917073
+ 124290 words of memory out of 1500000
+ 7033 multiletter control sequences out of 10000+200000
+ 15034 words of font info for 61 fonts, out of 1200000 for 2000
  645 hyphenation exceptions out of 8191
- 36i,18n,38p,334b,448s stack positions out of 5000i,500n,6000p,200000b,15000s
+ 36i,18n,38p,334b,450s stack positions out of 5000i,500n,6000p,200000b,15000s
 </usr/share/texmf/fonts/type1/bluesky/cm/cmbx10.pfb></usr/share/texmf/fonts/t
 ype1/bluesky/cm/cmbx12.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmbx9.pfb><
 /usr/share/texmf/fonts/type1/bluesky/cm/cmex10.pfb></usr/share/texmf/fonts/type
-1/bluesky/cm/cmmi10.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmmi12.pfb></u
-sr/share/texmf/fonts/type1/bluesky/cm/cmmi5.pfb></usr/share/texmf/fonts/type1/b
-luesky/cm/cmmi7.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmmi8.pfb></usr/sh
-are/texmf/fonts/type1/bluesky/cm/cmr10.pfb></usr/share/texmf/fonts/type1/bluesk
-y/cm/cmr12.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmr17.pfb></usr/share/t
-exmf/fonts/type1/bluesky/cm/cmr5.pfb></usr/share/texmf/fonts/type1/bluesky/cm/c
-mr6.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmr7.pfb></usr/share/texmf/fon
-ts/type1/bluesky/cm/cmr8.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmr9.pfb>
-</usr/share/texmf/fonts/type1/bluesky/cm/cmsy10.pfb></usr/share/texmf/fonts/typ
-e1/bluesky/cm/cmsy7.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmti10.pfb></u
-sr/share/texmf/fonts/type1/bluesky/cm/cmtt10.pfb>
-Output written on thinlayerpaper.pdf (31 pages, 5553107 bytes).
+1/bluesky/cm/cmmi10.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmmi5.pfb></us
+r/share/texmf/fonts/type1/bluesky/cm/cmmi7.pfb></usr/share/texmf/fonts/type1/bl
+uesky/cm/cmmi8.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmr10.pfb></usr/sha
+re/texmf/fonts/type1/bluesky/cm/cmr12.pfb></usr/share/texmf/fonts/type1/bluesky
+/cm/cmr17.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmr5.pfb></usr/share/tex
+mf/fonts/type1/bluesky/cm/cmr6.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmr
+7.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmr8.pfb></usr/share/texmf/fonts
+/type1/bluesky/cm/cmr9.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmsy10.pfb>
+</usr/share/texmf/fonts/type1/bluesky/cm/cmsy7.pfb></usr/share/texmf/fonts/type
+1/bluesky/cm/cmti10.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmtt10.pfb>
+Output written on thinlayerpaper.pdf (28 pages, 5582982 bytes).
 PDF statistics:
- 227 PDF objects out of 1000 (max. 8388607)
+ 213 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 131072)
  191 words of extra memory for PDF output out of 10000 (max. 10000000)
 

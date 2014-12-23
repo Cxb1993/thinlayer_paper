@@ -1,3 +1,151 @@
-\begin{thebibliography}{}
+\begin{thebibliography}{10}
+
+\bibitem{Balzano1998}
+Andrea Balzano.
+\newblock {Evaluation of methods for numerical simulation of wetting and drying
+  in shallow water flow models}.
+\newblock {\em Coastal Engineering}, pages 83--107, 1998.
+
+\bibitem{eglit1980mms}
+M.~E. Eglit and Ye~I Sveshnikova.
+\newblock {Matematicheskoye modelirovaniye snezhnykh lavin; mathematical
+  modeling of snowavalanches}.
+\newblock {\em Materialy Glyatsiologicheskikh Issledovaniy, Khronika
+  Obsuzhdeniya}, 38:79--84, 1980.
+
+\bibitem{FraccarolloToro1995}
+L.~Fraccarollo and E.F. Toro.
+\newblock Experimental and numerical assessment of the shallow water model for
+  two dimensional dam-break type problems.
+\newblock {\em Journal of Hydraulic Research}, 33:843--864, 1995.
+
+\bibitem{gerlach2006cvf}
+D.~Gerlach, G.~Tomar, G.~Biswas, and F.~Durst.
+\newblock {Comparison of volume-of-fluid methods for surface tension-dominant
+  two-phase flows}.
+\newblock {\em International Journal of Heat and Mass Transfer},
+  49(3-4):740--754, 2006.
+
+\bibitem{gopala2008vfm}
+V.R. Gopala and B.G.M. van Wachem.
+\newblock {Volume of fluid methods for immiscible-fluid and free-surface
+  flows}.
+\newblock {\em Chemical Engineering Journal}, 2008.
+
+\bibitem{Gray1999}
+J.~M.~N.~T. {Gray}, M.~{Wieland}, and K.~{Hutter}.
+\newblock {Gravity-driven free surface flow of granular avalanches over complex
+  basal topography}.
+\newblock {\em Royal Society of London Proceedings Series A}, 455:1841--1874,
+  May 1999.
+
+\bibitem{hirt1981vfv}
+C.W. HIRT and BD~NICHOLS.
+\newblock {Volume of fluid/VOF/ method for the dynamics of free boundaries}.
+\newblock {\em Journal of Computational Physics}, 39(1):201--225, 1981.
+
+\bibitem{Iverson1997}
+R.~M. {Iverson}.
+\newblock {The physics of debris flows}.
+\newblock {\em Reviews of Geophysics}, 35:245--296, 1997.
+
+\bibitem{IversonDenlinger2001}
+R.~M. {Iverson} and R.~P. {Denlinger}.
+\newblock {Flow of variably fluidized granular masses across three-dimensional
+  terrain 1. Coulomb mixture theory}.
+\newblock {\em Journal of Geophysical Research}, 106:537--552, 2001.
+
+\bibitem{Hutter1993}
+K.Hutter, M.~Siegel, S.B. Savage, and Y.~Nohguchi.
+\newblock Two-dimensional spreading of a granular avalanche down an inclined
+  plane part i. theory.
+\newblock {\em Acta Mechanica}, 100:37--68, 1993.
+
+\bibitem{Medeiros2013}
+SC~Medeiros and SC~Hagen.
+\newblock {Review of wetting and drying algorithms for numerical tidal flow
+  models}.
+\newblock {\em International Journal for Numerical \ldots}, (March
+  2012):473--487, 2013.
+
+\bibitem{NamikawaPhD}
+Laercio~M. Namikawa.
+\newblock {\em Multiple Representations of Elevation for Dynamic Process
+  Modeling}.
+\newblock PhD thesis, Department of Geography, University at Buffalo, July
+  2006.
+
+\bibitem{gmfg1}
+A.K. Patra, A.C. Bauer, C.C. Nichita, E.B. Pitman, M.F. Sheridan, M.I. Bursik,
+  B.~Rupp, A.~Webber, A.J. Stinton, L.M. Namikawa, and C.S. Renschler.
+\newblock Parallel adaptive numerical simulation of dry avalanches over natural
+  terrain.
+\newblock {\em Journal of Volcanology and Geothermal Research}, 139:1--21,
+  2005.
+
+\bibitem{dgtitanpaper}
+A.K. Patra, C.C. Nichita, A.C. Bauer, E.B. Pitman, M.I. Bursik, and M.F.
+  Sheridan.
+\newblock Parallel adaptive discontinuous galerkin approximation for thin layer
+  avalanche modeling.
+\newblock {\em Computers and Geosciences}, 32:912--926, 2006.
+
+\bibitem{pitmanpof}
+E.B. Pitman, A.~Patra, A.~Bauer, C.~Nichita, M.~Sheridan, and M.Bursik.
+\newblock Computing debris flows.
+\newblock {\em Physics of Fluids}, 15:3638--3646, 2003.
+
+\bibitem{PudasainiHutter2003}
+S.~P. {Pudasaini} and K.~{Hutter}.
+\newblock {Rapid shear flows of dry granular masses down curved and twisted
+  channels}.
+\newblock {\em Journal of Fluid Mechanics}, 495:193--208, November 2003.
+
+\bibitem{quecedo2002rtg}
+M.~Quecedo and M.~Pastor.
+\newblock {A reappraisal of Taylor-Galerkin algorithm for drying-wetting areas
+  in shallow water computations}.
+\newblock {\em International Journal for Numerical Methods in Fluids},
+  38(6):515--531, 2002.
+
+\bibitem{SavageHutter1989}
+S.B. Savage and K.~Hutter.
+\newblock The motion of a finite mass of granular material down a rough
+  incline.
+\newblock {\em Journal of Fluid Mechanics}, 199:177--215, 1989.
+
+\bibitem{SavageIverson2003}
+SB~Savage and RM~Iverson.
+\newblock {Surge dynamics coupled to pore-pressure evolution in debris flows}.
+\newblock {\em Debris-Flow Hazards Mitigation: Mechanics, Prediction and
+  Assessment, edited by: Rickenmann, D. and Chen, C.-L., Millpress},
+  1:503--514, 2003.
+
+\bibitem{Sethian2003}
+J.~a. Sethian and Peter Smereka.
+\newblock {L Evel S Et M Ethods for F Luid I Nterfaces}.
+\newblock {\em Annual Review of Fluid Mechanics}, 35(1):341--372, January 2003.
+
+\bibitem{Sussman}
+Mark Sussman, Peter Smereka, and Ann Arbor.
+\newblock {A Level Set Approach for Computing Solutions to Incompressible
+  Two-Phase Flow I1}.
+\newblock (June 1995).
+
+\bibitem{Tai2002}
+Y.~C. Tai, S.~Noelle, J.~M. N.~T. Gray, and K.~Hutter.
+\newblock Shock-capturing and front-tracking methods for granular avalanches.
+\newblock {\em Journal of Computational Physics}, 175(1):269--301, 2002.
+
+\bibitem{ToroBook2001}
+E.F. Toro.
+\newblock {\em Shock-Capturing Methods for Free-Surface Shallow Flows}.
+\newblock Wiley, New York, 2001.
+
+\bibitem{youngs1982tdm}
+DL~Youngs.
+\newblock {Time-dependent multi-material flow with large fluid distortion}.
+\newblock In K.~W. Morton and M.~J. Baines, editors, {\em Numerical Methods for
+  Fluid Dynamics}, pages 273--285. Academic Press, 1982.
 
 \end{thebibliography}
