@@ -67,11 +67,10 @@ wide range of SW flows.
 \section{Introduction} 
 \label{introduction}
 % Basic introduction about the Shallow water
-Shallow water (SW) flows include a wide range of fluid flows. In SW flows that the fluid depth is much 
-smaller than the characteristic length of the fluid body. In driving the corresponding 
-governing equations, the shallowness of flow lets the distribution of the state variables 
-neglected in the perpendicular direction to the basal surface, and the effect of 
-this direction replaced with an integrated average in the equations. 
+Shallow water (SW) flows include a wide range of fluid flows. In SW flows the fluid depth is much 
+smaller than the characteristic length of the fluid body. In deriving the corresponding 
+governing equations, the shallowness of flow allows us to neglect the variation of state variables  in perpendicular direction to the basal surface, and the effect of 
+this replaced with an integrated average in the equations \cite{Hutter2005}. 
 This mathematical simplification causes the 3D to be represented in 2D equations.
 The aforementioned condition holds for many circumstances in geophysical flow and the same 
 conservation equations with some minor modifications could be used to study these type of flows. \newline
@@ -971,13 +970,23 @@ Initial friction angle    & $37.3^o$ \\
 \end{tabular}
 \end{center}
 
+
 \begin{figure}[H]
-\label{initpile}
-\begin{center}
-\includegraphics[width=.5\textwidth]{IMAGES/initialconf.jpg}
-\caption{Initial configuration of the pile on the incline}
-\end{center}
+  \begin{minipage}[b]{.48\linewidth}
+    \centering
+    \includegraphics[width=1\textwidth]{IMAGES/expinitialconf.png}
+    \subcaption{Experimental setup}
+  \end{minipage}
+%   \hfill
+  \begin{minipage}[b]{.48 \linewidth}
+    \centering
+    \includegraphics[width=1\textwidth]{IMAGES/initialconf.png}
+    \subcaption{Numerical simulation}
+  \end{minipage}
+  \caption{Initial configuration of the pile on the incline}
+  \label{initialconf}
 \end{figure}
+
 
 %\subsubsection{Heuristic Method}
 
@@ -1001,40 +1010,30 @@ Initial friction angle    & $37.3^o$ \\
   \label{odinary}
 \end{figure}
 
-
-
-
-
 \subsubsection{Comparison}
 
 For quntitative comparison of the results, we compared different schemes on three measurable quantities. 
 The first measure is the extent of pile in X direction, the second one the extent of pile in Y direction, and 
 the last one is the area of pile.
 
-
 \begin{figure}[H]
-\centerline{\includegraphics[scale=0.5]{IMAGES/xextend.png}}
-\caption{Extension of pile in X direction}
-\label{xextent}
-\end{figure}
-
-
-\begin{figure}[H]
-\centerline{\includegraphics[scale=0.5]{IMAGES/yextend.png}}
-\caption{Extension of pile in Y direction}
-\label{yextent}
-\end{figure}
-
-\begin{figure}[H]
-\centerline{\includegraphics[scale=0.5]{IMAGES/area.png}}
-\caption{Area of pile}
-\label{wet_area}
-\end{figure}
-
-\begin{figure}[H]
-\centerline{\includegraphics[scale=0.5]{IMAGES/perimeter.png}}
-\caption{Perimeter of pile}
-\label{wet_peram}
+  \begin{minipage}[b]{.48\linewidth}
+    \centering
+    \includegraphics[scale=0.4]{IMAGES/xextend.png}
+    \subcaption{Extension of pile in X direction}
+    \includegraphics[scale=0.4]{IMAGES/yextend.png}
+    \subcaption{Extension of pile in Y direction}
+  \end{minipage}
+%   \hfill
+  \begin{minipage}[b]{.48 \linewidth}
+    \centering
+    \includegraphics[scale=0.4]{IMAGES/area.png}
+    \subcaption{Area of pile}
+    \includegraphics[scale=0.4]{IMAGES/perimeter.png}
+    \subcaption{Perimeter of pile}
+  \end{minipage}
+  \caption{Comparison of the methods for flow on inclined plane}
+  \label{compinc}
 \end{figure}
 
 In these figures, the DG is the result of Dicountinouse Galerkin (DG) version of TITAN2D \cite{}, and the experiment is the result of experiment 
