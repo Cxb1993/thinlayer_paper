@@ -1,6 +1,6 @@
 This is BibTeX, Version 0.99c (Web2C 7.5.6)
 The top-level auxiliary file: thinlayerpaper.aux
-White space in argument---line 24 of file thinlayerpaper.aux
+White space in argument---line 25 of file thinlayerpaper.aux
  : \citation{more
  :                recent}
 I'm skipping whatever remains of this command
@@ -23,45 +23,45 @@ Warning--there's a number but no volume in Medeiros2013
 Warning--empty journal in Sussman
 Warning--there's a number but no volume in Sussman
 Warning--empty year in Sussman
-You've used 24 entries,
+You've used 25 entries,
             2118 wiz_defined-function locations,
-            674 strings with 8524 characters,
-and the built_in function-call counts, 8278 in all, are:
-= -- 808
-> -- 415
+            682 strings with 8763 characters,
+and the built_in function-call counts, 8644 in all, are:
+= -- 845
+> -- 433
 < -- 2
-+ -- 163
-- -- 138
-* -- 623
-:= -- 1418
-add.period$ -- 73
-call.type$ -- 24
-change.case$ -- 138
++ -- 170
+- -- 144
+* -- 656
+:= -- 1479
+add.period$ -- 76
+call.type$ -- 25
+change.case$ -- 144
 chr.to.int$ -- 0
-cite$ -- 28
-duplicate$ -- 281
-empty$ -- 615
-format.name$ -- 138
-if$ -- 1699
+cite$ -- 29
+duplicate$ -- 292
+empty$ -- 642
+format.name$ -- 144
+if$ -- 1772
 int.to.chr$ -- 0
-int.to.str$ -- 24
-missing$ -- 24
-newline$ -- 123
-num.names$ -- 50
-pop$ -- 113
+int.to.str$ -- 25
+missing$ -- 25
+newline$ -- 128
+num.names$ -- 52
+pop$ -- 117
 preamble$ -- 1
-purify$ -- 116
+purify$ -- 121
 quote$ -- 0
-skip$ -- 193
+skip$ -- 200
 stack$ -- 0
-substring$ -- 565
-swap$ -- 39
+substring$ -- 595
+swap$ -- 40
 text.length$ -- 2
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 94
+type$ -- 98
 warning$ -- 4
-while$ -- 77
-width$ -- 26
-write$ -- 264
+while$ -- 81
+width$ -- 27
+write$ -- 275
 (There were 3 error messages)

@@ -1,4 +1,4 @@
-This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2014.7.2)  31 DEC 2014 12:16
+This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2014.7.2)  31 DEC 2014 14:18
 entering extended mode
  %&-line parsing enabled.
 **thinlayerpaper.tex
@@ -307,12 +307,7 @@ LaTeX Font Info:    Try loading font information for U+rsfs on input line 35.
 (/usr/share/texmf/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-
-Package natbib Warning: Citation `Hutter2005' on page 1 undefined on input line
- 73.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 70--99
+Underfull \hbox (badness 10000) in paragraph at lines 70--88
 
  []
 
@@ -321,83 +316,78 @@ Underfull \hbox (badness 10000) in paragraph at lines 70--99
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
 
 Package natbib Warning: Citation `Chen1997' on page 2 undefined on input line 1
-33.
+18.
 
 
 Package natbib Warning: Citation `DAnderson1998' on page 2 undefined on input l
-ine 133.
+ine 118.
 
 
 Package natbib Warning: Citation `Hirt1981' on page 2 undefined on input line 1
-33.
+18.
 
 [2]
-Underfull \hbox (badness 10000) in paragraph at lines 169--186
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 188--194
+Underfull \hbox (badness 10000) in paragraph at lines 155--172
 
  []
 
 
 Package natbib Warning: Citation `more recent' on page 3 undefined on input lin
-e 206.
+e 184.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 210--218
+Underfull \hbox (badness 10000) in paragraph at lines 188--196
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 219--224
+Underfull \hbox (badness 10000) in paragraph at lines 197--202
 
  []
 
 [3]
-Underfull \hbox (badness 10000) in paragraph at lines 227--242
+Underfull \hbox (badness 10000) in paragraph at lines 205--218
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 244--250
+Underfull \hbox (badness 10000) in paragraph at lines 220--224
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 251--253
+Underfull \hbox (badness 10000) in paragraph at lines 225--227
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 254--258
+Underfull \hbox (badness 10000) in paragraph at lines 228--232
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 259--265
+Underfull \hbox (badness 10000) in paragraph at lines 233--238
 
  []
 
 [4]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 298.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 271.
 
  (/usr/share/texmf/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 298.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 271.
 
 <IMAGES/1.jpg, id=24, 820.06375pt x 354.32375pt>
 File: IMAGES/1.jpg Graphic file (type jpg)
  <use IMAGES/1.jpg> [5]
-Underfull \hbox (badness 10000) in paragraph at lines 358--372
+Underfull \hbox (badness 10000) in paragraph at lines 331--345
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 374--379
+Underfull \hbox (badness 10000) in paragraph at lines 347--352
 
  []
 
@@ -406,14 +396,14 @@ File: IMAGES/buffercells.png Graphic file (type png)
 
 <use IMAGES/buffercells.png> [6 <./IMAGES/1.jpg>]
 
-LaTeX Warning: Reference `CausesSubSec' on page 7 undefined on input line 410.
+LaTeX Warning: Reference `CausesSubSec' on page 7 undefined on input line 383.
 
 
-LaTeX Warning: Reference `problemunstableA' on page 7 undefined on input line 4
-15.
+LaTeX Warning: Reference `problemunstableA' on page 7 undefined on input line 3
+88.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 399--416
+Underfull \hbox (badness 10000) in paragraph at lines 372--389
 
  []
 
@@ -424,37 +414,37 @@ File: IMAGES/rupps1.png Graphic file (type png)
 <IMAGES/rupps2.png, id=43, 904.37875pt x 692.5875pt>
 File: IMAGES/rupps2.png Graphic file (type png)
  <use IMAGES/rupps2.png>
-Overfull \hbox (18.67078pt too wide) in paragraph at lines 476--490
+Overfull \hbox (18.67078pt too wide) in paragraph at lines 449--463
 [][]   [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 499--507
+Underfull \hbox (badness 10000) in paragraph at lines 472--480
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 508--518
+Underfull \hbox (badness 10000) in paragraph at lines 481--491
 
  []
 
 [8 <./IMAGES/rupps1.png> <./IMAGES/rupps2.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 519--525
+Underfull \hbox (badness 10000) in paragraph at lines 492--498
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 546--558
+Underfull \hbox (badness 10000) in paragraph at lines 519--531
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 575--586
+Underfull \hbox (badness 10000) in paragraph at lines 548--559
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 587--594
+Underfull \hbox (badness 10000) in paragraph at lines 560--567
 
  []
 
@@ -465,47 +455,47 @@ File: IMAGES/flux.png Graphic file (type png)
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 602--625
+Underfull \hbox (badness 10000) in paragraph at lines 575--598
 
  []
 
 [9]
-Underfull \hbox (badness 10000) in paragraph at lines 626--637
+Underfull \hbox (badness 10000) in paragraph at lines 599--610
 
  []
 
 [10 <./IMAGES/flux.png (PNG copy)>]
-Underfull \hbox (badness 10000) in paragraph at lines 647--656
+Underfull \hbox (badness 10000) in paragraph at lines 620--629
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 659--666
+Underfull \hbox (badness 10000) in paragraph at lines 632--639
 
  []
 
 
 Package natbib Warning: Citation `Beckermann2006' on page 11 undefined on input
- line 748.
+ line 721.
 
 [11]
-Underfull \hbox (badness 10000) in paragraph at lines 763--765
+Underfull \hbox (badness 10000) in paragraph at lines 736--738
 
  []
 
 
-LaTeX Warning: Reference `implicit' on page 12 undefined on input line 807.
+LaTeX Warning: Reference `implicit' on page 12 undefined on input line 770.
 
 
-Package caption Warning: \label without proper \caption on input line 839.
+Package caption Warning: \label without proper \caption on input line 802.
 See the caption package documentation for explanation.
 
 
-LaTeX Warning: Reference `figintegrator' on page 12 undefined on input line 808
+LaTeX Warning: Reference `figintegrator' on page 12 undefined on input line 771
 .
 
 
-LaTeX Font Warning: Command \large invalid in math mode on input line 832.
+LaTeX Font Warning: Command \large invalid in math mode on input line 795.
 
 <IMAGES/integrator.png, id=63, 230.36063pt x 137.7647pt>
 File: IMAGES/integrator.png Graphic file (type png)
@@ -517,11 +507,11 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 [12]
 
 Package natbib Warning: Citation `levelsetbook' on page 13 undefined on input l
-ine 911.
+ine 874.
 
 [13 <./IMAGES/integrator.png>]
 
-LaTeX Warning: Reference `' on page 14 undefined on input line 922.
+LaTeX Warning: Reference `' on page 14 undefined on input line 885.
 
 <IMAGES/expinitialconf.png, id=72, 722.7pt x 481.8pt>
 File: IMAGES/expinitialconf.png Graphic file (type png)
@@ -553,28 +543,28 @@ nterface60.png (PNG copy)>] <IMAGES/xextend.png, id=85, 578.16pt x 433.62pt>
 File: IMAGES/xextend.png Graphic file (type png)
 
 <use IMAGES/xextend.png>
-Overfull \hbox (4.68694pt too wide) in paragraph at lines 1022--1023
+Overfull \hbox (4.68694pt too wide) in paragraph at lines 983--984
  [][] 
  []
 
 <IMAGES/yextend.png, id=86, 578.16pt x 433.62pt>
 File: IMAGES/yextend.png Graphic file (type png)
  <use IMAGES/yextend.png>
-Overfull \hbox (4.68694pt too wide) in paragraph at lines 1024--1025
+Overfull \hbox (4.68694pt too wide) in paragraph at lines 985--986
  [][] 
  []
 
 <IMAGES/area.png, id=87, 578.16pt x 433.62pt>
 File: IMAGES/area.png Graphic file (type png)
  <use IMAGES/area.png>
-Overfull \hbox (4.68694pt too wide) in paragraph at lines 1030--1031
+Overfull \hbox (4.68694pt too wide) in paragraph at lines 991--992
  [][] 
  []
 
 <IMAGES/perimeter.png, id=88, 578.16pt x 433.62pt>
 File: IMAGES/perimeter.png Graphic file (type png)
  <use IMAGES/perimeter.png>
-Overfull \hbox (4.68694pt too wide) in paragraph at lines 1032--1033
+Overfull \hbox (4.68694pt too wide) in paragraph at lines 993--994
  [][] 
  []
 
@@ -628,18 +618,15 @@ Package natbib Warning: There were undefined citations.
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
  ) 
 Here is how much of TeX's memory you used:
- 3786 strings out of 256216
- 55026 string characters out of 1917073
- 123250 words of memory out of 1500000
- 6978 multiletter control sequences out of 10000+200000
+ 3785 strings out of 256216
+ 55016 string characters out of 1917073
+ 123222 words of memory out of 1500000
+ 6977 multiletter control sequences out of 10000+200000
  15034 words of font info for 61 fonts, out of 1200000 for 2000
  645 hyphenation exceptions out of 8191
- 36i,18n,38p,334b,450s stack positions out of 5000i,500n,6000p,200000b,15000s
+ 36i,18n,38p,779b,450s stack positions out of 5000i,500n,6000p,200000b,15000s
 </usr/share/texmf/fonts/type1/bluesky/cm/cmbx10.pfb></usr/share/texmf/fonts/t
 ype1/bluesky/cm/cmbx12.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmbx9.pfb><
 /usr/share/texmf/fonts/type1/bluesky/cm/cmex10.pfb></usr/share/texmf/fonts/type
@@ -653,7 +640,7 @@ mf/fonts/type1/bluesky/cm/cmr6.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmr
 /type1/bluesky/cm/cmr9.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmsy10.pfb>
 </usr/share/texmf/fonts/type1/bluesky/cm/cmsy7.pfb></usr/share/texmf/fonts/type
 1/bluesky/cm/cmti10.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmtt10.pfb>
-Output written on thinlayerpaper.pdf (24 pages, 5158738 bytes).
+Output written on thinlayerpaper.pdf (24 pages, 5158201 bytes).
 PDF statistics:
  188 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 131072)

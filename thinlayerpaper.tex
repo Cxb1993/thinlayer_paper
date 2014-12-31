@@ -70,32 +70,21 @@ wide range of SW flows.
 Shallow water (SW) flows include a wide range of fluid flows. In SW flows the fluid depth is much 
 smaller than the characteristic length of the fluid body. In deriving the corresponding 
 governing equations, the shallowness of flow allows us to neglect the variation of state variables  in perpendicular direction to the basal surface, and the effect of 
-this replaced with an integrated average in the equations \cite{Hutter2005}. 
-This mathematical simplification causes the 3D to be represented in 2D equations.
+this replaced with an integrated average in the equations \cite{SavageHutter1989}. 
+This mathematical simplification allows us to simplify three dimension flow in two dimension.
 The aforementioned condition holds for many circumstances in geophysical flow and the same 
 conservation equations with some minor modifications could be used to study these type of flows. \newline
-To this aim, Eglit and Sveshnikova \cite{eglit1980mms} modified the depth-averaged Saint Venant equations 
-to simulate granular snow avalanches, and almost a decade later Savage and Hutter\cite{SavageHutter1989} 
-were the first to adapt the depth averaged Saint Venant equations to accommodate  geophysical mass flow. 
+To this aim, Eglit and Sveshnikova \cite{eglit1980mms} modified the depth-averaged Saint Venant equations to simulate granular snow avalanches, and almost a decade later Savage and Hutter\cite{SavageHutter1989} to adapt the depth averaged Saint Venant equations to accommodate  geophysical mass flow. 
 % introducing WD problem
-Since this type of flow is free moving boundary flow, one of the basic difficulties 
-of the numerical solution, which itself 
-causes a large group of other difficulties, is finding the location of flow interface. 
-More clearly, the governing equations are just valid in wet areas, so there must be a way to discriminate 
-between wet and dry areas in numerical simulation. 
-This problem is usually called the {\bf wetting and drying (WD)} or {\bf Thin-Layer} problem in SWE context, 
-and the lack of a solution for this problem leads to the formation of a non-physical super shallow 
-flow layer in the domain.
+Since this type of flow has free moving boundaries, one of the basic difficulties 
+of the numerical solution, is identifying the location of flow interface. 
+More clearly, the governing equations are just valid in wet areas, so we used a way to discriminate between wet and dry areas in the numerical simulation. 
+This problem is usually called the {\bf wetting and drying (WD)} or {\bf Thin-Layer} problem in SW context, and the lack of a solution for this problem leads to the formation of a non-physical thin layer in the domain.
 This non-physical thin layer could extend large distances from the realistic main 
 body of the flow, which can cause inaccurate construction of the boundary or sever 
 numerical instabilities in the numerical solution.\newline
-Beside the numerical issues, determining probable flow extents through numerical simulation is both 
-possible and critical for many SW problems, especially for geophysical flow. For example in preparing 
-a hazard map for a volcano or a flood it is crucial to know, where is the exact location of the front of the
-flow? Does the flow reach to the specific location? What is the distance of high risk locations from  
-the infrastructures? \newline
-The answer of all above questions is not possible without good information about the interface of 
-the flow during its traveling path.\newline
+Beside the numerical issues, determining probable flow extents through numerical simulation is critical for many SW problems, especially for geophysical flow. For example in preparing a hazard map for a volcano or a flood it is crucial to know, where is the exact location of the front of theflow? Does the flow reach to the specific location? What is the distance of high risk locations from the infrastructures? \newline
+The answer of all above questions is not possible without good information about the interface of the flow during its traveling path.\newline
 
 The following problems are the major difficulties that arise in numerical solution of SWE, and most 
 of them are made or related to the thin layer problem:
@@ -104,15 +93,11 @@ of them are made or related to the thin layer problem:
 \item \label{problemwicking}
       Numerical spreading of flow faster than its physical speed.      
 \item \label{problemtoothin}
-      Non-physically thin layer (orders of magnitude thinner than a grain of sand). This result from the combination of 
-      conservation of mass and the numerical wicking away of material.
+      Non-physical thin layer (orders of magnitude thinner than a grain of sand). This results from the combination of conservation of mass and the numerical wicking away of material.
 \item \label{problemtoofast}
-      Non-physically high flow speeds.  Since the solution of SWE are momentums, $\{hV_x,hV_y\}$, to find velocities, 
-      $\{V_x,V_y\}$, the momentums must be divided to flow depth, $h$, which causes a numerical error in an already 
-      small $h$, and result in overly large velocities.
+      Non-physically high flow speeds.  Since the solution of SWE are momentum, $\{hV_x,hV_y\}$, to find velocities, $\{V_x,V_y\}$ used in solution process, the momentum must be divided by flow depth, $h$, which causes a numerical error in an already small $h$, and result in overly large velocities.
 \item \label{problemunstable}
-      Loss of numerical stability.  Due to the above reasons, wave-speeds can become infinite at the flow boundary
-      which means that flow equations lose their hyperbolicty character at the vacuum state interface.
+      Loss of numerical stability.  Due to the above reasons, wave-speeds can become infinite at the flow boundary which means that flow equations lose their hyperbolicty character at the vacuum state interface.
 \end{enumerate}\label{thinprob}
 
 % Litrature Review
@@ -154,7 +139,8 @@ compares them very briefly.
 \hline
 {\bf Strategy}                  & {\bf Mass Conservation}                                          & {\bf Physics} \\
 \hline
-{\bf Thin film}                 & Adequate, but requires correction after water levels obtaining   & produce a smooth and realistic wetting front      \\
+{\bf Thin film}                 & Adequate, but requires solution reconstruction 
+& Produces a smooth and realistic wetting front     \\
 \hline 
 {\bf Cell removal}              & Dependent on numerical method for solving the equations          & Excellent, performs better on advancing front than receding front \\
 \hline
@@ -166,37 +152,29 @@ compares them very briefly.
 \end{tabular}
 \end{center}
 
-On the other hand, with the interface tracking/capturing m ethods one can find the interface
+On the other hand, with the interface tracking/capturing methods one can find the interface
 of a moving boundary flow in a more rigorous way.
 Based upon the employed frame of work, these methods are divided into Lagrangian and Eulerian methods.
 Roughly speaking in Lagrangian type methods, the initial interface is replaced with some of the material 
-points (particles) that represens the interface. These points move with a velocity vector field which comes 
+points (particles) that represents the interface. These points move with a velocity vector field which comes 
 from numerical solution at each time step. The interface is constructed at each time step by connecting 
 the updated location of these points. 
 Mark And Cell method (MAC)\cite{}, Simplified Marc And Cell method (SMAC),
 and Surface Marker method are some examples of Lagrangian interface tracking methods.
 Obviously, the accuracy of the method is highly depend on the number 
 of particles that form the initial boundary. 
-High computational cost, tendency to instability and inability to track the complex topological changes are the most 
-important drawbacks of these methods. 
-However, these methods are more useful as an auxiliary tool to compensate the defects of Eulerian methods 
-such as conservation of mass in level set method. Tai et el. \cite{Tai2002} is an example of the application of 
-this method for 1D Savage\_Hutter equation. They used a non-oscillatory central (NOC) difference scheme with a 
+High computational cost, tendency to instability and inability to track the complex topological changes are the most important drawbacks of these methods. 
+However, these methods are more useful as an auxiliary tool to compensate the defects of Eulerian methods such as conservation of mass in level set method. Tai et el. \cite{Tai2002} is an example of the application of this method for 1D Savage\_Hutter equation. They used a non-oscillatory central (NOC) difference scheme with a 
 stationary uniform mesh, and achieve good results by augmenting this solver with a Lagrangian front tracking scheme.\newline
-
-
-The other important type of interface capturing sachems are Eulerian methods. Level set, phase field and VOF 
-are the most well-known methods in Eulerian frame of work.
-In these types of methods the interface is captured by solving another transport equation for a scaler that 
-explicitly, in level set method, or implicitly, in VOF and phase field method, indicates the interface location.
-This order parameter is coupled with the other governing equations of primitive variables to jointly present 
-a rigorous model for the interested problem.\newline
+The other important type of interface capturing are Eulerian methods. Level set, phase field and VOF are the most well-known methods in Eulerian frame of work.
+In these types of methods the interface is captured by solving another transport equation for a scalar that explicitly, in level set method, or implicitly, in VOF and phase field method, indicates the interface location.
+This order parameter is coupled with the other governing equations of primitive variables to jointly present a rigorous model for the interested problem.\newline
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% VOF   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Hirt and Nichols\cite{hirt1981vfv} were the first to propose a VOF method. 
-In this method, the mentioned scaler variable is the fraction/volume of a particular fluid in each cell.
+In this method, the mentioned scalar variable is the fraction/volume of a particular fluid in each cell.
 % This equation is material derivative of the scaler variable with respect to the time.
 To construct the interface based on this method, the interface surface reconstruction technique shall be  
 performed at each time step. Youngs\cite{youngs1982tdm} achieved a significant improvement in VOF by adding a 
@@ -222,28 +200,24 @@ areas. The first approach used was described as a ``simple yet efficient'' metho
 approaches. Although they claimed that they used level set as the second approach, they did not report any result of that.
 They finally concluded that the level set is expensive and unnecessary for their problem.\newline
 
-%%%%%%%%%%%%%%%%%%%%%%%%%% Phase field method %%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%% Phse field method %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-The last method that we will overview here is phase filed method. Phase field is another Eulerian type interface capturing
-scheme that the interface is implicitly related to the order parameter which shows the phase variation on the domain. 
+The last method that we will overview here is phase field method. Phase field is another Eulerian interface capturing scheme that the interface is implicitly related to the order parameter which shows the phase variation on the domain. 
 Usually, this value varies between 0 to 1 or -1 to 1, in such a way that it is 1 if the cell is wet, it is zero (or -1) 
 if the cell is dry, and it is something between 0 to 1 (or -1 to 1) for partially wet cells.
-This method is more developed and popular in material science research, and drew the attention of the researchers 
-in many disciplines especially in the recent years.
+This method is more developed and popular in material science research, and drew the attention of the researchers in many disciplines especially in the recent years.
 Cahn-Hilliard and Allen-Cahn formulations are two principal formulation for this method. The basic difference between these 
 two form is that the first one is mass conservative, and the second one is not. Mathematically, the conservative form has a 
 forth order derivative while the other one has a second order derivative. This difference in the highest order of derivative 
-will make the laterform much easier to implement. As a result people first try to use the second one and then if 
-they did not succeed, they will proceed to the other one.
+will make the later form much easier to implement. As a result people first try to use the second one and then if 
+they not succeed, they will proceed to the other one.
 In this method the interface is a diffusive region between the phases in spite of level set which yields to a sharp 
 interface. Phase field equation is derived from the relation between the changes of the phases and free energy level of the 
 system. The strong physics behind that makes it powerful particularly in simulating energy and thermodynamics related problems.
-Based on our best knowledge no report was published earlier that uses this method for capturing the interface in SWE.\newline
+Based on our best knowledge no report was published earlier that uses this method for capturing the interface in SW.\newline
 
-%================================================ Introduction of next parts of paper ==========================
-In this work we used some combination of the first group of approach and then compared these results with the results of the 
-phase field and the level set methods. We tried to stick to the basic methods, as long as the quality of the result was
-reasonable and it does not increase the computational cost significantly.\newline
+%=================== Introduction of next parts of paper ==========================
+In this work, we used a combination of the first group of approaches and then compared these results with the results of the phase field and the level set methods. We tried to stick to the basic methods, as long as the quality of the result was reasonable and it does not increase the computational cost significantly.\newline
 The basic procedure in the heuristic approach is: First, use a very small threshold 
 to discriminate between wet and dry cells, then divide the cells into three groups of wet, dry and partially wet cells.
 The next step is to adjust the fluxes for the partially wet cells and the last step is to update the state variables for wet cells.\newline
@@ -257,10 +231,9 @@ used, which allows one half to be solved by an implicit scheme, and the rest of 
 integrator.\newline
 
 As a general comparison between the methods it could be mentioned that the first approaches are less expensive, but since 
-they do not have a rigorous physical background, the obtained interface not be realistically pleasable. 
-On other hand, the capturing interface methods have stronger mathematical and physical structure, and they can be coupled 
-with the other equations to be employed for a more complicated case. 
-However, these types of approaches are more computationaly expensive, and are harder to implement and couple with the basic solver
+they do not have a rigorous physical basis, the obtained interface. 
+On other hand, the capturing interface methods have stronger mathematical and physical structure, and they can be coupled with the other equations to be employed for a more complicated case. 
+However, these types of approaches are more computationally expensive, and are harder to implement and couple with the basic solver
 and the other parts of the code.\newline
 
 The structure of the rest of this paper is as follows: in next part the SWEs for the geophysical flows and the basic 
@@ -279,7 +252,7 @@ The Savage-Hutter equation for geophysical flows was first introduced in the lat
 Their original model has subsequently been 
 improved upon by Savage\_Hutter themselves as well as others \cite{Hutter1993,Iverson1997,Gray1999,IversonDenlinger2001,PudasainiHutter2003,SavageIverson2003}.
 In our earlier work \cite{pitmanpof,gmfg1,dgtitanpaper}, we developed the Titan2D depth-averaged geophysical 
-flow simulator.  Titan2D is a parallel with dynamic repartitioning, high order, slope-limiting, upwinding, 
+flow simulator.  Titan2D is parallel with dynamic re-partitioning, high order, slope-limiting, upwinding, 
 two-dimensional Godunov solver (without splitting), with adaptive mesh refinement and Geographic Information System 
 (GIS) integration which lets it use Digital Elevation Models (DEMs) of real terrain.  
 While our new multi-faceted thin-layer mitigation strategies were developed in the context of Titan2D's capabilities, 
@@ -344,10 +317,10 @@ In the above equation, G and F are the flux terms at the inter-cell boundaries w
 in the next section.
 
 \subsection{Using Appropriate Riemann Fluxes} \label{Riemann}
-For flux computation TITAN2D uses HLL solver. HLL solver is an approximate Riemann solver that just use the maximum and 
+For flux computation TITAN2D uses a HLL solver. HLL solver is an approximate Riemann solver that just use the maximum and 
 minimum of characteristic speeds of a hyperbolic system to build the conservative fluxes at the interface.
 
-Following the recommendation of Toro\cite{ToroBook2001}, Titan2D uses 
+Following the recommendation of Toro\cite{ToroBook2001}, TITAN2D uses 
 the HLL Riemann average of fluxes. Let $U$ be a state variable, $F$ 
 be a flux of that state variable, $s$ be a maximum wave speed, 
 and $R$ and $L$ subscripts which denote ``right'' and ``left'' values 
@@ -371,7 +344,7 @@ They became the first to
 solve this problem by constructing an approximate Riemann solver.\newline
 
 \subsection{Adaptively Meshing} \label{adaptivemeshing}
-In the Titan2D, each grid cell is square or very nearly so.  Rather than 
+In the TITAN2D, each grid cell is square or very nearly so.  Rather than 
 using a uniform mesh, different sizes of cells are allowed, with each 
 successive ``generation'' covering one fourth the area of its ``parent'' 
 cell.  Note that only one generation of irregularity is allowed between 
@@ -506,7 +479,7 @@ chosen strategy must be able to generate the same ``appropriate'' value
 for depth scale at the beginning and at the end of a simulation.  \newline
 
 In a ``typical'' geological simulation, say of the collapse of a volcanic 
-dome which would be modeled in Titan2D as a``pile source,'' the initial 
+dome which would be modeled in TITAN2D as a``pile source,'' the initial 
 body of mass can be quite deep, but at the end of the simulation the 
 material will likely be spread over a large area.  Hypothetically, if one 
 were to scale by maximum flow depth at the beginning and end of the 
@@ -518,7 +491,7 @@ mentioned ``pile source.''  \newline
 
 On the other hand, scaling by the cube root of the total volume of the 
 flow being simulated is entirely consistent and is the flow depth 
-scaling factor used by Titan2D.  We do {\bf not} claim that the cube root 
+scaling factor used by TITAN2D.  We do {\bf not} claim that the cube root 
 of volume is any more or less appropriate as a scaling factor than 
 maximum initial flow depth in other shallow water contexts, for example 
 storm surge simulation.\newline
@@ -786,23 +759,13 @@ as $M(\varphi)=1-\varphi^2$ or $M(\varphi)=1$ \cite{}. For this work we selected
 % In the above equation \xi(t) is the Lagrangian multiplier 
 % to constrain the volume constant.
 The default time integration scheme in TITAN2D is forward Eulerian scheme. This scheme is less expensive and fast but conditionally 
-stable. Satisfaction of CFL condition is the necessary condition for stability in this scheme. Considering that the phase field 
-method has a second order derivative (laplacian term), to satisfy CFL condition which in this case is related to the inverse
-square of the spatial increment, CFL $\propto \bigtriangleup \text{x}^{-2}$, time increment must be proportional to the square 
-of the spatial increment, $\bigtriangleup \text{t} \propto ( \bigtriangleup x)^2 $. Which makes the time step too small and causes 
-an affordable simulation time.
+stable. Satisfaction of CFL condition is the necessary condition for stability in this scheme. Since phase field 
+method has a second order derivative, to satisfy CFL condition which in this case is related to the inverse square of the spatial increment, CFL $\propto \bigtriangleup \text{x}^{-2}$, thus time increment must be proportional to the square 
+of the spatial increment, $\bigtriangleup \text{t} \propto ( \bigtriangleup x)^2 $, makes the time step too small and causes unaffordable simulation time.
 Thus the time integration scheme must be changed to another time scheme which allows larger time steps.
-The Eulerian implicit time scheme is unconditionally stable, but the disadvantage of this method is 
-a system of linear equations has to be solved at each time step which impose a high computational cost.
-To overcome this problem we used operator splitting method to either make the time scheme stable for larger time steps,  
-and maintain the computational cost low.  
-By the opperator splitting scheme that we used here the time integration of laplacian term is performed with Eulerian implicit 
-scheme and the rest of terms are being updated in explicit time integrator. This solution let us to select larger time steps 
-for implicit solver, let say for example quadruple of explicit time step, and consequenly the system of equations has not 
-to be solved at each time step. However because the solver needs to know for what cells the state variables have to be 
-updated, the solution of the phase field is required at each time step. Therefore an extrapolation (or prediction step)
-based on the Taylor series was computed for intermediate time steps to epproximate the phase field solution between the implicit 
-solver time steps.
+The Eulerian implicit time scheme is unconditionally stable, but the disadvantage of this method is a system of linear equations has to be solved at each time step which impose a high computational cost.
+To overcome this problem we used operator splitting method to either make the time scheme stable for larger time steps, and maintain the computational cost low.  
+By the operator splitting scheme that we used here the time integration of laplacian term is performed with Eulerian implicit scheme and the rest of terms are updated in the explicit time integrator. This solution let us to select larger time steps for implicit solver, let say for example quadruple of explicit time step, and consequently the system of equations has not to be solved at each time step. However because the solver needs to know for what cells the state variables have to be updated, the solution of the phase field is required at each time step. Therefore an extrapolation (or prediction step) based on the Taylor series was computed for intermediate time steps to approximate the phase field solution between the implicit solver time steps.
 This is basically a predictor-corrector scheme which is used broadly for advection-diffusion equations solvers. 
 The formulation of the implicit and explicit solver is shown in eq.  \eqref{implicit} and \eqref{explicit}, and 
 figure \ref{figintegrator} shows the operator splitting time integration schematically.
@@ -847,7 +810,7 @@ was exploited to solve the system of equations. To decrease the computational co
 to compute the laplacian term.
 Since the Krylov subspace solvers just need the result of matrix-vector multiplication instead of an explicit definition of matrix 
 of coefficients, matrix-free method can be used to get the result of this multiplication by doing some algebraic operation on 
-the participant vector in the production. This method leads to a significant save in required memory cost.
+the participant vector in the production. This method leads to a significant saving in required memory cost.
 
 \subsection{Third: Level Set Method} \label{level set}
 
@@ -946,7 +909,7 @@ In the above equations $D^+$, and $D^-$ are  respectively the backward and forwa
 
 
 \section{Results} \label{results}
-\subsection{inclined plane}
+\subsection{Inclined plane}
 In this section the results of the study is presented in the same order they were introduced in the paper.
 Table 1 shows the applied initial condition for these results.
 \begin{center}
@@ -1006,15 +969,13 @@ Initial friction angle    & $37.3^o$ \\
     \includegraphics[width=1\textwidth]{IMAGES/interface60.png}
     \subcaption{T=0.6 sec}
   \end{minipage}
-  \caption{Pile height contour and interface location at diffeternt time steps}
+  \caption{Pile height contour and interface location at different time steps}
   \label{odinary}
 \end{figure}
 
 \subsubsection{Comparison}
 
-For quntitative comparison of the results, we compared different schemes on three measurable quantities. 
-The first measure is the extent of pile in X direction, the second one the extent of pile in Y direction, and 
-the last one is the area of pile.
+For quantitative comparison of the results, we compared different schemes on three measurable quantities. The first measure is the extent of pile in X direction, the second one the extent of pile in Y direction, and the last one is the area of pile.
 
 \begin{figure}[H]
   \begin{minipage}[b]{.48\linewidth}
@@ -1036,10 +997,6 @@ the last one is the area of pile.
   \label{compinc}
 \end{figure}
 
-In these figures, the DG is the result of Dicountinouse Galerkin (DG) version of TITAN2D \cite{}, and the experiment is the result of experiment 
-that is reported in \cite{}.
-
-
 % \end{figure}
 \subsection{Colima Volcano}
 In this section, we verify our different interface capturing methods with a field data of an eruption of Colima volcano. 
@@ -1049,7 +1006,7 @@ path of flow, so a good performance of any of the interface capturing methods fo
 To be able to compare our results with the outline of deposit of flow, we record the history of all points with the finest 
 resolution of the mesh during the simulation to check the points that are placed exactly on the boundary of the flow. 
 As a definition boundary here means that the points that the flow passed from them, but has not passed one of their neighbors 
-in different directions. For phase field and level set just with recording the maximum absolute value of phi we can find 
+in different directions. For phase field and level set just with recording the maximum absolute value of $ \phi $ we can find 
 these points by plotting $\phi=0$, this contour produces deposit line of flow during the time. For the heuristic method we 
 recorded the minimum of the pile height during time and plotted the contour of $ h = h_{scale} \times GEOFLOW \_ TINY$, where 
 $ h_{scale} =Volume^\frac{1}{3} $.
@@ -1145,7 +1102,7 @@ some underlying causes that are common to virtually all numerical
 solution methodologies.  Moreover, we have presented a heuristic method and compared 
 two interface capturing approaches that 
 mitigate this problem by addressing its root causes.  We 
-implemented these thin-layer control strategies in Titan2D, our high 
+implemented these thin-layer control strategies in TITAN2D, our high 
 performance finite volume solver of the depth-averaged granular 
 flow equations.  Numerical simulations were performed for 
 geophysical mass flows at two separate locations.
@@ -1158,11 +1115,11 @@ is, at least qualitatively, consistent with expectations.
 
 The second location, Colima volcano, which is an active volcano 
 in Mexico, was selected on the basis that the DEM had provoked 
-thin-layer numerical difficulties from an earlier version of Titan2D, 
+thin-layer numerical difficulties from an earlier version of TITAN2D, 
 and that a campanologist familiar with the location had selectively 
-tuned Titan2D's few input parameters and also computational and 
+tuned TITAN2D's few input parameters and also computational and 
 post-processing thresholds to produce results that closely matched 
-reality for that location. The new version of Titan2D, which implemented
+reality for that location. The new version of TITAN2D, which implemented
 our thin-layer control strategy, automatically (i.e. without 
 tuning) reproduced a flow outline that had even greater agreement 
 with the historical data. 
@@ -1175,7 +1132,7 @@ a very good consistency between these approaches.
 On the basis of these very positive results, we concluded that our 
 thin-layer control strategy, and interface capturing approach provides sufficient benefit. 
 While all of these approaches to thin-layer mitigation was developed in the 
-context of Titan2D's capabilities, much of it should be appropriate 
+context of TITAN2D's capabilities, much of it should be appropriate 
 for use in depth-averaged flow solvers with different numerical 
 implementations.
 
