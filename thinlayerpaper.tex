@@ -36,30 +36,9 @@
 
 \begin {abstract}{
 Determining the wet-dry boundary has historically been a challenge when 
-solving the depth-averaged shallow-water equations (or similar granular flows), and has 
-been the focus of much research efforts.
-There are two principal approaches to capture the interface for a shallow water flow. The first method, 
-which is the most common, uses some heuristic method to reconstruct the interface 
-based on geometrical data like the basal depth, and numerical solution such as flow depth in each 
-cells and its surrounding neighbors. This method is usually called volume/free-surface relationship (VFR)
-in the literature.
-The other more mathematically rigorous solution is employing an interface capturing/tracking 
-method to find the accurate location of the flow interface. There are a number of different types 
-of method that are generally categorized into Lagrangian and Eulerian.
-In the present paper, these two strategies were examined, and their results compared to show the advantages and disadvantages. 
-This study was conducted for geophysical flows, but same conclusion could be made for 
-any other shallow water (SW) flow.\newline
-In the heuristic solution part, a threshold was assumed as the minimum of flow depth in a cell.
-Based on that the cells divided into wet, dry and partially wet cells. Then fluxes were adjusted for partially
-wet cells. To obtain more accurate result adaptive mesh refinement/unrefinement were used specially for near boundary 
-cells.
-For the second type of approaches, we used level-set and phase field methods which both are Eulerian interface capturing 
-methods. In either of the methods a transport equation must be coupled with the system of equations in order to 
-to capture the interface of the flow. The algorithm and detail of implementation are explained in related sections.
-The result of the study showed that Heuristic and Eulerian interface capturing approaches have their own restrictions, 
-but considering the computational cost and related difficulties the first approach seems to be more affordable for a 
-wide range of SW flows.
-}
+solving the depth-averaged shallow-water (SW) equations (or similar granular flows), and has 
+been the focus of much research efforts. In this paper, to the best knowledge of authors, for the first time we used level set and phase field methods to solve this issue and other related problems. We also proposed a new heuristic method to address this problem. We implemented all of the methods in TITAN2D which is a parallel adaptive mesh refinement toolkit to simulate the granullar flows.\newline
+The results of the methods were presented for simple inclined plane and Colima volcano. For the inclined plane we verified the results with experimental data and for Colima volcano they have been compare with field data. We successfully captured the interface of the flow and solved the accuracy and stability problems related t thin layer problem in SW numerical solution. The comparison of results shows that although all of the methods can be used to address this problems, but each of them has its own advantage/disadvantages that has to be chosen carefully depend to the criteria of the interested case.}
 \end{abstract}
 % =============================================================================
 %                 INTRODUCTION
@@ -73,21 +52,20 @@ governing equations, the shallowness of flow allows us to neglect the variation 
 this replaced with an integrated average in the equations \cite{SavageHutter1989}. 
 This mathematical simplification allows us to simplify three dimension flow in two dimension.
 The aforementioned condition holds for many circumstances in geophysical flow and the same 
-conservation equations with some minor modifications could be used to study these type of flows. \newline
-To this aim, Eglit and Sveshnikova \cite{eglit1980mms} modified the depth-averaged Saint Venant equations to simulate granular snow avalanches, and almost a decade later Savage and Hutter\cite{SavageHutter1989} to adapt the depth averaged Saint Venant equations to accommodate  geophysical mass flow. 
+conservation equations with some minor modifications could be used to study this type of flow. \newline
+To this aim, Eglit and Sveshnikova \cite{eglit1980mms} modified the depth-averaged Saint Venant equations to simulate granular snow avalanches, and almost a decade later Savage and Hutter\cite{SavageHutter1989} adapted the depth averaged Saint Venant equations to accommodate  geophysical mass flow. 
 % introducing WD problem
 Since this type of flow has free moving boundaries, one of the basic difficulties 
 of the numerical solution, is identifying the location of flow interface. 
-More clearly, the governing equations are just valid in wet areas, so we used a way to discriminate between wet and dry areas in the numerical simulation. 
-This problem is usually called the {\bf wetting and drying (WD)} or {\bf Thin-Layer} problem in SW context, and the lack of a solution for this problem leads to the formation of a non-physical thin layer in the domain.
+More clearly, the governing equations are just valid in wet areas, so we need an strategy to discriminate between wet and dry areas in the numerical simulation. 
+This problem is usually called the {\bf wetting and drying (WD)} or {\bf Thin-Layer} problem in SW context. Lack of a solution for this problem leads to the formation of a non-physical thin layer in the domain.
 This non-physical thin layer could extend large distances from the realistic main 
 body of the flow, which can cause inaccurate construction of the boundary or sever 
 numerical instabilities in the numerical solution.\newline
-Beside the numerical issues, determining probable flow extents through numerical simulation is critical for many SW problems, especially for geophysical flow. For example in preparing a hazard map for a volcano or a flood it is crucial to know, where is the exact location of the front of theflow? Does the flow reach to the specific location? What is the distance of high risk locations from the infrastructures? \newline
+Beside the numerical issues, determining probable flow extents through numerical simulation is critical for many SW problems, especially for geophysical flow. For example, in preparing a hazard map for a volcano or a flood it is crucial to know, where is the exact location of the front of the flow? Does the flow reach to a specific location? What is the distance of high risk locations from the infrastructures? \newline
 The answer of all above questions is not possible without good information about the interface of the flow during its traveling path.\newline
 
-The following problems are the major difficulties that arise in numerical solution of SWE, and most 
-of them are made or related to the thin layer problem:
+The following problems are the major difficulties that arise in numerical solution of SW flows, and most of them are made or related to the thin layer problem:
 
 \begin{enumerate}
 \item \label{problemwicking}
@@ -95,16 +73,33 @@ of them are made or related to the thin layer problem:
 \item \label{problemtoothin}
       Non-physical thin layer (orders of magnitude thinner than a grain of sand). This results from the combination of conservation of mass and the numerical wicking away of material.
 \item \label{problemtoofast}
-      Non-physically high flow speeds.  Since the solution of SWE are momentum, $\{hV_x,hV_y\}$, to find velocities, $\{V_x,V_y\}$ used in solution process, the momentum must be divided by flow depth, $h$, which causes a numerical error in an already small $h$, and result in overly large velocities.
+      Non-physically high flow speeds.  Since the solution of SW equations are momentum, $\{hV_x,hV_y\}$, to find velocities, $\{V_x,V_y\}$ used in solution process, the momentum must be divided by flow depth, $h$, which causes a numerical error in an already small $h$, and result in overly large velocities.
 \item \label{problemunstable}
       Loss of numerical stability.  Due to the above reasons, wave-speeds can become infinite at the flow boundary which means that flow equations lose their hyperbolicty character at the vacuum state interface.
 \end{enumerate}\label{thinprob}
 
+\begin{figure}[t]
+  \begin{minipage}[b]{.5\linewidth}
+    \centering
+    \includegraphics[width=1\textwidth]{IMAGES/rupps1.png}
+    \subcaption{ Without thin layer control}
+  \end{minipage}
+\hspace{0.5cm}
+%   \hfill
+  \begin{minipage}[b]{.5\linewidth}
+    \centering
+    \includegraphics[width=1\textwidth]{IMAGES/rupps2.png}
+    \subcaption{Only flow with depth greater than 0.5 m is displayed.}
+   \end{minipage}
+  \caption{Thin layer problem in maximum over time flow depth simulation of the 1955 debris flow at Atenquique, Mexico \cite{Dalbey2009}.}
+  \label{thinlayerproblem}
+\end{figure}
+
+Figure \ref{thinlayerproblem} is an example that demonstrate this problem for numerical simulation of granular flow in  Atenquique which is a village near Colima volcano in Mexico. The left figure shows the numerical solution of flow height without using any control for thin layer problem, and the right figure shows the same result with using a naive control with plotting the regions with flow height grater than 0.5 meter. As discussed above, if we do not use any control on the numerical solution, the spread thin layer causes instability and inaccuracy in the obtained results.
+
 % Litrature Review
-A simple review on the related literature showed that 
-numerous attempts were made to overcome this problem over time especially in the recent years.
-Here we will briefly review the topic and refer the interested reader to \cite{Medeiros2013,Balzano1998} 
-for more information. \newline
+A review on literature shows numerous attempts were made to overcome this problem over time especially in the recent years  \cite{Medeiros2013,Balzano1998} .
+Here we will briefly review the topic and refer the interested reader to available references for more information. \newline
 Generally, all of the implemented method for the issue could be 
 categorized in two basic groups of what we call here heuristic methods and interface tracking/capturing methods.
 The basic idea in the first group is to reconstruct the flow interface based upon 
@@ -443,27 +438,6 @@ only for flow height greater than 0.5 $m$. This picture shows for the pure solve
 domain is filled with a negligible flow depth and this makes the actual interface mix with the thin layer region, and 
 also causes some other problems. In this section, three implemented methods to solve the WD problem which finally yields to 
 mitigate the numerical difficulties of SWE are explained. 
-
-
-\begin{figure}[H]
-  \begin{minipage}[b]{.5\linewidth}
-    \centering
-    \includegraphics[width=1\textwidth]{IMAGES/rupps1.png}
-    \subcaption{ Without thin layer control}
-  \end{minipage}
-\hspace{0.5cm}
-%   \hfill
-  \begin{minipage}[b]{.5\linewidth}
-    \centering
-%     \subfloat[Only flow with depth $>$ 0.5 m is displayed.\label{fig:a1}]{\includegraphics[width=1\textwidth]{IMAGES/rupps2.png}}\
-%      \subfloat[Second subfigure\label{fig:b}]{\includegraphics[width=1\textwidth]{IMAGES/rupps2.png}}
-    \includegraphics[width=1\textwidth]{IMAGES/rupps2.png}
-    \subcaption{Only flow with depth $>$ 0.5 m is displayed.}
-   \end{minipage}
-  \caption{Thin layer problem in maximum over time flow depth simulation of the 1955 debris flow at Atenquique, Mexico.}
-  \label{thinlayerproblem}
-\end{figure}
-
 
 
 \subsection{First: Heuristic method} \label{Heuristic}

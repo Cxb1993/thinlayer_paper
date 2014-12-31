@@ -6,6 +6,12 @@ Andrea Balzano.
   in shallow water flow models}.
 \newblock {\em Coastal Engineering}, pages 83--107, 1998.
 
+\bibitem{Dalbey2009}
+Keith~R Dalbey.
+\newblock {PREDICTIVE SIMULATION AND MODEL BASED HAZARD MAPS UMI Number :
+  3356020 Copyright 2009 by Dalbey , Keith R . All rights reserved}.
+\newblock 2009.
+
 \bibitem{eglit1980mms}
 M.~E. Eglit and Ye~I Sveshnikova.
 \newblock {Matematicheskoye modelirovaniye snezhnykh lavin; mathematical
@@ -43,12 +49,6 @@ J.~M.~N.~T. {Gray}, M.~{Wieland}, and K.~{Hutter}.
 C.W. HIRT and BD~NICHOLS.
 \newblock {Volume of fluid/VOF/ method for the dynamics of free boundaries}.
 \newblock {\em Journal of Computational Physics}, 39(1):201--225, 1981.
-
-\bibitem{Hutter2005}
-Kolumban Hutter, Yongqi Wang, and Shiva~P Pudasaini.
-\newblock {The Savage-Hutter avalanche model: how far can it be pushed?}
-\newblock {\em Philosophical transactions. Series A, Mathematical, physical,
-  and engineering sciences}, 363(1832):1507--28, July 2005.
 
 \bibitem{Iverson1997}
 R.~M. {Iverson}.
