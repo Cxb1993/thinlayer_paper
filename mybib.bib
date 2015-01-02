@@ -2519,21 +2519,6 @@ title = {{Adjoint for operators in Banach spaces}},
 url = {http://www.ams.org/proc/2004-132-05/S0002-9939-03-07204-6/},
 year = {2004}
 }
-@article{Anderson1998a,
-author = {Anderson, D. M. and McFadden, G. B. and Wheeler, a. a.},
-doi = {10.1146/annurev.fluid.30.1.139},
-file = {:home/hossein/Downloads/Phase Field/DIFFUSE-INTERFACE METHODS IN FLUID MECHANICS - Anderson, Mcfadden, Wheeler - 1998 - Unknown.pdf:pdf},
-issn = {0066-4189},
-journal = {Annual Review of Fluid Mechanics},
-keywords = {capillarity,critical phenomena,diffuse interface,phase field,surface tension},
-month = jan,
-number = {1},
-pages = {139--165},
-title = {{Diffuse-Interface Methods in Fluid Mechanics}},
-url = {http://www.annualreviews.org/doi/abs/10.1146/annurev.fluid.30.1.139},
-volume = {30},
-year = {1998}
-}
 @article{Becker2003,
 author = {Becker, Roland and Rannacher, Rolf},
 doi = {10.1017/S0962492901000010},
@@ -3295,7 +3280,7 @@ volume = {39},
 year = {2010}
 }
 @article{Castro2005a,
-abstract = {This paper deals with the numerical difficulties related to the appearance of the so-called wet/dry fronts that may occur during the simulation of free-surface waves in shallow fluids and internal waves in stratified fluids composed by two shallow layers of immiscible liquids. In the one-layer case, the fluid is supposed to be governed by the shallow water equations. In the case of two layers, the system to solve is formulated under the form of two-coupled system of shallow water equations. In both cases, the discretization of the equations are performed by means of the Q-schemes of Roe upwinding the source term developed in  1. and 2. for the one-layer system, and [3] for the two-layer system. These schemes satisfy the so-called C-property: they solve exactly steady solutions corresponding to water at rest. In order to handle properly with wet/dry fronts, a numerical scheme has to verify also an extended C-property: it has to solve exactly steady solutions corresponding to water at rest including wet/dry transitions. In  4., 5. and 6., some numerical schemes satisfying this property has been obtained. In this paper, we propose an improvement of these schemes and its extension to two-layer systems. We present some numerical results: for one-layer fluids, we compare the numerical results with some measurements corresponding to a physical model. For two-layer systems, we use the numerical scheme to perform a lock-exchange experiment, and we verify its validity by comparing the steady state reached with an approximate solution obtained by Armi and Farmer in 7. and 8. by using a simplified model.},
+abstract = {This paper deals with the numerical difficulties related to the appearance of the so-called wet/dry fronts that may occur during the simulation of free-surface waves in shallow fluids and internal waves in stratified fluids composed by two shallow layers of immiscible liquids. In the one-layer case, the fluid is supposed to be governed by the shallow water equations. In the case of two layers, the system to solve is formulated under the form of two-coupled system of shallow water equations. In both cases, the discretization of the equations are performed by means of the Q-schemes of Roe upwinding the source term developed in  1. and 2. for the one-layer system, and [3] for the two-layer system. These schemes satisfy the so-called C-property: they solve exactly steady solutions corresponding to water at rest. In order to handle properly with wet/dry fronts, a numerical scheme has to verify also an extended C-property: it has to solve exactly steady solutions corresponding to water at rest including wet/dry transitions. In  4., 5. and 6., some numerical schemes satisfying this property has been obtained. In this paper, we propose an improvement of these schemes and its extension to two-layer systems. We present some numerical results: for one-layer fluids, we compare the numerical results with some measurements corresponding to a physical model. For two-layer systems, we use the numerical scheme to perform a lock-exchange experiment, and we verify its validity by comparing the steady state reached with an approximate solution obtained by Armi and Farmer in 7. and 8. by using a simplified model.},
 annote = {note anything new rather than the other later papers that I first read.
 good explain but tough to be read},
 author = {Castro, M.J. and a.M. {Ferreiro Ferreiro} and Garc\'{\i}a-Rodr\'{\i}guez, J.a. and Gonz\'{a}lez-Vida, J.M. and Mac\'{\i}as, J. and Par\'{e}s, C. and {Elena V\'{a}zquez-Cend\'{o}n}, M.},
@@ -4032,7 +4017,7 @@ journal = {Journal of Scientific Computing},
 month = dec,
 number = {2-3},
 pages = {300--329},
-title = {{The Flexible, Extensible and Efficient Toolbox of Level Set Methods}},
+title = {{The Flexible, Extensible and Efficient Toolbox of Level Set Methods}},
 url = {http://link.springer.com/10.1007/s10915-007-9174-4},
 volume = {35},
 year = {2007}
@@ -4500,7 +4485,7 @@ journal = {Journal of Scientific Computing},
 month = jan,
 number = {1-3},
 pages = {315--339},
-title = {{A Performance Comparison of Continuous and Discontinuous Finite Element Shallow Water Models}},
+title = {{A Performance Comparison of Continuous and Discontinuous Finite Element Shallow Water Models}},
 url = {http://link.springer.com/10.1007/s10915-009-9268-2},
 volume = {40},
 year = {2009}
@@ -4786,4 +4771,133 @@ title = {{Cahn-Hilliard vs Singular Cahn-Hilliard Equations in Phase Field Model
 url = {http://www.global-sci.com/issue/abstract/readabs.php?vol=7\&page=362\&issue=2\&ppage=382\&year=2010},
 volume = {7},
 year = {2009}
+}
+@article{Osher1988,
+title = "Fronts propagating with curvature-dependent speed: Algorithms based on Hamilton-Jacobi formulations ",
+journal = "Journal of Computational Physics ",
+volume = "79",
+number = "1",
+pages = "12 - 49",
+year = "1988",
+note = "",
+issn = "0021-9991",
+doi = "http://dx.doi.org/10.1016/0021-9991(88)90002-2",
+url = "http://www.sciencedirect.com/science/article/pii/0021999188900022",
+author = "Stanley Osher and James A Sethian",
+abstract = "We devise new numerical algorithms, called \{PSC\} algorithms, for following fronts propagating with curvature-dependent speed. The speed may be an arbitrary function of curvature, and the front also can be passively advected by an underlying flow. These algorithms approximate the equations of motion, which resemble Hamilton-Jacobi equations with parabolic right-hand sides, by using techniques from hyperbolic conservation laws. Non-oscillatory schemes of various orders of accuracy are used to solve the equations, providing methods that accurately capture the formation of sharp gradients and cusps in the moving fronts. The algorithms handle topological merging and breaking naturally, work in any number of space dimensions, and do not require that the moving surface be written as a function. The methods can be also used for more general Hamilton-Jacobi-type problems. We demonstrate our algorithms by computing the solution to a variety of surface motion problems. "
+}
+
+@article{Unverdi1992,
+ author = {Unverdi, Salih Ozen and Tryggvason, Gr{\'e}tar},
+ title = {A Front-tracking Method for Viscous, Incompressible, Multi-fluid Flows},
+ journal = {J. Comput. Phys.},
+ issue_date = {May 1992},
+ volume = {100},
+ number = {1},
+ month = may,
+ year = {1992},
+ issn = {0021-9991},
+ pages = {25--37},
+ numpages = {13},
+ url = {http://dx.doi.org/10.1016/0021-9991(92)90307-K},
+ doi = {10.1016/0021-9991(92)90307-K},
+ acmid = {131953},
+ publisher = {Academic Press Professional, Inc.},
+ address = {San Diego, CA, USA},
+} 
+
+@article{Harlow1965,
+  title={Numerical Calculation of Time-Dependent Viscous Incompressible Flow of Fluid with Free Surface},
+  author={Harlow, Francis H and Welch, J Eddie},
+  journal={Physics of Fluids},
+  volume={8},
+  pages={2182--2189},
+  year={1965}
+}
+
+@article {Cheng1995,
+author = {Cheng, Liang and Armfield, Steven},
+title = {A simplified marker and cell method for unsteady flows on non-staggered grids},
+journal = {International Journal for Numerical Methods in Fluids},
+volume = {21},
+number = {1},
+publisher = {John Wiley & Sons, Ltd},
+issn = {1097-0363},
+url = {http://dx.doi.org/10.1002/fld.1650210103},
+doi = {10.1002/fld.1650210103},
+pages = {15--34},
+keywords = {SMAC, curvilinear co-ordinates, non-staggered grids, elliptic correction},
+year = {1995},
+}
+
+@book{Wrobel1991,
+  title={Computational Modelling of Free and Moving Boundary Problems: Fluid flow},
+  author={Wrobel, Luiz C and Brebbia, CA},
+  volume={1},
+  year={1991},
+  publisher={Walter de Gruyter}
+}
+
+@ARTICLE{Glimm1995,
+    author = {James Glimm and John W. Grove and Xiao Lin Li and Keh-Ming Shyue and Yanni Zeng and Qiang Zhang},
+    title = {Three Dimensional Front Tracking},
+    journal = {SIAM J. Sci. Comp},
+    year = {1995},
+    volume = {19},
+    pages = {703--727}
+}
+
+@article{Gueyffier1999,
+  title={Volume-of-fluid interface tracking with smoothed surface stress methods for three-dimensional flows},
+  author={Gueyffier, Denis and Li, Jie and Nadim, Ali and Scardovelli, Ruben and Zaleski, St{\'e}phane},
+  journal={Journal of Computational Physics},
+  volume={152},
+  number={2},
+  pages={423--456},
+  year={1999},
+  publisher={Elsevier}
+}
+@article{CahnHilliard1958i,
+   author = "Cahn, John W. and Hilliard, John E.",
+   title = "Free Energy of a Nonuniform System. I. Interfacial Free Energy",
+   journal = "The Journal of Chemical Physics",
+   year = "1958",
+   volume = "28",
+   number = "2", 
+   eid = ,
+   pages = "258-267",
+   url = "http://scitation.aip.org/content/aip/journal/jcp/28/2/10.1063/1.1744102",
+   doi = "http://dx.doi.org/10.1063/1.1744102" 
+}
+@article{CahnHilliard1958ii,
+   author = "Cahn, John W.",
+   title = "Free Energy of a Nonuniform System. II. Thermodynamic Basis",
+   journal = "The Journal of Chemical Physics",
+   year = "1959",
+   volume = "30",
+   number = "5", 
+   eid = ,
+   pages = "1121-1124",
+   url = "http://scitation.aip.org/content/aip/journal/jcp/30/5/10.1063/1.1730145",
+   doi = "http://dx.doi.org/10.1063/1.1730145" 
+}
+@article{Yang2006,
+title = "Numerical simulations of jet pinching-off and drop formation using an energetic variational phase-field method ",
+journal = "Journal of Computational Physics ",
+volume = "218",
+number = "1",
+pages = "417 - 428",
+year = "2006",
+note = "",
+issn = "0021-9991",
+doi = "http://dx.doi.org/10.1016/j.jcp.2006.02.021",
+url = "http://www.sciencedirect.com/science/article/pii/S002199910600091X",
+author = "Xiaofeng Yang and James J. Feng and Chun Liu and Jie Shen",
+keywords = "Drop formation",
+keywords = "Pintching",
+keywords = "Two phase flow",
+keywords = "Phase-field method",
+keywords = "Spectral method",
+keywords = "Incompressible flow ",
+abstract = "We study the retraction and pinch-off of a liquid filament and the formation of drops by using an energetic variational phase field model, which describes the motion of mixtures of two incompressible fluids. An efficient and accurate numerical scheme is presented and implemented for the coupled nonlinear systems of Navier–Stokes type linear momentum equations and volume preserving Allen–Cahn type phase equations. Detailed numerical simulations for a Newtonian fluid filament falling into another ambient Newtonian fluid are carried out. The dynamical scaling behavior and the pinch-off behavior, as well as the formation of the consequent satellite droplets are investigated. "
 }

@@ -1,16 +1,73 @@
 \begin{thebibliography}{10}
 
+\bibitem{Anderson1998}
+DM~Anderson.
+\newblock {Diffuse-interface methods in fluid mechanics}.
+\newblock {\em \ldots of fluid mechanics}, 1998.
+
+\bibitem{Aureli2008}
+F.~Aureli, a.~Maranzoni, P.~Mignosa, and C.~Ziveri.
+\newblock {A weighted surface-depth gradient method for the numerical
+  integration of the 2D shallow water equations with topography}.
+\newblock {\em Advances in Water Resources}, 31(7):962--974, July 2008.
+
 \bibitem{Balzano1998}
 Andrea Balzano.
 \newblock {Evaluation of methods for numerical simulation of wetting and drying
   in shallow water flow models}.
 \newblock {\em Coastal Engineering}, pages 83--107, 1998.
 
+\bibitem{Bunya2009}
+Shintaro Bunya, Ethan~J. Kubatko, Joannes~J. Westerink, and Clint Dawson.
+\newblock {A wetting and drying treatment for the Runge–Kutta discontinuous
+  Galerkin solution to the shallow water equations}.
+\newblock {\em Computer Methods in Applied Mechanics and Engineering},
+  198(17-20):1548--1562, April 2009.
+
+\bibitem{CahnHilliard1958ii}
+John~W. Cahn.
+\newblock Free energy of a nonuniform system. ii. thermodynamic basis.
+\newblock {\em The Journal of Chemical Physics}, 30(5), 1959.
+
+\bibitem{CahnHilliard1958i}
+John~W. Cahn and John~E. Hilliard.
+\newblock Free energy of a nonuniform system. i. interfacial free energy.
+\newblock {\em The Journal of Chemical Physics}, 28(2), 1958.
+
+\bibitem{Castro2005a}
+M.J. Castro, a.M. {Ferreiro Ferreiro}, J.a. Garc\'{\i}a-Rodr\'{\i}guez, J.M.
+  Gonz\'{a}lez-Vida, J.~Mac\'{\i}as, C.~Par\'{e}s, and M.~{Elena
+  V\'{a}zquez-Cend\'{o}n}.
+\newblock {The numerical treatment of wet/dry fronts in shallow flows:
+  application to one-layer and two-layer systems}.
+\newblock {\em Mathematical and Computer Modelling}, 42(3-4):419--439, August
+  2005.
+
+\bibitem{Casulli2009a}
+Vincenzo Casulli.
+\newblock {Ahigh-resolution wetting and drying algorithm for free-surface
+  hydrodynamics}.
+\newblock {\em International journal for numerical methods in fluids}, (August
+  2008):391--408, 2009.
+
+\bibitem{Cheng1995}
+Liang Cheng and Steven Armfield.
+\newblock A simplified marker and cell method for unsteady flows on
+  non-staggered grids.
+\newblock {\em International Journal for Numerical Methods in Fluids},
+  21(1):15--34, 1995.
+
 \bibitem{Dalbey2009}
 Keith~R Dalbey.
 \newblock {PREDICTIVE SIMULATION AND MODEL BASED HAZARD MAPS UMI Number :
   3356020 Copyright 2009 by Dalbey , Keith R . All rights reserved}.
 \newblock 2009.
+
+\bibitem{DAlpaos2007}
+L.~D’Alpaos and a.~Defina.
+\newblock {Mathematical modeling of tidal hydrodynamics in shallow lagoons: A
+  review of open issues and applications to the Venice lagoon}.
+\newblock {\em Computers \& Geosciences}, 33(4):476--496, May 2007.
 
 \bibitem{eglit1980mms}
 M.~E. Eglit and Ye~I Sveshnikova.
@@ -32,6 +89,12 @@ D.~Gerlach, G.~Tomar, G.~Biswas, and F.~Durst.
 \newblock {\em International Journal of Heat and Mass Transfer},
   49(3-4):740--754, 2006.
 
+\bibitem{Glimm1995}
+James Glimm, John~W. Grove, Xiao~Lin Li, Keh-Ming Shyue, Yanni Zeng, and Qiang
+  Zhang.
+\newblock Three dimensional front tracking.
+\newblock {\em SIAM J. Sci. Comp}, 19:703--727, 1995.
+
 \bibitem{gopala2008vfm}
 V.R. Gopala and B.G.M. van Wachem.
 \newblock {Volume of fluid methods for immiscible-fluid and free-surface
@@ -44,6 +107,12 @@ J.~M.~N.~T. {Gray}, M.~{Wieland}, and K.~{Hutter}.
   basal topography}.
 \newblock {\em Royal Society of London Proceedings Series A}, 455:1841--1874,
   May 1999.
+
+\bibitem{Harlow1965}
+Francis~H Harlow and J~Eddie Welch.
+\newblock Numerical calculation of time-dependent viscous incompressible flow
+  of fluid with free surface.
+\newblock {\em Physics of Fluids}, 8:2182--2189, 1965.
 
 \bibitem{hirt1981vfv}
 C.W. HIRT and BD~NICHOLS.
@@ -60,6 +129,12 @@ R.~M. {Iverson} and R.~P. {Denlinger}.
 \newblock {Flow of variably fluidized granular masses across three-dimensional
   terrain 1. Coulomb mixture theory}.
 \newblock {\em Journal of Geophysical Research}, 106:537--552, 2001.
+
+\bibitem{Kesserwani2011}
+Georges Kesserwani and Qiuhua Liang.
+\newblock {Locally Limited and Fully Conserved RKDG2 Shallow Water Solutions
+  with Wetting and Drying}.
+\newblock {\em Journal of Scientific Computing}, 50(1):120--144, March 2011.
 
 \bibitem{Hutter1993}
 K.Hutter, M.~Siegel, S.B. Savage, and Y.~Nohguchi.
@@ -80,6 +155,12 @@ Laercio~M. Namikawa.
   Modeling}.
 \newblock PhD thesis, Department of Geography, University at Buffalo, July
   2006.
+
+\bibitem{Osher1988}
+Stanley Osher and James~A Sethian.
+\newblock Fronts propagating with curvature-dependent speed: Algorithms based
+  on hamilton-jacobi formulations.
+\newblock {\em Journal of Computational Physics}, 79(1):12 -- 49, 1988.
 
 \bibitem{gmfg1}
 A.K. Patra, A.C. Bauer, C.C. Nichita, E.B. Pitman, M.F. Sheridan, M.I. Bursik,
@@ -127,11 +208,6 @@ SB~Savage and RM~Iverson.
   Assessment, edited by: Rickenmann, D. and Chen, C.-L., Millpress},
   1:503--514, 2003.
 
-\bibitem{Sethian2003}
-J.~a. Sethian and Peter Smereka.
-\newblock {L Evel S Et M Ethods for F Luid I Nterfaces}.
-\newblock {\em Annual Review of Fluid Mechanics}, 35(1):341--372, January 2003.
-
 \bibitem{Sussman}
 Mark Sussman, Peter Smereka, and Ann Arbor.
 \newblock {A Level Set Approach for Computing Solutions to Incompressible
@@ -147,6 +223,24 @@ Y.~C. Tai, S.~Noelle, J.~M. N.~T. Gray, and K.~Hutter.
 E.F. Toro.
 \newblock {\em Shock-Capturing Methods for Free-Surface Shallow Flows}.
 \newblock Wiley, New York, 2001.
+
+\bibitem{Unverdi1992}
+Salih~Ozen Unverdi and Gr{\'e}tar Tryggvason.
+\newblock A front-tracking method for viscous, incompressible, multi-fluid
+  flows.
+\newblock {\em J. Comput. Phys.}, 100(1):25--37, May 1992.
+
+\bibitem{Wrobel1991}
+Luiz~C Wrobel and CA~Brebbia.
+\newblock {\em Computational Modelling of Free and Moving Boundary Problems:
+  Fluid flow}, volume~1.
+\newblock Walter de Gruyter, 1991.
+
+\bibitem{Yang2006}
+Xiaofeng Yang, James~J. Feng, Chun Liu, and Jie Shen.
+\newblock Numerical simulations of jet pinching-off and drop formation using an
+  energetic variational phase-field method.
+\newblock {\em Journal of Computational Physics}, 218(1):417 -- 428, 2006.
 
 \bibitem{youngs1982tdm}
 DL~Youngs.
