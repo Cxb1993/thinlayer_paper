@@ -26,45 +26,45 @@ Warning--there's a number but no volume in Medeiros2013
 Warning--empty journal in Sussman
 Warning--there's a number but no volume in Sussman
 Warning--empty year in Sussman
-You've used 40 entries,
+You've used 42 entries,
             2118 wiz_defined-function locations,
-            779 strings with 11548 characters,
-and the built_in function-call counts, 13505 in all, are:
-= -- 1323
-> -- 674
-< -- 3
-+ -- 267
-- -- 224
-* -- 1034
-:= -- 2315
-add.period$ -- 121
-call.type$ -- 40
-change.case$ -- 228
+            791 strings with 12032 characters,
+and the built_in function-call counts, 14458 in all, are:
+= -- 1405
+> -- 760
+< -- 4
++ -- 302
+- -- 256
+* -- 1123
+:= -- 2489
+add.period$ -- 127
+call.type$ -- 42
+change.case$ -- 250
 chr.to.int$ -- 0
-cite$ -- 46
-duplicate$ -- 454
-empty$ -- 1004
-format.name$ -- 224
-if$ -- 2746
+cite$ -- 48
+duplicate$ -- 474
+empty$ -- 1048
+format.name$ -- 256
+if$ -- 2925
 int.to.chr$ -- 0
-int.to.str$ -- 40
-missing$ -- 41
-newline$ -- 203
-num.names$ -- 82
-pop$ -- 184
+int.to.str$ -- 42
+missing$ -- 42
+newline$ -- 213
+num.names$ -- 86
+pop$ -- 203
 preamble$ -- 1
-purify$ -- 191
+purify$ -- 211
 quote$ -- 0
-skip$ -- 312
+skip$ -- 325
 stack$ -- 0
-substring$ -- 920
-swap$ -- 55
-text.length$ -- 3
+substring$ -- 958
+swap$ -- 57
+text.length$ -- 4
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 156
+type$ -- 164
 warning$ -- 6
-while$ -- 129
-width$ -- 42
-write$ -- 437
+while$ -- 134
+width$ -- 44
+write$ -- 459
 (There were 4 error messages)

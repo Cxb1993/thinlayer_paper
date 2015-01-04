@@ -1,5 +1,10 @@
 \begin{thebibliography}{10}
 
+\bibitem{Adalsteinsson1995}
+David Adalsteinsson and James~A. Sethian.
+\newblock A fast level set method for propagating interfaces.
+\newblock {\em Journal of Computational Physics}, 118(2):269 -- 277, 1995.
+
 \bibitem{Anderson1998}
 DM~Anderson.
 \newblock {Diffuse-interface methods in fluid mechanics}.
@@ -10,6 +15,14 @@ F.~Aureli, a.~Maranzoni, P.~Mignosa, and C.~Ziveri.
 \newblock {A weighted surface-depth gradient method for the numerical
   integration of the 2D shallow water equations with topography}.
 \newblock {\em Advances in Water Resources}, 31(7):962--974, July 2008.
+
+\bibitem{petsc-user-ref}
+Satish Balay, Shrirang Abhyankar, Mark~F. Adams, Jed Brown, Peter Brune, Kris
+  Buschelman, Victor Eijkhout, William~D. Gropp, Dinesh Kaushik, Matthew~G.
+  Knepley, Lois~Curfman McInnes, Karl Rupp, Barry~F. Smith, and Hong Zhang.
+\newblock {PETS}c users manual.
+\newblock Technical Report ANL-95/11 - Revision 3.5, Argonne National
+  Laboratory, 2014.
 
 \bibitem{Balzano1998}
 Andrea Balzano.
