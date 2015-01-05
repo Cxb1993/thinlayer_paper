@@ -11,9 +11,9 @@ David Adalsteinsson and James~A. Sethian.
 \newblock {\em Journal of Computational Physics}, 118(2):269 -- 277, 1995.
 
 \bibitem{Anderson1998}
-DM~Anderson.
-\newblock {Diffuse-interface methods in fluid mechanics}.
-\newblock {\em \ldots of fluid mechanics}, 1998.
+D.~M. Anderson, G.~B. McFadden, and A.~A. Wheeler.
+\newblock Diffuse-interface methods in fluid mechanics.
+\newblock {\em Annual Review of Fluid Mechanics}, 30(1):139--165, 1998.
 
 \bibitem{Aureli2008}
 F.~Aureli, a.~Maranzoni, P.~Mignosa, and C.~Ziveri.
@@ -40,6 +40,12 @@ W.~J. Boettinger, J.~a. Warren, C.~Beckermann, and a.~Karma.
 \newblock {P Hase -F Ield S Imulation of S Olidification 1}.
 \newblock {\em Annual Review of Materials Research}, 32(1):163--194, August
   2002.
+
+\bibitem{Bronsard1990}
+Lia Bronsard and Robert~V. Kohn.
+\newblock On the slowness of phase boundary motion in one space dimension.
+\newblock {\em Communications on Pure and Applied Mathematics}, 43(8):983--997,
+  1990.
 
 \bibitem{Bunya2009}
 Shintaro Bunya, Ethan~J. Kubatko, Joannes~J. Westerink, and Clint Dawson.
@@ -186,6 +192,11 @@ K.Hutter, M.~Siegel, S.B. Savage, and Y.~Nohguchi.
 Junseok Kim.
 \newblock {Phase-Field Models for Multi-Component Fluid Flows}.
 \newblock {\em Commun. Comput. Phys}, 12(3):613--661, 2012.
+
+\bibitem{Larson1999}
+R.G. Larson.
+\newblock {\em The Structure and Rheology of Complex Fluids}.
+\newblock Topics in Chemical Engineering. OUP USA, 1999.
 
 \bibitem{Medeiros2013}
 SC~Medeiros and SC~Hagen.

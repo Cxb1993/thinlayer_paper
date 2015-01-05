@@ -1,4 +1,4 @@
-This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2014.7.2)  4 JAN 2015 19:33
+This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2014.7.2)  5 JAN 2015 17:02
 entering extended mode
  %&-line parsing enabled.
 **thinlayerpaper.tex
@@ -454,24 +454,24 @@ Underfull \hbox (badness 10000) in paragraph at lines 579--586
 
  []
 
-[10]
-Underfull \hbox (badness 10000) in paragraph at lines 675--677
+
+Underfull \hbox (badness 10000) in paragraph at lines 654--661
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 695--710
+[10] [11]
+Underfull \hbox (badness 10000) in paragraph at lines 734--745
 
  []
 
-[11] [12] <IMAGES/expinitialconf.png, id=66, 722.7pt x 481.8pt>
+[12] [13] <IMAGES/expinitialconf.png, id=70, 722.7pt x 481.8pt>
 File: IMAGES/expinitialconf.png Graphic file (type png)
 
 <use IMAGES/expinitialconf.png>
-<IMAGES/initialconf.png, id=67, 1403.2425pt x 824.07875pt>
+<IMAGES/initialconf.png, id=71, 1403.2425pt x 824.07875pt>
 File: IMAGES/initialconf.png Graphic file (type png)
 
-<use IMAGES/initialconf.png> [13]
+<use IMAGES/initialconf.png>
 <IMAGES/interface15.png, id=72, 578.16pt x 433.62pt>
 File: IMAGES/interface15.png Graphic file (type png)
 
@@ -488,110 +488,109 @@ File: IMAGES/interface45.png Graphic file (type png)
 File: IMAGES/interface60.png Graphic file (type png)
 
 <use IMAGES/interface60.png> [14 <./IMAGES/expinitialconf.png (PNG copy)> <./IM
-AGES/initialconf.png (PNG copy)> <./IMAGES/interface15.png (PNG copy)> <./IMAGE
-S/interface30.png (PNG copy)> <./IMAGES/interface45.png (PNG copy)> <./IMAGES/i
-nterface60.png (PNG copy)>] <IMAGES/xextend.png, id=80, 578.16pt x 433.62pt>
+AGES/initialconf.png (PNG copy)>]
+<IMAGES/xextend.png, id=80, 578.16pt x 433.62pt>
 File: IMAGES/xextend.png Graphic file (type png)
-
-<use IMAGES/xextend.png>
-Overfull \hbox (4.68694pt too wide) in paragraph at lines 921--922
+ <use IMAGES/xextend.png>
+Overfull \hbox (4.68694pt too wide) in paragraph at lines 956--957
  [][] 
  []
 
 <IMAGES/area.png, id=81, 578.16pt x 433.62pt>
 File: IMAGES/area.png Graphic file (type png)
  <use IMAGES/area.png>
-Overfull \hbox (4.68694pt too wide) in paragraph at lines 923--924
+Overfull \hbox (4.68694pt too wide) in paragraph at lines 958--959
  [][] 
  []
 
 <IMAGES/yextend.png, id=82, 578.16pt x 433.62pt>
 File: IMAGES/yextend.png Graphic file (type png)
  <use IMAGES/yextend.png>
-Overfull \hbox (4.68694pt too wide) in paragraph at lines 929--930
+Overfull \hbox (4.68694pt too wide) in paragraph at lines 964--965
  [][] 
  []
 
 <IMAGES/perimeter.png, id=83, 578.16pt x 433.62pt>
 File: IMAGES/perimeter.png Graphic file (type png)
  <use IMAGES/perimeter.png>
-Overfull \hbox (4.68694pt too wide) in paragraph at lines 931--932
+Overfull \hbox (4.68694pt too wide) in paragraph at lines 966--967
  [][] 
  []
 
-[15 <./IMAGES/xextend.png (PNG copy)> <./IMAGES/area.png (PNG copy)> <./IMAGES/
+[15 <./IMAGES/interface15.png (PNG copy)> <./IMAGES/interface30.png (PNG copy)>
+ <./IMAGES/interface45.png (PNG copy)> <./IMAGES/interface60.png (PNG copy)>]
+[16 <./IMAGES/xextend.png (PNG copy)> <./IMAGES/area.png (PNG copy)> <./IMAGES/
 yextend.png (PNG copy)> <./IMAGES/perimeter.png (PNG copy)>]
-<IMAGES/pics/outline.png, id=87, 578.16pt x 433.62pt>
+<IMAGES/pics/outline.png, id=90, 578.16pt x 433.62pt>
 File: IMAGES/pics/outline.png Graphic file (type png)
 
 <use IMAGES/pics/outline.png>
-<IMAGES/pics/Delaunay_Triangulation_of_Colima_clean.png, id=88, 578.16pt x 433.
+<IMAGES/pics/Delaunay_Triangulation_of_Colima_clean.png, id=91, 578.16pt x 433.
 62pt>
 File: IMAGES/pics/Delaunay_Triangulation_of_Colima_clean.png Graphic file (type
  png)
  <use IMAGES/pics/Delaunay_Triangulation_of_Colima_clean.png>
-<IMAGES/pics/Skeleton_line.png, id=89, 578.16pt x 433.62pt>
+<IMAGES/pics/Skeleton_line.png, id=92, 578.16pt x 433.62pt>
 File: IMAGES/pics/Skeleton_line.png Graphic file (type png)
 
 <use IMAGES/pics/Skeleton_line.png>
-<IMAGES/pics/Outline_Skeleton_line.png, id=90, 578.16pt x 433.62pt>
+<IMAGES/pics/Outline_Skeleton_line.png, id=93, 578.16pt x 433.62pt>
 File: IMAGES/pics/Outline_Skeleton_line.png Graphic file (type png)
 
 <use IMAGES/pics/Outline_Skeleton_line.png>
-<IMAGES/skeleton_outline1.jpg, id=91, 1004.75375pt x 801.99625pt>
+<IMAGES/skeleton_outline1.jpg, id=94, 1004.75375pt x 801.99625pt>
 File: IMAGES/skeleton_outline1.jpg Graphic file (type jpg)
 
-<use IMAGES/skeleton_outline1.jpg> [16 <./IMAGES/pics/outline.png (PNG copy)> <
+<use IMAGES/skeleton_outline1.jpg> [17 <./IMAGES/pics/outline.png (PNG copy)> <
 ./IMAGES/pics/Delaunay_Triangulation_of_Colima_clean.png (PNG copy)> <./IMAGES/
 pics/Skeleton_line.png (PNG copy)> <./IMAGES/pics/Outline_Skeleton_line.png (PN
-G copy)>] <IMAGES/tiny1.jpg, id=95, 1001.7425pt x 827.09pt>
+G copy)>] <IMAGES/tiny1.jpg, id=98, 1001.7425pt x 827.09pt>
 File: IMAGES/tiny1.jpg Graphic file (type jpg)
 
 <use IMAGES/tiny1.jpg>
-<IMAGES/levelset1.jpg, id=96, 1002.74625pt x 800.9925pt>
+<IMAGES/levelset1.jpg, id=99, 1002.74625pt x 800.9925pt>
 File: IMAGES/levelset1.jpg Graphic file (type jpg)
 
 <use IMAGES/levelset1.jpg>
-<IMAGES/phasefield1.jpg, id=97, 1002.74625pt x 831.105pt>
+<IMAGES/phasefield1.jpg, id=100, 1002.74625pt x 831.105pt>
 File: IMAGES/phasefield1.jpg Graphic file (type jpg)
 
 <use IMAGES/phasefield1.jpg>
-<IMAGES/comparison1.jpg, id=98, 1001.7425pt x 825.0825pt>
+<IMAGES/comparison1.jpg, id=101, 1001.7425pt x 825.0825pt>
 File: IMAGES/comparison1.jpg Graphic file (type jpg)
 
-<use IMAGES/comparison1.jpg> [17 <./IMAGES/skeleton_outline1.jpg> <./IMAGES/tin
+<use IMAGES/comparison1.jpg> [18 <./IMAGES/skeleton_outline1.jpg> <./IMAGES/tin
 y1.jpg> <./IMAGES/levelset1.jpg> <./IMAGES/phasefield1.jpg> <./IMAGES/compariso
-n1.jpg>] (./thinlayerpaper.bbl (/usr/share/texmf/tex/latex/ucs/data/uni-32.def
+n1.jpg>] [19] (./thinlayerpaper.bbl [20]
+(/usr/share/texmf/tex/latex/ucs/data/uni-32.def
 File: uni-32.def 2004/10/17 UCS: Unicode data U+2000..U+20FF
-) [18] [19] [20]) [21] (./thinlayerpaper.aux)
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
- ) 
+) [21] [22]) [23]
+(./thinlayerpaper.aux) ) 
 Here is how much of TeX's memory you used:
- 4051 strings out of 256216
- 58004 string characters out of 1917073
- 124500 words of memory out of 1500000
- 7239 multiletter control sequences out of 10000+200000
+ 4066 strings out of 256216
+ 58145 string characters out of 1917073
+ 123660 words of memory out of 1500000
+ 7254 multiletter control sequences out of 10000+200000
  15653 words of font info for 63 fonts, out of 1200000 for 2000
  645 hyphenation exceptions out of 8191
  36i,23n,41p,865b,444s stack positions out of 5000i,500n,6000p,200000b,15000s
-</usr/share/texmf/fonts/type1/bluesky/cm/cmbx10.pfb></usr/share/texmf/fonts/t
-ype1/bluesky/cm/cmbx12.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmbx9.pfb><
-/usr/share/texmf/fonts/type1/bluesky/cm/cmex10.pfb></usr/share/texmf/fonts/type
-1/bluesky/cm/cmmi10.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmmi5.pfb></us
-r/share/texmf/fonts/type1/bluesky/cm/cmmi7.pfb></usr/share/texmf/fonts/type1/bl
-uesky/cm/cmr10.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmr12.pfb></usr/sha
-re/texmf/fonts/type1/bluesky/cm/cmr17.pfb></usr/share/texmf/fonts/type1/bluesky
-/cm/cmr5.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmr6.pfb></usr/share/texm
-f/fonts/type1/bluesky/cm/cmr7.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmr8
-.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmr9.pfb></usr/share/texmf/fonts/
-type1/bluesky/cm/cmsy10.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmsy7.pfb>
-</usr/share/texmf/fonts/type1/bluesky/cm/cmti10.pfb></usr/share/texmf/fonts/typ
-e1/bluesky/cm/cmtt10.pfb></usr/share/texmf/fonts/type1/bluesky/ams/msam10.pfb>
-Output written on thinlayerpaper.pdf (21 pages, 5127615 bytes).
+</usr/share/texmf/fonts/type1/bluesky/cm/cmbx10.pfb></u
+sr/share/texmf/fonts/type1/bluesky/cm/cmbx12.pfb></usr/share/texmf/fonts/type1/
+bluesky/cm/cmbx9.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmex10.pfb></usr/
+share/texmf/fonts/type1/bluesky/cm/cmmi10.pfb></usr/share/texmf/fonts/type1/blu
+esky/cm/cmmi5.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmmi7.pfb></usr/shar
+e/texmf/fonts/type1/bluesky/cm/cmr10.pfb></usr/share/texmf/fonts/type1/bluesky/
+cm/cmr12.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmr17.pfb></usr/share/tex
+mf/fonts/type1/bluesky/cm/cmr5.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmr
+6.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmr7.pfb></usr/share/texmf/fonts
+/type1/bluesky/cm/cmr8.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmr9.pfb></
+usr/share/texmf/fonts/type1/bluesky/cm/cmsy10.pfb></usr/share/texmf/fonts/type1
+/bluesky/cm/cmsy7.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmti10.pfb></usr
+/share/texmf/fonts/type1/bluesky/cm/cmtt10.pfb></usr/share/texmf/fonts/type1/bl
+uesky/ams/msam10.pfb>
+Output written on thinlayerpaper.pdf (23 pages, 5137456 bytes).
 PDF statistics:
- 177 PDF objects out of 1000 (max. 8388607)
+ 183 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 131072)
  121 words of extra memory for PDF output out of 10000 (max. 10000000)
 

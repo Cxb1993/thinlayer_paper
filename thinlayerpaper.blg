@@ -2,27 +2,27 @@ This is BibTeX, Version 0.99c (Web2C 7.5.6)
 The top-level auxiliary file: thinlayerpaper.aux
 The style file: plain.bst
 Database file #1: mybib.bib
-Repeated entry---line 2829 of file mybib.bib
+Repeated entry---line 2834 of file mybib.bib
  : @article{Tai2002
  :                 ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 4370 of file mybib.bib
+Repeated entry---line 4375 of file mybib.bib
  : @article{Gray1999
  :                  ,
 I'm skipping whatever remains of this entry
-You're missing a field part---line 4867 of file mybib.bib
+You're missing a field part---line 4872 of file mybib.bib
  :    eid = 
  :          ,
 I'm skipping whatever remains of this entry
-You're missing a field part---line 4879 of file mybib.bib
+You're missing a field part---line 4884 of file mybib.bib
  :    eid = 
  :          ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 4969 of file mybib.bib
+Repeated entry---line 4974 of file mybib.bib
  : @article{Boettinger2002
  :                        ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 4986 of file mybib.bib
+Repeated entry---line 4991 of file mybib.bib
  : @article{Kim2012
  :                 ,
 I'm skipping whatever remains of this entry
@@ -32,45 +32,45 @@ Warning--there's a number but no volume in Medeiros2013
 Warning--empty journal in Sussman
 Warning--there's a number but no volume in Sussman
 Warning--empty year in Sussman
-You've used 47 entries,
+You've used 49 entries,
             2118 wiz_defined-function locations,
-            820 strings with 12821 characters,
-and the built_in function-call counts, 16109 in all, are:
-= -- 1576
-> -- 823
+            836 strings with 13219 characters,
+and the built_in function-call counts, 16831 in all, are:
+= -- 1651
+> -- 854
 < -- 4
-+ -- 327
-- -- 276
-* -- 1258
-:= -- 2764
-add.period$ -- 143
-call.type$ -- 47
-change.case$ -- 275
++ -- 340
+- -- 286
+* -- 1316
+:= -- 2882
+add.period$ -- 150
+call.type$ -- 49
+change.case$ -- 285
 chr.to.int$ -- 0
-cite$ -- 53
-duplicate$ -- 529
-empty$ -- 1182
-format.name$ -- 276
-if$ -- 3261
+cite$ -- 55
+duplicate$ -- 553
+empty$ -- 1241
+format.name$ -- 286
+if$ -- 3411
 int.to.chr$ -- 0
-int.to.str$ -- 47
-missing$ -- 47
-newline$ -- 239
-num.names$ -- 96
-pop$ -- 217
+int.to.str$ -- 49
+missing$ -- 50
+newline$ -- 249
+num.names$ -- 100
+pop$ -- 226
 preamble$ -- 1
-purify$ -- 231
+purify$ -- 240
 quote$ -- 0
-skip$ -- 362
+skip$ -- 376
 stack$ -- 0
-substring$ -- 1101
-swap$ -- 62
+substring$ -- 1162
+swap$ -- 64
 text.length$ -- 4
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 184
+type$ -- 190
 warning$ -- 6
-while$ -- 153
-width$ -- 49
-write$ -- 516
+while$ -- 161
+width$ -- 51
+write$ -- 539
 (There were 6 error messages)

@@ -657,42 +657,77 @@ In this method, a continuous
 order parameter is augmented into the state variables. This order parameter that is displayed here with $\varphi$, 
 implicitly represent the interface in the domain. To this aim, a new transfer equation must be solved which is coupled with the other state variables. Papers \cite{Chen2002,Anderson1998,Boettinger2002,Kim2012} are good references about the history and evolution of the method.\\
 Phase diffusion methods and particularly phase field method is base upon the notion that the interface between phases is a diffusive region rather than a sharp interface with a finite width. 
-Value of $\phi$ is constant inside the bulk phases but changes smoothly between the phases. In this work $\phi$ is 1 for the fluid phase $ \lbrace \textbf{x}, \phi(\textbf{x},t)=1 \rbrace  $, and it is -1 for void regions $ \lbrace \textbf{x}, \phi(\textbf{x},t)=-1 \rbrace  $, and is between -1 to 1 on the diffusion region $ \lbrace \textbf{x}, -1 < \phi(\textbf{x},t) < 1 \rbrace  $. Then we can implictyl assume that the interface of flow is when $ \lbrace \textbf{x}, \phi(\textbf{x},t)= 0 \rbrace  $
+Value of $\phi$ is constant inside the bulk phases but changes smoothly between the phases. In this work $\phi$ is 1 for the fluid phase $ \lbrace \textbf{x}, \phi(\textbf{x},t)=1 \rbrace  $, and it is -1 for void regions $ \lbrace \textbf{x}, \phi(\textbf{x},t)=-1 \rbrace  $, and is between -1 to 1 on the diffusion region $ \lbrace \textbf{x}, -1 < \phi(\textbf{x},t) < 1 \rbrace  $. Then we can implicitly assume the interface of flow is where $ \lbrace \textbf{x}, \phi(\textbf{x},t)= 0 \rbrace  $.\newline
+
 %The strong thermodynamical and physical derivation of the method make it so powerful for capturing the complicated topological changes especially for the problems that the interface motion depends on gradients of an external field normal to the interface and on the local curvature of the interface.
-Cahn-Hilliard and Allen-Cahn are the two principal phase field formulations.
+Cahn-Hilliard and Allen-Cahn are the two principal phase field formulations. Basically, Cahn-Hilliard and Allen-Cahn are two possible gradient flows that can describe the phase diffusion. Both of the formulation can be written in the form of equation \eqref{generalphase}. 
 % that are displayed in eq. \eqref{cahnhilliard} and eq. \eqref{allencahn} respectively.
- The derivation of the equations in more detail could be found in \cite{CahnHilliard1958i,CahnHilliard1958ii}. As could be seen in these equations, the time material derivative of phi is related to the product of the 
-mobility and derivative of the free energy with respect to $\phi$. The basic difference between these formulations is that the 
-Cahn-Hilliard is mass conservative but the Allen-Cahn is not. On other hand, there is a biharmonic term in the right hand side of 
-the Cahn-Hilliard equation which is forth order derivative and makes it more difficult to implement. Usually, people try to 
-use the Allen-Cahn first and then if the result was not satisfactory they switch to the Cahn-Hilliard phase field. 
-Since in our work the computational cost has a higher priority than an accurate solution for the interface the Allen-Cahn form was chosen. 
+% The derivation of the equations in more detail could be found in \cite{CahnHilliard1958i,CahnHilliard1958ii}. 
+ As could be seen, the time material derivative of $\varphi$ is related to the gradient of a energy functional. For Allen-Cahn formulation, this energy functional is Ginzburg-Landu \eqref{ginzlandu}. 
+The basic difference between this formulations is that
+Cahn-Hilliard is mass conservative but Allen-Cahn is not. From computational point of view, there is a bi-harmonic term in the right hand side of Cahn-Hilliard equation which is forth order derivative and makes computationally expensive to implement. Usually, people try to 
+use Allen-Cahn first and then if the result was not satisfactory they switch to Cahn-Hilliard phase field. 
+Since in our work we intend to find the interface with the least computational cost Allen-Cahn form was chosen. 
 
 \begin{equation}
- \label{cahnhilliard}
-\frac{\partial \varphi }{\partial t} + \overrightarrow{V} \cdot \bigtriangledown \varphi = 
-\bigtriangledown \cdot (M(\varphi) \bigtriangledown\mu(\varphi)))
+ \label{generalphase}
+\frac{D \varphi }{D t} = - \frac{\gamma}{\eta} \frac{\delta W} {\delta \varphi} 
 \end{equation}
-which \newline
-\begin{equation}
-\mu = F'(\varphi)- \varepsilon^2 \Delta (\varphi)
-\end{equation}
-In the above equation F is Helmholtz free energy of a unit volume of homogeneous material of composition $\varphi$. 
 
+\begin{equation}
+ \label{ginzlandu}
+ W(\varphi,\nabla \varphi) = \int_\Omega \lbrace\frac{\eta}{2} |\nabla \varphi|^2 + F(\varphi) \rbrace dx
+\end{equation}
+
+%\begin{equation}
+% \label{generalphase}
+%\frac{\partial \varphi }{\partial t} + \overrightarrow{V} \cdot \bigtriangledown \varphi = 
+%\bigtriangledown \cdot (M(\varphi) \bigtriangledown\mu(\varphi)))
+%\end{equation}
+%which \newline
+%\begin{equation}
+%\mu = F'(\varphi)- \varepsilon^2 \Delta (\varphi)
+%\end{equation}
+In equation \eqref{generalphase}, $ \eta $ is a constant that regulates the capillary width or diffusion width, and $ \gamma $ denotes elastic relaxation constant. In our case, we select:
+\begin{equation}
+ \label{freeenergy}
+  F(\varphi)=\frac{1}{4\eta} (\varphi^2-1)^2 ,
+  \end{equation}
+which is the well-known double-well potential function, and represents the interactions of different volume fractions of individual species. The gradient part $ \frac{\eta}{2} |\nabla \varphi|^2  $, is the relaxtion part that relates the the mass average of the energy, with the volume average of the elastic energy \cite{Bronsard1990,Larson1999}.
+Putting \eqref{freeenergy} in to equation \eqref{generalphase} leads to: 
 \begin{equation} 
 \label{allencahn}
-\frac{\partial \varphi }{\partial t} + \overrightarrow{V} \cdot \bigtriangledown \varphi = 
-\frac{1}{Pe}(-f(\varphi)+\varepsilon^2\bigtriangleup\varphi+\xi(t))
+\frac{\partial \varphi }{\partial t} + \overrightarrow{V}\cdot \nabla \varphi = 
+\gamma (\bigtriangleup\varphi -F'(\varphi)+\xi(t)),
+\end{equation}
+
+where
+
+\begin{equation} 
+\label{fprime}
+F'(\varphi)= \frac{\delta F}{\delta \varphi} = \frac{1}{\eta} \varphi (\varphi^2 -1).
 \end{equation}
 As discussed before, the Allen-Cahn formulation is not mass conservative, so to conserve the mass a Lagrange multiplier is added into 
-the equation as a source term that is displayed in eq. \eqref{allencahn} by $\xi(t)$
+the equation as a source term that is displayed in equation \eqref{allencahn} by $\xi(t)$. In our case, we have an initialie pile of volcaninc flow that hat be constant during the all simulation, so the constrain that we want to be satisfied is:
+\begin{equation} 
+\label{constrain}
+\frac{D}{Dt} \int_\Omega \varphi h \ \ dx= 0.
+\end{equation}
+The reason that equation \eqref{constrain} holds is that we selected $ \lbrace \textbf{x}, \phi(\textbf{x},t)= 1 \rbrace  $ for the regions that granular material exist. Thus, the result of integral is nothing else than the initial volume of pile that has to be fix for all simulation time. This constrain is different with the constrain that usually is used to conserve the mass in Allen-Cahn formulation, and we have to find a new $\xi(t)$. The detail of derivation is in Appendix \ref{app1}, and the result of that is shown in \eqref{xit}.
 
+\begin{equation} 
+\label{xit}
+\xi(t) = \frac{1}{V_0} \int_\Omega\  h F'(\varphi) \ dx
+\end{equation}
+ 
+where  $ V_0 $ is the initial volume of the pile.
+In all of our simulation we used $\eta=4\delta x$, where $\delta x$ is equal to the smallest cell length. Since we use the result of phase field for mesh refinement, and we always have the smallest cell size near the interface, using this $\eta$ means that we select the length of capillary width to be equal to size of four cells.
 % 
 % \begin{equation}
 % F(\varphi) =  0.25 \varphi^2 (\varphi -1)^2 
 % \end{equation}
 
-Depending on the problem conditions there are different choices for the mobility function, such as $M(\varphi)=1-\varphi^2$ or $M(\varphi)=1$ \cite{}. For this work we selected the later one.\newline
+%Depending on the problem conditions there are different choices for the mobility function, such as $M(\varphi)=1-\varphi^2$ or $M(\varphi)=1$ \cite{}. For this work we selected the later one.\newline
 % \[ \large \frac{d}{dt} \int_X \varphi \, dx = 0 \]
 % In the above equation \xi(t) is the Lagrangian multiplier 
 % to constrain the volume constant.
@@ -1100,6 +1135,76 @@ context of TITAN2D's capabilities, much of it should be appropriate
 for use in depth-averaged flow solvers with different numerical 
 implementations.
 
+\newpage
+\appendix
+\section{Appendix 1} \label{app1}
+
+The constrain that we want to satisfy is to preserve the mass for entire flow. Since this flow is an incompressible flow, we can write:
+\begin{equation} 
+\frac{D}{Dt} \int_\Omega \varphi h \ \ dx= 0.
+\end{equation}
+
+with using Reynold's theorem, we can expand the above integral in to:
+
+\begin{equation} \label{reycons}
+\int_\Omega \frac{\partial (\varphi h)}{\partial t} \ dx + \int_\Gamma (\overrightarrow{V}.\overrightarrow{n}) (\varphi h)\  ds = 0,
+\end{equation}
+
+where $ \Gamma $ is the boundary of $\Omega$, and $\overrightarrow{n}$ is its normal vector, and $\overrightarrow{V}$ is velocity vector. The boundary and initial conditions for $\varphi$ and velocity are:
+
+\begin{gather*} 
+\overrightarrow{V}_{t=0}=\overrightarrow{V}_0(\textbf{x}), \ \ \ 
+\varphi_{t=0}=\varphi_0(\textbf{x}), \ \ \ \ x\in \Omega \\
+\frac{\partial \varphi}{\partial n}\vert_{\Gamma} = 0.
+\end{gather*}
+With the above initial and boundary conditions, and Gauss' identity, the equation \eqref{reycons} can be written:
+\begin{equation}
+\label{expand}
+\underbrace{\int_\Omega \varphi \frac{\partial h}{\partial t} dx}_\text{a} + 
+\underbrace{\int_\Omega h \frac{\partial \varphi}{\partial t} dx}_\text{b} +
+\underbrace{\int_\Omega \varphi \nabla.(h\overrightarrow{V}) dx}_\text{c} +
+\underbrace{\int_\Omega h\overrightarrow{V}.\nabla \varphi }_\text{d}
+= 0.
+\end{equation}
+
+We know $a+c=0$ from conservation of mass (equation \eqref{governingeq}), so   $b+d=0$:
+\begin{equation}
+\label{expand1}
+ \int_\Omega h (\frac{\partial \varphi}{\partial t} \  + \
+\overrightarrow{V}.\nabla \varphi) \ \ dx = 0.
+\end{equation}
+
+Since in the above equation, the expression inside the preanthesis is the LHS of phase field equation \eqref{allencahn}, we can substitute it with the RHS of the same equation, so:
+
+\begin{equation}
+\label{rhssubs}
+ \int_\Omega h (\frac{\partial \varphi}{\partial t} \  + \
+\overrightarrow{V}.\nabla \varphi) \ \ dx = 
+\int_\Omega h \gamma (\bigtriangleup \varphi -F'(\varphi)+\xi(t))  \ \ dx \ = 0 .
+\end{equation}
+
+Applying the Gauss' theorem on laplacian term, with considering the boundary conditions on $\varphi$:
+
+\begin{equation}
+\label{lapbound}
+ \int_\Omega h \gamma  \nabla. \nabla \varphi \ dx = 
+ \int_\Gamma h \gamma \nabla \varphi \ ds = 0,
+\end{equation}
+consequently equation \eqref{rhssubs} leads to:
+\begin{equation}
+\label{xitcon}
+\xi(t)  \int_\Omega h  \ dx = 
+ \int_\Gamma h F'(\varphi) dx, 
+ \end{equation}
+
+
+and we know intial volume is equal to $\int_\Omega h  \ dx $, therefore we can conclude:
+\begin{equation}
+\label{finalxi}
+\xi(t)  = \frac{1}{V_0} \int_\Gamma h F'(\varphi) dx. 
+ \end{equation}
+
+ 
 \bibliographystyle{plain}
 \bibliography{mybib}
 \end{document}
