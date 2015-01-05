@@ -100,7 +100,8 @@ The following problems are the major difficulties that arise in numerical soluti
 Figure \ref{thinlayerproblem} is an example that demonstrate this problem for numerical simulation of granular flow in  Atenquique which is a village near Colima volcano in Mexico. The left figure shows the numerical solution of flow height without using any control for thin layer problem, and the right figure shows the same result with using a naive control with plotting the regions with flow height grater than 0.5 meter. As discussed above, if we do not use any control on the numerical solution, the spread thin layer causes instability and inaccuracy in the obtained results.
 
 % Litrature Review
-A review on literature shows numerous attempts were made to overcome this problem over time especially in the recent years \cite{Medeiros2013,Balzano1998,Aureli2008,Bunya2009,Casulli2009a,Kesserwani2011,DAlpaos2007,Castro2005a} .
+A review on literature shows numerous attempts were made to overcome this problem over time especially in the recent years \cite{Medeiros2013,Balzano1998,Aureli2008,Bunya2009,Casulli2009a,
+Kesserwani2011,DAlpaos2007,Castro2005a}.
 Here we will briefly review the topic and refer the interested reader to available references for more information. \newline
 Generally, all of the implemented method for the issue could be 
 categorized in two basic groups of what we call here heuristic methods and interface tracking/capturing methods.
@@ -108,42 +109,12 @@ The basic idea in the first group is to reconstruct the flow interface based upo
 some simple heuristic or some algebraic relations which are not essentially related
 to the physics of the problem. In interface tracking/capturing approaches, an auxiliary equation/equations is coupled with the original system of equations in Eulerian or Lagrangian frame of view, to follow the flow interface through its path over time. 
 The reason that we mention here both tracking and capturing is that they are usually used for Lagrangian and Eulerian methods respectively.For more information about this group of methods please see \cite{Glimm1995,Unverdi1992,Osher1988,Anderson1998,hirt1981vfv}.\\
-In this work to address thin layer problem and other related instability and accuracy problems, we implemented a combination of Heuristic approaches, Phase filed and level set methods and compared the obtained results with experimental and field data for granular flow. Phase field and level set methods are very well-known Eulerian interface capturing methods that to the best knowledge of authors are used for the first time in this application in this work. \\
+In this work to address thin layer problem and other related instability and accuracy problems, we implemented a combination of Heuristic approaches, Phase filed and level set methods and compared the obtained results with experimental and field data for granular flow. Phase field and level set methods are very well-known Eulerian interface capturing methods that to the best knowledge of authors are used for the first time in this application in this work. \newline
+
 %Each of these major groups have their own subcategories which could be found in  
 % references, but they will be explained briefly here 
 %to provide some insight that is needed in the next parts.\newline
-All of heuristic methods use one or combination of following four strategies \cite{Medeiros2013}: 
-\begin{enumerate}
- 
- \item Filling the entire computational domain with a thin layer of fluid
- \item Using a depth scale to check whether a cell or a node is wet or dry 
- (or possibly partially wet), and then  making a decision to add or remove it 
- from the computational domain.
- \item Employing some extrapolating scheme from the wet cells into their neighbor 
- cells to approximate the location of the interface. This method is usually called 
- volume/free-surface relationship (VFR) in the literature.
- \item Permitting fluid height to be negative, which means that it is below the topographical surface.
-\end{enumerate}
-Each of the above strategies might be more useful for its specific case. Table \ref{table1} compares them very briefly.
-
-\begin{center}\label{table1}
-\begin{tabular}{|c|p{5cm}|p{5cm}|}
- 
-\hline
-{\bf Strategy}                  & {\bf Mass Conservation}                                          & {\bf Physics} \\
-\hline
-{\bf Thin film}                 & Adequate, but requires solution reconstruction 
-& Produces a smooth and realistic wetting front     \\
-\hline 
-{\bf Cell removal}              & Dependent on numerical method for solving the equations          & Excellent, performs better on advancing front than receding front \\
-\hline
-{\bf VFR}                       & Conservative, with aid of some correction procedure              & Very good in wide verity of problems      \\
-\hline
-{\bf Allowable negative depth}  & Conservative, but performance depend on WD parameters            & Same as mass conservation      \\
-\hline
-% \caption{Comparison of different strategies for WD problem in SWE}
-\end{tabular}
-\end{center}
+In Heuristic method, the idea is to mitigate thin layer problem with some heuristic strategy. This strategy could be using a threshold to control the thin layer, filling the entire domain with a shallow level of fluid, reconstruction the flow, adjusting the flux, or any combination of them. Most of the attempts that are made to address the thin layer problem are categorized under this sort of method \cite{Aureli2008,Bunya2009,Castro2005a,Kesserwani2011}.
 
 On the other hand, with the interface tracking/capturing methods one can find the interface of a moving boundary flow in a more rigorous way. Based upon the employed frame of work, these methods are divided into Lagrangian and Eulerian methods.
 Roughly speaking in Lagrangian type methods, the initial interface is replaced with some of the material points (particles) that represents the interface. These points move with a velocity vector field which comes from numerical solution at each time step. The interface is constructed at each time step by connecting the updated location of these points. 
@@ -151,7 +122,8 @@ Mark And Cell (MAC) \cite{Harlow1965}, Simplified Mark And Cell (SMAC)  \cite{Ch
 Obviously, the accuracy of the method is highly depend on the number 
 of particles that form the initial boundary. 
 High computational cost, tendency to instability and inability to track the complex topological changes are the most important drawbacks of these methods. 
-However, these methods are more useful as an auxiliary tool to compensate the defects of Eulerian methods such as conservation of mass in level set method. Tai et el. \cite{Tai2002} is an example of the application of this method for 1D Savage\_Hutter equation. They used a non-oscillatory central (NOC) difference scheme with a stationary uniform mesh, and achieve good results by augmenting this solver with a Lagrangian front tracking scheme.\newline
+%However, these methods are more useful as an auxiliary tool to compensate the defects of Eulerian methods such as conservation of mass in level set method. 
+Tai et el. \cite{Tai2002} is an example of the application of this method for 1D Savage\_Hutter equation. They used a non-oscillatory central (NOC) difference scheme with a stationary uniform mesh, and achieve good results by augmenting this solver with a Lagrangian front tracking scheme.\newline
 
 In the current paper we more focus on interface capturing or Eulerian methods. Level set, phase field and VOF are very well-known methods in Eulerian frame of work.
 In these types of methods the interface is captured by solving another transport equation for a scalar that explicitly, in level set method, or implicitly, in VOF and phase field method, indicates the interface location.
@@ -169,21 +141,23 @@ Youngs' method has been shown to be robust and efficient, but it is only first-o
 
 %%%%%%%%%%%%%%%%%%%%%%%%%% Level set method %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Level set method was introduced by Osher and Sethian in 1988 \cite{Osher1988}. In this method, the scalar variable is a signed distance function which shows the distance of each point to the interface. This distance is defined such that is positive for outside of the boundary points and negative for inside of the boundary points. The solution of this equation will show the place of interface at each time step, but since the solution of the original equation is not essentially a signed distance function another equation has to be solved to make the obtained result a signed distance function. This technique is called initialization and re-initialization technique. There are also a number of other methods like fast marching or combination with Lagrangian schemes to get a more accurate result or to get the result with lower computational cost. The main issue about this technique is that, the basic method is not mass conservative and some other complementary methods have to be used to preserve the mass or volume in numerical solution.
-The only work that used levelset method for WD problem is Quecedo and Pastor \cite{quecedo2002rtg}. They developed Taylor-Galerkin approach to solve the SWEs. They presented two different options for handling the wetting-drying 
-areas. The first approach used was described as a ``simple yet efficient'' method which falls into heuristic method type approaches. Although they claimed that they used level set as the second approach, they did not report any result of that.
+Level set method was introduced by Osher and Sethian in 1988 \cite{Osher1988}. In this method, the scalar variable is a signed distance function which shows the distance of each point to the interface. 
+%This distance is defined such that is positive for outside of the boundary points and negative for inside of the boundary points. The solution of this equation will show the place of interface at each time step, but since the solution of the original equation is not essentially a signed distance function another equation has to be solved to make the obtained result a signed distance function. This technique is called initialization and re-initialization technique. There are also a number of other methods like fast marching or combination with Lagrangian schemes to get a more accurate result or to get the result with lower computational cost. The main issue about this technique is that, the basic method is not mass conservative and some other complementary methods have to be used to preserve the mass or volume in numerical solution.
+The only work that used level set method for WD problem is Quecedo and Pastor \cite{quecedo2002rtg}. They developed Taylor-Galerkin approach to solve the SW equations. They presented two different options for handling the wetting-drying areas. The first approach used was described as a ``simple yet efficient'' method which falls into heuristic method type approaches. Although they claimed that they used level set as the second approach, they did not report any result of that.
 They finally concluded that the level set is expensive and unnecessary for their problem.\newline
 
 %%%%%%%%%%%%%%%%%%%%%%%%%% Phse field method %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %The last method that we will overview here is phase field method. 
-Phase field is another Eulerian interface capturing scheme that the interface is implicitly related to the order parameter which shows the phase variation on the domain \cite{Anderson1998}. 
-Usually, this value varies between 0 to 1 or -1 to 1, in such a way that it is 1 if the cell is wet, it is zero (or -1) 
-if the cell is dry, and it has some value between 0 to 1 (or -1 to 1) for partially wet cells.
-This method is more developed and popular in material science research, and drew the attention of the researchers in many disciplines especially in the recent years.
-Cahn-Hilliard and Allen-Cahn formulations are two principal formulation for this method \cite{CahnHilliard1958i,CahnHilliard1958ii,Yang2006}. The basic difference between these two form is that the first one is mass conservative, and the second one is not. Mathematically, the conservative form has a forth order derivative while the other one has a second order derivative. This difference in the highest order of derivative will make the later form much easier to implement. As a result people first try to use the second one and then if they not succeed, they will proceed to the other one.
-In this method the interface is a diffusive region between the phases in spite of level set which yields to a sharp interface. Phase field equation is derived from the relation between the changes of the phases and free energy level of the 
-system. The strong physics behind that makes it powerful particularly in simulating energy and thermodynamics related problems. Based on our best knowledge no report was published earlier that uses this method for capturing the interface in SW.\newline
+Phase field is another Eulerian interface capturing scheme that the interface is implicitly related to the order parameter which shows the phase variation on the domain \cite{Anderson1998}. In this method the interface is a diffusive region between the phases in spite of level set which yields to a sharp interface. Based on our best knowledge no report was published earlier that uses this method for capturing the interface in SW.
+%Usually, this value varies between 0 to 1 or -1 to 1, in such a way that it is 1 if the cell is wet, it is zero (or -1) 
+%if the cell is dry, and it has some value between 0 to 1 (or -1 to 1) for partially wet cells.
+%This method is more developed and popular in material science research, and drew the attention of the researchers in many disciplines especially in the recent years.
+Cahn-Hilliard and Allen-Cahn formulations are two principal formulation for this method \cite{CahnHilliard1958i,CahnHilliard1958ii,Yang2006}. The basic difference between these two form is that the first one is mass conservative, and the second one is not. Mathematically, the conservative form has a forth order derivative while the other one has a second order derivative. This difference in the highest order of derivative will make the later form much easier to implement.\newline
+%As a result people first try to use the second one and then if they not succeed, they will proceed to the other one.
+
+%Phase field equation is derived from the relation between the changes of the phases and free energy level of the 
+%system. The strong physics behind that makes it powerful particularly in simulating energy and thermodynamics related problems. 
 
 %============= Introduction of next parts of paper =====================
 In this paper, we proposed a new multifaceted Heuristic approach and also tested the effectiveness of Level set and Phase field methods to mitigate the thin layer problem difficulties for numerical solution of SW equations. Although these methods have been used for granular type SW flows, most of the conditions holds and the results are applicable for other type of SW flows.  We verified the numerical results with experimental result of a granular SW flow over an inclined plane ends to a horizontal surface , and the field data for Colima volcano.
@@ -318,7 +292,7 @@ simulation at Colima Volcano, Mexico, is displayed in Figure \ref{bufcell}.
 
 \begin{figure}[!h]
 \begin{center}
-\includegraphics[width=4.5truein]{IMAGES/buffercells.png}
+\includegraphics[scale=.3]{IMAGES/buffercells.png}
 \caption{Buffer cells}
 \label{bufcell}
 \end{center}
@@ -408,6 +382,38 @@ mitigate the numerical difficulties of SWE are explained.
 
 
 \subsection{First: Heuristic method} \label{Heuristic}
+All of heuristic methods use one or combination of following four strategies \cite{Medeiros2013}: 
+\begin{enumerate}
+ 
+ \item Filling the entire computational domain with a thin layer of fluid
+ \item Using a depth scale to check whether a cell or a node is wet or dry 
+ (or possibly partially wet), and then  making a decision to add or remove it 
+ from the computational domain.
+ \item Employing some extrapolating scheme from the wet cells into their neighbor 
+ cells to approximate the location of the interface. This method is usually called 
+ volume/free-surface relationship (VFR) in the literature.
+ \item Permitting fluid height to be negative, which means that it is below the topographical surface.
+\end{enumerate}
+Each of the above strategies might be more useful for its specific case. Table \ref{table1} compares them very briefly.
+
+\begin{center}\label{table1}
+\begin{tabular}{|c|p{5cm}|p{5cm}|}
+ 
+\hline
+{\bf Strategy}                  & {\bf Mass Conservation}                                          & {\bf Physics} \\
+\hline
+{\bf Thin film}                 & Adequate, but requires solution reconstruction 
+& Produces a smooth and realistic wetting front     \\
+\hline 
+{\bf Cell removal}              & Dependent on numerical method for solving the equations          & Excellent, performs better on advancing front than receding front \\
+\hline
+{\bf VFR}                       & Conservative, with aid of some correction procedure              & Very good in wide verity of problems      \\
+\hline
+{\bf Allowable negative depth}  & Conservative, but performance depend on WD parameters            & Same as mass conservation      \\
+\hline
+% \caption{Comparison of different strategies for WD problem in SWE}
+\end{tabular}
+\end{center}
 In this part of the paper the first method that has been used to solve the WD problem in the SWE is explained.
 \subsubsection{Selecting appropriate Threshold} \label{Threshold}
 In this approach we use a very small threshold to segregate the wet, partially wet and dry cells.
@@ -507,7 +513,7 @@ compute inter-cellular fluxes into/out-of partially wet cells.  The
 interface reconstruction scheme is illustrated in figure \ref{interface}.\newline
 
 \begin{figure}[!h]
-\centerline{\includegraphics[scale=0.6]{IMAGES/flux.png}}
+\centerline{\includegraphics[scale=0.3]{IMAGES/flux.png}}
 \caption{Interface Reconstruction in TITAN2D}
 \label{interface}
 \end{figure} 
@@ -649,20 +655,18 @@ As noted earlier, the other approach that is employed
 for capturing the interface of a SW type flow is phase field method.
 In this method, a continuous
 order parameter is augmented into the state variables. This order parameter that is displayed here with $\varphi$, 
-implicitly represent the interface in the domain. To this aim, a new transfer equation 
-must be solved which is coupled with the other state variables. Papers [??] are good references about the history and evolution of the method.
+implicitly represent the interface in the domain. To this aim, a new transfer equation must be solved which is coupled with the other state variables. Papers \cite{Chen2002,Anderson1998,Boettinger2002,Kim2012} are good references about the history and evolution of the method.\\
 Phase diffusion methods and particularly phase field method is base upon the notion that the interface between phases is a diffusive region rather than a sharp interface with a finite width. 
-As described in the introduction \ref{introduction} of this paper, $\phi$ is constant inside the bulk phases but changes smoothly between the phases. In this work $\phi$ is 1 for the fluid phase and it is 0 for void regions and is between 0 to 1 on the diffusion region.
-The strong thermodynamical and physical derivation of the method make it so powerful for capturing the complicated topological changes especially for the problems that the interface motion depends on gradients of an external field normal to the interface and on the local curvature of the interface \cite{Beckermann2006}.
-Cahn-Hilliard and Allen-Cahn are the two principal phase field formulations that 
-are displayed in eq. \eqref{cahnhilliard} and eq. \eqref{allencahn} respectively.The derivation of the equations in more detail could be 
-found in [??]. As could be seen in these equations, the time material derivative of phi is related to the product of the 
+Value of $\phi$ is constant inside the bulk phases but changes smoothly between the phases. In this work $\phi$ is 1 for the fluid phase $ \lbrace \textbf{x}, \phi(\textbf{x},t)=1 \rbrace  $, and it is -1 for void regions $ \lbrace \textbf{x}, \phi(\textbf{x},t)=-1 \rbrace  $, and is between -1 to 1 on the diffusion region $ \lbrace \textbf{x}, -1 < \phi(\textbf{x},t) < 1 \rbrace  $. Then we can implictyl assume that the interface of flow is when $ \lbrace \textbf{x}, \phi(\textbf{x},t)= 0 \rbrace  $
+%The strong thermodynamical and physical derivation of the method make it so powerful for capturing the complicated topological changes especially for the problems that the interface motion depends on gradients of an external field normal to the interface and on the local curvature of the interface.
+Cahn-Hilliard and Allen-Cahn are the two principal phase field formulations.
+% that are displayed in eq. \eqref{cahnhilliard} and eq. \eqref{allencahn} respectively.
+ The derivation of the equations in more detail could be found in \cite{CahnHilliard1958i,CahnHilliard1958ii}. As could be seen in these equations, the time material derivative of phi is related to the product of the 
 mobility and derivative of the free energy with respect to $\phi$. The basic difference between these formulations is that the 
 Cahn-Hilliard is mass conservative but the Allen-Cahn is not. On other hand, there is a biharmonic term in the right hand side of 
 the Cahn-Hilliard equation which is forth order derivative and makes it more difficult to implement. Usually, people try to 
 use the Allen-Cahn first and then if the result was not satisfactory they switch to the Cahn-Hilliard phase field. 
-Since in our work the computational cost has a higher priority than an accurate solution for the interface the Allen-Cahn 
-form was chosen.
+Since in our work the computational cost has a higher priority than an accurate solution for the interface the Allen-Cahn form was chosen. 
 
 \begin{equation}
  \label{cahnhilliard}
@@ -688,8 +692,7 @@ the equation as a source term that is displayed in eq. \eqref{allencahn} by $\xi
 % F(\varphi) =  0.25 \varphi^2 (\varphi -1)^2 
 % \end{equation}
 
-Depending on the problem conditions there are different choices for the mobility function, such 
-as $M(\varphi)=1-\varphi^2$ or $M(\varphi)=1$ \cite{}. For this work we selected the later one.\newline
+Depending on the problem conditions there are different choices for the mobility function, such as $M(\varphi)=1-\varphi^2$ or $M(\varphi)=1$ \cite{}. For this work we selected the later one.\newline
 % \[ \large \frac{d}{dt} \int_X \varphi \, dx = 0 \]
 % In the above equation \xi(t) is the Lagrangian multiplier 
 % to constrain the volume constant.
@@ -701,47 +704,47 @@ Thus the time integration scheme must be changed to another time scheme which al
 The Eulerian implicit time scheme is unconditionally stable, but the disadvantage of this method is a system of linear equations has to be solved at each time step which impose a high computational cost.
 To overcome this problem we used operator splitting method to either make the time scheme stable for larger time steps, and maintain the computational cost low.  
 By the operator splitting scheme that we used here the time integration of laplacian term is performed with Eulerian implicit scheme and the rest of terms are updated in the explicit time integrator. This solution let us to select larger time steps for implicit solver, let say for example quadruple of explicit time step, and consequently the system of equations has not to be solved at each time step. However because the solver needs to know for what cells the state variables have to be updated, the solution of the phase field is required at each time step. Therefore an extrapolation (or prediction step) based on the Taylor series was computed for intermediate time steps to approximate the phase field solution between the implicit solver time steps.
-This is basically a predictor-corrector scheme which is used broadly for advection-diffusion equations solvers. 
-The formulation of the implicit and explicit solver is shown in eq.  \eqref{implicit} and \eqref{explicit}, and 
-figure \ref{figintegrator} shows the operator splitting time integration schematically.
+This is basically a predictor-corrector scheme which is used broadly for advection-diffusion equations solvers. Equations \eqref{implcit_phi}, and  \eqref{explicit_phi} are respectively implicit and explicit time integrators.\\
+%, and 
+%figure \ref{figintegrator} shows the operator splitting time integration schematically.\\
+
 % 
 % \begin{equation}
 % \label{operator splitting}
 % \large \frac{\partial \varphi}{\partial t} = \frac{\partial \varphi_1}{\partial t} + \frac{\partial \varphi_2}{\partial t} 
 % \end{equation}
 
-
-\begin{equation} 
-\label{explicit_phi}
-\begin{array}{l}
-\frac{\partial \varphi_1}{\partial t} + \overrightarrow{V} \cdot \bigtriangledown \varphi_1 = f(\varphi_1) \\
- L_1 = V_x \frac{\partial }{\partial x} + V_y \frac{\partial }{\partial y}\\
-\frac{\varphi_{1}^{n+1}-\varphi_{1}^{n}}{\bigtriangledown t} = f(\varphi_{1}^{n}) - L_1 \varphi_{1}^{n}\\
-\varphi_{1}^{n+1} = \bigtriangledown t ( f(\varphi_{1}^{n}) - L_1 \varphi_{1}^{n}) \\
-\end{array} 
-\end{equation}
-
-
-\begin{equation}
-\label{implcit_phi}
-\begin{array}{l}
-\frac{\partial \varphi_2}{\partial t} = \alpha \bigtriangledown^2 \varphi_2 \\
-L_2 = \alpha (\frac{\partial^2 }{\partial x^2} + \frac{\partial^2 }{\partial y^2}) \\
-\displaystyle \large \frac{\varphi_{1}^{n+1}-\varphi_{1}^{n}}{\bigtriangledown t} = \alpha L_2 \varphi_{2}^{n+1}\\
-( 1- \bigtriangledown t \alpha L_2 ) \varphi_{1}^{n+1} = \varphi_{2}^{n}\\
-\end{array} 
-\end{equation}
+\begin{table*}[h]
+\noindent\begin{minipage}[b]{.5\textwidth}
+    \begin{align}\label{explicit_phi}
+\frac{\partial \varphi_1}{\partial t} + \overrightarrow{V} \cdot \triangledown \varphi_1 &= f(\varphi_1) \notag \\
+ L_1 &= V_x \frac{\partial }{\partial x} + V_y \frac{\partial }{\partial y} \notag \\
+\frac{\varphi_{1}^{n+1}-\varphi_{1}^{n}}{\triangledown t} &= f(\varphi_{1}^{n}) - L_1 \varphi_{1}^{n} \notag \\
+\varphi_{1}^{n+1} &= \triangledown t \  ( f(\varphi_{1}^{n}) - L_1 \varphi_{1}^{n}) 
+\end{align} 
+\end{minipage}%
+\begin{minipage}[b]{.5\textwidth}
+    \begin{align}\label{implcit_phi}
+\frac{\partial \varphi_2}{\partial t} &= \alpha \triangledown^2 \varphi_2 \notag \\
+L_2 &= \alpha (\frac{\partial^2 }{\partial x^2} + \frac{\partial^2 }{\partial y^2}) \notag  \\
+\displaystyle \frac{\varphi_{1}^{n+1}-\varphi_{1}^{n}}{\triangledown t} &= \alpha L_2 \varphi_{2}^{n+1} \notag \\
+( 1- \triangledown t \alpha L_2 ) \varphi_{1}^{n+1} &= \varphi_{2}^{n}
+\end{align} 
+\end{minipage}
+%\caption{Left column is explicit time integrator, and right column is implicit time integrator}
+\end{table*}
 
 
-\begin{figure}[!h]
 
-\begin{center} 
-\includegraphics[width=2.5truein]{IMAGES/integrator.png}
-\caption{This picture displays the schematic time integration scheme }
-\label{figintegrator}
-\end{center}
 
-\end{figure}
+%\begin{figure}[!h]
+%
+%\begin{center} 
+%\includegraphics[width=2.5truein]{IMAGES/integrator.png}
+%\caption{This picture displays the schematic time integration scheme }
+%\label{figintegrator}
+%\end{center}%
+%\end{figure}
 To preserve the scalability of TITAN2D, for solving the equations we used PETSc \cite{petsc-user-ref} library. GMRES solver which is a iterative Krylov subspace solver 
 was exploited to solve the system of equations. To decrease the memory cost, we used matrix-free method to compute the laplacian term.
 Since the Krylov subspace solvers just need the result of matrix-vector multiplication instead of an explicit definition of matrix 
@@ -751,7 +754,7 @@ the participant vector in the production. This method leads to a significant sav
 \subsection{Third: Level Set Method} \label{level set}
 
 The last test method for tracking the interface for a SW flow is the Level set method.
-Level set method is another Eulerian interface capturig method that was introduced by Osher and Sethian in 1988 \cite{}.
+Level set method is another Eulerian interface capturig method that was introduced by Osher and Sethian in 1988 \cite{Osher1988}.
 The basic of the method is to capture the interface by means of solving a hyperbolic Hamilton-Jacobi PDE on 
 the computational domain which follows the evaluating of the boundaries. The level set variable $\varPsi (X,t)$ explicitly 
 represents the interface. In this method, $\varPsi (X,t)$ is defined such that its value is zero on the interface, and 
@@ -759,7 +762,7 @@ changes in the domain with respect to the distance of each point to the zero lev
 In other words, $\varPsi (X,t)$  is a distance function, so that its value is negative for the points inside the boundaries, 
 positive for points outside of the boundary, and is zero on the interface. 
 This method is not originally mass conservative, but with doing some 
-techniques like fast reinitialization mass conservation could be achieved \cite{}. 
+techniques like fast reinitialization mass conservation could be achieved. 
 To derive the level set equation, given the initial location of the boundary an initial signed distance function on 
 the domain which could be found by the initialization techniques that will be discussed later. The evolution of initial 
 boundary in a moving continuum Eulerian frame of work only depends on the normal velocity of the boundary $F$, 
@@ -778,8 +781,7 @@ relations into eq. \eqref{levelseteq1} leads to \eqref{levelseteq2}
  \frac{\partial \varPsi}{\partial t} + \overrightarrow{V} \bigtriangledown \varPsi = 0
 \end{equation}
 
-Equation \eqref{levelseteq2} is a non-conservative hyperbolic equation. We used a first order upwind scheme  that is 
-explaied in detail in \cite{} to solve this equation. 
+Equation \eqref{levelseteq2} is a non-conservative hyperbolic equation. We used a first order upwind scheme  that is explained in detail in \cite{} to solve this equation. 
 
 \begin{equation}
    \label{explicit}
@@ -807,7 +809,7 @@ Where $F$ and $G$ are the flux terms and are coming from the flux term for in up
 
 To generate the initial signed distance function in the beginning and also to keep the solution of the level set equation during 
 the time, we need a procedure that is called initialization or reinitialization. There are several techniques to make the obtained 
-solution a signed distance function \cite{levelsetbook}, but what we implemented here is the method presented by 
+solution a signed distance function \cite{Osher1988}, but what we implemented here is the method presented by 
 Sussman et al \cite{Sussman}. In this reinitialization technique another hyperbolic equation is solved to adjust the $\varPsi$ value 
 in the domain:
 
@@ -918,14 +920,14 @@ For quantitative comparison of the results, we compared different schemes on thr
     \centering
     \includegraphics[scale=0.4]{IMAGES/xextend.png}
     \subcaption{Extension of pile in X direction}
-    \includegraphics[scale=0.4]{IMAGES/yextend.png}
-    \subcaption{Extension of pile in Y direction}
+    \includegraphics[scale=0.4]{IMAGES/area.png}
+    \subcaption{Area of pile}
   \end{minipage}
 %   \hfill
   \begin{minipage}[b]{.48 \linewidth}
     \centering
-    \includegraphics[scale=0.4]{IMAGES/area.png}
-    \subcaption{Area of pile}
+    \includegraphics[scale=0.4]{IMAGES/yextend.png}
+    \subcaption{Extension of pile in Y direction}
     \includegraphics[scale=0.4]{IMAGES/perimeter.png}
     \subcaption{Perimeter of pile}
   \end{minipage}
@@ -936,7 +938,7 @@ For quantitative comparison of the results, we compared different schemes on thr
 % \end{figure}
 \subsection{Colima Volcano}
 In this section, we verify our different interface capturing methods with a field data of an eruption of Colima volcano. 
-Colima volcano in Mexico is one of the most active volcano in North America, and this eruption has happened in 16-17 April 1991 \cite{}. 
+Colima volcano in Mexico is one of the most active volcano in North America, and this eruption has happened in 16-17 April 1991 \cite{Charbonnier2008}. 
 The topography of Colima volcano is such that small changes the initial location of the pile leads to a completely different 
 path of flow, so a good performance of any of the interface capturing methods for this case promises a reliable method for other volcanoes.
 To be able to compare our results with the outline of deposit of flow, we record the history of all points with the finest 
@@ -987,7 +989,7 @@ skeleton line is shown in the following pictures.
 %\newpage
 
 After finding the skeleton line, we mapped the outline of the flow and the skeleton line on the Colima volcano 
-using KML language and Google earth application \ref{skel_outline}. In pictures \ref{phasecolima}- \ref{compfig} the result of each methods and their comparison can be seen. 
+using KML language and Google earth application \ref{skel_outline}. In figure \ref{Colimapic} the result of each methods and their comparison can be seen. 
 
 \begin{figure}[H]
 \centerline{\includegraphics[width=.35\textwidth]{IMAGES/skeleton_outline1.jpg}}
@@ -1012,7 +1014,7 @@ using KML language and Google earth application \ref{skel_outline}. In pictures 
     \subcaption{Comparison of all three methods}
   \end{minipage}
   \caption{Comparison of the obtained outline of flow from Heuristic, Level set, and Phase field methods for Colima Volcano}
-  \label{compinc}
+  \label{Colimapic}
 \end{figure}
 
 %\begin{figure}[H]
