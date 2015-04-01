@@ -36,9 +36,9 @@
 
 \begin {abstract}{
 Determining the wet-dry boundary has historically been a challenge when 
-solving the depth-averaged shallow-water (SW) equations (or similar granular flows), and has 
-been the focus of much research efforts. In this paper, to the best knowledge of authors, for the first time we used level set and phase field methods to solve this issue and other related problems. We also proposed a new heuristic method to address this problem. We implemented all of these methods in TITAN2D which is a parallel adaptive mesh refinement toolkit designed for numerical simulation of granullar flows.\newline
-The results of the methods were presented for simple inclined plane and Colima volcano. For the inclined plane we verified the results with experimental data and for Colima volcano they have been compare with field data. We successfully captured the interface of the flow and solved the accuracy and stability problems related t thin layer problem in SW numerical solution. The comparison of results shows that although all of the methods can be used to address this problems, but each of them has its own advantage/disadvantages that has to be chosen carefully depend to the criteria of the interested case.\newline
+solving the depth-averaged shallow-water (SW) equations (or similar granular flow's equations), and has 
+been the focus of much research effort. In this paper, to the best knowledge of the authors, for the first time we used level set and phase field methods to solve this issue and other related problems. We also proposed a new heuristic method to address this problem. We implemented all of these methods in TITAN2D which is a parallel adaptive mesh refinement toolkit designed for numerical simulation of granullar flows.\newline
+The results of the methods were presented for simple inclined plane and Colima volcano. For the inclined plane we verified the results with experimental data and for Colima volcano they have been compared with field data. We successfully captured the interface of the flow and solved the accuracy and stability problems related t thin layer problem in SW numerical solution. The comparison of results shows that although all of the methods can be used to address this problem, and each of them has its own advantage/disadvantages that has to be chosen carefully depend to the criteria of the interested case.\newline
 \textbf{Keywords:} Shallow water flow, Thin layer, Wetting/Drying, Phase field, Level set}
 \end{abstract}
 
@@ -60,18 +60,18 @@ To this aim, Eglit and Sveshnikova \cite{eglit1980mms} modified the depth-averag
 Since this type of flow has free moving boundaries, one of the basic difficulties 
 of the numerical solution, is identifying the location of flow interface. 
 More clearly, the governing equations are just valid in wet areas, so we need an strategy to discriminate between wet and dry areas in the numerical simulation. 
-This problem is usually called the {\bf wetting and drying (WD)} or {\bf Thin-Layer} problem in SW context. Lack of a solution for this problem leads to the formation of a non-physical thin layer in the domain.
+This problem is usually called the {\bf wetting and drying (WD)} or {\bf Thin-Layer} problem in SW context. In our previous work \cite{Patra2005}, we showed how the speed of wave has to be modified for flow near the vacuum region based on \cite{ToroBook2001} to mitigate the stability problem, but lack of a solution for spreading of the flow leads to the formation of a non-physical thin layer in the domain.
 This non-physical thin layer could extend large distances from the realistic main 
 body of the flow, which can cause inaccurate construction of the boundary or sever 
 numerical instabilities in the numerical solution.\newline
-Beside the numerical issues, determining probable flow extents through numerical simulation is critical for many SW problems, especially for geophysical flow. For example, in preparing a hazard map for a volcano or a flood it is crucial to know, where is the exact location of the front of the flow? Does the flow reach to a specific location? What is the distance of high risk locations from the infrastructures? \newline
-The answer of all above questions is not possible without good information about the interface of the flow during its traveling path.\newline
+Beside the numerical issues, determining probable flow extents through numerical simulation is critical for many SW problems, especially for geophysical flow. For example, in preparing a hazard map for a volcano or a flood it is crucial to know, what is the best numerical solution for the location of the front of the flow? Does the flow reach to a specific location? What is the distance of high risk locations from the infrastructures? \newline
+The answer of all the above questions is not possible without good information about the interface of the flow during its traveling path.\newline
 
-The following problems are the major difficulties that arise in numerical solution of SW flows, and most of them are made or related to the thin layer problem:
+In summary, the following problems are the major difficulties that arise in numerical solution of SW flows, and most of them are made or related to the thin layer problem:
 
 \begin{enumerate}
 \item \label{problemwicking}
-      Numerical spreading of flow faster than its physical speed.      
+      Non-physical fast numerical flow speed.      
 \item \label{problemtoothin}
       Non-physical thin layer (orders of magnitude thinner than a grain of sand). This results from the combination of conservation of mass and the numerical wicking away of material.
 \item \label{problemtoofast}
@@ -99,33 +99,32 @@ The following problems are the major difficulties that arise in numerical soluti
 
 Figure \ref{thinlayerproblem} is an example that demonstrate this problem for numerical simulation of granular flow in  Atenquique which is a village near Colima volcano in Mexico. The left figure shows the numerical solution of flow height without using any control for thin layer problem, and the right figure shows the same result with using a naive control with plotting the regions with flow height grater than 0.5 meter. As discussed above, if we do not use any control on the numerical solution, the spread thin layer causes instability and inaccuracy in the obtained results.
 
-% Litrature Review
-A review on literature shows numerous attempts were made to overcome this problem over time especially in the recent years \cite{Medeiros2013,Balzano1998,Aureli2008,Bunya2009,Casulli2009a,
+\subsection{Review}
+A review of the literature shows numerous attempts were made to overcome this problem over time especially in the recent years \cite{Medeiros2013,Balzano1998,Aureli2008,Bunya2009,Casulli2009a,
 Kesserwani2011,DAlpaos2007,Castro2005a}.
 Here we will briefly review the topic and refer the interested reader to available references for more information. \newline
 Generally, all of the implemented method for the issue could be 
 categorized in two basic groups of what we call here heuristic methods and interface tracking/capturing methods.
 The basic idea in the first group is to reconstruct the flow interface based upon 
-some simple heuristic or some algebraic relations which are not essentially related
-to the physics of the problem. In interface tracking/capturing approaches, an auxiliary equation/equations is coupled with the original system of equations in Eulerian or Lagrangian frame of view, to follow the flow interface through its path over time. 
-The reason that we mention here both tracking and capturing is that they are usually used for Lagrangian and Eulerian methods respectively.For more information about this group of methods please see \cite{Glimm1995,Unverdi1992,Osher1988,Anderson1998,hirt1981vfv}.\\
-In this work to address thin layer problem and other related instability and accuracy problems, we implemented a combination of Heuristic approaches, Phase filed and level set methods and compared the obtained results with experimental and field data for granular flow. Phase field and level set methods are very well-known Eulerian interface capturing methods that to the best knowledge of authors are used for the first time in this application in this work. \newline
+some simple heuristic or some algebraic relations. In this approach, the reconstruction could be also with taking to account the physics of the problem. In interface tracking/capturing approaches, an auxiliary equation/equations is coupled with the original system of equations in Eulerian or Lagrangian frame of view, to follow the flow interface through its path over time. 
+The reason that we mention both tracking and capturing is that they are usually used for Lagrangian and Eulerian methods respectively.For more information about this group of methods please see \cite{Glimm1995,Unverdi1992,Osher1988,Anderson1998,hirt1981vfv}.\\
+
 
 %Each of these major groups have their own subcategories which could be found in  
 % references, but they will be explained briefly here 
 %to provide some insight that is needed in the next parts.\newline
-In Heuristic method, the idea is to mitigate thin layer problem with some heuristic strategy. This strategy could be using a threshold to control the thin layer, filling the entire domain with a shallow level of fluid, reconstruction the flow, adjusting the flux, or any combination of them. Most of the attempts that are made to address the thin layer problem are categorized under this sort of method \cite{Aureli2008,Bunya2009,Castro2005a,Kesserwani2011}.
+In Heuristic methods, the idea is to mitigate thin layer problem with some heuristic strategy. This strategy could be using a threshold to control the thin layer, filling the entire domain with a shallow level of fluid, reconstructing the flow, adjusting the flux, or any combination of them. Most of the attempts that are made to address the thin layer problem are categorized under this sort of method \cite{Aureli2008,Bunya2009,Castro2005a,Kesserwani2011}.
 
-On the other hand, with the interface tracking/capturing methods one can find the interface of a moving boundary flow in a more rigorous way. Based upon the employed frame of work, these methods are divided into Lagrangian and Eulerian methods.
-Roughly speaking in Lagrangian type methods, the initial interface is replaced with some of the material points (particles) that represents the interface. These points move with a velocity vector field which comes from numerical solution at each time step. The interface is constructed at each time step by connecting the updated location of these points. 
+On the other hand, with the interface tracking/capturing methods one can find the interface of a moving boundary flow in a more rigorous way. Based upon the employed frame of view, these methods are divided into Lagrangian and Eulerian methods.
+Roughly speaking, in Lagrangian type methods the initial interface is replaced with some of the material points (particles) that represents the interface. These points move with a velocity vector field which comes from numerical solution at each time step. The interface is constructed at each time step by connecting the updated location of these points. 
 Mark And Cell (MAC) \cite{Harlow1965}, Simplified Mark And Cell (SMAC)  \cite{Cheng1995}, and Surface Marker \citep{Wrobel1991} methods are some examples of Lagrangian interface tracking techniques.
 Obviously, the accuracy of the method is highly depend on the number 
 of particles that form the initial boundary. 
 High computational cost, tendency to instability and inability to track the complex topological changes are the most important drawbacks of these methods. 
 %However, these methods are more useful as an auxiliary tool to compensate the defects of Eulerian methods such as conservation of mass in level set method. 
-Tai et el. \cite{Tai2002} is an example of the application of this method for 1D Savage\_Hutter equation. They used a non-oscillatory central (NOC) difference scheme with a stationary uniform mesh, and achieve good results by augmenting this solver with a Lagrangian front tracking scheme.\newline
+Tai et al. \cite{Tai2002} is an example of the application of this method for 1D Savage\_Hutter equation. They used a non-oscillatory central (NOC) difference scheme with a stationary uniform mesh, and achieve good results by augmenting this solver with a Lagrangian front tracking scheme.\newline
 
-In the current paper we more focus on interface capturing or Eulerian methods. Level set, phase field and VOF are very well-known methods in Eulerian frame of work.
+In the current paper we focus more on interface capturing or Eulerian methods. Level set, phase field and (Volume of Fluid) VOF are very well-known methods in Eulerian frame of work.
 In these types of methods the interface is captured by solving another transport equation for a scalar that explicitly, in level set method, or implicitly, in VOF and phase field method, indicates the interface location.
 This order parameter is coupled with the other governing equations of primitive variables to jointly present a rigorous model for the interested problem.\newline
 
@@ -139,17 +138,10 @@ To construct the interface based on this method, the interface surface reconstru
 a piecewise linear interface calculation (PLIC) representation of the fluid boundary.  
 Youngs' method has been shown to be robust and efficient, but it is only first-order accurate. More advanced methods about this issue are available in \cite{gerlach2006cvf} and Gopala and van Wachem\cite{gopala2008vfm}. 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%% Level set method %%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-Level set method was introduced by Osher and Sethian in 1988 \cite{Osher1988}. In this method, the scalar variable is a signed distance function which shows the distance of each point to the interface. 
-%This distance is defined such that is positive for outside of the boundary points and negative for inside of the boundary points. The solution of this equation will show the place of interface at each time step, but since the solution of the original equation is not essentially a signed distance function another equation has to be solved to make the obtained result a signed distance function. This technique is called initialization and re-initialization technique. There are also a number of other methods like fast marching or combination with Lagrangian schemes to get a more accurate result or to get the result with lower computational cost. The main issue about this technique is that, the basic method is not mass conservative and some other complementary methods have to be used to preserve the mass or volume in numerical solution.
-The only work that used level set method for WD problem is Quecedo and Pastor \cite{quecedo2002rtg}. They developed Taylor-Galerkin approach to solve the SW equations. They presented two different options for handling the wetting-drying areas. The first approach used was described as a ``simple yet efficient'' method which falls into heuristic method type approaches. Although they claimed that they used level set as the second approach, they did not report any result of that.
-They finally concluded that the level set is expensive and unnecessary for their problem.\newline
-
 %%%%%%%%%%%%%%%%%%%%%%%%%% Phse field method %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %The last method that we will overview here is phase field method. 
-Phase field is another Eulerian interface capturing scheme that the interface is implicitly related to the order parameter which shows the phase variation on the domain \cite{Anderson1998}. In this method the interface is a diffusive region between the phases in spite of level set which yields to a sharp interface. Based on our best knowledge no report was published earlier that uses this method for capturing the interface in SW.
+Phase field is an Eulerian interface capturing scheme that the interface is implicitly related to the order parameter which shows the phase variation on the domain \cite{Anderson1998}. In this method the interface is a diffusive region between the phases in contrast to level set which yields to a sharp interface between the phases. Based on our best knowledge no published work used earlier this method for capturing the interface in SW.
 %Usually, this value varies between 0 to 1 or -1 to 1, in such a way that it is 1 if the cell is wet, it is zero (or -1) 
 %if the cell is dry, and it has some value between 0 to 1 (or -1 to 1) for partially wet cells.
 %This method is more developed and popular in material science research, and drew the attention of the researchers in many disciplines especially in the recent years.
@@ -159,20 +151,31 @@ Cahn-Hilliard and Allen-Cahn formulations are two principal formulation for this
 %Phase field equation is derived from the relation between the changes of the phases and free energy level of the 
 %system. The strong physics behind that makes it powerful particularly in simulating energy and thermodynamics related problems. 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%% Level set method %%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+The Level set method is another Eulerian interface capturing technique. It was introduced by Osher and Sethian in 1988 \cite{Osher1988}. In this method, the scalar variable is a signed distance function which shows the distance of each point to the interface. 
+%This distance is defined such that is positive for outside of the boundary points and negative for inside of the boundary points. The solution of this equation will show the place of interface at each time step, but since the solution of the original equation is not essentially a signed distance function another equation has to be solved to make the obtained result a signed distance function. This technique is called initialization and re-initialization technique. There are also a number of other methods like fast marching or combination with Lagrangian schemes to get a more accurate result or to get the result with lower computational cost. The main issue about this technique is that, the basic method is not mass conservative and some other complementary methods have to be used to preserve the mass or volume in numerical solution.
+The only work that used level set method for WD problem is Quecedo and Pastor \cite{quecedo2002rtg}. They developed Taylor-Galerkin approach to solve the SW equations. They presented two different options for handling the wetting-drying areas. The first approach used was described as a ``simple yet efficient'' method which falls into heuristic method type approaches. Although they claimed that they used level set as the second approach, they did not report any result of that.
+They finally concluded that the level set is expensive and unnecessary for their problem.\newline
+
+
+
 %============= Introduction of next parts of paper =====================
-In this paper, we proposed a new multifaceted Heuristic approach and also tested the effectiveness of Level set and Phase field methods to mitigate the thin layer problem difficulties for numerical solution of SW equations. Although these methods have been used for granular type SW flows, most of the conditions holds and the results are applicable for other type of SW flows.  We verified the numerical results with experimental result of a granular SW flow over an inclined plane ends to a horizontal surface , and the field data for Colima volcano.
-In Eulerian interface capturing methods we tried to stick to the basic methods, and decrease the computational cost ,when possible, with using some techniques. \newline
+\subsection{Our Contribution}
+%In this work to address thin layer problem and other related instability and accuracy problems, we implemented a combination of Heuristic approaches, Phase filed and level set methods and compared the obtained results with experimental and field data for granular flow. Phase field and level set methods are very well-known Eulerian interface capturing methods that to the best knowledge of authors are applied to geophysical flow.\newline
+In this paper, we proposed a new multifaceted Heuristic approach and also tested the effectiveness of Level set and Phase field methods to mitigate the thin layer problem difficulties for numerical solution of SW equations. To the best knowledge of authors, the two later methods  are for the first time applied to geophysical flow. Although these methods have been used for granular type SW flows, most of the conditions holds and the results are applicable for other type of SW flows.  We verified the numerical results with experimental result of a granular SW flow over an inclined plane ends to a horizontal surface , as well as the field data for Colima volcano.
+In Eulerian interface capturing methods we tried to stick to the basic methods, and decrease the computational cost ,when possible, with using some techniques. 
 
 %For example, in Level set method we used narrow band re-initialization to just update the value of signed distance function near the interface, and in Phase field we use operator splitting to use implicit solver just for laplacian term and we also used matrix free method to save memory requirement. Detail of these steps can be find in the corresponding section (sections \ref{phase field},\ref{level set}).
 
-In the heuristic approach we first use a very small threshold to discriminate between wet and dry cells, then divide the cells into three groups of wet, dry and partially wet cells. The next step is to adjust the fluxes for the partially wet cells and the last step is to update the state variables for wet cells.\newline
+In the heuristic approach we first use a very small threshold to discriminate between wet and dry cells, then divide the cells into three groups of wet, dry and partially wet cells. The next step is to adjust the fluxes for the partially wet cells and the last step is to update the state variables for wet cells.
 
-In level set part, we followed the instructions in paper\cite{Sussman} with the re-initialization scheme introduced in Adalsteinsson's work \cite{Adalsteinsson1995}. To solve both of these hyperbolic equations we used a first order accurate solver.\newline
+In level set part, we followed the instructions in paper\cite{Sussman} with the re-initialization scheme introduced in Adalsteinsson's work \cite{Adalsteinsson1995}. To solve both of these hyperbolic equations we used a first order accurate solver.
 
-For phase field method, we chose Allen-Cahn formulation. This formulation is not mass conservative. To satisfy mass conservation constrain in this formulation, a Lagrange multiplier is added to RHS of the equation. In this work, we derived a Lagrange multiplier for SW equation. To decrease the computational and memory cost, we used operator splitting and matrix free techniques (detail in section \ref{phase field}). \newline
+For phase field method, we chose Allen-Cahn formulation. This formulation is not mass conservative. To satisfy mass conservation constrain in this formulation, a Lagrange multiplier is added to RHS of the equation. In this work, we derived a Lagrange multiplier for SW equation. To decrease the computational and memory cost, we used operator splitting and matrix free techniques (detail in section \ref{phase field}).
 
 As a general comparison between the methods it could be mentioned that the first approach is less expensive, but the obtained interface moves a little ahead of the interface found in experimental and field data is. 
-On other hand, the interface capturing methods have more strong mathematical and physical structure, and can be coupled with the conversations equations, but are computationally more expensive, and harder to implement.\newline
+On other hand, the interface capturing methods have more strong mathematical and physical structure, and can be coupled with the conversations equations, but are computationally more expensive, and harder to implement.
 
 The structure of the rest of this paper is as follows: in next part SW equations for the geophysical flows and the common features of the solver that we used for all of the three methods are introduced. In section \ref{solution}, 
 different methods that were employed to mitigate WD problem are explained. After that the obtained results from the methods are compared, and finally the conclusion of the work is provided.

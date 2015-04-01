@@ -10,6 +10,14 @@ David Adalsteinsson and James~A. Sethian.
 \newblock A fast level set method for propagating interfaces.
 \newblock {\em Journal of Computational Physics}, 118(2):269 -- 277, 1995.
 
+\bibitem{Patra2005}
+a.K. Patra, a.C. Bauer, C.C. Nichita, E.B. Pitman, M.F. Sheridan, M.~Bursik,
+  B.~Rupp, a.~Webber, a.J. Stinton, L.M. Namikawa, and C.S. Renschler.
+\newblock {Parallel adaptive numerical simulation of dry avalanches over
+  natural terrain}.
+\newblock {\em Journal of Volcanology and Geothermal Research}, 139(1-2):1--21,
+  January 2005.
+
 \bibitem{Anderson1998}
 D.~M. Anderson, G.~B. McFadden, and A.~A. Wheeler.
 \newblock Diffuse-interface methods in fluid mechanics.
