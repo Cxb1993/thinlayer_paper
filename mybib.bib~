@@ -5085,14 +5085,4 @@ year = {1990},
   year={2009},
   publisher={Springer}
 }
-@book{Toro01,
-    address = {Manchester},
-    author = {Toro, Eleuterio},
-    citeulike-article-id = {352978},
-    keywords = {bibtex-import},
-    posted-at = {2005-10-17 14:04:55},
-    priority = {0},
-    publisher = {John Wiley and Sons, Inc.},
-    title = {{Shock-Capturing Methods for Free-Surface Shallow Flows}},
-    year = {2001}
-}
+

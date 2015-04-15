@@ -1,5 +1,9 @@
 \begin{thebibliography}{10}
 
+\bibitem{}
+{Operators on Inner-Product Spaces}.
+\newblock pages 127--161.
+
 \bibitem{Adalsteinsson1999}
 D~Adalsteinsson and J.a Sethian.
 \newblock {The Fast Construction of Extension Velocities in Level Set Methods}.
@@ -272,11 +276,11 @@ SB~Savage and RM~Iverson.
   Assessment, edited by: Rickenmann, D. and Chen, C.-L., Millpress},
   1:503--514, 2003.
 
-\bibitem{Sussman}
-Mark Sussman, Peter Smereka, and Ann Arbor.
-\newblock {A Level Set Approach for Computing Solutions to Incompressible
-  Two-Phase Flow I1}.
-\newblock (June 1995).
+\bibitem{Sussman1994}
+Mark Sussman, Peter Smereka, and Stanley Osher.
+\newblock A level set approach for computing solutions to incompressible
+  two-phase flow.
+\newblock {\em Journal of Computational Physics}, 114(1):146 -- 159, 1994.
 
 \bibitem{Tai2002}
 Y.~C. Tai, S.~Noelle, J.~M. N.~T. Gray, and K.~Hutter.
@@ -287,6 +291,12 @@ Y.~C. Tai, S.~Noelle, J.~M. N.~T. Gray, and K.~Hutter.
 E.F. Toro.
 \newblock {\em Shock-Capturing Methods for Free-Surface Shallow Flows}.
 \newblock Wiley, New York, 2001.
+
+\bibitem{Toro2009riemann}
+E.F. Toro.
+\newblock {\em Riemann Solvers and Numerical Methods for Fluid Dynamics: A
+  Practical Introduction}.
+\newblock Springer, 2009.
 
 \bibitem{Unverdi1992}
 Salih~Ozen Unverdi and Gr{\'e}tar Tryggvason.

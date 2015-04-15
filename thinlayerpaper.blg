@@ -1,76 +1,115 @@
-This is BibTeX, Version 0.99c (Web2C 7.5.6)
+This is BibTeX, Version 0.99d (TeX Live 2013/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: thinlayerpaper.aux
 The style file: plain.bst
 Database file #1: mybib.bib
-Repeated entry---line 2834 of file mybib.bib
+Repeated entry---line 2351 of file mybib.bib
+ : @misc{
+ :       ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 2355 of file mybib.bib
+ : @article{
+ :          ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 2675 of file mybib.bib
+ : @article{
+ :          ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 2679 of file mybib.bib
+ : @misc{
+ :       ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 2683 of file mybib.bib
+ : @misc{
+ :       ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 2832 of file mybib.bib
  : @article{Tai2002
  :                 ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 4375 of file mybib.bib
+Repeated entry---line 2862 of file mybib.bib
+ : @article{
+ :          ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 2867 of file mybib.bib
+ : @article{
+ :          ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 3923 of file mybib.bib
+ : @misc{
+ :       ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 4124 of file mybib.bib
+ : @article{
+ :          ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 4373 of file mybib.bib
  : @article{Gray1999
  :                  ,
 I'm skipping whatever remains of this entry
-You're missing a field part---line 4872 of file mybib.bib
+You're missing a field part---line 4870 of file mybib.bib
  :    eid = 
  :          ,
 I'm skipping whatever remains of this entry
-You're missing a field part---line 4884 of file mybib.bib
+You're missing a field part---line 4882 of file mybib.bib
  :    eid = 
  :          ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 4974 of file mybib.bib
+Repeated entry---line 4972 of file mybib.bib
  : @article{Boettinger2002
  :                        ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 4991 of file mybib.bib
+Repeated entry---line 4989 of file mybib.bib
  : @article{Kim2012
  :                 ,
 I'm skipping whatever remains of this entry
+Warning--to sort, need author or key in 
+Warning--empty author in 
+Warning--empty booktitle in 
+Warning--empty publisher in 
+Warning--empty year in 
 Warning--there's a number but no volume in Casulli2009a
 Warning--empty journal in Dalbey2009
 Warning--there's a number but no volume in Medeiros2013
-Warning--empty journal in Sussman
-Warning--there's a number but no volume in Sussman
-Warning--empty year in Sussman
-You've used 50 entries,
+You've used 52 entries,
             2118 wiz_defined-function locations,
-            842 strings with 13502 characters,
-and the built_in function-call counts, 17418 in all, are:
-= -- 1701
-> -- 912
-< -- 4
-+ -- 363
-- -- 308
-* -- 1378
-:= -- 2988
-add.period$ -- 153
-call.type$ -- 50
-change.case$ -- 299
+            851 strings with 13686 characters,
+and the built_in function-call counts, 18103 in all, are:
+= -- 1772
+> -- 920
+< -- 5
++ -- 368
+- -- 310
+* -- 1421
+:= -- 3076
+add.period$ -- 158
+call.type$ -- 52
+change.case$ -- 305
 chr.to.int$ -- 0
-cite$ -- 56
-duplicate$ -- 564
-empty$ -- 1265
-format.name$ -- 308
-if$ -- 3518
+cite$ -- 60
+duplicate$ -- 600
+empty$ -- 1338
+format.name$ -- 310
+if$ -- 3680
 int.to.chr$ -- 0
-int.to.str$ -- 50
-missing$ -- 51
-newline$ -- 254
-num.names$ -- 102
-pop$ -- 238
+int.to.str$ -- 52
+missing$ -- 54
+newline$ -- 263
+num.names$ -- 104
+pop$ -- 252
 preamble$ -- 1
-purify$ -- 253
+purify$ -- 258
 quote$ -- 0
-skip$ -- 383
+skip$ -- 408
 stack$ -- 0
-substring$ -- 1183
-swap$ -- 65
-text.length$ -- 4
+substring$ -- 1253
+swap$ -- 76
+text.length$ -- 5
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 194
-warning$ -- 6
-while$ -- 165
-width$ -- 52
-write$ -- 550
-(There were 6 error messages)
+type$ -- 200
+warning$ -- 8
+while$ -- 171
+width$ -- 54
+write$ -- 569
+(There were 15 error messages)

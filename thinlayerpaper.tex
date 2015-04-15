@@ -12,6 +12,7 @@
 \usepackage{float}
 \usepackage{tabularx}
 \usepackage{amsmath}
+\DeclareMathOperator{\sgn}{sgn}
 \usepackage{amssymb}
 \usepackage{amsfonts}
 \usepackage{mathrsfs}
@@ -124,7 +125,7 @@ High computational cost, tendency to instability and inability to track the comp
 %However, these methods are more useful as an auxiliary tool to compensate the defects of Eulerian methods such as conservation of mass in level set method. 
 Tai et al. \cite{Tai2002} is an example of the application of this method for 1D Savage\_Hutter equation. They used a non-oscillatory central (NOC) difference scheme with a stationary uniform mesh, and achieve good results by augmenting this solver with a Lagrangian front tracking scheme.\newline
 
-In the current paper we focus more on interface capturing or Eulerian methods. Level set, phase field and (Volume of Fluid) VOF are very well-known methods in Eulerian frame of work.
+In the current paper we focus more on interface capturing or Eulerian methods. Level set, phase field and Volume of Fluid (VOF) are very well-known methods in Eulerian frame of work.
 In these types of methods the interface is captured by solving another transport equation for a scalar that explicitly, in level set method, or implicitly, in VOF and phase field method, indicates the interface location.
 This order parameter is coupled with the other governing equations of primitive variables to jointly present a rigorous model for the interested problem.\newline
 
@@ -163,14 +164,20 @@ They finally concluded that the level set is expensive and unnecessary for their
 %============= Introduction of next parts of paper =====================
 \subsection{Our Contribution}
 %In this work to address thin layer problem and other related instability and accuracy problems, we implemented a combination of Heuristic approaches, Phase filed and level set methods and compared the obtained results with experimental and field data for granular flow. Phase field and level set methods are very well-known Eulerian interface capturing methods that to the best knowledge of authors are applied to geophysical flow.\newline
-In this paper, we proposed a new multifaceted Heuristic approach and also tested the effectiveness of Level set and Phase field methods to mitigate the thin layer problem difficulties for numerical solution of SW equations. To the best knowledge of authors, the two later methods  are for the first time applied to geophysical flow. Although these methods have been used for granular type SW flows, most of the conditions holds and the results are applicable for other type of SW flows.  We verified the numerical results with experimental result of a granular SW flow over an inclined plane ends to a horizontal surface , as well as the field data for Colima volcano.
+In this paper, our approach to address the resulted problems from the thin layer problem (problem 1-4 discussed in introduction section), consists of two parts. The first part is to find the interface of the flow, and the next part is to do some steps based on the result of the first part to resolve the aforementioned issues.
+To capture the interface we study three different methods. The first one is to use a very small dimensionless threshold, which we call it GEOFLOW\_TINY, to distinguish between wet and dry areas. The other method that we implement to capture the interface is phase field. \newline
+
+{ \huge I have to rewrite this part}
+\newline
+
+ that is resulted from the thin layer problem and discussed in  two do some  we proposed a new multifaceted Heuristic approach and also tested the effectiveness of Level set and Phase field methods to mitigate the thin layer problem difficulties. Our approach in this work consist of two parts.  for numerical solution of SW equations. To the best knowledge of authors, the two later methods  are for the first time applied to geophysical flow. Although these methods have been used for granular type SW flows, most of the conditions holds and the results are applicable for other type of SW flows.  We verified the numerical results with experimental result of a granular SW flow over an inclined plane ends to a horizontal surface , as well as the field data for Colima volcano.
 In Eulerian interface capturing methods we tried to stick to the basic methods, and decrease the computational cost ,when possible, with using some techniques. 
 
 %For example, in Level set method we used narrow band re-initialization to just update the value of signed distance function near the interface, and in Phase field we use operator splitting to use implicit solver just for laplacian term and we also used matrix free method to save memory requirement. Detail of these steps can be find in the corresponding section (sections \ref{phase field},\ref{level set}).
 
 In the heuristic approach we first use a very small threshold to discriminate between wet and dry cells, then divide the cells into three groups of wet, dry and partially wet cells. The next step is to adjust the fluxes for the partially wet cells and the last step is to update the state variables for wet cells.
 
-In level set part, we followed the instructions in paper\cite{Sussman} with the re-initialization scheme introduced in Adalsteinsson's work \cite{Adalsteinsson1995}. To solve both of these hyperbolic equations we used a first order accurate solver.
+In level set part, we followed the instructions in paper\cite{Sussman1994} with the re-initialization scheme introduced in Adalsteinsson's work \cite{Adalsteinsson1995}. To solve both of these hyperbolic equations we used a first order accurate solver.
 
 For phase field method, we chose Allen-Cahn formulation. This formulation is not mass conservative. To satisfy mass conservation constrain in this formulation, a Lagrange multiplier is added to RHS of the equation. In this work, we derived a Lagrange multiplier for SW equation. To decrease the computational and memory cost, we used operator splitting and matrix free techniques (detail in section \ref{phase field}).
 
@@ -207,7 +214,7 @@ The depth-averaged equations that Titan2D solves are:
 
 In these equations:
 \begin{itemize}
-\item The coordinate system (see Figure \ref{xzeast}) is aligned such that $x$ and $y$ are tangential directions 
+\item The coordinate system (see Figure \ref{xzeast}) is aligned such that $x$ and $y$ are directions tangential  
       to the surface of the 3D terrain and $z$ is normal to the surface.
 \item The effect of terrain elevation is represented by gravitational source terms. 
 \item $h$ is the flow depth in the $z$ direction that hug the terrain.
@@ -252,7 +259,7 @@ Titan2D solves the above system of equations with a finite volume Godunov method
    - \frac{\bigtriangleup t}{\bigtriangleup y} \{G_{i+\frac{1}{2}}^n - G_{i-\frac{1}{2}}^n \}
   \end{equation}
   
-In the above equation, G and F are the flux terms at the inter-cell boundaries which are computed by HLL Riemann solver that is explained 
+In the above equation, G and F are the flux terms at the inter-cell boundaries which are computed by Harten-Lax-Van Leer (HLL) \cite{Toro2009riemann} Riemann solver that is explained 
 in the next section.
 
 \subsection{Using Appropriate Riemann Fluxes} \label{Riemann}
@@ -305,32 +312,24 @@ During normal adaptivity, cells are selected for refinement if they meet
 either of two requirements:
 \begin{enumerate} 
 \item They have large, as compared to the average, inter-cellular fluxes.
-\item They are at or within a few cells of any of four small, non-dimensional 
-      flow depths (multiples of {\rm\verb1GEOFLOW_TINY1}).
+\item They are at or within a few cells near the boundary.
+% of any of four small, non-dimensional flow depths (multiples of {\rm\verb1GEOFLOW_TINY1}).
 \end{enumerate}
-The former condition allows for accurate capture of sharp changes in state 
-variables.  The latter results in banded regions of the flow separated into 
-``rings'' of maximally refined buffer cells.  This limits artificially high 
-transportation of material from the larger depth bands to the lower depth
-bands. The outermost ring is at a flow depth of {\rm\verb1GEOFLOW_TINY1}.
-The rings are a number of cells wide equal to the number of iterations 
-between mesh adaptations.  This guarantees that material will only flow 
-into maximally refined dry cells at the wet-dry front.  However, material 
-with flow depth less than {\rm\verb1GEOFLOW_TINY1} may be left outside the
-outermost band of buffer cells by the passing flow.  The rings of the later  
-buffer cells strategy decreases the numerical wicking (Problem 
-\ref{problemwicking} from section \ref{introduction}) both within the 
-flow and at the boundary.  When combined with thresholding, it is 
-sufficient to decrease Problems 
-\ref{problemwicking}, \ref{problemtoothin}, and \ref{problemtoofast} to a 
-level that prevents the loss of stability due to Problem 
-\ref{problemunstable}.\newline
-
-Unrefinement takes place immediately after refinement; a group of four 
-``brother'' cells will be selected to merge into their mutual 
-``father'' cell if the sum of their inter-cellular fluxes is very low 
-compared to the average flux.  Cells that have either just been refined 
-or are otherwise in any of the current bands of buffer cells are immune 
+The former condition allows for accurate capture of sharp changes in state variables. The latter results in banded regions of the flow separated into ``rings'' of maximally refined buffer cells.  This limits artificially high transportation of material from the larger depth bands to the lower depth
+bands. In solution section, we explain how we select the elements near the boundary for refinement for each method of interface capturing that we use. 
+%The outermost ring is at a flow depth of {\rm\verb1GEOFLOW_TINY1}.
+The rings are a number of cells wide equal to or greater than the number of iterations between mesh adaptations (we are not doing mesh adoption at each time step).  
+This guarantees that material will only flow into maximally refined dry cells at the wet-dry front.  
+%However, material with flow depth less than {\rm\verb1GEOFLOW_TINY1} may be left outside the outermost band of buffer cells by the passing flow.  
+%The rings of the later  
+%buffer cells strategy decreases the numerical wicking (Problem 
+%\ref{problemwicking} from the thin layer problems in section introduction of this paper) both within the 
+%flow and at the boundary.  When combined with thresholding, it is sufficient to decrease Problems 
+%\ref{problemwicking}, \ref{problemtoothin}, and \ref{problemtoofast} to a 
+%level that prevents the loss of stability due to Problem 
+%\ref{problemunstable}.
+{\huge here I have to rewrite, I have to say we use GEOFLOW\_TINY in all of the methods, I have to also add an adative section to each part of solution}
+Unrefinement takes place immediately after refinement; a group of four ``brother'' cells will be selected to merge into their mutual ``father'' cell if the sum of their inter-cellular fluxes is very low compared to the average flux.  Cells that have either just been refined or are otherwise in any of the current bands of buffer cells are immune 
 to unrefinement.  
     
 %     fact that in this paper one of the Eulerian front capturing
@@ -384,8 +383,8 @@ also causes some other problems. In this section, three implemented methods to s
 mitigate the numerical difficulties of SWE are explained. 
 
 
-\subsection{First: Heuristic method} \label{Heuristic}
-All of heuristic methods use one or combination of following four strategies \cite{Medeiros2013}: 
+\subsection{First: Heuristic methods} \label{Heuristic}
+Usually, heuristic methods use one or combination of following four strategies \cite{Medeiros2013}: 
 \begin{enumerate}
  
  \item Filling the entire computational domain with a thin layer of fluid
@@ -505,7 +504,7 @@ limitation, which Tai et al. \cite{Tai2002} took advantage
 of when they augmented their one dimensional NOC scheme with 
 Lagrangian front tracking.  However, implementing a hybrid 
 Eulerian-Lagrangian scheme in two dimensions is significantly more 
-complex.  \newline
+complex. 
 
 Therefore as part of our multi-faceted approach, we implemented a very 
 simple and inexpensive interface reconstruction and predictive 
@@ -536,7 +535,7 @@ refined.  This  simplifies the coding since all cells at the front can be
 safely assumed to have only one neighbor on each side.}.   Orientation
 of the wet-dry line, and which side of it is wet, is indicated by a single 
 integer representing the geometrically determined ``most wet node.'' 
-The only nine possible values for the most wet node are be any of the 
+The only nine possible values for the most wet node are any of the 
 cell's corners, edge midpoints or its center.  The most wet node is 
 assumed to have a flow depth that is the maximum of the cell or any of 
 its four neighbors.  The placement of the line is such that the volume of 
@@ -559,7 +558,7 @@ $a=\sqrt{k_{ap}gh\frac{A}{A_{wet}}}$.  Here $A$ is the whole cell's
 area and $A_{wet}$ is the portion of the cell's area that is wet.  \newline
 
 Since the wet-dry boundary within each partially wet cell is assumed 
-to be a straight line width, during the time-step, fixed orientation, 
+to be a straight line with, during the time-step, fixed orientation, 
 convecting a single point, in this case the midpoint, on the line is 
 equivalent to convecting the entire wet-dry line.  A spatial and time 
 average of the wetness factor for the edge over the time-step can 
@@ -659,7 +658,7 @@ for capturing the interface of a SW type flow is phase field method.
 In this method, a continuous
 order parameter is augmented into the state variables. This order parameter that is displayed here with $\varphi$, 
 implicitly represent the interface in the domain. To this aim, a new transfer equation must be solved which is coupled with the other state variables. Papers \cite{Chen2002,Anderson1998,Boettinger2002,Kim2012} are good references about the history and evolution of the method.\\
-Phase diffusion methods and particularly phase field method is base upon the notion that the interface between phases is a diffusive region rather than a sharp interface with a finite width. 
+Phase diffusion methods and particularly phase field method is based upon the notion that the interface between phases is a diffusive region rather than a sharp interface with a finite width. 
 Value of $\phi$ is constant inside the bulk phases but changes smoothly between the phases. In this work $\phi$ is 1 for the fluid phase $ \lbrace \textbf{x}, \phi(\textbf{x},t)=1 \rbrace  $, and it is -1 for void regions $ \lbrace \textbf{x}, \phi(\textbf{x},t)=-1 \rbrace  $, and is between -1 to 1 on the diffusion region $ \lbrace \textbf{x}, -1 < \phi(\textbf{x},t) < 1 \rbrace  $. Then we can implicitly assume the interface of flow is where $ \lbrace \textbf{x}, \phi(\textbf{x},t)= 0 \rbrace  $.\newline
 
 %The strong thermodynamical and physical derivation of the method make it so powerful for capturing the complicated topological changes especially for the problems that the interface motion depends on gradients of an external field normal to the interface and on the local curvature of the interface.
@@ -696,7 +695,7 @@ In equation \eqref{generalphase}, $ \eta $ is a constant that regulates the capi
  \label{freeenergy}
   F(\varphi)=\frac{1}{4\eta} (\varphi^2-1)^2 ,
   \end{equation}
-which is the well-known double-well potential function, and represents the interactions of different volume fractions of individual species. The gradient part $ \frac{\eta}{2} |\nabla \varphi|^2  $, is the relaxtion part that relates the the mass average of the energy, with the volume average of the elastic energy \cite{Bronsard1990,Larson1999}.
+which is the well-known double-well potential function, and represents the interactions of different volume fractions of individual species. The gradient part $ \frac{\eta}{2} |\nabla \varphi|^2  $, is the relaxtion part that relates the mass average of the energy, with the volume average of the elastic energy \cite{Bronsard1990,Larson1999}.
 Putting \eqref{freeenergy} in to equation \eqref{generalphase} leads to: 
 \begin{equation} 
 \label{allencahn}
@@ -711,12 +710,12 @@ where
 F'(\varphi)= \frac{\delta F}{\delta \varphi} = \frac{1}{\eta} \varphi (\varphi^2 -1).
 \end{equation}
 As discussed before, the Allen-Cahn formulation is not mass conservative, so to conserve the mass a Lagrange multiplier is added into 
-the equation as a source term that is displayed in equation \eqref{allencahn} by $\xi(t)$. In our case, we have an initialie pile of volcaninc flow that hat be constant during the all simulation, so the constrain that we want to be satisfied is:
+the equation as a source term that is displayed in equation \eqref{allencahn} by $\xi(t)$. In our case, we have an initialie pile of volcaninc flow that has be constant during the entire simulation, so the constraint that we want to be satisfied is:
 \begin{equation} 
 \label{constrain}
 \frac{D}{Dt} \int_\Omega \varphi h \ \ dx= 0.
 \end{equation}
-The reason that equation \eqref{constrain} holds is that we selected $ \lbrace \textbf{x}, \phi(\textbf{x},t)= 1 \rbrace  $ for the regions that granular material exist. Thus, the result of integral is nothing else than the initial volume of pile that has to be fix for all simulation time. This constrain is different with the constrain that usually is used to conserve the mass in Allen-Cahn formulation, and we have to find a new $\xi(t)$. The detail of derivation is in Appendix \ref{app1}, and the result of that is shown in \eqref{xit}.
+The reason that equation \eqref{constrain} holds is that we selected $ \lbrace \textbf{x}, \phi(\textbf{x},t)= 1 \rbrace  $ for the regions that granular material exist. Thus, the result of integral is nothing else than the initial volume of pile that has to be fixed for all simulation times. This constraint is different that the constraint that usually is used to conserve the mass in Allen-Cahn formulation, and we have to find a new $\xi(t)$. The details of the derivation is in Appendix \ref{app1}, and the result of that is shown in \eqref{xit}.
 
 \begin{equation} 
 \label{xit}
@@ -724,7 +723,7 @@ The reason that equation \eqref{constrain} holds is that we selected $ \lbrace \
 \end{equation}
  
 where  $ V_0 $ is the initial volume of the pile.
-In all of our simulation we used $\eta=4\delta x$, where $\delta x$ is equal to the smallest cell length. Since we use the result of phase field for mesh refinement, and we always have the smallest cell size near the interface, using this $\eta$ means that we select the length of capillary width to be equal to size of four cells.
+In all of our simulation we used $\eta=4\delta x$, where $\delta x$ is equal to the smallest cell length. Since we use the result of phase field for mesh refinement, and we always have the smallest cell size near the interface, using this $\eta$ means that we select the length of capillary width to be equal to length of four cells.
 % 
 % \begin{equation}
 % F(\varphi) =  0.25 \varphi^2 (\varphi -1)^2 
@@ -740,8 +739,8 @@ method has a second order derivative, to satisfy CFL condition which in this cas
 of the spatial increment, $\bigtriangleup \text{t} \propto ( \bigtriangleup x)^2 $, makes the time step too small and causes unaffordable simulation time.
 Thus the time integration scheme must be changed to another time scheme which allows larger time steps.
 The Eulerian implicit time scheme is unconditionally stable, but the disadvantage of this method is a system of linear equations has to be solved at each time step which impose a high computational cost.
-To overcome this problem we used operator splitting method to either make the time scheme stable for larger time steps, and maintain the computational cost low.  
-By the operator splitting scheme that we used here the time integration of laplacian term is performed with Eulerian implicit scheme and the rest of terms are updated in the explicit time integrator. This solution let us to select larger time steps for implicit solver, let say for example quadruple of explicit time step, and consequently the system of equations has not to be solved at each time step. However because the solver needs to know for what cells the state variables have to be updated, the solution of the phase field is required at each time step. Therefore an extrapolation (or prediction step) based on the Taylor series was computed for intermediate time steps to approximate the phase field solution between the implicit solver time steps.
+To overcome this problem we used operator splitting method to both make the time scheme stable for larger time steps, and keep the computational cost low.  
+By the operator splitting scheme that we used here, the time integration of laplacian term is performed with implicit Eulerian scheme and the rest of terms are updated in the explicit time integrator. This solution allows us to select larger time steps for the implicit solver, let say for example quadruple of explicit time step, and consequently the system of equations has not to be solved at each time step. However because the solver needs to know for what cells the state variables have to be updated, the solution of the phase field is required at each time step. Therefore an extrapolation (or prediction step) based on the Taylor series was computed for intermediate time steps to approximate the phase field solution between the implicit solver time steps.
 This is basically a predictor-corrector scheme which is used broadly for advection-diffusion equations solvers. Equations \eqref{implcit_phi}, and  \eqref{explicit_phi} are respectively implicit and explicit time integrators.\\
 %, and 
 %figure \ref{figintegrator} shows the operator splitting time integration schematically.\\
@@ -755,18 +754,18 @@ This is basically a predictor-corrector scheme which is used broadly for advecti
 \begin{table*}[h]
 \noindent\begin{minipage}[b]{.5\textwidth}
     \begin{align}\label{explicit_phi}
-\frac{\partial \varphi_1}{\partial t} + \overrightarrow{V} \cdot \triangledown \varphi_1 &= f(\varphi_1) \notag \\
- L_1 &= V_x \frac{\partial }{\partial x} + V_y \frac{\partial }{\partial y} \notag \\
-\frac{\varphi_{1}^{n+1}-\varphi_{1}^{n}}{\triangledown t} &= f(\varphi_{1}^{n}) - L_1 \varphi_{1}^{n} \notag \\
-\varphi_{1}^{n+1} &= \triangledown t \  ( f(\varphi_{1}^{n}) - L_1 \varphi_{1}^{n}) 
+&\frac{\partial \varphi_1}{\partial t} + \overrightarrow{V} \cdot \triangledown \varphi_1 = f(\varphi_1) \notag \\
+ &L_1 = V_x \frac{\partial }{\partial x} + V_y \frac{\partial }{\partial y} \notag \\
+&\frac{\varphi_{1}^{n+1}-\varphi_{1}^{n}}{\triangledown t} = f(\varphi_{1}^{n}) - L_1 \varphi_{1}^{n} \notag \\
+&\varphi_{1}^{n+1} = \triangledown t \  ( f(\varphi_{1}^{n}) - L_1 \varphi_{1}^{n}) 
 \end{align} 
 \end{minipage}%
 \begin{minipage}[b]{.5\textwidth}
     \begin{align}\label{implcit_phi}
-\frac{\partial \varphi_2}{\partial t} &= \alpha \triangledown^2 \varphi_2 \notag \\
-L_2 &= \alpha (\frac{\partial^2 }{\partial x^2} + \frac{\partial^2 }{\partial y^2}) \notag  \\
-\displaystyle \frac{\varphi_{1}^{n+1}-\varphi_{1}^{n}}{\triangledown t} &= \alpha L_2 \varphi_{2}^{n+1} \notag \\
-( 1- \triangledown t \alpha L_2 ) \varphi_{1}^{n+1} &= \varphi_{2}^{n}
+&\frac{\partial \varphi_2}{\partial t} = \alpha \triangledown^2 \varphi_2 \notag \\
+&L_2 = \alpha (\frac{\partial^2 }{\partial x^2} + \frac{\partial^2 }{\partial y^2}) \notag  \\
+&\displaystyle \frac{\varphi_{1}^{n+1}-\varphi_{1}^{n}}{\triangledown t} = \alpha L_2 \varphi_{2}^{n+1} \notag \\
+&( 1- \triangledown t \alpha L_2 ) \varphi_{1}^{n+1} = \varphi_{2}^{n}
 \end{align} 
 \end{minipage}
 %\caption{Left column is explicit time integrator, and right column is implicit time integrator}
@@ -783,26 +782,26 @@ L_2 &= \alpha (\frac{\partial^2 }{\partial x^2} + \frac{\partial^2 }{\partial y^
 %\label{figintegrator}
 %\end{center}%
 %\end{figure}
-To preserve the scalability of TITAN2D, for solving the equations we used PETSc \cite{petsc-user-ref} library. GMRES solver which is a iterative Krylov subspace solver 
-was exploited to solve the system of equations. To decrease the memory cost, we used matrix-free method to compute the laplacian term.
+To preserve the scalability of TITAN2D, for solving the equations we used PETSc \cite{petsc-user-ref} library. GMRES solver, which is a iterative Krylov subspace solver 
+was exploited to solve the system of equations. To decrease the memory cost, we used a matrix-free method, to compute the laplacian term.
 Since the Krylov subspace solvers just need the result of matrix-vector multiplication instead of an explicit definition of matrix 
-of coefficients, matrix-free method can be used to get the result of this multiplication by doing some algebraic operation on 
+of coefficients, matrix-free methods can be used to get the result of this multiplication by doing some algebraic operation on 
 the participant vector in the production. This method leads to a significant saving in required memory cost.
 
 \subsection{Third: Level Set Method} \label{level set}
 
-The last test method for tracking the interface for a SW flow is the Level set method.
-Level set method is another Eulerian interface capturig method that was introduced by Osher and Sethian in 1988 \cite{Osher1988}.
-The basic of the method is to capture the interface by means of solving a hyperbolic Hamilton-Jacobi PDE on 
-the computational domain which follows the evaluating of the boundaries. The level set variable $\varPsi (X,t)$ explicitly 
+The last method that we use to capture the interface for a SW flow is the Level set method.
+The Level set method is another Eulerian interface capturig method; it was introduced by Osher and Sethian in 1988 \cite{Osher1988}.
+The basis of the method is to capture the interface by means of solving a hyperbolic Hamilton-Jacobi PDE on 
+the computational domain which follows the boundaries. The level set variable $\varPsi (X,t)$ explicitly 
 represents the interface. In this method, $\varPsi (X,t)$ is defined such that its value is zero on the interface, and 
 changes in the domain with respect to the distance of each point to the zero level set or interface of the flow. 
 In other words, $\varPsi (X,t)$  is a distance function, so that its value is negative for the points inside the boundaries, 
 positive for points outside of the boundary, and is zero on the interface. 
 This method is not originally mass conservative, but with doing some 
-techniques like fast reinitialization mass conservation could be achieved. 
+techniques like fast reinitialization mass conservation can be achieved. 
 To derive the level set equation, given the initial location of the boundary an initial signed distance function on 
-the domain which could be found by the initialization techniques that will be discussed later. The evolution of initial 
+the domain which can be found by the initialization techniques that will be discussed later. The evolution of initial 
 boundary in a moving continuum Eulerian frame of work only depends on the normal velocity of the boundary $F$, 
 and the tangential velocity does not cause any topological change. Consequently, the following equation could 
 be written for the $\varPsi (X,t)$ :
@@ -827,32 +826,33 @@ Equation \eqref{levelseteq2} is a non-conservative hyperbolic equation. We used 
    - \frac{\bigtriangleup t}{\bigtriangleup y} \{G_{i+\frac{1}{2}}^- + G_{i-\frac{1}{2}}^+ \}
   \end{equation}
 Where $F$ and $G$ are the flux terms and are coming from the flux term for in upwind scheme:
+{\huge I have to correct the following formula and add reference above}
 
 
-% \[ F_{i+\frac{1}{2}}^- = \left\{ \begin{array}{ll}
-%          \mathop{\mathlarger{\frac{v_r+v_l}{2}(v_r-v_l)}} \ \ \ \ \   & \  \\
-%          \ \ &\ v_l < 0 \\
-%          0 \ \ \ \ \   & \   .\end{array} \right. \] 
-% 
-% and 
-% 
-% \[ F_{i+\frac{1}{2}}^+ = \left\{ \begin{array}{ll}
-%          0 \ \ \ \ \   & \  \\
-%          \ & \ v_l > 0\\
-%          \mathop{\mathlarger{\frac{v_r+v_l}{2}(v_r-v_l)}} \ \ \ \ \   & \ .\end{array} \right. \] 
+ \[ F_{i+\frac{1}{2}}^- = \left\{ \begin{array}{ll}
+          \mathop{\mathlarger{\frac{v_r+v_l}{2}(v_r-v_l)}} \ \ \ \ \   & \  \\
+          \ \ &\ v_l < 0, \\
+          0 \ \ \ \ \   & \   .\end{array} \right. \] 
+ 
+and 
+ 
+ \[ F_{i+\frac{1}{2}}^+ = \left\{ \begin{array}{ll}
+          0 \ \ \ \ \   & \  \\
+          \ & \ v_l > 0,\\
+          \mathop{\mathlarger{\frac{v_r+v_l}{2}(v_r-v_l)}} \ \ \ \ \   & \ .\end{array} \right. \] 
          
-% same formulation can be used to find G fluxes.
+and the same formulation can be used to find G fluxes.
 
 \subsubsection{Reinitialization} \label{reinitialization}
 
 To generate the initial signed distance function in the beginning and also to keep the solution of the level set equation during 
 the time, we need a procedure that is called initialization or reinitialization. There are several techniques to make the obtained 
 solution a signed distance function \cite{Osher1988}, but what we implemented here is the method presented by 
-Sussman et al \cite{Sussman}. In this reinitialization technique another hyperbolic equation is solved to adjust the $\varPsi$ value 
+Sussman et al \cite{Sussman1994}. In this reinitialization technique another hyperbolic equation is solved to adjust the $\varPsi$ value 
 in the domain:
 
 \begin{equation}\label{initializationeq}
- \frac{\partial \varPsi}{\partial \tau} + sign(\varPsi) (|\bigtriangledown \varPsi| - 1)= 0 
+ \frac{\partial \varPsi}{\partial \tau} + \sgn (\varPsi) (|\bigtriangledown \varPsi| - 1)= 0 
 \end{equation}
 
 In eq. \eqref{initializationeq} $\tau$ is a pseudo-time and the equation should be solved until it converges reasonably. 
@@ -869,15 +869,15 @@ where
 
 \begin{equation}
 \begin{aligned}
- \bigtriangledown_{ijk}^{+} = \big[ & max(D^{-x}\varPsi_{ijk}^{n})^2 + min(D^{+x}\varPsi_{ijk}^{n})^2
- \\& max(D^{-y}\varPsi_{ijk}^{n})^2 + min(D^{+y}\varPsi_{ijk}^{n})^2 \big]^{1/2}
+ \bigtriangledown_{ijk}^{+} = \big[ & \max(D^{-x}\varPsi_{ijk}^{n})^2 + \min(D^{+x}\varPsi_{ijk}^{n})^2
+ \\& \max(D^{-y}\varPsi_{ijk}^{n})^2 + \min(D^{+y}\varPsi_{ijk}^{n})^2 \big]^{1/2}
 \end{aligned}
 \end{equation}
  
 \begin{equation}
 \begin{aligned}
- \bigtriangledown_{ijk}^{-} = \big[ & min(D^{-x}\varPsi_{ijk}^{n})^2 + max(D^{+x}\varPsi_{ijk}^{n})^2
- \\& min(D^{-y}\varPsi_{ijk}^{n})^2 + max(D^{+y}\varPsi_{ijk}^{n})^2 \big]^{1/2}
+ \bigtriangledown_{ijk}^{-} = \big[ & \min(D^{-x}\varPsi_{ijk}^{n})^2 + \max(D^{+x}\varPsi_{ijk}^{n})^2
+ \\& \min(D^{-y}\varPsi_{ijk}^{n})^2 + \max(D^{+y}\varPsi_{ijk}^{n})^2 \big]^{1/2}
 \end{aligned}
 \end{equation} 
 
@@ -948,7 +948,7 @@ Initial friction angle    & $37.3^o$ \\
   \caption{Pile height contour and interface location at different time steps}
   \label{odinary}
 \end{figure}
-
+{\huge it would be very good if I can plot data of experiment for area and perimeter}
 \subsubsection{Comparison}
 
 For quantitative comparison of the results, we compared different schemes on three measurable quantities. The first measure is the extent of pile in X direction, the second one the extent of pile in Y direction, and the last one is the area of pile.
@@ -975,8 +975,9 @@ For quantitative comparison of the results, we compared different schemes on thr
 
 % \end{figure}
 \subsection{Colima Volcano}
+{\huge keith wants the result of Atentique }\\
 In this section, we verify our different interface capturing methods with a field data of an eruption of Colima volcano. 
-Colima volcano in Mexico is one of the most active volcano in North America, and this eruption has happened in 16-17 April 1991 \cite{Charbonnier2008}. 
+Colima volcano in Mexico is one of the most active volcanos in North America, and this eruption happened on 16-17 April 1991 \cite{Charbonnier2008}. 
 The topography of Colima volcano is such that small changes the initial location of the pile leads to a completely different 
 path of flow, so a good performance of any of the interface capturing methods for this case promises a reliable method for other volcanoes.
 To be able to compare our results with the outline of deposit of flow, we record the history of all points with the finest 
@@ -992,7 +993,7 @@ $ h_{scale} =Volume^\frac{1}{3} $.
 The resolution of the digital elevation model (DEM) of Colima volcano that here we used is 5 meter which is the finest DEM 
 that we have ever used for this volcano.
 
-The outline of this eruption is available in \cite{NamikawaPhD}, we used the method that described in \cite{NamikawaPhD} to 
+The outline of this eruption is available in \cite{NamikawaPhD}, we used the method that is described in \cite{NamikawaPhD} to 
 extract the skeleton line of the flow to be able to compare the results quantitatively. The procedure of the extraction of the 
 skeleton line is shown in the following pictures. 
 
@@ -1027,11 +1028,11 @@ skeleton line is shown in the following pictures.
 %\newpage
 
 After finding the skeleton line, we mapped the outline of the flow and the skeleton line on the Colima volcano 
-using KML language and Google earth application \ref{skel_outline}. In figure \ref{Colimapic} the result of each methods and their comparison can be seen. 
+using Keyhole Markup Language (KML) and Google earth application \ref{skel_outline}. In figure \ref{Colimapic} the result of each methods and their comparison can be seen. 
 
 \begin{figure}[H]
 \centerline{\includegraphics[width=.35\textwidth]{IMAGES/skeleton_outline1.jpg}}
-\caption{Skeleton line (white line) and outline of the deposit of eruption 1991 (yellow line)}
+\caption{Skeleton line (white line) and outline of the deposit of eruption 1991 (green line)}
 \label{skel_outline}
 \end{figure}
 
