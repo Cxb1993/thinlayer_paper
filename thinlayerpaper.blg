@@ -1,115 +1,72 @@
-This is BibTeX, Version 0.99d (TeX Live 2013/Debian)
-Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+This is BibTeX, Version 0.99c (Web2C 7.5.6)
 The top-level auxiliary file: thinlayerpaper.aux
 The style file: plain.bst
 Database file #1: mybib.bib
-Repeated entry---line 2351 of file mybib.bib
- : @misc{
- :       ,
-I'm skipping whatever remains of this entry
-Repeated entry---line 2355 of file mybib.bib
- : @article{
- :          ,
-I'm skipping whatever remains of this entry
-Repeated entry---line 2675 of file mybib.bib
- : @article{
- :          ,
-I'm skipping whatever remains of this entry
-Repeated entry---line 2679 of file mybib.bib
- : @misc{
- :       ,
-I'm skipping whatever remains of this entry
-Repeated entry---line 2683 of file mybib.bib
- : @misc{
- :       ,
-I'm skipping whatever remains of this entry
-Repeated entry---line 2832 of file mybib.bib
+Repeated entry---line 2833 of file mybib.bib
  : @article{Tai2002
  :                 ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 2862 of file mybib.bib
- : @article{
- :          ,
-I'm skipping whatever remains of this entry
-Repeated entry---line 2867 of file mybib.bib
- : @article{
- :          ,
-I'm skipping whatever remains of this entry
-Repeated entry---line 3923 of file mybib.bib
- : @misc{
- :       ,
-I'm skipping whatever remains of this entry
-Repeated entry---line 4124 of file mybib.bib
- : @article{
- :          ,
-I'm skipping whatever remains of this entry
-Repeated entry---line 4373 of file mybib.bib
+Repeated entry---line 4374 of file mybib.bib
  : @article{Gray1999
  :                  ,
 I'm skipping whatever remains of this entry
-You're missing a field part---line 4870 of file mybib.bib
+You're missing a field part---line 4871 of file mybib.bib
  :    eid = 
  :          ,
 I'm skipping whatever remains of this entry
-You're missing a field part---line 4882 of file mybib.bib
+You're missing a field part---line 4883 of file mybib.bib
  :    eid = 
  :          ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 4972 of file mybib.bib
+Repeated entry---line 4966 of file mybib.bib
  : @article{Boettinger2002
  :                        ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 4989 of file mybib.bib
+Repeated entry---line 4983 of file mybib.bib
  : @article{Kim2012
  :                 ,
 I'm skipping whatever remains of this entry
-Warning--to sort, need author or key in 
-Warning--empty author in 
-Warning--empty booktitle in 
-Warning--empty publisher in 
-Warning--empty year in 
 Warning--there's a number but no volume in Casulli2009a
-Warning--empty journal in Dalbey2009
 Warning--there's a number but no volume in Medeiros2013
-You've used 52 entries,
+You've used 51 entries,
             2118 wiz_defined-function locations,
-            851 strings with 13686 characters,
-and the built_in function-call counts, 18103 in all, are:
-= -- 1772
-> -- 920
-< -- 5
-+ -- 368
+            852 strings with 13731 characters,
+and the built_in function-call counts, 17717 in all, are:
+= -- 1734
+> -- 919
+< -- 4
++ -- 367
 - -- 310
-* -- 1421
-:= -- 3076
-add.period$ -- 158
-call.type$ -- 52
-change.case$ -- 305
+* -- 1393
+:= -- 3040
+add.period$ -- 156
+call.type$ -- 51
+change.case$ -- 301
 chr.to.int$ -- 0
-cite$ -- 60
-duplicate$ -- 600
-empty$ -- 1338
+cite$ -- 53
+duplicate$ -- 576
+empty$ -- 1295
 format.name$ -- 310
-if$ -- 3680
+if$ -- 3586
 int.to.chr$ -- 0
-int.to.str$ -- 52
-missing$ -- 54
-newline$ -- 263
+int.to.str$ -- 51
+missing$ -- 52
+newline$ -- 259
 num.names$ -- 104
-pop$ -- 252
+pop$ -- 238
 preamble$ -- 1
-purify$ -- 258
+purify$ -- 256
 quote$ -- 0
-skip$ -- 408
+skip$ -- 390
 stack$ -- 0
-substring$ -- 1253
-swap$ -- 76
-text.length$ -- 5
+substring$ -- 1216
+swap$ -- 68
+text.length$ -- 4
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 200
-warning$ -- 8
-while$ -- 171
-width$ -- 54
-write$ -- 569
-(There were 15 error messages)
+type$ -- 196
+warning$ -- 2
+while$ -- 168
+width$ -- 53
+write$ -- 564
+(There were 6 error messages)

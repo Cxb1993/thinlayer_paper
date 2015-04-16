@@ -1,9 +1,5 @@
 \begin{thebibliography}{10}
 
-\bibitem{}
-{Operators on Inner-Product Spaces}.
-\newblock pages 127--161.
-
 \bibitem{Adalsteinsson1999}
 D~Adalsteinsson and J.a Sethian.
 \newblock {The Fast Construction of Extension Velocities in Level Set Methods}.
@@ -104,9 +100,8 @@ S.J. Charbonnier and R.~Gertisser.
 
 \bibitem{Chen2002}
 Long-Qing Chen.
-\newblock {PHASE}-{FIELD} {MODELS} {FOR} {MICROSTRUCTURE} {EVOLUTION}.
-\newblock {\em Annual Review of Materials Research}, 32(1):113--140, August
-  2002.
+\newblock Phase-field models for microstructure evolution.
+\newblock {\em Annual review of materials research}, 32(1):113--140, 2002.
 
 \bibitem{Cheng1995}
 Liang Cheng and Steven Armfield.
@@ -116,10 +111,10 @@ Liang Cheng and Steven Armfield.
   21(1):15--34, 1995.
 
 \bibitem{Dalbey2009}
-Keith~R Dalbey.
-\newblock {PREDICTIVE SIMULATION AND MODEL BASED HAZARD MAPS UMI Number :
-  3356020 Copyright 2009 by Dalbey , Keith R . All rights reserved}.
-\newblock 2009.
+Keith~R. Dalbey.
+\newblock {\em {Predictive simulation and model based hazard maps of
+  geophysical mass flows}}.
+\newblock PhD thesis, State University of New York at Buffalo, 2009.
 
 \bibitem{DAlpaos2007}
 L.~D’Alpaos and a.~Defina.

@@ -1694,15 +1694,18 @@ pages={153-163},
   address={Englewood Cliffs, New Jersey}
 }
 
-@article{sussman1994lsa,
-  title={{A level set approach for computing solutions to incompressible two-phase flow}},
-  author={Sussman, M. and Smereka, P. and Osher, S.},
-  journal={Journal of Computational Physics},
-  volume={114},
-  number={1},
-  pages={146--159},
-  year={1994},
-  publisher={Academic Press Professional, Inc. San Diego, CA, USA}
+@article{Sussman1994,
+title = "A Level Set Approach for Computing Solutions to Incompressible Two-Phase Flow ",
+journal = "Journal of Computational Physics ",
+volume = "114",
+number = "1",
+pages = "146 - 159",
+year = "1994",
+note = "",
+issn = "0021-9991",
+doi = "http://dx.doi.org/10.1006/jcph.1994.1155",
+url = "http://www.sciencedirect.com/science/article/pii/S0021999184711557",
+author = "Mark Sussman and Peter Smereka and Stanley Osher"
 }
 
 @article{Tai2001asc,
@@ -2139,12 +2142,7 @@ url = {http://linkinghub.elsevier.com/retrieve/pii/S0021999106002531},
 volume = {220},
 year = {2007}
 }
-@article{Sussman,
-author = {Sussman, Mark and Smereka, Peter and Arbor, Ann},
-file = {:home/hossein/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/A Level Set Approach for Computing Solutions to Incompressible Two-Phase Flow I1 - Sussman, Smereka, Arbor - Unknown - Unknown.pdf:pdf},
-number = {June 1995},
-title = {{A Level Set Approach for Computing Solutions to Incompressible Two-Phase Flow I1}}
-}
+
 @article{Venditti2002,
 annote = {Interpolation of fine solution into the rough mesh},
 author = {Venditti, David a. and Darmofal, David L.},
@@ -2227,12 +2225,13 @@ url = {http://link.springer.com/10.1007/s11069-011-9788-6},
 volume = {59},
 year = {2011}
 }
-@article{Dalbey2009,
-author = {Dalbey, Keith R},
-file = {:home/hossein/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/PREDICTIVE SIMULATION AND MODEL BASED HAZARD MAPS UMI Number 3356020 Copyright 2009 by Dalbey , Keith R . All rights reserved - Dalbey - 2009 - Unknown.pdf:pdf},
-title = {{PREDICTIVE SIMULATION AND MODEL BASED HAZARD MAPS UMI Number : 3356020 Copyright 2009 by Dalbey , Keith R . All rights reserved}},
-year = {2009}
+@PhdDissertation{Dalbey2009,
+           title = "{Predictive simulation and model based hazard maps of geophysical mass flows}",
+          author = "Dalbey,Keith R.",
+          school = "State University of New York at Buffalo",
+            year = "2009",
 }
+
 @article{Gray2009,
 author = {Gray, J. M. N. T. and Ancey, C.},
 doi = {10.1017/S0022112009006466},
@@ -4955,22 +4954,15 @@ abstract = "A method is introduced to decrease the computational labor of the st
             Year = "1997"
           }
 @article{Chen2002,
-	title = {{PHASE}-{FIELD} {MODELS} {FOR} {MICROSTRUCTURE} {EVOLUTION}},
-	volume = {32},
-	issn = {1531-7331, 1545-4118},
-	shorttitle = {P {\textless}span style="font-variant},
-	url = {http://www.annualreviews.org/doi/abs/10.1146/annurev.matsci.32.112001.132041},
-	doi = {10.1146/annurev.matsci.32.112001.132041},
-	language = {en},
-	number = {1},
-	urldate = {2015-01-04},
-	journal = {Annual Review of Materials Research},
-	author = {Chen, Long-Qing},
-	month = aug,
-	year = {2002},
-	pages = {113--140},
-	file = {phasefield.pdf:/dinesh1/data/users/haghakha/Download/phasefield.pdf:application/pdf}
-}       
+  title={Phase-field models for microstructure evolution},
+  author={Chen, Long-Qing},
+  journal={Annual review of materials research},
+  volume={32},
+  number={1},
+  pages={113--140},
+  year={2002},
+  publisher={Annual Reviews 4139 El Camino Way, PO Box 10139, Palo Alto, CA 94303-0139, USA}
+}      
 @article{Boettinger2002,
 	title = {{PHASE}-{FIELD} {SIMULATION} {OF} {SOLIDIFICATION}},
 	volume = {32},

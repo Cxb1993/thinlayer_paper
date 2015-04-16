@@ -164,25 +164,28 @@ They finally concluded that the level set is expensive and unnecessary for their
 %============= Introduction of next parts of paper =====================
 \subsection{Our Contribution}
 %In this work to address thin layer problem and other related instability and accuracy problems, we implemented a combination of Heuristic approaches, Phase filed and level set methods and compared the obtained results with experimental and field data for granular flow. Phase field and level set methods are very well-known Eulerian interface capturing methods that to the best knowledge of authors are applied to geophysical flow.\newline
-In this paper, our approach to address the resulted problems from the thin layer problem (problem 1-4 discussed in introduction section), consists of two parts. The first part is to find the interface of the flow, and the next part is to do some steps based on the result of the first part to resolve the aforementioned issues.
-To capture the interface we study three different methods. The first one is to use a very small dimensionless threshold, which we call it GEOFLOW\_TINY, to distinguish between wet and dry areas. The other method that we implement to capture the interface is phase field. \newline
+In this paper, our approach to address the resulted problems from the thin layer problem (problem 1-4 discussed in introduction section), consists of two parts. The first part is to find the interface of the flow, and the next part is to do some modifications based on the result of the first part to resolve the aforementioned issues.
+To capture the interface, we study three different methods. The first one is a new multifaceted Heuristic approach that uses a very small dimensionless threshold, which we call it GEOFLOW\_TINY, to distinguish between wet and dry areas. The other method of interface capturing that we implement is the phase field, and the last one is the level set method. To the best knowledge of authors, the two later methods  are for the first time applied to geophysical flow. Since there are different types of level set and phase field method available in the literature, to decrease the computational cost resulted from these two methods, here we used the standard level set and Allen\_Cahn phase field, and modified them if necessary for the our problem. The details of implementation of all three methods is explained in related next parts.
 
-{ \huge I have to rewrite this part}
-\newline
+After finding the interface we do some modifications to address the other issues. In the heuristic approach, after finding the wet and dry cells by using GEOFLOW\_TINY, the cells are divided into three groups of wet, dry and partially wet cells. Then we  adjust the fluxes for the partially wet cells and the finally update the state variables for wet cells.
 
- that is resulted from the thin layer problem and discussed in  two do some  we proposed a new multifaceted Heuristic approach and also tested the effectiveness of Level set and Phase field methods to mitigate the thin layer problem difficulties. Our approach in this work consist of two parts.  for numerical solution of SW equations. To the best knowledge of authors, the two later methods  are for the first time applied to geophysical flow. Although these methods have been used for granular type SW flows, most of the conditions holds and the results are applicable for other type of SW flows.  We verified the numerical results with experimental result of a granular SW flow over an inclined plane ends to a horizontal surface , as well as the field data for Colima volcano.
-In Eulerian interface capturing methods we tried to stick to the basic methods, and decrease the computational cost ,when possible, with using some techniques. 
+In the level set and phase field approaches, we used the result of these two method for mesh refinement, and by selecting the cells that are close to interface we controlled the thin layer problem. Detail of each approach and how we select the cells for refinement discussed in the relevant section.
+
+%For phase field method, we chose Allen-Cahn formulation. This formulation is not mass conservative. To satisfy mass conservation constrain in this formulation, a Lagrange multiplier is added to RHS of the equation. In this work, we derived a Lagrange multiplier for SW equation. To decrease the computational and memory cost, we used operator splitting and matrix free techniques (detail in section \ref{phase field}).
+
+%{ \huge I have to rewrite this part}
+%\newline
+
+% that is resulted from the thin layer problem and discussed in  two do some  we proposed a new multifaceted Heuristic approach and also tested the effectiveness of Level set and Phase field methods to mitigate the thin layer problem difficulties.
+%  Our approach in this work consist of two parts.  for numerical solution of SW equations.  
+  Although we implemented these methods for granular type SW flows, most of the conditions holds and the results are applicable for other type of SW flows.  We verified the numerical results with experimental result of a granular SW flow over an inclined plane ends to a horizontal surface , as well as the field data for Colima volcano.
+%In Eulerian interface capturing methods we tried to stick to the basic methods, and decrease the computational cost ,when possible, with using some techniques. 
 
 %For example, in Level set method we used narrow band re-initialization to just update the value of signed distance function near the interface, and in Phase field we use operator splitting to use implicit solver just for laplacian term and we also used matrix free method to save memory requirement. Detail of these steps can be find in the corresponding section (sections \ref{phase field},\ref{level set}).
 
-In the heuristic approach we first use a very small threshold to discriminate between wet and dry cells, then divide the cells into three groups of wet, dry and partially wet cells. The next step is to adjust the fluxes for the partially wet cells and the last step is to update the state variables for wet cells.
 
-In level set part, we followed the instructions in paper\cite{Sussman1994} with the re-initialization scheme introduced in Adalsteinsson's work \cite{Adalsteinsson1995}. To solve both of these hyperbolic equations we used a first order accurate solver.
-
-For phase field method, we chose Allen-Cahn formulation. This formulation is not mass conservative. To satisfy mass conservation constrain in this formulation, a Lagrange multiplier is added to RHS of the equation. In this work, we derived a Lagrange multiplier for SW equation. To decrease the computational and memory cost, we used operator splitting and matrix free techniques (detail in section \ref{phase field}).
-
-As a general comparison between the methods it could be mentioned that the first approach is less expensive, but the obtained interface moves a little ahead of the interface found in experimental and field data is. 
-On other hand, the interface capturing methods have more strong mathematical and physical structure, and can be coupled with the conversations equations, but are computationally more expensive, and harder to implement.
+As a general comparison between the methods it could be mentioned the heuristic approach is less expensive, but the obtained interface moves a little ahead of the interface found in experimental and field data, and our analysis show that finding a good threshold that is appropriate for all problems is not easy. 
+On other hand, the interface capturing methods have more strong mathematical and physical structure, and can be coupled with the conversations equations, but are computationally more expensive, and harder to implement. We used some tactics to decrease the computational cost. For example, in the phase field we used Allen\_Cahn formulation which is easier to implement and computationally less expensive in contrast with the Cahn\_Hillard, but it is not mass conservative. To preserve the mass conservation we add a Lagrange multiplier to satisfy this constrain. To decrease the computational even more, we used operator splitting for time integration. The obtained results show that all of the methods can address the thin layer problem and other related issues, however phase field results have better consistence with the experimental and field data. 
 
 The structure of the rest of this paper is as follows: in next part SW equations for the geophysical flows and the common features of the solver that we used for all of the three methods are introduced. In section \ref{solution}, 
 different methods that were employed to mitigate WD problem are explained. After that the obtained results from the methods are compared, and finally the conclusion of the work is provided.
@@ -312,23 +315,15 @@ During normal adaptivity, cells are selected for refinement if they meet
 either of two requirements:
 \begin{enumerate} 
 \item They have large, as compared to the average, inter-cellular fluxes.
-\item They are at or within a few cells near the boundary.
+\item They are at or within a few cells near the interface.
 % of any of four small, non-dimensional flow depths (multiples of {\rm\verb1GEOFLOW_TINY1}).
 \end{enumerate}
-The former condition allows for accurate capture of sharp changes in state variables. The latter results in banded regions of the flow separated into ``rings'' of maximally refined buffer cells.  This limits artificially high transportation of material from the larger depth bands to the lower depth
-bands. In solution section, we explain how we select the elements near the boundary for refinement for each method of interface capturing that we use. 
-%The outermost ring is at a flow depth of {\rm\verb1GEOFLOW_TINY1}.
-The rings are a number of cells wide equal to or greater than the number of iterations between mesh adaptations (we are not doing mesh adoption at each time step).  
-This guarantees that material will only flow into maximally refined dry cells at the wet-dry front.  
-%However, material with flow depth less than {\rm\verb1GEOFLOW_TINY1} may be left outside the outermost band of buffer cells by the passing flow.  
-%The rings of the later  
-%buffer cells strategy decreases the numerical wicking (Problem 
-%\ref{problemwicking} from the thin layer problems in section introduction of this paper) both within the 
-%flow and at the boundary.  When combined with thresholding, it is sufficient to decrease Problems 
-%\ref{problemwicking}, \ref{problemtoothin}, and \ref{problemtoofast} to a 
-%level that prevents the loss of stability due to Problem 
-%\ref{problemunstable}.
-{\huge here I have to rewrite, I have to say we use GEOFLOW\_TINY in all of the methods, I have to also add an adative section to each part of solution}
+The former condition allows for accurate capture of sharp changes in state variables. The latter results in banded regions of the flow separated into ``rings'' of maximally refined buffer cells.  This limits artificially high transportation of material from the inside of the interface to outside of the interface, and guarantees that material will only flow into maximally refined dry cells at the wet-dry front.  
+However, some material that are outside of the recognized boundary may be left outside the outermost band of buffer cells. These cells are not updated until the interface pass them.
+The rings of buffer cells strategy decreases the numerical wicking problem,and when combined with interface capturing scheme, it is sufficient to decrease other thin layer problems to a level that prevents the loss of stability.
+Clearly this strategy depends on the way that we find the interface. In  the heuristic approach, after using threshold to find the wet and dry areas, the number of rings are a number of cells wide equal to or greater than the number of iterations between mesh adaptations (we are not doing mesh adoption at each time step). In the level set approach, we can use narrow band method for adaption and selecting these buffer rings, but we simply select the elements that their distance to the interface are less than a normalized distance that is obtained from the maximum distance to the interface. Note that in the level set method distance of the cells to the interface is the level set function itself, and we do not pay any overhead computational cost for that. In the phase field method, since we have a diffusive region between two phases, that we can control it with capillary width (please refer to section \ref{phase field}), we select those cells that their $|\phi| <1 $ where $phi$ is the phase field value. We set the capillary width equal to the number of time steps between to consequent adaption.
+
+
 Unrefinement takes place immediately after refinement; a group of four ``brother'' cells will be selected to merge into their mutual ``father'' cell if the sum of their inter-cellular fluxes is very low compared to the average flux.  Cells that have either just been refined or are otherwise in any of the current bands of buffer cells are immune 
 to unrefinement.  
     
@@ -818,30 +813,30 @@ relations into eq. \eqref{levelseteq1} leads to \eqref{levelseteq2}
  \frac{\partial \varPsi}{\partial t} + \overrightarrow{V} \bigtriangledown \varPsi = 0
 \end{equation}
 
-Equation \eqref{levelseteq2} is a non-conservative hyperbolic equation. We used a first order upwind scheme  that is explained in detail in \cite{} to solve this equation. 
-
-\begin{equation}
-   \label{explicit}
-   U_i^{n+1} = U_i^n - \frac{\bigtriangleup t}{\bigtriangleup x} \{F_{i+\frac{1}{2}}^- + F_{i-\frac{1}{2}}^+ \}
-   - \frac{\bigtriangleup t}{\bigtriangleup y} \{G_{i+\frac{1}{2}}^- + G_{i-\frac{1}{2}}^+ \}
-  \end{equation}
-Where $F$ and $G$ are the flux terms and are coming from the flux term for in upwind scheme:
-{\huge I have to correct the following formula and add reference above}
-
-
- \[ F_{i+\frac{1}{2}}^- = \left\{ \begin{array}{ll}
-          \mathop{\mathlarger{\frac{v_r+v_l}{2}(v_r-v_l)}} \ \ \ \ \   & \  \\
-          \ \ &\ v_l < 0, \\
-          0 \ \ \ \ \   & \   .\end{array} \right. \] 
- 
-and 
- 
- \[ F_{i+\frac{1}{2}}^+ = \left\{ \begin{array}{ll}
-          0 \ \ \ \ \   & \  \\
-          \ & \ v_l > 0,\\
-          \mathop{\mathlarger{\frac{v_r+v_l}{2}(v_r-v_l)}} \ \ \ \ \   & \ .\end{array} \right. \] 
-         
-and the same formulation can be used to find G fluxes.
+%Equation \eqref{levelseteq2} is a non-conservative hyperbolic equation. We used a first order upwind scheme  that is explained in detail in \cite{} to solve this equation. 
+%
+%\begin{equation}
+%   \label{explicit}
+%   U_i^{n+1} = U_i^n - \frac{\bigtriangleup t}{\bigtriangleup x} \{F_{i+\frac{1}{2}}^- + F_{i-\frac{1}{2}}^+ \}
+%   - \frac{\bigtriangleup t}{\bigtriangleup y} \{G_{i+\frac{1}{2}}^- + G_{i-\frac{1}{2}}^+ \}
+%  \end{equation}
+%Where $F$ and $G$ are the flux terms and are coming from the flux term for in upwind scheme:
+%{\huge I have to correct the following formula and add reference above}
+%
+%
+% \[ F_{i+\frac{1}{2}}^- = \left\{ \begin{array}{ll}
+%          \mathop{\mathlarger{\frac{v_r+v_l}{2}(v_r-v_l)}} \ \ \ \ \   & \  \\
+%          \ \ &\ v_l < 0, \\
+%          0 \ \ \ \ \   & \   .\end{array} \right. \] 
+% 
+%and 
+% 
+% \[ F_{i+\frac{1}{2}}^+ = \left\{ \begin{array}{ll}
+%          0 \ \ \ \ \   & \  \\
+%          \ & \ v_l > 0,\\
+%          \mathop{\mathlarger{\frac{v_r+v_l}{2}(v_r-v_l)}} \ \ \ \ \   & \ .\end{array} \right. \] 
+%         
+%and the same formulation can be used to find G fluxes.
 
 \subsubsection{Reinitialization} \label{reinitialization}
 
@@ -932,23 +927,23 @@ Initial friction angle    & $37.3^o$ \\
 \begin{figure}[H]
   \begin{minipage}[b]{.48\linewidth}
     \centering
-    \includegraphics[width=1\textwidth]{IMAGES/interface15.png}
+    \includegraphics[width=1\textwidth]{IMAGES/interface165.png}
     \subcaption{T=0.15 sec}
-    \includegraphics[width=1\textwidth]{IMAGES/interface30.png}
+    \includegraphics[width=1\textwidth]{IMAGES/interface330.png}
     \subcaption{T=0.3 sec}
   \end{minipage}
 %   \hfill
   \begin{minipage}[b]{.48 \linewidth}
     \centering
-    \includegraphics[width=1\textwidth]{IMAGES/interface45.png}
+    \includegraphics[width=1\textwidth]{IMAGES/interface495.png}
     \subcaption{T=0.45 sec}
-    \includegraphics[width=1\textwidth]{IMAGES/interface60.png}
+    \includegraphics[width=1\textwidth]{IMAGES/interface660.png}
     \subcaption{T=0.6 sec}
   \end{minipage}
   \caption{Pile height contour and interface location at different time steps}
   \label{odinary}
 \end{figure}
-{\huge it would be very good if I can plot data of experiment for area and perimeter}
+
 \subsubsection{Comparison}
 
 For quantitative comparison of the results, we compared different schemes on three measurable quantities. The first measure is the extent of pile in X direction, the second one the extent of pile in Y direction, and the last one is the area of pile.
@@ -956,17 +951,17 @@ For quantitative comparison of the results, we compared different schemes on thr
 \begin{figure}[H]
   \begin{minipage}[b]{.48\linewidth}
     \centering
-    \includegraphics[scale=0.4]{IMAGES/xextend.png}
+    \includegraphics[scale=0.48]{IMAGES/xextend.png}
     \subcaption{Extension of pile in X direction}
-    \includegraphics[scale=0.4]{IMAGES/area.png}
+    \includegraphics[scale=0.48]{IMAGES/area.png}
     \subcaption{Area of pile}
   \end{minipage}
 %   \hfill
   \begin{minipage}[b]{.48 \linewidth}
     \centering
-    \includegraphics[scale=0.4]{IMAGES/yextend.png}
+    \includegraphics[scale=0.48]{IMAGES/yextend.png}
     \subcaption{Extension of pile in Y direction}
-    \includegraphics[scale=0.4]{IMAGES/perimeter.png}
+    \includegraphics[scale=0.48]{IMAGES/perimeter.png}
     \subcaption{Perimeter of pile}
   \end{minipage}
   \caption{Comparison of the methods for flow on inclined plane}
@@ -975,7 +970,7 @@ For quantitative comparison of the results, we compared different schemes on thr
 
 % \end{figure}
 \subsection{Colima Volcano}
-{\huge keith wants the result of Atentique }\\
+%{\huge keith wants the result of Atentique }\\
 In this section, we verify our different interface capturing methods with a field data of an eruption of Colima volcano. 
 Colima volcano in Mexico is one of the most active volcanos in North America, and this eruption happened on 16-17 April 1991 \cite{Charbonnier2008}. 
 The topography of Colima volcano is such that small changes the initial location of the pile leads to a completely different 
