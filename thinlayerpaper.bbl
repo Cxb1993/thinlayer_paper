@@ -5,11 +5,6 @@ D~Adalsteinsson and J.a Sethian.
 \newblock {The Fast Construction of Extension Velocities in Level Set Methods}.
 \newblock {\em Journal of Computational Physics}, 148(1):2--22, January 1999.
 
-\bibitem{Adalsteinsson1995}
-David Adalsteinsson and James~A. Sethian.
-\newblock A fast level set method for propagating interfaces.
-\newblock {\em Journal of Computational Physics}, 118(2):269 -- 277, 1995.
-
 \bibitem{Patra2005}
 a.K. Patra, a.C. Bauer, C.C. Nichita, E.B. Pitman, M.F. Sheridan, M.~Bursik,
   B.~Rupp, a.~Webber, a.J. Stinton, L.M. Namikawa, and C.S. Renschler.
@@ -204,13 +199,6 @@ Junseok Kim.
 R.G. Larson.
 \newblock {\em The Structure and Rheology of Complex Fluids}.
 \newblock Topics in Chemical Engineering. OUP USA, 1999.
-
-\bibitem{Medeiros2013}
-SC~Medeiros and SC~Hagen.
-\newblock {Review of wetting and drying algorithms for numerical tidal flow
-  models}.
-\newblock {\em International Journal for Numerical \ldots}, (March
-  2012):473--487, 2013.
 
 \bibitem{NamikawaPhD}
 Laercio~M. Namikawa.

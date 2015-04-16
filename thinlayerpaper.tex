@@ -889,15 +889,17 @@ Table 1 shows the applied initial condition for these results.
 
 % \caption{Initial condition}
 \hline
-Maximum pile height       & .06 m \\
+Maximum pile height       & .061 m \\
 \hline
-Major extent of the pile  & .06 m \\
+Major extent of the pile  & .0525 m \\
 \hline
-Minor extent of the pile  & .06 m \\
+Minor extent of the pile  & .0525 m \\
 \hline           
 Bed friction angle        & $32.47^o$ \\
 \hline
 Initial friction angle    & $37.3^o$ \\
+\hline
+Angle of incline          & $38.5^o$ \\
 % \hline
 % Initial velocity          & 2 m/s \\
 \hline
@@ -1086,44 +1088,37 @@ using Keyhole Markup Language (KML) and Google earth application \ref{skel_outli
 \section{Conclusions} \label{conclusions}
 The numerical solution of the Savage-Hutter (and similar 
 ``shallow-water'') equations have historically been plagued by 
-several interrelated numerical difficulties which are collectively 
-characterized by a non-physically thin-layer extending 
-large distances from the realistic main body of the flow. In the 
-best case, this ``thin-layer problem'' means a ``no flow'' boundary 
-line must be arbitrarily drawn at some given depth contour.  In 
+several interrelated numerical difficulties which are collectively characterized by a non-physically thin-layer extending large distances from the realistic main body of the flow. In the best case, this ``thin-layer problem'' means a ``no flow'' boundary line must be arbitrarily drawn at some given depth contour.  In 
 the worst case, it can cause severe numerical instability that 
 prevents any simulation of a particular event.
 
 In this paper, we 
 have described some features of the thin-layer problem,
 some underlying causes that are common to virtually all numerical 
-solution methodologies.  Moreover, we have presented a heuristic method and compared 
+solution methodologies.  Moreover, we presented a heuristic method and compared 
 two interface capturing approaches that 
-mitigate this problem by addressing its root causes.  We 
-implemented these thin-layer control strategies in TITAN2D, our high 
+mitigate this problem by addressing its root causes. In heuristic method we used a threshold to distinguish between wet and dry areas, and in the level set and phase field methods we solved a transport equation that implicitly represents the interface of the flow. Then we used the result of previous step for mesh refinement in all of the three solvers to control the thin layer problem and other related problems. Moreover in the heuristic approach we also used this result for interface reconstruction  and adjusting the flux. 
+We implemented these thin-layer control strategies in TITAN2D, our high 
 performance finite volume solver of the depth-averaged granular 
 flow equations.  Numerical simulations were performed for 
-geophysical mass flows at two separate locations.
+geophysical mass flows at two different cases.
 
-The numerical experiment were conducted for an inclined plate that finally continues horizantally. 
-This case was tested with all of the approaches,
-which not only prevented the 
-loss of numerical stability but also demonstrated behavior that
-is, at least qualitatively, consistent with expectations.
-
-The second location, Colima volcano, which is an active volcano 
-in Mexico, was selected on the basis that the DEM had provoked 
-thin-layer numerical difficulties from an earlier version of TITAN2D, 
-and that a campanologist familiar with the location had selectively 
-tuned TITAN2D's few input parameters and also computational and 
-post-processing thresholds to produce results that closely matched 
-reality for that location. The new version of TITAN2D, which implemented
-our thin-layer control strategy, automatically (i.e. without 
-tuning) reproduced a flow outline that had even greater agreement 
-with the historical data. 
-
-Then the results of these approaches were compared. The result of this comparison showed 
-a very good consistency between these approaches.
+To verify the solvers, numerical experiments were conducted for an inclined plate that finally continues horizontally, and Colima volcano. For the first case we verified the numerical results with experimental results, and for the second case we compared the results with field data. These analysis showed that with all of the approaches,
+which not only prevented the loss of numerical stability but also demonstrated behavior that is consistent with expectations.
+%
+%As the second case, we tested our solvers on Colima volcano, which is an active volcano 
+%in Mexico, was selected on the basis that the DEM had provoked 
+%thin-layer numerical difficulties from an earlier version of TITAN2D, 
+%and that a campanologist familiar with the location had selectively 
+%tuned TITAN2D's few input parameters and also computational and 
+%post-processing thresholds to produce results that closely matched 
+%reality for that location. The new version of TITAN2D, which implemented
+%our thin-layer control strategy, automatically (i.e. without 
+%tuning) reproduced a flow outline that had even greater agreement 
+%with the historical data. 
+%
+%Then the results of these approaches were compared. The result of this comparison showed 
+%a very good consistency between these approaches.
 % Therefore the phase field method could be used for finding the flow boundary 
 % of flow and handle the WD problem. 
 
