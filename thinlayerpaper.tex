@@ -27,7 +27,7 @@
 %\setlength\parindent{0pt}
 
 
-\title{Comparison Between Heuristic and Eulerian Interface Capturing Approaches for Shallow Water Type Flow}
+\title{Heuristic and Eulerian Interface Capturing Approaches for Shallow Water Type Flow and Application to Granular Flows }
 \author{Hossein Aghakhani, Keith Dalbey, Abani Patra, David Salac}
 \date{}
 
@@ -36,10 +36,10 @@
 \maketitle
 
 \begin {abstract}{
-Determining the wet-dry boundary has historically been a challenge when 
+Determining the wet-dry boundary and the related spurious thin-layer problem has historically been a challenge when 
 solving the depth-averaged shallow-water (SW) equations (or similar granular flow's equations), and has 
-been the focus of much research effort. In this paper, to the best knowledge of the authors, for the first time we used level set and phase field methods to solve this issue and other related problems. We also proposed a new heuristic method to address this problem. We implemented all of these methods in TITAN2D which is a parallel adaptive mesh refinement toolkit designed for numerical simulation of granullar flows.\newline
-The results of the methods were presented for simple inclined plane and Colima volcano. For the inclined plane we verified the results with experimental data and for Colima volcano they have been compared with field data. We successfully captured the interface of the flow and solved the accuracy and stability problems related t thin layer problem in SW numerical solution. The comparison of results shows that although all of the methods can be used to address this problem, and each of them has its own advantage/disadvantages that has to be chosen carefully depend to the criteria of the interested case.\newline
+been the focus of much research effort. In this paper, we introduce the use of level set and phase field based methods to solve this issue and  related problems. We also propose  new heuristic methods to address this problem. We implemented all of these methods in TITAN2D, which is a parallel adaptive mesh refinement toolkit designed for numerical simulation of granular flows. Results of the methods  for flow over a simple inclined plane and Colima volcano are used to illustrate the methods. For the inclined plane we verified the results with experimental data and for Colima volcano they have been compared with field data. We successfully captured the interface of the flow and solved the accuracy and stability problems related to the thin layer problem in SW numerical solution. The comparison of results shows that although all of the methods can be used to address this problem,   each of them has its own advantages/disadvantages and methods have to be chosen carefully for each problem.\newline
+
 \textbf{Keywords:} Shallow water flow, Thin layer, Wetting/Drying, Phase field, Level set}
 \end{abstract}
 
@@ -49,36 +49,41 @@ The results of the methods were presented for simple inclined plane and Colima v
 \section{Introduction} 
 \label{introduction}
 % Basic introduction about the Shallow water
+%%{\bf NEED MORE CITATIONS}
 Shallow water (SW) flows include a wide range of fluid flows. In SW flows the fluid depth is much 
-smaller than the characteristic length of the fluid body. In deriving the corresponding 
-governing equations, the shallowness of flow allows us to neglect the variation of state variables  in perpendicular direction to the basal surface, and the effect of 
-this replaced with an integrated average in the equations \cite{SavageHutter1989}. 
-This mathematical simplification allows us to simplify three dimension flow in two dimension.
-The aforementioned condition holds for many circumstances in geophysical flow and the same 
-conservation equations with some minor modifications could be used to study this type of flow. \newline
-To this aim, Eglit and Sveshnikova \cite{eglit1980mms} modified the depth-averaged Saint Venant equations to simulate granular snow avalanches, and almost a decade later Savage and Hutter \cite{SavageHutter1989} adapted the depth averaged Saint Venant equations to accommodate  geophysical mass flow. 
+smaller (${\cal O}(10^{-1})$) than the characteristic length of the fluid body. In deriving the corresponding 
+governing equations, the shallowness of flow allows us to approximate the variation of state variables  in perpendicular direction to the basal surface, and  replace
+ with an integrated average in the governing equations \cite{SavageHutter1989}. 
+reducing a  three dimension flow to two dimensions.
+This holds for many circumstances in geophysical flow and the same 
+conservation equations with some minor variations can be used to study this type of flow. 
+ Eglit and Sveshnikova \cite{eglit1980mms} modified the depth-averaged Saint Venant equations to simulate granular snow avalanches, and almost a decade later Savage and Hutter \cite{SavageHutter1989} popularized these in the modeling of many  geophysical mass flows related to landslides, avalanches and debris flows. 
 % introducing WD problem
+
 Since this type of flow has free moving boundaries, one of the basic difficulties 
 of the numerical solution, is identifying the location of flow interface. 
-More clearly, the governing equations are just valid in wet areas, so we need an strategy to discriminate between wet and dry areas in the numerical simulation. 
-This problem is usually called the {\bf wetting and drying (WD)} or {\bf Thin-Layer} problem in SW context. In our previous work \cite{Patra2005}, we showed how the speed of wave has to be modified for flow near the vacuum region based on \cite{ToroBook2001} to mitigate the stability problem, but lack of a solution for spreading of the flow leads to the formation of a non-physical thin layer in the domain.
+Furthermore, the governing equations are  valid only in the wet areas, so we need an strategy to discriminate between wet and dry areas in the numerical simulation. 
+This problem is usually called the {\it wetting and drying (WD)} %or {\it thin-Layer} problem 
+in  the SW context. In our previous work, \cite{Patra2005}, we showed how the speed of wave has to be modified for flow near the vacuum region based on Toro \cite{ToroBook2001} to mitigate the stability problem. However,  this still leads to the formation of a non-physical thin layer in the numerical solution (See figure \ref{thinlayerproblem} for an illustration).
 This non-physical thin layer could extend large distances from the realistic main 
-body of the flow, which can cause inaccurate construction of the boundary or sever 
-numerical instabilities in the numerical solution.\newline
-Beside the numerical issues, determining probable flow extents through numerical simulation is critical for many SW problems, especially for geophysical flow. For example, in preparing a hazard map for a volcano or a flood it is crucial to know, what is the best numerical solution for the location of the front of the flow? Does the flow reach to a specific location? What is the distance of high risk locations from the infrastructures? \newline
-The answer of all the above questions is not possible without good information about the interface of the flow during its traveling path.\newline
+body of the flow, which can cause inaccurate construction of the boundary, loss of conservation or severe 
+numerical instabilities in the numerical solution. 
 
-In summary, the following problems are the major difficulties that arise in numerical solution of SW flows, and most of them are made or related to the thin layer problem:
+Beside the numerical issues, determining probable flow extents through numerical simulation is critical for many SW problems, especially for geophysical flow. For example, in preparing a hazard map for a volcano or a flood it is crucial to know, the location of the front of the flow to answer basic questions such as --  Does the flow reach  a specific location? What is the distance of high 
+risk locations from civil infrastructure? 
+The answer of all the above questions is not possible without good information about the interface of the flow along its flow path.
+
+To summarize, the following major difficulties  arise in numerical solution of SW flows related to the WD or thin layer problem:
 
 \begin{enumerate}
+\item Ambiguous and subjective computation of flow spreads in SW flows.
 \item \label{problemwicking}
-      Non-physical fast numerical flow speed.      
+     Unphysically fast numerical  estimate of flow speed.      Since the solution of SW equations are momentum, $\{hV_x,hV_y\}$, to find velocities, $\{V_x,V_y\}$ used in solution process, the momentum must be divided by flow depth, $h$, which causes a numerical error in an already small $h$, and result in overly large velocities.
 \item \label{problemtoothin}
-      Non-physical thin layer (orders of magnitude thinner than a grain of sand). This results from the combination of conservation of mass and the numerical wicking away of material.
-\item \label{problemtoofast}
-      Non-physically high flow speeds.  Since the solution of SW equations are momentum, $\{hV_x,hV_y\}$, to find velocities, $\{V_x,V_y\}$ used in solution process, the momentum must be divided by flow depth, $h$, which causes a numerical error in an already small $h$, and result in overly large velocities.
+      Unphysical thin layer (orders of magnitude thinner than a grain of sand). This results from the combination of conservation of mass and the numerical wicking away of material.
+
 \item \label{problemunstable}
-      Loss of numerical stability.  Due to the above reasons, wave-speeds can become infinite at the flow boundary which means that flow equations lose their hyperbolicty character at the vacuum state interface.
+      Loss of numerical stability.  Due to the above reasons, wave-speeds can become infinite at the flow boundary which means that flow equations lose their hyperbolicity  at the vacuum state interface.
 \end{enumerate}\label{thinprob}
 
 \begin{figure}[t]
@@ -98,13 +103,13 @@ In summary, the following problems are the major difficulties that arise in nume
   \label{thinlayerproblem}
 \end{figure}
 
-Figure \ref{thinlayerproblem} is an example that demonstrate this problem for numerical simulation of granular flow in  Atenquique which is a village near Colima volcano in Mexico. The left figure shows the numerical solution of flow height without using any control for thin layer problem, and the right figure shows the same result with using a naive control with plotting the regions with flow height grater than 0.5 meter. As discussed above, if we do not use any control on the numerical solution, the spread thin layer causes instability and inaccuracy in the obtained results.
+Figure \ref{thinlayerproblem}   demonstrates this problem for numerical simulation of block and ash flows in  Atenquique which is a village near Colima volcano in Mexico using a SW like model based on a granular flow assumption. The left figure shows the numerical solution of flow height without using any control for thin layer problem, and the right figure shows the same result with using a naive control -- plotting the regions with flow height $h>0.5m$. As discussed above, if we do not use any control on the numerical solution, the spread thin layer causes instability and inaccuracy in the obtained results.
 
-\subsection{Review}
+\subsection{Background and Review}
 A review of the literature shows numerous attempts were made to overcome this problem over time especially in the recent years \cite{Medeiros2013,Balzano1998,Aureli2008,Bunya2009,Casulli2009a,
 Kesserwani2011,DAlpaos2007,Castro2005a}.
-Here we will briefly review the topic and refer the interested reader to available references for more information. \newline
-Generally, all of the implemented method for the issue could be 
+Here we will briefly review the problem and recent approaches and refer the interested reader to available references for more information.
+Generally, all of the approaches can be 
 categorized in two basic groups of what we call here heuristic methods and interface tracking/capturing methods.
 The basic idea in the first group is to reconstruct the flow interface based upon 
 some simple heuristic or some algebraic relations. In this approach, the reconstruction could be also with taking to account the physics of the problem. In interface tracking/capturing approaches, an auxiliary equation/equations is coupled with the original system of equations in Eulerian or Lagrangian frame of view, to follow the flow interface through its path over time. 
@@ -164,36 +169,33 @@ They finally concluded that the level set is expensive and unnecessary for their
 %============= Introduction of next parts of paper =====================
 \subsection{Our Contribution}
 %In this work to address thin layer problem and other related instability and accuracy problems, we implemented a combination of Heuristic approaches, Phase filed and level set methods and compared the obtained results with experimental and field data for granular flow. Phase field and level set methods are very well-known Eulerian interface capturing methods that to the best knowledge of authors are applied to geophysical flow.\newline
-In this paper, our approach to address the resulted problems from the thin layer problem (problem 1-4 discussed in introduction section), consists of two parts. The first part is to find the interface of the flow, and the next part is to do some modifications based on the result of the first part to resolve the aforementioned issues.
-To capture the interface, we study three different methods. The first one is a new multifaceted Heuristic approach that uses a very small dimensionless threshold, which we call it GEOFLOW\_TINY, to distinguish between wet and dry areas. The other method of interface capturing that we implement is the phase field, and the last one is the level set method. To the best knowledge of authors, the two later methods  are for the first time applied to geophysical flow. Since there are different types of level set and phase field method available in the literature, to decrease the computational cost resulted from these two methods, here we used the standard level set and Allen\_Cahn phase field, and modified them if necessary for the our problem. The details of implementation of all three methods is explained in related next parts.
+In this paper, we describe our approach to issues rising from the thin layer problem (problem 1-4 discussed in introduction section), in  two phases. The first phase is to find the interface of the flow, and the next  is to make suitable modifications to meshes, state variables and fluxes based on the result of the first part to resolve the aforementioned issues.
+To capture the interface, we study three different methods. The first one is a new multifaceted Heuristic approach that uses a very small dimensionless threshold, which we call it GEOFLOW\_TINY, to distinguish between wet and dry areas. The other methods of interface capturing that we implement are the phase field and  level set approaches.
 
-After finding the interface we do some modifications to address the other issues. In the heuristic approach, after finding the wet and dry cells by using GEOFLOW\_TINY, the cells are divided into three groups of wet, dry and partially wet cells. Then we  adjust the fluxes for the partially wet cells and the finally update the state variables for wet cells.
+ To the best of our knowledge, the two latter methods  are for the first time applied to geophysical flow. Since there are different types of level set and phase field method available in the literature, to decrease the computational cost resulted from these two methods, here we used the standard level set and Allen\_Cahn phase field, and modified them as necessary for our problem. The details of implementation of all three methods is explained in related next parts.
 
-In the level set and phase field approaches, we used the result of these two method for mesh refinement, and by selecting the cells that are close to interface we controlled the thin layer problem. Detail of each approach and how we select the cells for refinement discussed in the relevant section.
-
-%For phase field method, we chose Allen-Cahn formulation. This formulation is not mass conservative. To satisfy mass conservation constrain in this formulation, a Lagrange multiplier is added to RHS of the equation. In this work, we derived a Lagrange multiplier for SW equation. To decrease the computational and memory cost, we used operator splitting and matrix free techniques (detail in section \ref{phase field}).
-
-%{ \huge I have to rewrite this part}
+After finding the interface we make suitable modifications to address the other issues. In the heuristic approach, after finding the wet and dry cells by using GEOFLOW\_TINY, the cells are divided into three groups of wet, dry and partially wet cells. Then we  adjust the fluxes for the partially wet cells and the finally update the state variables for wet cells.
+In the level set and phase field approaches, we used the result of these two method for mesh refinement, and by selecting the cells that are close to interface we controlled the thin layer problem. Details of each approach and how we select the cells for refinement discussed in the relevant section.
+%For phase field method, we chose Allen-Cahn formulation. This formulation is not mass conservative. To satisfy mass conservation constrain in this formulation, a Lagrange multiplier is added to RHS of the equation. In this work, we derived a Lagrange multiplier for SW equation. To decrease the computational and memory cost, we used operator splitting and matrix free techniques (detail in section \ref{phase field}).%{ \huge I have to rewrite this part}
 %\newline
-
 % that is resulted from the thin layer problem and discussed in  two do some  we proposed a new multifaceted Heuristic approach and also tested the effectiveness of Level set and Phase field methods to mitigate the thin layer problem difficulties.
 %  Our approach in this work consist of two parts.  for numerical solution of SW equations.  
-  Although we implemented these methods for granular type SW flows, most of the conditions holds and the results are applicable for other type of SW flows.  We verified the numerical results with experimental result of a granular SW flow over an inclined plane ends to a horizontal surface , as well as the field data for Colima volcano.
+
+  Although we implemented these methods for granular type SW flows, most of the conditions holds and the results are applicable for other type of SW flows.  We verified the numerical results with experimental result of a granular SW flow over an inclined plane ending in a horizontal surface , as well as the field data for Colima volcano.
 %In Eulerian interface capturing methods we tried to stick to the basic methods, and decrease the computational cost ,when possible, with using some techniques. 
-
 %For example, in Level set method we used narrow band re-initialization to just update the value of signed distance function near the interface, and in Phase field we use operator splitting to use implicit solver just for laplacian term and we also used matrix free method to save memory requirement. Detail of these steps can be find in the corresponding section (sections \ref{phase field},\ref{level set}).
-
-
-As a general comparison between the methods it could be mentioned the heuristic approach is less expensive, but the obtained interface moves a little ahead of the interface found in experimental and field data, and our analysis show that finding a good threshold that is appropriate for all problems is not easy. 
-On other hand, the interface capturing methods have more strong mathematical and physical structure, and can be coupled with the conversations equations, but are computationally more expensive, and harder to implement. We used some tactics to decrease the computational cost. For example, in the phase field we used Allen\_Cahn formulation which is easier to implement and computationally less expensive in contrast with the Cahn\_Hillard, but it is not mass conservative. To preserve the mass conservation we add a Lagrange multiplier to satisfy this constrain. To decrease the computational even more, we used operator splitting for time integration. The obtained results show that all of the methods can address the thin layer problem and other related issues, however phase field results have better consistence with the experimental and field data. 
+Results of  these tests  indicate that
+as a general comparison between the methods it could be mentioned the heuristic approach is less expensive, but the obtained interface moves a little ahead of the interface found in experimental and field data, and our analysis show that finding a good threshold that is appropriate for all problems is not easy. 
+On other hand, the interface capturing methods have stronger mathematical and physical structure, and can be coupled with the conservation equations, but are computationally more expensive, and harder to implement. We used several techniques to decrease the computational cost. For example, in the phase field we used Allen\_Cahn formulation which is easier to implement and computationally less expensive in contrast with the Cahn\_Hillard, but it is not mass conservative. To preserve the mass conservation we add a Lagrange multiplier to satisfy this constrain. To decrease the computational even more, we used operator splitting for time integration. The obtained results show that all of the methods can address the thin layer problem and other related issues, however phase field results have better consistence with the experimental and field data. 
 
 The structure of the rest of this paper is as follows: in next part SW equations for the geophysical flows and the common features of the solver that we used for all of the three methods are introduced. In section \ref{solution}, 
-different methods that were employed to mitigate WD problem are explained. After that the obtained results from the methods are compared, and finally the conclusion of the work is provided.
+different methods that were employed to mitigate WD problem are explained. %After that the obtained results from the methods are compared, and finally the conclusion of the work is provided. 
+Discussion and conclusions complete the presentation.
 
 % =============================================================================
 %                METHOD
 % =============================================================================
-\section{Governing Equations} \label{Method}
+\section{Governing Equations } \label{Method}
 
 % \subsection{SWE for geophysical flows} \label{Governingequations}
 
@@ -265,8 +267,10 @@ Titan2D solves the above system of equations with a finite volume Godunov method
 In the above equation, G and F are the flux terms at the inter-cell boundaries which are computed by Harten-Lax-Van Leer (HLL) \cite{Toro2009riemann} Riemann solver that is explained 
 in the next section.
 
+\section{SW Solution and Adaptive Strategy for WD Interface }
+
 \subsection{Using Appropriate Riemann Fluxes} \label{Riemann}
-For flux computation TITAN2D uses a HLL solver. HLL solver is an approximate Riemann solver that just use the maximum and 
+For flux computation TITAN2D uses a HLL solver. HLL solver is an approximate Riemann solver that  uses the maximum and 
 minimum of characteristic speeds of a hyperbolic system to build the conservative fluxes at the interface.
 
 Following the recommendation of Toro \cite{ToroBook2001}, TITAN2D uses 
@@ -292,8 +296,8 @@ of the true wave speeds results in enhanced stability'' while an
 They became the first to 
 solve this problem by constructing an approximate Riemann solver.\newline
 
-\subsection{Adaptively Meshing} \label{adaptivemeshing}
-In the TITAN2D, each grid cell is square or very nearly so.  Rather than 
+\subsection{Adaptive Meshing} \label{adaptivemeshing}
+In   TITAN2D, each grid cell is square or very nearly so.  Rather than 
 using a uniform mesh, different sizes of cells are allowed, with each 
 successive ``generation'' covering one fourth the area of its ``parent'' 
 cell.  Note that only one generation of irregularity is allowed between 
@@ -314,14 +318,15 @@ simulation at Colima Volcano, Mexico, is displayed in Figure \ref{bufcell}.
 During normal adaptivity, cells are selected for refinement if they meet 
 either of two requirements:
 \begin{enumerate} 
-\item They have large, as compared to the average, inter-cellular fluxes.
+\item They have large, as compared to the average, inter-cellular fluxes. \footnote{More systematic error estimate driven approaches have been tried \cite{} but 
+empirical experience suggests that these simple indicators   provide sufficient information for reliable and fast simulations.}
 \item They are at or within a few cells near the interface.
 % of any of four small, non-dimensional flow depths (multiples of {\rm\verb1GEOFLOW_TINY1}).
 \end{enumerate}
-The former condition allows for accurate capture of sharp changes in state variables. The latter results in banded regions of the flow separated into ``rings'' of maximally refined buffer cells.  This limits artificially high transportation of material from the inside of the interface to outside of the interface, and guarantees that material will only flow into maximally refined dry cells at the wet-dry front.  
+The former condition allows for accurate capture of sharp changes in state variables. The latter results in banded regions of the flow separated into ``rings'' of maximally refined buffer cells.  This limits artificially high transportation of material from the inside of the interface to outside of the interface, and guarantees {\it that material will only flow into maximally refined dry cells at the wet-dry front.  }
 However, some material that are outside of the recognized boundary may be left outside the outermost band of buffer cells. These cells are not updated until the interface pass them.
 The rings of buffer cells strategy decreases the numerical wicking problem,and when combined with interface capturing scheme, it is sufficient to decrease other thin layer problems to a level that prevents the loss of stability.
-Clearly this strategy depends on the way that we find the interface. In  the heuristic approach, after using threshold to find the wet and dry areas, the number of rings are a number of cells wide equal to or greater than the number of iterations between mesh adaptations (we are not doing mesh adoption at each time step). In the level set approach, we can use narrow band method for adaption and selecting these buffer rings, but we simply select the elements that their distance to the interface are less than a normalized distance that is obtained from the maximum distance to the interface. Note that in the level set method distance of the cells to the interface is the level set function itself, and we do not pay any overhead computational cost for that. In the phase field method, since we have a diffusive region between two phases, that we can control it with capillary width (please refer to section \ref{phase field}), we select those cells that their $|\phi| <1 $ where $phi$ is the phase field value. We set the capillary width equal to the number of time steps between to consequent adaption.
+Clearly this strategy depends on the way that we find the interface. In  the heuristic approach, after using threshold to find the wet and dry areas, the number of rings are a number of cells wide equal to or greater than the number of iterations between mesh adaptations (we adapt the mesh after every 5 to 10 time steps). In the level set approach, we can use narrow band method for adaption and selecting of these buffer rings, but we simply select the elements such that their distance to the interface are less than a normalized distance that is obtained from the maximum distance to the interface. Note that in the level set method distance of the cells to the interface is the level set function itself, and we do not pay any additional computational cost for that. In the phase field method, since we have a diffusive region between two phases, that we can control  with a capillary width (please refer to section \ref{phase field}), we select those cells that their $|\phi| <1 $ where $\phi$ is the phase field value. We set the capillary width equal to the number of time steps between successive adaptivity steps.
 
 
 Unrefinement takes place immediately after refinement; a group of four ``brother'' cells will be selected to merge into their mutual ``father'' cell if the sum of their inter-cellular fluxes is very low compared to the average flux.  Cells that have either just been refined or are otherwise in any of the current bands of buffer cells are immune 
@@ -367,7 +372,7 @@ to unrefinement.
 
  
 
-\section{Solution}\label{solution}
+\section{Interface Capturing Strategies}\label{solution}
 In the aforementioned parts the major difficulties of numerical analysis of the shallow water
 equations were discussed, and it was shown that most of them are directly or indirectly related to the WD problem.
 For more intuition, the result of a simulation for Atenquique debris is displayed in figure \ref{thinlayerproblem}. 
@@ -412,12 +417,12 @@ Each of the above strategies might be more useful for its specific case. Table \
 \end{tabular}
 \end{center}
 In this part of the paper the first method that has been used to solve the WD problem in the SWE is explained.
-\subsubsection{Selecting appropriate Threshold} \label{Threshold}
+\subsubsection{Selecting appropriate threshold} \label{Threshold}
 In this approach we use a very small threshold to segregate the wet, partially wet and dry cells.
 The critical contribution of this scaling is to allow other
 facets to identify where the flow %is merely ``thin'' and where it 
 is non-physically thin, i.e. where should they consider the boundary of
-the flow to be. Consisyency is the key requirement of whatever strategy we choose to
+the flow to be. Consistency is the key requirement of whatever strategy we choose to
 determine the scaling. That is, the
 chosen strategy must be able to generate the same ``appropriate'' value
 for depth scale at the beginning and at the end of a simulation.  \newline
