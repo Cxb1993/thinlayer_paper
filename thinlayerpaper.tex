@@ -122,80 +122,62 @@ To summarize, the following major difficulties arise in numerical solutions of S
 
 
 \subsection{Background and Review}
-A review of the literature shows numerous attempts were made to overcome this problem over time especially in the recent years \cite{Medeiros2013,Balzano1998,Aureli2008,Bunya2009,Casulli2009a,
+A review of the literature shows numerous attempts have been made to overcome these problems \cite{Medeiros2013,Balzano1998,Aureli2008,Bunya2009,Casulli2009a,
 Kesserwani2011,DAlpaos2007,Castro2005a}.
-Here we will briefly review the problem and recent approaches and refer the interested reader to available references for more information.
+Here we briefly review the problem and recent approaches and refer the interested reader to available references for more information.
 Generally, all of the approaches can be 
-categorized in two basic groups of what we call here heuristic methods and interface tracking/capturing methods.
-The basic idea in the first group is to reconstruct the flow interface based upon 
-some simple heuristic or some algebraic relations. In this approach, the reconstruction could be also with taking to account the physics of the problem. In interface tracking/capturing approaches, 
-an auxiliary equation/equations is coupled with the original system of equations in Eulerian or Lagrangian frame of view, to follow the flow interface through its path over time. 
-The reason that we mention both tracking and capturing is that they are usually used for Lagrangian and Eulerian methods respectively.For more information about this group of methods please 
-see \cite{Glimm1995,Unverdi1992,Osher1988,Anderson1998,hirt1981vfv}.\\
+categorized into two basic groups which we call heuristic methods and interface tracking/capturing methods.
+The basic idea of heuristic methods is to reconstruct the flow interface based upon 
+some simple heuristic or some algebraic relations. In this approach, the reconstruction could take into account the physics of the problem, but this is not required. 
+For example, to mitigate the thin layer problem a threshold could be defined to control the thin layer, the entire domain could be filled with a shallow level of fluid,
+the flow could be recontructed, or the flux could be adjusted. It is possible to use any combination of these heuristic fixes.
+Most of attempts that are made to address the thin layer problem are categorized under this sort of method \cite{Aureli2008,Bunya2009,Castro2005a,Kesserwani2011}.
 
+In interface tracking/capturing approaches
+an auxiliary set of equations is coupled to the original problem. This auxiliary set of equations is used to follow the flow interface over time. 
+Unlike hueuristic method in interface tracking/capturing methods one can find the interface of a moving boundary flow in a more rigorous way. 
+The particular choice of the auxilary equations leads to either interface tracking, or Lagrangian, methods or interface capturing, or Eulerian, methods.
+In Lagrangian methods the front is replaced with a set of interfacial points which explicitly define the location of the interface.
+During each time step these points move due to the numerically computed velocity field.
+Mark And Cell (MAC) \cite{Harlow1965}, Simplified Mark And Cell (SMAC) \cite{Cheng1995} and the Surface Marker \citep{Wrobel1991} methods are some examples of Lagrangian interface tracking techniques.
+The accuracy of the method is highly dependent on the number of particles that form the boundary.
+High computational cost, a tendency to form numerical instabilities and the inability to track complex topological changes are the most important drawbacks of Lagrangian techniques.
+For more information about this group of methods please see \cite{Glimm1995,Unverdi1992,Osher1988,Anderson1998,hirt1981vfv}.
 
-%Each of these major groups have their own subcategories which could be found in  
-% references, but they will be explained briefly here 
-%to provide some insight that is needed in the next parts.\newline
-In Heuristic methods, the idea is to mitigate thin layer problem with some heuristic strategy. This strategy could be using a threshold to control the thin layer, filling the entire domain with a 
-shallow level of fluid, reconstructing the flow, adjusting the flux, or any combination of them. Most of the attempts that are made to address the thin layer problem are categorized under this sort of method \cite{Aureli2008,Bunya2009,Castro2005a,Kesserwani2011}.
-
-On the other hand, with the interface tracking/capturing methods one can find the interface of a moving boundary flow in a more rigorous way. Based upon the employed frame of view, these methods 
-are divided into Lagrangian and Eulerian methods.
-Roughly speaking, in Lagrangian type methods the initial interface is replaced with some of the material points (particles) that represents the interface. These points move with a velocity vector 
-field which comes from numerical solution at each time step. The interface is constructed at each time step by connecting the updated location of these points. 
-Mark And Cell (MAC) \cite{Harlow1965}, Simplified Mark And Cell (SMAC)  \cite{Cheng1995}, and Surface Marker \citep{Wrobel1991} methods are some examples of Lagrangian interface tracking techniques.
-Obviously, the accuracy of the method is highly depend on the number 
-of particles that form the initial boundary. 
-High computational cost, tendency to instability and inability to track the complex topological changes are the most important drawbacks of these methods. 
-%However, these methods are more useful as an auxiliary tool to compensate the defects of Eulerian methods such as conservation of mass in level set method. 
-Tai et al. \cite{Tai2002} is an example of the application of this method for 1D Savage\_Hutter equation. They used a non-oscillatory central (NOC) difference scheme with a stationary uniform mesh, 
-and achieve good results by augmenting this solver with a Lagrangian front tracking scheme.\newline
-
-In the current paper we focus more on interface capturing or Eulerian methods. Level set, phase field and Volume of Fluid (VOF) are very well-known methods in Eulerian frame of work.
-In these types of methods the interface is captured by solving another transport equation for a scalar that explicitly, in level set method, or implicitly, in VOF and phase field method, indicates 
-the interface location. This order parameter is coupled with the other governing equations of primitive variables to jointly present a rigorous model for the interested problem.\newline
-
+In the current paper we focus more on interface capturing or Eulerian methods. In such method the interface is implicitly defined by an additional scalar field defined in the entire 
+computational domain. This additional field is coupled to the other governing equations and evolves due to the underlying fluid flow field.
+The level set, phase field and Volume of Fluid (VOF) methods are very well-known methods of implicit/Eulerian methods.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% VOF   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Hirt and Nichols \cite{hirt1981vfv} were the first to propose a VOF method. 
-In this method, the mentioned scalar variable is the fraction/volume of a particular fluid in each cell.
-% This equation is material derivative of the scaler variable with respect to the time.
-To construct the interface based on this method, the interface surface reconstruction technique shall be performed at each time step. Youngs \cite{youngs1982tdm} achieved a significant improvement 
-in VOF by adding a piecewise linear interface calculation (PLIC) representation of the fluid boundary. Youngs' method has been shown to be robust and efficient, but it is only first-order accurate. 
-More advanced methods about this issue are available in \cite{gerlach2006cvf} and Gopala and van Wachem\cite{gopala2008vfm}. 
+In this method, the scalar variable is the fraction/volume of a particular fluid in each cell.
+To construct the interface based on this method an interface surface reconstruction technique is performed at each time step. 
+Youngs \cite{youngs1982tdm} achieved a significant improvement 
+in the VOF by adding a piecewise linear interface calculation (PLIC) representation of the fluid boundary. 
+Youngs' method has been shown to be robust and efficient, but it is only first-order accurate. 
+More advanced VOF methods are also available in \cite{gerlach2006cvf} and Gopala and van Wachem\cite{gopala2008vfm}, but these method require more complicated logic to 
+reconstruct the interface.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%% Phse field method %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %The last method that we will overview here is phase field method. 
-Phase field is an Eulerian interface capturing scheme that the interface is implicitly related to the order parameter which shows the phase variation on the domain \cite{Anderson1998}. 
-In this method the interface is a diffusive region between the phases in contrast to level set which yields to a sharp interface between the phases. 
-Based on our best knowledge no published work used earlier this method for capturing the interface in SW.
-%Usually, this value varies between 0 to 1 or -1 to 1, in such a way that it is 1 if the cell is wet, it is zero (or -1) 
-%if the cell is dry, and it has some value between 0 to 1 (or -1 to 1) for partially wet cells.
-%This method is more developed and popular in material science research, and drew the attention of the researchers in many disciplines especially in the recent years.
-Cahn-Hilliard and Allen-Cahn formulations are two principal formulation for this method \cite{CahnHilliard1958i,CahnHilliard1958ii,Yang2006}. The basic difference between these two form is 
-that the first one is mass conservative, and the second one is not. Mathematically, the conservative form has a forth order derivative while the other one has a second order derivative. 
-This difference in the highest order of derivative will make the later form much easier to implement.\newline
-%As a result people first try to use the second one and then if they not succeed, they will proceed to the other one.
-
-%Phase field equation is derived from the relation between the changes of the phases and free energy level of the 
-%system. The strong physics behind that makes it powerful particularly in simulating energy and thermodynamics related problems. 
+The phase field method is an Eulerian interface capturing scheme where the interface is implicitly related to an order parameter which shows the phase variation on the domain \cite{Anderson1998}. 
+In this method the interface is a diffusive region between phases. 
+The Cahn-Hilliard and Allen-Cahn formulations are two principal formulation for this method \cite{CahnHilliard1958i,CahnHilliard1958ii,Yang2006}. The difference between these two forms is 
+that the first one is mass conservative while the second is not. Mathematically, the conservative form has a forth order derivative while the other one has a second order derivative. 
+This difference in the highest order of derivative will make the later form much easier to implement.
+Based on our best knowledge no published work has used the phase field method to capture an interface in the shallow water equations.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%% Level set method %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-The Level set method is another Eulerian interface capturing technique. It was introduced by Osher and Sethian in 1988 \cite{Osher1988}. In this method, the scalar variable is a signed distance 
-function which shows the distance of each point to the interface. 
-%This distance is defined such that is positive for outside of the boundary points and negative for inside of the boundary points. The solution of this equation will show the place of interface at 
-%each time step, but since the solution of the original equation is not essentially a signed distance function another equation has to be solved to make the obtained result a signed distance function. 
-%This technique is called initialization and re-initialization technique. There are also a number of other methods like fast marching or combination with Lagrangian schemes to get a more accurate result 
-%or to get the result with lower computational cost. The main issue about this technique is that, the basic method is not mass conservative and some other complementary methods have to be used to 
-%preserve the mass or volume in numerical solution.
-The only work that used level set method for WD problem is Quecedo and Pastor \cite{quecedo2002rtg}. They developed Taylor-Galerkin approach to solve the SW equations. They presented two 
+The Level set method is another Eulerian interface capturing technique. It was introduced by Osher and Sethian in 1988 \cite{Osher1988}. In this method, the scalar variable is typically 
+a signed distance function which indicates the distance of a grid point to the interface. 
+The only work that used the level set method to mitigate the wetting-drying problem is Quecedo and Pastor \cite{quecedo2002rtg}. 
+They developed a Taylor-Galerkin approach to solve the SW equations. They presented two 
 different options for handling the wetting-drying areas. The first approach used was described as a ``simple yet efficient'' method which falls into heuristic method type approaches. 
-Although they claimed that they used level set as the second approach, they did not report any result of that. They finally concluded that the level set is expensive and unnecessary for their problem.\newline
-
+Although they claimed that they used level set as the second approach, they did not report any results using the method.
+They finally concluded that the level set is expensive and unnecessary for their problem.\newline
 
 
 %============= Introduction of next parts of paper =====================
