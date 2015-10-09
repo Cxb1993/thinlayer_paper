@@ -58,20 +58,20 @@ each of them has its own advantages/disadvantages and methods have to be chosen 
 %%{\bf NEED MORE CITATIONS}
 Shallow water (SW) flows include a wide range of fluid flows. In SW flows the fluid depth is much 
 smaller (${\cal O}(10^{-1})$) than the characteristic length of the fluid body. In deriving the corresponding 
-governing equations the shallowness of flow allows us to approximate the variation of state variables in the perpendicular direction to the basal surface and replace
-them with an integrated average in the governing equations \cite{SavageHutter1989}, which
+governing equations the shallowness of flow allows us to approximate the variation of state variables in the direction perpendicular to the basal surface and replace
+them with an integrated average \cite{SavageHutter1989}, which
 reduces a three dimension flow into a two-dimensional problem.
-This holds for many circumstances in geophysical flows and the same 
+This approximation holds for many circumstances in geophysical flows and the same 
 conservation equations with some minor variations can be used to study varying physical situations.
-Eglit and Sveshnikova \cite{eglit1980mms} modified the depth-averaged Saint Venant equations to simulate granular snow avalanches, and almost a decade later 
+Eglit and Sveshnikova \cite{eglit1980mms} modified the depth-averaged Saint Venant equations to simulate granular snow avalanches and almost a decade later 
 Savage and Hutter \cite{SavageHutter1989} popularized these in the modeling of many geophysical mass flows related to landslides, avalanches and debris flows. 
 % introducing WD problem
 
 Since this type of flow has free moving boundaries one of the basic difficulties 
 of the numerical solution is identifying the location of flow interface. 
 Furthermore, the governing equations are valid only in the wet areas so we need an strategy to discriminate between wet and dry areas in the numerical simulation. 
-This is usually called the {\it wetting and drying (WD)} problem %or {\it thin-Layer} problem 
-in the SW context. In our previous work, see Ref. \cite{Patra2005}, we showed how the speed of waves has to be modified for flow near the vacuum region based on Toro \cite{ToroBook2001} to mitigate 
+In the SW context this is usually called the {\it wetting and drying (WD)} problem. %or {\it thin-Layer} problem 
+In our previous work, see Ref. \cite{Patra2005}, we showed how the speed of waves has to be modified for flow near the vacuum region based on Toro \cite{ToroBook2001} to mitigate 
 the stability problem. However, this still leads to the formation of a non-physical thin layer in the numerical solution, see figure \ref{thinlayerproblem} for an illustration.
 This non-physical thin layer could extend large distances from the realistic main 
 body of the flow, which can cause inaccurate construction of the boundary, loss of conservation or severe 
@@ -82,18 +82,6 @@ for a volcano or a flood it is crucial to know the location of the front of the 
 risk locations from civil infrastructure? 
 The answer of all the above questions is not possible without good information about the interface of the flow along its flow path.
 
-To summarize, the following major difficulties  arise in numerical solution of SW flows related to the WD or thin layer problem:
-\begin{enumerate}
-	\item Ambiguous and subjective computation of flow spreads in SW flows.
-	\item \label{problemwicking}
-	     Unphysically fast estimate of the flow speed. Since the solution of SW equations are momentum, $\{hV_x,hV_y\}$, to find velocities, $\{V_x,V_y\}$, used in solution process the
-	     momentum must be divided by flow depth, $h$, which causes a numerical error in an already small $h$, and result in overly large velocities.
-	\item \label{problemtoothin}
-	      Unphysical thin layer (orders of magnitude thinner than a grain of sand). This results from the combination of conservation of mass and the numerical wicking away of material.
-	\item \label{problemunstable}
-	      Loss of numerical stability. Due to the above reasons, wave-speeds can become infinite at the flow boundary which means that flow equations lose their hyperbolicity  
-	      at the vacuum state interface.
-\end{enumerate}\label{thinprob}
 
 \begin{figure}[t]
   \begin{minipage}[b]{.45\linewidth}
@@ -112,12 +100,26 @@ To summarize, the following major difficulties  arise in numerical solution of S
   \label{thinlayerproblem}
 \end{figure}
 
-\textcolor{red}{What is this paragraph doing here? It seems completely out of place}
-
-Figure \ref{thinlayerproblem} demonstrates this problem for numerical simulation of block and ash flows in  Atenquique which is a village near Colima volcano in Mexico using a SW like model 
-based on a granular flow assumption. The left figure shows the numerical solution of flow height without using any control for thin layer problem, and the right figure shows the same result with 
-using a naive control -- plotting the regions with flow height $h>0.5m$. As discussed above, if we do not use any control on the numerical solution, the spread thin layer causes instability and 
+A demonstration of possible issues in shown in Figure \ref{thinlayerproblem}.
+In this figure the numerical simulation of block and ash flows in Atenquique, which is a village near the Colima volcano in Mexico, using a SW like model 
+based on a granular flow assumption is shown. The left figure shows the numerical solution of flow height without using any control for the thin layer problem 
+and the right figure shows the same result  
+using a naive control -- plotting the regions with flow height $h>0.5m$. If no heuristic control on the numerical solution is used the thin layer causes instability and 
 inaccuracy in the obtained results.
+
+To summarize, the following major difficulties arise in numerical solutions of SW flows related to the WD or thin layer problem:
+\begin{enumerate}
+	\item Ambiguous and subjective computation of flow spreads in SW flows.
+	\item \label{problemwicking}
+	     Unphysically fast estimate of the flow speed. As the solution of SW equations are momentum, $\{hV_x,hV_y\}$, to find velocities, $\{V_x,V_y\}$, used during the solution process the
+	     momentum must be divided by flow depth, $h$, which causes a numerical error if $h$ is small and results in overly large velocities.
+	\item \label{problemtoothin}
+	      Unphysically thin layer (orders of magnitude thinner than a grain of sand). This results from the combination of conservation of mass and the numerical wicking away of material.
+	\item \label{problemunstable}
+	      Loss of numerical stability. Due to the above reasons wave-speeds can become infinite at the flow boundary which means that flow equations lose their hyperbolicity  
+	      at the vacuum state interface.
+\end{enumerate}\label{thinprob}
+
 
 \subsection{Background and Review}
 A review of the literature shows numerous attempts were made to overcome this problem over time especially in the recent years \cite{Medeiros2013,Balzano1998,Aureli2008,Bunya2009,Casulli2009a,
