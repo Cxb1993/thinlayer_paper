@@ -182,44 +182,37 @@ They finally concluded that the level set is expensive and unnecessary for their
 
 %============= Introduction of next parts of paper =====================
 \subsection{Our Contribution}
-%In this work to address thin layer problem and other related instability and accuracy problems, we implemented a combination of Heuristic approaches, Phase filed and level set methods and compared 
-%the obtained results with experimental and field data for granular flow. Phase field and level set methods are very well-known Eulerian interface capturing methods that to the best knowledge of authors are applied to geophysical flow.\newline
-In this paper, we describe our approach to issues rising from the thin layer problem (problem 1-4 discussed in introduction section), in  two phases. The first phase is to find the interface of the 
-flow, and the next  is to make suitable modifications to meshes, state variables and fluxes based on the result of the first part to resolve the aforementioned issues.
-To capture the interface, we study three different methods. The first one is a new multifaceted Heuristic approach that uses a very small dimensionless threshold, which we call it GEOFLOW\_TINY, to 
-distinguish between wet and dry areas. The other methods of interface capturing that we implement are the phase field and  level set approaches.
+In this paper we describe an approach to the thin layer issue (problems 1-4 discussed in the introduction section), in two parts. 
+The first part is to describe the interface of the 
+flow and the next is to make suitable modifications to meshes, state variables and fluxes based on the result of the first part to resolve the aforementioned issues.
+To capture the interface we study three different methods. The first one is a new multifaceted Heuristic approach that uses a very small dimensionless threshold, which we call it GEOFLOW\_TINY, to 
+distinguish between wet and dry areas. The other methods of interface capturing that we implement are the phase field and level set approaches.
 
- To the best of our knowledge, the two latter methods  are for the first time applied to geophysical flow. Since there are different types of level set and phase field method available in the 
- literature, to decrease the computational cost resulted from these two methods, here we used the standard level set and Allen\_Cahn phase field, and modified them as necessary for our problem. 
- The details of implementation of all three methods is explained in related next parts.
+To the best of our knowledge the two latter methods are for the first time being applied to geophysical flow. 
+As there are different types of level set and phase field methods available in the 
+literature we initially use the standard level set method and the Allen-Cahn description of the phase field, and modified them as necessary for our problem. 
+The details of implementation of all three methods is explained in related next parts.
 
 After finding the interface we make suitable modifications to address the other issues. In the heuristic approach, after finding the wet and dry cells by using GEOFLOW\_TINY, the cells are divided 
-into three groups of wet, dry and partially wet cells. Then we  adjust the fluxes for the partially wet cells and the finally update the state variables for wet cells.
-In the level set and phase field approaches, we used the result of these two method for mesh refinement, and by selecting the cells that are close to interface we controlled the thin layer problem. 
+into three groups: wet, dry and partially wet cells. Then we adjust the fluxes for the partially wet cells and then finally update the state variables for wet cells.
+In the level set and phase field approaches we used the result of these two method for mesh refinement, and by selecting the cells that are close to interface we are able to control the thin layer problem. 
 Details of each approach and how we select the cells for refinement discussed in the relevant section.
-%For phase field method, we chose Allen-Cahn formulation. This formulation is not mass conservative. To satisfy mass conservation constrain in this formulation, a Lagrange multiplier is added to RHS 
-%of the equation. In this work, we derived a Lagrange multiplier for SW equation. To decrease the computational and memory cost, we used operator splitting and matrix free techniques (detail in section \ref{phase field}).%{ \huge I have to rewrite this part}
-%\newline
-% that is resulted from the thin layer problem and discussed in  two do some  we proposed a new multifaceted Heuristic approach and also tested the effectiveness of Level set and Phase field methods to mitigate the thin layer problem difficulties.
-%  Our approach in this work consist of two parts.  for numerical solution of SW equations.  
 
-  Although we implemented these methods for granular type SW flows, most of the conditions holds and the results are applicable for other type of SW flows.  We verified the numerical results with 
-  experimental result of a granular SW flow over an inclined plane ending in a horizontal surface , as well as the field data for Colima volcano.
-%In Eulerian interface capturing methods we tried to stick to the basic methods, and decrease the computational cost ,when possible, with using some techniques. 
-%For example, in Level set method we used narrow band re-initialization to just update the value of signed distance function near the interface, and in Phase field we use operator splitting to use 
-%implicit solver just for laplacian term and we also used matrix free method to save memory requirement. Detail of these steps can be find in the corresponding section (sections \ref{phase field},\ref{level set}).
-Results of  these tests  indicate that
-as a general comparison between the methods it could be mentioned the heuristic approach is less expensive, but the obtained interface moves a little ahead of the interface found in experimental and 
-field data, and our analysis show that finding a good threshold that is appropriate for all problems is not easy. 
-On other hand, the interface capturing methods have stronger mathematical and physical structure, and can be coupled with the conservation equations, but are computationally more expensive, and harder 
-to implement. We used several techniques to decrease the computational cost. For example, in the phase field we used Allen\_Cahn formulation which is easier to implement and computationally less 
-expensive in contrast with the Cahn\_Hillard, but it is not mass conservative. To preserve the mass conservation we add a Lagrange multiplier to satisfy this constrain. To decrease the computational 
-even more, we used operator splitting for time integration. The obtained results show that all of the methods can address the thin layer problem and other related issues, however phase field results 
-have better consistence with the experimental and field data. 
 
-The structure of the rest of this paper is as follows: in next part SW equations for the geophysical flows and the common features of the solver that we used for all of the three methods are 
-introduced. In section \ref{solution}, different methods that were employed to mitigate WD problem are explained. 
-%After that the obtained results from the methods are compared, and finally the conclusion of the work is provided. 
+We verified the numerical results by comparing to experimental results of a granular SW flow over an inclined plane ending in a horizontal surface as well as the field data for the Colima volcano.
+Results of these tests indicate that
+the heuristic approach is less expensive than the phase field and level set methods, but the interface using the heurisitc method moves faster than the 
+experimentally obtain interface. Additinally, our analysis shows that finding a good threshold that is appropriate for all problems is not easy. 
+On other hand, the interface capturing methods have stronger mathematical and physical structure, and can be coupled with the conservation equations but are computationally more expensive and harder 
+to implement. We used several techniques to decrease the computational cost. For example, in the phase field we used the Allen-Cahn formulation which is easier to implement and computationally less 
+expensive compared to the Cahn-Hillard formulatoin, but it is not mass conservative. To preserve the mass we have included a Lagrange multiplier to satisfy this constraint. 
+To decrease the computational cost even more we used operator splitting for time integration. The obtained results show that all of the methods can address the thin layer problem and other 
+related issues, however the phase field results have demonstrated better consistence with the experimental and field data. 
+Finally, although we have implemented these methods for granular type SW flows the methods themselves are applicable for other type of SW flows.  
+
+The structure of the rest of this paper is as follows. In the next section the shallow-water equations for geophysical flows and 
+the common features of the solver that we used for all of the three methods are 
+introduced. In section \ref{solution} the different methods that were employed to mitigate the wetting-drying problem are explained. 
 Discussion and conclusions complete the presentation.
 
 % =============================================================================
@@ -231,7 +224,7 @@ Discussion and conclusions complete the presentation.
 
 The Savage-Hutter equation for geophysical flows was first introduced in the late 1980's. 
 Their original model has subsequently been 
-improved upon by Savage\_Hutter themselves as well as others  \cite{Hutter1993,Iverson1997,Gray1999,IversonDenlinger2001,PudasainiHutter2003,SavageIverson2003}.
+improved upon by Savage-Hutter themselves as well as others  \cite{Hutter1993,Iverson1997,Gray1999,IversonDenlinger2001,PudasainiHutter2003,SavageIverson2003}.
 In our earlier work \cite{pitmanpof,gmfg1,dgtitanpaper}, we developed the Titan2D depth-averaged geophysical 
 flow simulator.  Titan2D is parallel with dynamic re-partitioning, high order, slope-limiting, upwinding, 
 two-dimensional Godunov solver (without splitting), with adaptive mesh refinement and Geographic Information System 
@@ -318,7 +311,7 @@ respectively.  The HLL Riemann flux is then
 		\end{tabular} 
 	\right.
 \end{equation}
-For Savage\_Hutter system of equation the characteristic speeds are: $s_{1,3}=v\pm a$ and $s_2=v$ where $v$ is the 
+For Savage-Hutter system of equation the characteristic speeds are: $s_{1,3}=v\pm a$ and $s_2=v$ where $v$ is the 
 velocity of fluid in the corresponding direction and $a=\sqrt{k_{ap}gh}$.
 But just the above HLL solver is not enough for solving this system of equations.
 Fraccarollo and Toro \cite{FraccarolloToro1995} note that at the 
