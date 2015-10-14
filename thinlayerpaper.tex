@@ -223,10 +223,10 @@ Discussion and conclusions complete the presentation.
 % \subsection{SWE for geophysical flows} \label{Governingequations}
 
 The Savage-Hutter equation for geophysical flows was first introduced in the late 1980's. 
-Their original model has subsequently been 
+The original model has subsequently been 
 improved upon by Savage-Hutter themselves as well as others  \cite{Hutter1993,Iverson1997,Gray1999,IversonDenlinger2001,PudasainiHutter2003,SavageIverson2003}.
 In our earlier work \cite{pitmanpof,gmfg1,dgtitanpaper}, we developed the Titan2D depth-averaged geophysical 
-flow simulator.  Titan2D is parallel with dynamic re-partitioning, high order, slope-limiting, upwinding, 
+flow simulator.  Titan2D is a parallel computational tool with dynamic re-partitioning, high order, slope-limiting, upwinding, 
 two-dimensional Godunov solver (without splitting), with adaptive mesh refinement and Geographic Information System 
 (GIS) integration which lets it use Digital Elevation Models (DEMs) of real terrain.  
 While our new multi-faceted thin-layer mitigation strategies were developed in the context of Titan2D's capabilities, 
@@ -235,9 +235,9 @@ The depth-averaged equations that Titan2D solves are:
 \begin{equation}
 	\label{governingeq}
 	\begin{tabular}{lllllll}
-		{\Large $\frac{\partial h}{\partial t}$} &+& {\Large $\frac{\partial \left(V_x\cdot h\right)}{\partial x}$} &+& {\Large $\frac{\partial \left(V_y\cdot h\right)}{\partial y}$} &=& $S_h$ \\
-		{\Large $\frac{\partial hV_x}{\partial t}$} &+& {\Large $\frac{\partial \left(V_x\cdot hV_x+0.5 k_{ap}g_zh^2\right)}{\partial x}$} &+& {\Large $\frac{\partial \left(V_y\cdot hV_x\right)}{\partial y}$} &=&$S_x$ \\
-		{\Large $\frac{\partial hV_y}{\partial t}$} &+& {\Large $\frac{\partial \left(V_x\cdot hV_y\right)}{\partial x}$}&+& {\Large $\frac{\partial \left(V_y\cdot hV_y+0.5 k_{ap}g_zh^2\right)}{\partial y}$} &=&$S_y$ 
+		{\Large $\frac{\partial h}{\partial t}$} &+& {\Large $\frac{\partial \left(V_x\cdot h\right)}{\partial x}$} &+& {\Large $\frac{\partial \left(V_y\cdot h\right)}{\partial y}$} &=& $S_h$, \\
+		{\Large $\frac{\partial hV_x}{\partial t}$} &+& {\Large $\frac{\partial \left(V_x\cdot hV_x+0.5 k_{ap}g_zh^2\right)}{\partial x}$} &+& {\Large $\frac{\partial \left(V_y\cdot hV_x\right)}{\partial y}$} &=&$S_x$, \\
+		{\Large $\frac{\partial hV_y}{\partial t}$} &+& {\Large $\frac{\partial \left(V_x\cdot hV_y\right)}{\partial x}$}&+& {\Large $\frac{\partial \left(V_y\cdot hV_y+0.5 k_{ap}g_zh^2\right)}{\partial y}$} &=&$S_y$.
 	\end{tabular}
 \end{equation}
 
@@ -246,15 +246,15 @@ In these equations:
 	\item The coordinate system (see Figure \ref{xzeast}) is aligned such that $x$ and $y$ are directions tangential  
 	      to the surface of the 3D terrain and $z$ is normal to the surface.
 	\item The effect of terrain elevation is represented by gravitational source terms. 
-	\item $h$ is the flow depth in the $z$ direction that hug the terrain.
-	\item $hV_x$ and $hV_y$ are the components of ``momentum'' respectively in $x$ and $y$ directions.
-	\item $k_{ap}$ is a highly nonlinear term that shows the effect of the earth pressure coefficient, which has active 
-	      (diverging $\mp=-$), passive (converging $\mp=+$), and neutral (neither diverging, nor converging, $k_{ap}=1$) condtions.
+	\item $h$ is the flow depth in the $z$ direction.
+	\item $hV_x$ and $hV_y$ are the components of ``momentum'' in $x$ and $y$ directions, respectively.
+	\item{ $k_{ap}$ is a highly nonlinear term that shows the effect of the earth pressure coefficient, which has active 
+	      (diverging $\mp=-$), passive (converging $\mp=+$), and neutral (neither diverging, nor converging, $k_{ap}=1$) conditions:
+	      \begin{equation}
+			k_{ap}=2\frac{1\mp\sqrt{1-\cos^2(\phi_{int})\left(1+\tan^2(\phi_{bed})\right)}}{\cos^2(\phi_{int})}-1.
+		\end{equation}
+	     }
 \end{itemize}
-
-\begin{equation}
-	k_{ap}=2\frac{1\mp\sqrt{1-\cos^2(\phi_{int})\left(1+\tan^2(\phi_{bed})\right)}}{\cos^2(\phi_{int})}-1
-\end{equation}
 
 \begin{figure}[!t]
 	\begin{center}
@@ -270,25 +270,24 @@ pressure to the momentum fluxes. $S_h$ is a source of mass, i.e.
 material that either effuses or erodes out of the ground. $S_x$ is 
 the sum of a gravitational driving force, the friction that resists motion 
 of the material relative to the bed, and the friction that resists the 
-internal shearing motion of the material see eq. \eqref{momsourceterms}.
+internal shearing motion of the material:
 \begin{equation}
 	\begin{aligned}
-		  S_x &=g_x h - \frac{V_x}{\sqrt{V_x^2+V_y^2}}\max\left(g_z+\frac{V_x^2}{r_x},0\right) h \tan(\phi_{bed}) 
-		  - {\rm sgn}\left({\frac{\partial V_x}{\partial y}}\right) h k_{ap} \frac{\partial (g_zh)}{\partial y} \sin(\phi_{int}) \\
+		  S_x &=g_x h - \frac{V_x}{\sqrt{V_x^2+V_y^2}}\max\left(g_z+\frac{V_x^2}{r_x},0\right) h \tan(\phi_{bed})
+		  - {\rm sgn}\left({\frac{\partial V_x}{\partial y}}\right) h k_{ap} \frac{\partial (g_zh)}{\partial y} \sin(\phi_{int}), \\
 		  S_y &=g_y h - \frac{V_y}{\sqrt{V_x^2+V_y^2}}\max\left(g_z+\frac{V_y^2}{r_y},0\right) h \tan(\phi_{bed}) 
-		  - {\rm sgn}\left({\frac{\partial V_y}{\partial x}}\right) h k_{ap} \frac{\partial (g_zh)}{\partial x} \sin(\phi_{int}) 
+		  - {\rm sgn}\left({\frac{\partial V_y}{\partial x}}\right) h k_{ap} \frac{\partial (g_zh)}{\partial x} \sin(\phi_{int}).
 	 \end{aligned}
 	 \label{momsourceterms}
 \end{equation}
 
-Titan2D solves the above system of equations with a finite volume Godunov method that is demonstrated in eq. \eqref{integrator}.
+Titan2D solves the above system of equations using a finite volume Godunov method:
 \begin{equation}
    \label{integrator}
    U_i^{n+1} = U_i^n - \frac{\bigtriangleup t}{\bigtriangleup x} \{F_{i+\frac{1}{2}}^n - F_{i-\frac{1}{2}}^n \}
-   - \frac{\bigtriangleup t}{\bigtriangleup y} \{G_{i+\frac{1}{2}}^n - G_{i-\frac{1}{2}}^n \}
+   - \frac{\bigtriangleup t}{\bigtriangleup y} \{G_{i+\frac{1}{2}}^n - G_{i-\frac{1}{2}}^n \}.
 \end{equation}
-  
-In the above equation, G and F are the flux terms at the inter-cell boundaries which are computed by Harten-Lax-Van Leer (HLL) \cite{Toro2009riemann} Riemann solver that is explained 
+In the above equation, G and F are the flux terms at the inter-cell boundaries which are computed by the Harten-Lax-Van Leer (HLL) \cite{Toro2009riemann} Riemann solver that is explained 
 in the next section.
 
 \section{SW Solution and Adaptive Strategy for WD Interface }
