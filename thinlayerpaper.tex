@@ -22,6 +22,8 @@
 
 \usepackage{multicol}
 
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+
 %
 %\marginsize{1.in}{1.in}{1in}{1in}
 %\linespread{1.25}
@@ -234,11 +236,11 @@ much of this approach should be appropriate for use in depth-averaged flow solve
 The depth-averaged equations that Titan2D solves are:
 \begin{equation}
 	\label{governingeq}
-	\begin{tabular}{lllllll}
-		{\Large $\frac{\partial h}{\partial t}$} &+& {\Large $\frac{\partial \left(V_x\cdot h\right)}{\partial x}$} &+& {\Large $\frac{\partial \left(V_y\cdot h\right)}{\partial y}$} &=& $S_h$, \\
-		{\Large $\frac{\partial hV_x}{\partial t}$} &+& {\Large $\frac{\partial \left(V_x\cdot hV_x+0.5 k_{ap}g_zh^2\right)}{\partial x}$} &+& {\Large $\frac{\partial \left(V_y\cdot hV_x\right)}{\partial y}$} &=&$S_x$, \\
-		{\Large $\frac{\partial hV_y}{\partial t}$} &+& {\Large $\frac{\partial \left(V_x\cdot hV_y\right)}{\partial x}$}&+& {\Large $\frac{\partial \left(V_y\cdot hV_y+0.5 k_{ap}g_zh^2\right)}{\partial y}$} &=&$S_y$.
-	\end{tabular}
+\begin{tabular}{lllllll}
+	{\Large $\frac{\partial h}{\partial t}$} &+& {\Large $\frac{\partial \left(V_x\cdot h\right)}{\partial x}$} &+& {\Large $\frac{\partial \left(V_y\cdot h\right)}{\partial y}$} &=& $S_h$, \\
+	{\Large $\frac{\partial hV_x}{\partial t}$} &+& {\Large $\frac{\partial \left(V_x\cdot hV_x+0.5 k_{ap}g_zh^2\right)}{\partial x}$} &+& {\Large $\frac{\partial \left(V_y\cdot hV_x\right)}{\partial y}$} &=&$S_x$, \\
+	{\Large $\frac{\partial hV_y}{\partial t}$} &+& {\Large $\frac{\partial \left(V_x\cdot hV_y\right)}{\partial x}$}&+& {\Large $\frac{\partial \left(V_y\cdot hV_y+0.5 k_{ap}g_zh^2\right)}{\partial y}$} &=&$S_y$.
+\end{tabular}
 \end{equation}
 
 In these equations:
@@ -335,7 +337,7 @@ simulation at Colima Volcano, Mexico, is displayed in Figure \ref{bufcell}.
 \begin{figure}[!h]
 	\begin{center}
 		\includegraphics[scale=.3]{IMAGES/buffercells.png}
-		\caption{Buffer cells. \textcolor{red}{A BETTER CAPTION IS NEEDED.}}
+		\caption{Buffer cells. \red{A BETTER CAPTION IS NEEDED.}}
 		\label{bufcell}
 	\end{center}
 \end{figure} 
@@ -343,7 +345,7 @@ simulation at Colima Volcano, Mexico, is displayed in Figure \ref{bufcell}.
 During normal adaptivity cells are selected for refinement if they meet 
 either of two requirements:
 \begin{enumerate} 
-	\item They have large, as compared to the average, inter-cellular fluxes. \footnote{More systematic error estimate driven approaches have been tried \textcolor{red}{THIS NEEDS A CITATION}\cite{} but 
+	\item They have large, as compared to the average, inter-cellular fluxes. \footnote{More systematic error estimate driven approaches have been tried \red{THIS NEEDS A CITATION}\cite{} but 
 	empirical experience suggests that these simple indicators provide sufficient information for reliable and fast simulations.}
 	\item They are at or within a few cells near the interface.
 \end{enumerate}
@@ -371,28 +373,24 @@ to unrefinement.
 In the aforementioned parts the major difficulties of numerical analysis of the shallow water
 equations were discussed, and it was shown that most of them are directly or indirectly related to the WD problem.
 For more intuition, the result of a simulation for Atenquique debris is displayed in figure \ref{thinlayerproblem}. 
-The left picture is the obtained result form the solver and the right picture is the same result, but flow height is displayed 
-only for flow height greater than 0.5 $m$. This picture shows for the pure solver, that a dominant part of the 
-domain is filled with a negligible flow depth and this makes the actual interface mix with the thin layer region, and 
-also causes some other problems. In this section, three implemented methods to solve the WD problem which finally yields to 
-mitigate the numerical difficulties of SWE are explained. 
-
+The left picture is the obtained result from the solver and the right picture is the same result, but flow height is displayed 
+only for flow height greater than 0.5 $m$. This picture shows for the pure solver the dominant part of the 
+domain is filled with negligible flow depth and this makes the actual interface mix with the thin layer region.
+In this section three methods to solve the WD problem which mitigate the numerical difficulties of SWE are explained. 
 
 \subsection{First: Heuristic methods} \label{Heuristic}
-Usually, heuristic methods use one or combination of following four strategies \cite{Medeiros2013}: 
+Usually, heuristic methods use one or a combination of the following four strategies \cite{Medeiros2013}: 
 \begin{enumerate}
- 
- \item Filling the entire computational domain with a thin layer of fluid
- \item Using a depth scale to check whether a cell or a node is wet or dry 
- (or possibly partially wet), and then  making a decision to add or remove it 
- from the computational domain.
- \item Employing some extrapolating scheme from the wet cells into their neighbor 
- cells to approximate the location of the interface. This method is usually called 
- volume/free-surface relationship (VFR) in the literature.
- \item Permitting fluid height to be negative, which means that it is below the topographical surface.
+	\item Filling the entire computational domain with a thin layer of fluid,
+	\item Using a depth scale to check whether a cell or a node is wet or dry 
+	 (or possibly partially wet), and then  making a decision to add or remove it 
+	 from the computational domain,
+	\item Employing some extrapolating scheme from the wet cells into their neighbor 
+	 cells to approximate the location of the interface. This method is usually called 
+	 volume/free-surface relationship (VFR) in the literature,
+	\item Permitting fluid height to be negative, which means that it is below the topographical surface.
 \end{enumerate}
-Each of the above strategies might be more useful for its specific case. Table \ref{table1} compares them very briefly.
-
+Table \ref{table1} compares these heuristim methods.
 \begin{center}\label{table1}
 	\begin{tabular}{|c|p{5cm}|p{5cm}|}
 		\hline
@@ -410,20 +408,20 @@ Each of the above strategies might be more useful for its specific case. Table \
 		% \caption{Comparison of different strategies for WD problem in SWE}
 	\end{tabular}
 \end{center}
-In this part of the paper the first method that has been used to solve the WD problem in the SWE is explained.
+\red{What is the heuristic method that is actually used? This is not stated yet.}
 
 \subsubsection{Selecting appropriate threshold} \label{Threshold}
-In this approach we use a very small threshold to segregate the wet, partially wet and dry cells.
+In this approach we use a very small threshold \red{threshold to what?} to segregate the wet, partially wet and dry cells.
 The critical contribution of this scaling is to allow other
-facets to identify where the flow %is merely ``thin'' and where it 
-is non-physically thin, i.e. where should they consider the boundary of
+facets \red{facets?} to identify where the flow %is merely ``thin'' and where it 
+is non-physically thin, \textit{i.e.} where should they consider the boundary of
 the flow to be. Consistency is the key requirement of whatever strategy we choose to
 determine the scaling. That is, the
 chosen strategy must be able to generate the same ``appropriate'' value
 for depth scale at the beginning and at the end of a simulation.  \newline
 
 In a ``typical'' geological simulation, say of the collapse of a volcanic 
-dome which would be modeled in TITAN2D as a``pile source,'' the initial 
+dome which would be modeled in TITAN2D as a``pile source'', the initial 
 body of mass can be quite deep, but at the end of the simulation the 
 material will likely be spread over a large area.  Hypothetically, if one 
 were to scale by maximum flow depth at the beginning and end of the 
@@ -431,7 +429,7 @@ simulation, they would obtain vastly different values.  More importantly,
 if the only source of mass was an effusion of material out of the ground, 
 the maximum initial flow depth would be zero, even if the total volume 
 during the course of the simulation was the same as the previously 
-mentioned ``pile source.''  \newline
+mentioned ``pile source''.  \newline
 
 On the other hand, scaling by the cube root of the total volume of the 
 flow being simulated is entirely consistent and is the flow depth 
@@ -440,16 +438,16 @@ of volume is any more or less appropriate as a scaling factor than
 maximum initial flow depth in other shallow water contexts, for example 
 storm surge simulation.\newline
 
-Having chosen a consistent scaling factor, we were then able to define 
+Having chosen a consistent scaling factor we were then able to define 
 associated non-dimensional depths for negligibly thin and merely thin
-flow.  If one were to assume that a particular geophysical mass flow 
+flows.  If one were to assume that a particular geophysical mass flow 
 event involved a volume of $10^8 [{\rm m}^3]$, it would then be 
 reasonable to state that flow depths of less than $5 [{\rm cm}]$ were
 both negligible and non-threatening.  This roughly equates to 
 non-dimensional negligible flow depth, which we call 
 {\rm\verb1GEOFLOW_TINY1}, with the value 
 \begin{equation}
-{\rm\verb1GEOFLOW_TINY1} = 0.0001
+{\rm\verb1GEOFLOW_TINY1} = 0.0001.
 \end{equation}
 Using this value, and assuming
 the volume used in a laboratory scale test was $1 [{\rm cm}^3]$, the 
@@ -460,14 +458,14 @@ range of volumes.  We therefore use a theoretical contour at this depth
 as the boundary of the simulated flow.  %\newline
 
 %     \subsubsection{Thresholding} \label{thresholding}
-In introduction section we stated that, unless steps are taken to 
+In the introduction section we stated that unless steps are taken to 
 prevent it, the numerical wicking (Problem \ref{problemwicking}) will
 cause the flow to spread 1 cell every time-step even though the product
 of flow speed and time-step size is less than the cell length.  In 
 addition, the familiar continuum equations loose hyperbolicity (wave 
 speeds tend to infinity) at the boundary between a continuous material 
 and a vacuum.  Having implicitly defined the flow boundary,
-we prevent calculation of state variables outside the flow, i.e. in 
+we prevent calculation of state variables outside the flow, \textit{i.e.} in 
 regions with flow depth below {\rm\verb1GEOFLOW_TINY1}.  
 This reduces both non-physical flow 
 spreading and computational cost. Note that state variables in cells 
