@@ -46,7 +46,7 @@ methods to address this problem. We implemented all of these methods in TITAN2D,
 Results of the methods for flow over a simple inclined plane and Colima volcano are used to illustrate the methods. For the inclined plane we verified the results with experimental data and for 
 Colima volcano they have been compared with field data. We successfully captured the interface of the flow and solved the accuracy and stability problems related to the thin layer problem in 
 SW numerical solution. The comparison of results shows that although all of the methods can be used to address this problem, 
-each of them has its own advantages/disadvantages and methods have to be chosen carefully for each problem.\newline
+each of them has its own advantages/disadvantages and methods have to be chosen carefully for each problem.
 
 \textbf{Keywords:} Shallow water flow, Thin layer, Wetting/Drying, Phase field, Level set}
 \end{abstract}
@@ -179,7 +179,7 @@ The only work that used the level set method to mitigate the wetting-drying prob
 They developed a Taylor-Galerkin approach to solve the SW equations. They presented two 
 different options for handling the wetting-drying areas. The first approach used was described as a ``simple yet efficient'' method which falls into heuristic method type approaches. 
 Although they claimed that they used level set as the second approach, they did not report any results using the method.
-They finally concluded that the level set is expensive and unnecessary for their problem.\newline
+They finally concluded that the level set is expensive and unnecessary for their problem.
 
 
 %============= Introduction of next parts of paper =====================
@@ -232,10 +232,10 @@ flow simulator.  Titan2D is a parallel computational tool with dynamic re-partit
 two-dimensional Godunov solver (without splitting), with adaptive mesh refinement and Geographic Information System 
 (GIS) integration which lets it use Digital Elevation Models (DEMs) of real terrain.  
 While our new multi-faceted thin-layer mitigation strategies were developed in the context of Titan2D's capabilities, 
-much of this approach should be appropriate for use in depth-averaged flow solvers with different numerical implementations. \newline
+much of this approach should be appropriate for use in depth-averaged flow solvers with different numerical implementations. 
 The depth-averaged equations that Titan2D solves are:
 \begin{equation}
-	\label{governingeq}
+\label{governingeq}
 \begin{tabular}{lllllll}
 	{\Large $\frac{\partial h}{\partial t}$} &+& {\Large $\frac{\partial \left(V_x\cdot h\right)}{\partial x}$} &+& {\Large $\frac{\partial \left(V_y\cdot h\right)}{\partial y}$} &=& $S_h$, \\
 	{\Large $\frac{\partial hV_x}{\partial t}$} &+& {\Large $\frac{\partial \left(V_x\cdot hV_x+0.5 k_{ap}g_zh^2\right)}{\partial x}$} &+& {\Large $\frac{\partial \left(V_y\cdot hV_x\right)}{\partial y}$} &=&$S_x$, \\
@@ -321,14 +321,14 @@ for shallow water type granular flows.  They also note that ``an overestimate
 of the true wave speeds results in enhanced stability'' while an 
 ``underestimate of the true wave speeds could be fatal'' to stability.
 They became the first to 
-solve this problem by constructing an approximate Riemann solver.\newline
+solve this problem by constructing an approximate Riemann solver.
 
 \subsection{Adaptive Meshing} \label{adaptivemeshing}
 In TITAN2D each grid cell is a square or very nearly so. Rather than 
 using a uniform mesh different sizes of cells are allowed, with each 
 successive ``generation'' covering one fourth the area of its ``parent'' 
 cell.  Note that only one generation of irregularity is allowed between 
-a cell and its neighbors.\newline
+a cell and its neighbors.
 
 At the beginning of the simulation, \textit{i.e.} before the first update, the 
 boundaries of all piles are maximally refined. An initial mesh for a 
@@ -418,7 +418,7 @@ is non-physically thin, \textit{i.e.} where should they consider the boundary of
 the flow to be. Consistency is the key requirement of whatever strategy we choose to
 determine the scaling. That is, the
 chosen strategy must be able to generate the same ``appropriate'' value
-for depth scale at the beginning and at the end of a simulation.  \newline
+for depth scale at the beginning and at the end of a simulation.  
 
 In a ``typical'' geological simulation, say of the collapse of a volcanic 
 dome which would be modeled in TITAN2D as a``pile source'', the initial 
@@ -429,14 +429,14 @@ simulation, they would obtain vastly different values.  More importantly,
 if the only source of mass was an effusion of material out of the ground, 
 the maximum initial flow depth would be zero, even if the total volume 
 during the course of the simulation was the same as the previously 
-mentioned ``pile source''.  \newline
+mentioned ``pile source''.  
 
 On the other hand, scaling by the cube root of the total volume of the 
 flow being simulated is entirely consistent and is the flow depth 
 scaling factor used by TITAN2D.  We do {\bf not} claim that the cube root 
 of volume is any more or less appropriate as a scaling factor than 
 maximum initial flow depth in other shallow water contexts, for example 
-storm surge simulation.\newline
+storm surge simulation.
 
 Having chosen a consistent scaling factor we were then able to define 
 associated non-dimensional depths for negligibly thin and merely thin
@@ -455,7 +455,7 @@ resultant negligible flow depth would be $0.0001 [{\rm cm}]$.  As can
 be observed from these two examples, the chosen value of 
 {\rm\verb1GEOFLOW_TINY1} is physically appropriate across a very large 
 range of volumes.  We therefore use a theoretical contour at this depth 
-as the boundary of the simulated flow.  %\newline
+as the boundary of the simulated flow.  %
 
 %     \subsubsection{Thresholding} \label{thresholding}
 In the introduction section we stated that unless steps are taken to 
@@ -469,7 +469,7 @@ we prevent calculation of state variables outside the flow, \textit{i.e.} in
 regions with flow depth below {\rm\verb1GEOFLOW_TINY1}.  
 This reduces both non-physical flow 
 spreading and computational cost. Note that state variables in cells 
-with flow depth less than {\rm\verb1GEOFLOW_TINY1} are {\bf not} zeroed.  \newline
+with flow depth less than {\rm\verb1GEOFLOW_TINY1} are {\bf not} zeroed.  
 
 % Once having made the the decision to implement the negligible flow 
 % depth threshold, one is faced with choosing a value for the threshold.
@@ -488,24 +488,24 @@ with flow depth less than {\rm\verb1GEOFLOW_TINY1} are {\bf not} zeroed.  \newli
 
 \subsubsection{Interface Reconstruction} \label{Interfacerecon}
 As noted above, the use of a standard Eulerian grid imposes discrete 
-fixed increments to flow extent, which contributes to the wicking problem
+fixed increments to the flow extent which contributes to the wicking problem
 (Problem \ref{problemwicking} ) at the 
 boundary.  Use of adaptive mesh refinement 
-reduces this error by reducing the size of the increment where it is
-most beneficial to do so.  The Lagrangian approach does not have this 
+reduces this error by reducing the amont of the increment. 
+The Lagrangian approach does not have this 
 limitation, which Tai et al. \cite{Tai2002} took advantage
 of when they augmented their one dimensional NOC scheme with 
 Lagrangian front tracking.  However, implementing a hybrid 
 Eulerian-Lagrangian scheme in two dimensions is significantly more 
 complex. 
 
-Therefore as part of our multi-faceted approach, we implemented a very 
+Therefore, as part of our multi-faceted approach we implemented a very 
 simple and inexpensive interface reconstruction and predictive 
 Lagrangian front tracking scheme.  Knowledge of the interface allows
-us to generate more a representative average, for an individual cell edge 
-over the time-step, and for values of state variables which are then used to 
+us to generate a representative average for an individual cell edge 
+over the time-step and for values of state variables which are then used to 
 compute inter-cellular fluxes into/out-of partially wet cells.  The 
-interface reconstruction scheme is illustrated in figure \ref{interface}.\newline
+interface reconstruction scheme is illustrated in figure \ref{interface}.
 
 \begin{figure}[!h]
 	\centerline{\includegraphics[scale=0.3]{IMAGES/flux.png}}
@@ -524,7 +524,7 @@ line for the entire time-step is set based solely on which of the cell's
 neighbors have flow depth greater/less than the {\rm \verb1GEOFLOW_TINY1} 
 threshold\footnote{As stated in Subsection \ref{adaptivemeshing}, the 
 refinement strategy ensures that the flow front will always be maximally 
-refined.  This  simplifies the coding since all cells at the front can be
+refined.  This simplifies the coding since all cells at the front can be
 safely assumed to have only one neighbor on each side.}.   Orientation
 of the wet-dry line, and which side of it is wet, is indicated by a single 
 integer representing the geometrically determined ``most wet node.'' 
@@ -533,7 +533,7 @@ cell's corners, edge midpoints or its center.  The most wet node is
 assumed to have a flow depth that is the maximum of the cell or any of 
 its four neighbors.  The placement of the line is such that the volume of 
 material in the cell under a plane passing through the most wet node
-and the wet dry-line is the same as the unadjusted cell.\newline  %Knowing the 
+and the wet dry-line is the same as the unadjusted cell.  %Knowing the 
 %wet-dry line's placement, the wet part only average of a conservative 
 %state variables equals its whole cell average value divided by the 
 %fraction of the cell's area that is wet.
@@ -548,7 +548,7 @@ time-step location.  This is done by convecting the wet-dry line at
 the shock speed, $s=v+a$ where the speed of sound has been adjusted 
 to account for only part of the cell being wet, i.e. 
 $a=\sqrt{k_{ap}gh\frac{A}{A_{wet}}}$.  Here $A$ is the whole cell's 
-area and $A_{wet}$ is the portion of the cell's area that is wet.  \newline
+area and $A_{wet}$ is the portion of the cell's area that is wet.  
 
 Since the wet-dry boundary within each partially wet cell is assumed 
 to be a straight line with, during the time-step, fixed orientation, 
@@ -560,14 +560,14 @@ therefore be easily computed as
 	W=\left(\frac{0\cdot\Delta t_{dry} +\frac{1}{2}(w_{beg}+w_{end})\Delta t_{part}+1\cdot\Delta t_{wet}}{\Delta t}\right) \left(\frac{A}{A_{wet}}\right)
 	\label{wetnessfactor}
 \end{equation}
-Where $\Delta t=\Delta t_{dry}+\Delta t_{part}+\Delta t_{wet}$ is the 
+where $\Delta t=\Delta t_{dry}+\Delta t_{part}+\Delta t_{wet}$ is the 
 entire time-step, $\Delta t_{dry}$ is the portion of the time-step for 
 which the edge is completely dry, $\Delta t_{part}$ is the portion of 
 the time-step for which the edge is partially wet and partially dry, 
 $\Delta t_{wet}$ is the portion of the time-step for which the edge is 
 completely wet, $w_{beg}$ is the edge's fraction of wetness at the 
 beginning of the time-step, and $w_{end}$ is the edge's fraction of 
-wetness at the end of the time-step.\newline
+wetness at the end of the time-step.
 
 \subsubsection{Adjusting Fluxes in Partially Wet Cells} \label{adjustfluxes}
 
@@ -577,7 +577,7 @@ results in the zeroing of this cell's physical fluxes for its sides
 that will be completely dry for the entire time-step and increasing 
 them for sides that will be completely wet for the entire time-step.   
 The numerical fluxes are then taken to be the HLL Riemann average of 
-the ``adjusted'' physical fluxes from the cells on both sides the edge.  \newline
+the ``adjusted'' physical fluxes from the cells on both sides the edge.  
 
 The wetness factor adjustment of fluxes delays/decreases the transfer 
 of material from partially wet cells to completely dry cells.  This 
@@ -592,9 +592,9 @@ the numerical wicking (Problem \ref{problemwicking}) at the boundary but not wit
 requires either a uniform grid or an adaptive strategy based on
 fluxes and the rings of buffer cells strategy).
 % 
-% {\bf 1D Analysis of partially wet flux adjustment}\newline
+% {\bf 1D Analysis of partially wet flux adjustment}
 % 
-% There are 3 cells L, M, R.  $h_R=V_R=0$, $h_L>2 h_M>0$ (the middle cell is partially wet), $V_L>0$, $V_M>0$.  The timestep is set by the middle cell with a Courant number $C$. \newline
+% There are 3 cells L, M, R.  $h_R=V_R=0$, $h_L>2 h_M>0$ (the middle cell is partially wet), $V_L>0$, $V_M>0$.  The timestep is set by the middle cell with a Courant number $C$. 
 % 
 % The wet area of the {\it partially wet} middle cell is defined as follows
 % \begin{eqnarray}
@@ -642,7 +642,7 @@ fluxes and the rings of buffer cells strategy).
 % W_{ML}=\frac{A}{A_{wet}}
 % \end{equation}
 % Note that if the wet-dry line does not reach the edge shared by the middle and right cells within the timestep then $W_{MR}=0$.  Assuming that this is the case then
-% $h_R'=V_R'=0$ and ... \newline
+% $h_R'=V_R'=0$ and ... 
 % $h_M'$, and $V_M'$ also depend on $h_L$ and $V_L$ so their values must be known/assumed in order to compute/simplify $h_M'$ and $V_M'$
 
 \subsection{Second: Phase Field Method} \label{phase field}
@@ -655,7 +655,7 @@ Papers \cite{Chen2002,Anderson1998,Boettinger2002,Kim2012} are good references a
 Phase diffusion methods and particularly phase field method is based upon the notion that the interface between phases is a diffusive region rather than a sharp interface with a finite width. 
 Value of $\phi$ is constant inside the bulk phases but changes smoothly between the phases. In this work $\phi$ is 1 for the fluid phase $ \lbrace \textbf{x}, \phi(\textbf{x},t)=1 \rbrace  $, 
 and it is -1 for void regions $ \lbrace \textbf{x}, \phi(\textbf{x},t)=-1 \rbrace  $, and is between -1 to 1 on the diffusion region $ \lbrace \textbf{x}, -1 < \phi(\textbf{x},t) < 1 \rbrace  $. 
-Then we can implicitly assume the interface of flow is where $ \lbrace \textbf{x}, \phi(\textbf{x},t)= 0 \rbrace  $.\newline
+Then we can implicitly assume the interface of flow is where $ \lbrace \textbf{x}, \phi(\textbf{x},t)= 0 \rbrace  $.
 
 %The strong thermodynamical and physical derivation of the method make it so powerful for capturing the complicated topological changes especially for the problems that the interface motion depends 
 %on gradients of an external field normal to the interface and on the local curvature of the interface.
@@ -684,7 +684,7 @@ Since in our work we intend to find the interface with the least computational c
 %\frac{\partial \varphi }{\partial t} + \overrightarrow{V} \cdot \bigtriangledown \varphi = 
 %\bigtriangledown \cdot (M(\varphi) \bigtriangledown\mu(\varphi)))
 %\end{equation}
-%which \newline
+%which 
 %\begin{equation}
 %\mu = F'(\varphi)- \varepsilon^2 \Delta (\varphi)
 %\end{equation}
@@ -728,7 +728,7 @@ In all of our simulation we used $\eta=4\delta x$, where $\delta x$ is equal to 
 % F(\varphi) =  0.25 \varphi^2 (\varphi -1)^2 
 % \end{equation}
 
-%Depending on the problem conditions there are different choices for the mobility function, such as $M(\varphi)=1-\varphi^2$ or $M(\varphi)=1$ \cite{}. For this work we selected the later one.\newline
+%Depending on the problem conditions there are different choices for the mobility function, such as $M(\varphi)=1-\varphi^2$ or $M(\varphi)=1$ \cite{}. For this work we selected the later one.
 % \[ \large \frac{d}{dt} \int_X \varphi \, dx = 0 \]
 % In the above equation \xi(t) is the Lagrangian multiplier 
 % to constrain the volume constant.
