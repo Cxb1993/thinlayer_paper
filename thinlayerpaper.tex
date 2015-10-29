@@ -61,12 +61,12 @@ each of them has its own advantages/disadvantages and methods have to be chosen 
 Shallow water (SW) flows include a wide range of fluid flows. In SW flows the fluid depth is much 
 smaller (${\cal O}(10^{-1})$) than the characteristic length of the fluid body. In deriving the corresponding 
 governing equations the shallowness of flow allows us to approximate the variation of state variables in the direction perpendicular to the basal surface and replace
-them with an integrated average \cite{SavageHutter1989}, which
+them with an integrated average \cite{SavageHutter}, which
 reduces a three dimension flow into a two-dimensional problem.
 This approximation holds for many circumstances in geophysical flows and the same 
 conservation equations with some minor variations can be used to study varying physical situations.
 Eglit and Sveshnikova \cite{eglit1980mms} modified the depth-averaged Saint Venant equations to simulate granular snow avalanches and almost a decade later 
-Savage and Hutter \cite{SavageHutter1989} popularized these in the modeling of many geophysical mass flows related to landslides, avalanches and debris flows. 
+Savage and Hutter \cite{SavageHutter} popularized these in the modeling of many geophysical mass flows related to landslides, avalanches and debris flows. 
 % introducing WD problem
 
 Since this type of flow has free moving boundaries one of the basic difficulties 
@@ -125,7 +125,7 @@ To summarize, the following major difficulties arise in numerical solutions of S
 
 \subsection{Background and Review}
 A review of the literature shows numerous attempts have been made to overcome these problems \cite{Medeiros2013,Balzano1998,Aureli2008,Bunya2009,Casulli2009a,
-Kesserwani2011,DAlpaos2007,Castro2005a}.
+Kesserwani2011,DAlpaos2007,Castro2005}.
 Here we briefly review the problem and recent approaches and refer the interested reader to available references for more information.
 Generally, all of the approaches can be 
 categorized into two basic groups which we call heuristic methods and interface tracking/capturing methods.
@@ -133,7 +133,7 @@ The basic idea of heuristic methods is to reconstruct the flow interface based u
 some simple heuristic or some algebraic relations. In this approach, the reconstruction could take into account the physics of the problem, but this is not required. 
 For example, to mitigate the thin layer problem a threshold could be defined to control the thin layer, the entire domain could be filled with a shallow level of fluid,
 the flow could be recontructed, or the flux could be adjusted. It is possible to use any combination of these heuristic fixes.
-Most of attempts that are made to address the thin layer problem are categorized under this sort of method \cite{Aureli2008,Bunya2009,Castro2005a,Kesserwani2011}.
+Most of attempts that are made to address the thin layer problem are categorized under this sort of method \cite{Aureli2008,Bunya2009,Castro2005,Kesserwani2011}.
 
 In interface tracking/capturing approaches
 an auxiliary set of equations is coupled to the original problem. This auxiliary set of equations is used to follow the flow interface over time. 
@@ -226,7 +226,7 @@ Discussion and conclusions complete the presentation.
 
 The Savage-Hutter equation for geophysical flows was first introduced in the late 1980's. 
 The original model has subsequently been 
-improved upon by Savage-Hutter themselves as well as others  \cite{Hutter1993,Iverson1997,Gray1999,IversonDenlinger2001,PudasainiHutter2003,SavageIverson2003}.
+improved upon by Savage-Hutter themselves as well as others  \cite{Hutter1993,Iverson1997,Gray1999,Denlinger2001,PudasainiHutter2003,SavageIverson2003}.
 In our earlier work \cite{pitmanpof,gmfg1,dgtitanpaper}, we developed the Titan2D depth-averaged geophysical 
 flow simulator.  Titan2D is a parallel computational tool with dynamic re-partitioning, high order, slope-limiting, upwinding, 
 two-dimensional Godunov solver (without splitting), with adaptive mesh refinement and Geographic Information System 
@@ -660,200 +660,134 @@ We can implicitly assume the interface of the flow is where $ \lbrace \textbf{x}
 
 %The strong thermodynamical and physical derivation of the method make it so powerful for capturing the complicated topological changes especially for the problems that the interface motion depends 
 %on gradients of an external field normal to the interface and on the local curvature of the interface.
-Cahn-Hilliard and Allen-Cahn are the two principal phase field formulations. The difference between Cahn-Hilliard and Allen-Cahn is that Cahn-Hilliard assumes conservative forces
-while Allen-Cahn does not. In this work the Allen-Cahn formulation, 
-\begin{equation}
-	\label{generalphase}
-	\frac{D \varphi }{D t} = - \frac{\gamma}{\eta} \frac{\delta W} {\delta \varphi},
-\end{equation}
-is used.
-The time material derivative of $\varphi$ is related to the gradient of a energy functional, $W$. For the Allen-Cahn formulation this energy functional 
-is the Ginzburg-Landu function, 
-\begin{equation}
-	\label{ginzlandu}
-	W(\varphi,\nabla \varphi) = \int_\Omega \lbrace\frac{\eta}{2} |\nabla \varphi|^2 + F(\varphi) \rbrace dx.
-\end{equation}
 
-In these expressions $\eta$ is a constant that regulates the capillary width or diffusion width, $ \gamma $ denotes an elastic relaxation constant and $F(\varphi)$ is 
-a mixing free energy given by
-\begin{equation}
-	\label{freeenergy}
-	F(\varphi)=\frac{1}{4\eta} (\varphi^2-1)^2 ,
-\end{equation}
-which is the well-known double-well potential function, and represents the interactions of different volume fractions of individual species. The gradient part $ \frac{\eta}{2} |\nabla \varphi|^2$, 
-is the relaxtion part that relates the mass average of the energy, with the volume average of the elastic energy \cite{Bronsard1990,Larson1999}.
-Using equation \eqref{freeenergy} in equation \eqref{generalphase} leads to: 
+In this study we used Allen-Cahn form of the phase field. 
 \begin{equation} 
 	\label{allencahn}
 	\frac{\partial \varphi }{\partial t} + \overrightarrow{V}\cdot \nabla \varphi = 
-	\gamma (\bigtriangleup\varphi -F'(\varphi)+\xi(t)),
+	\gamma (\bigtriangleup\varphi -F'(\varphi)),
 \end{equation}
 where
 \begin{equation} 
 	\label{fprime}
-	F'(\varphi)= \frac{\delta F}{\delta \varphi} = \frac{1}{\eta} \varphi (\varphi^2 -1).
+	F(\varphi)=\frac{1}{4\eta^2} (\varphi^2-1)^2 ,\text{\ so \ \ } F'(\varphi)= \frac{\delta F}{\delta \varphi} = \frac{1}{\eta^2} \varphi (\varphi^2 -1).
 \end{equation}
 
-As discussed before, the Allen-Cahn formulation is not mass conservative, so to conserve the mass a Lagrange multiplier is added 
-as a source term that is displayed in equation \eqref{allencahn} by $\xi(t)$. 
-In our case, we have an initial pile of volcaninc flow that has constant volume during the simulation, so the constraint that we want to be satisfied is:
+In above equation $\eta$ is a constant that regulates the capillary width or diffusion width, and $ \gamma $ denotes an elastic relaxation constant, and $F(\varphi)$ is 
+a mixing free energy which is the well-known double-well potential function, and represents the interactions of different volume fractions of individual species \cite{Bronsard1990,Larson1999}.
+
+
+This formulation is easier to solve, but is not mass conservative, to conserve the mass a Lagrange multiplier in form of $(\varphi^2-1)\xi(t)$ is added as a source term to the right hand side of equation \eqref{allencahn}. The reason that we select this form for the Lagrange multiplier is because we do not want to change $\varphi$ on the bulk region as well as when on the interface i.e when $\varphi=\pm1$. So the final for of equation $\xi(t)$ would be:  
+
+\begin{equation} 
+	\label{allencahn_mod}
+	\frac{\partial \varphi }{\partial t} + \overrightarrow{V}\cdot \nabla \varphi = 
+	\gamma (\bigtriangleup\varphi -F'(\varphi)+ (\varphi^2-1)\xi(t)),
+\end{equation}
+
+and the constrain that has to be satisfied is:
 \begin{equation} 
 	\label{constrain}
-	\frac{D}{Dt} \int_\Omega \varphi h \ \ dx= 0.
+	\frac{D}{Dt} \int_\Omega \varphi h \ \ dx= 0,
 \end{equation}
-The reason that equation \eqref{constrain} holds is that we selected $ \lbrace \textbf{x}, \phi(\textbf{x},t)= 1 \rbrace  $ for the regions where granular material exists. 
-Thus, the result of integral is nothing else than the volume of pile that has to be fixed for all simulation times. 
-This constraint is different that the constraint that usually is used to conserve the mass in Allen-Cahn formulation, 
-and we have to find a new $\xi(t)$. The details of the derivation is in Appendix \ref{app1}, and the result of that is shown here:
+which basically means the initial volume of pile must be constant during the simulation. Consequently $\xi(t)$ is derived as follow:
+
 \begin{equation} 
-	\label{xit}
-	\xi(t) = \frac{1}{V_0} \int_\Omega\  h F'(\varphi) \ dx,
+	\label{eta}
+	\frac{D}{Dt} \int_\Omega \varphi h \ \ dx= h \int_\Omega \frac{D}{Dt}  \varphi  \ \ dx+\underbrace{\varphi \int_\Omega  \frac{D}{Dt} h  \ \ dx}_{=0 \text{\ \ continuity}}=h\int_\Omega \gamma (\bigtriangleup\varphi -F'(\varphi)+\varphi (\varphi^2-1)\ \xi(t)) \ \ dx,
 \end{equation}
-where  $ V_0 $ is the initial volume of the pile.
-In all of our simulation we used $\eta=4\delta x$, where $\delta x$ is equal to the smallest cell length. 
-Since we use the result of phase field for mesh refinement, and we always have the smallest cell size near the interface, 
-using this $\eta$ means that we select the length of capillary width to be equal to length of four cells.
-% 
-% \begin{equation}
-% F(\varphi) =  0.25 \varphi^2 (\varphi -1)^2 
-% \end{equation}
+the first term in above relation will be neglected by applying the Gauss' theorem with considering the boundary conditions($
+	\frac{\partial \varphi}{\partial n}\vert_{\Gamma} = 0,
+$):
 
-%Depending on the problem conditions there are different choices for the mobility function, such as $M(\varphi)=1-\varphi^2$ or $M(\varphi)=1$ \cite{}. For this work we selected the later one.
-% \[ \large \frac{d}{dt} \int_X \varphi \, dx = 0 \]
-% In the above equation \xi(t) is the Lagrangian multiplier 
-% to constrain the volume constant.
+\begin{equation}
+	\label{lapbound}
+	\int_\Omega h \gamma  \nabla. \nabla \varphi \ dx = 
+	\int_\Gamma h \gamma \nabla \varphi \ ds = 0,
+\end{equation}
+so to always satisfy the constrain \eqref{constrain} we end up with:
 
-\red{This entire paragraph is very confusing.}
-The default time integration scheme in TITAN2D is the forward Eulerian scheme. This scheme not computationally expensive and fast but only conditionally 
-stable. Satisfaction of the CFL condition is a necessary condition for stability in this scheme. Since the phase field 
-method has a second order derivative, the CFL condition requires that $\bigtriangleup \text{t} \propto ( \bigtriangleup x)^2 $.
-This makes the time step extremely small and causes long simulation times.
-Thus the time integration scheme must be changed to another time scheme which allows for larger time steps.
-The Eulerian implicit time scheme is unconditionally stable, but the disadvantage of this method is a system of linear equations has to be solved at each time step which impose a high computational cost.
-To overcome this problem we used operator splitting method to both make the time scheme stable for larger time steps and to reduce the computational cost.
-During operator splitting the laplacian is performed implicitly while the remaining, non-linear terms are updated explicitly. 
-This solution allows us to select larger time steps for the implicit solver, lets say for example quadruple of explicit time step, and consequently the system of equations has 
-not to be solved at each time step \red{What do you mean that the implicit system doesn't need to be solved every time step? How are you updated $\varphi$ then?}. 
-However because the solver needs to know for what cells the state variables have to be updated the solution of the phase field is required at each time step. 
-Therefore an extrapolation (or prediction step) based on the Taylor series was computed for intermediate time steps to approximate the phase field solution between the implicit solver time steps.
-This is basically a predictor-corrector scheme which is used broadly for advection-diffusion equations solvers. 
-Equations \eqref{implcit_phi}, and  \eqref{explicit_phi} are respectively implicit and explicit time integrators.\\
-%, and 
-%figure \ref{figintegrator} shows the operator splitting time integration schematically.\\
+\begin{equation} 
+	\label{eta_cont}
+\frac{1}{\eta^2} \int_\Omega  \varphi (\varphi^2 -1) \ \ dx = \xi(t) \int_\Omega (\varphi^2-1)  \ \ dx \Rightarrow \xi(t) = \frac{\int_\Omega  \varphi (\varphi^2 -1) \ \ dx}{\eta^2 \int_\Omega (\varphi^2-1)  \ \ dx }
+\end{equation}
 
-% 
-% \begin{equation}
-% \label{operator splitting}
-% \large \frac{\partial \varphi}{\partial t} = \frac{\partial \varphi_1}{\partial t} + \frac{\partial \varphi_2}{\partial t} 
-% \end{equation}
-\begin{table*}[h]
-\noindent\begin{minipage}[b]{.5\textwidth}
-    \begin{align}\label{explicit_phi}
-&\frac{\partial \varphi_1}{\partial t} + \overrightarrow{V} \cdot \triangledown \varphi_1 = f(\varphi_1) \notag \\
- &L_1 = V_x \frac{\partial }{\partial x} + V_y \frac{\partial }{\partial y} \notag \\
-&\frac{\varphi_{1}^{n+1}-\varphi_{1}^{n}}{\triangledown t} = f(\varphi_{1}^{n}) - L_1 \varphi_{1}^{n} \notag \\
-&\varphi_{1}^{n+1} = \triangledown t \  ( f(\varphi_{1}^{n}) - L_1 \varphi_{1}^{n}) 
-\end{align} 
-\end{minipage}%
-\begin{minipage}[b]{.5\textwidth}
-    \begin{align}\label{implcit_phi}
-&\frac{\partial \varphi_2}{\partial t} = \alpha \triangledown^2 \varphi_2 \notag \\
-&L_2 = \alpha (\frac{\partial^2 }{\partial x^2} + \frac{\partial^2 }{\partial y^2}) \notag  \\
-&\displaystyle \frac{\varphi_{1}^{n+1}-\varphi_{1}^{n}}{\triangledown t} = \alpha L_2 \varphi_{2}^{n+1} \notag \\
-&( 1- \triangledown t \alpha L_2 ) \varphi_{1}^{n+1} = \varphi_{2}^{n}
-\end{align} 
-\end{minipage}
-%\caption{Left column is explicit time integrator, and right column is implicit time integrator}
-\end{table*}
+We set $\eta=n\  \delta x$, where $\delta x$ is equal to the smallest cell length of all elements and $n$ is the number of the buffer layers explained in section \ref{adaptivemeshing}.
+
+Form time integration of equation \eqref{allencahn_mod} we use operator splitting to get benefit of propper scheme for each part of the equation. We use the Euler explicit method for time integrarion of all terms except the laplacian terms, and update the Laplacian term by the Euler implicit scheme. The length of time step is based on CFL condition for the explicit scheme. 
 
 
+\begin{align}
+\frac{\varphi^{i+.5}-\varphi^i}{\bigtriangleup t}&= \gamma (-F'(\varphi^i)+\varphi^i (1-(\varphi^i)^2)\ \xi(t^i)) \label{eq1.exp}\\
+\frac{\varphi^{i+1}-\varphi^{i+.5}}{\bigtriangleup t} &= \gamma \nabla .\nabla \varphi^{i+1} \label{eq2.exp}
+\end{align}
 
-
-%\begin{figure}[!h]
-%
-%\begin{center} 
-%\includegraphics[width=2.5truein]{IMAGES/integrator.png}
-%\caption{This picture displays the schematic time integration scheme }
-%\label{figintegrator}
-%\end{center}%
-%\end{figure}
-To preserve the scalability of TITAN2D all equations are solved using the PETSc \cite{petsc-user-ref} library. The GMRES solver, which is a iterative Krylov subspace solver 
-was used to solve the system of equations. To decrease the memory cost we useda matrix-free method to compute the laplacian term.
-Since the Krylov subspace solvers just needs the result of matrix-vector multiplication matrix-free methods can be used to get the result of this multiplication by doing some algebraic operation on 
-the participant vector in the production. This method leads to a significant saving in required memory cost.
+We used GMRES solver of the PETSc \cite{petsc-user-ref} library to solve equation \eqref{eq2.exp}. Since the Krylov subspace solvers just needs the result of matrix-vector multiplication, we used matrix-free method to compute the laplacian term to decrease the memory cost of implicit solver.
 
 \subsection{Third: Level Set Method} \label{level set}
 
 The last method that we use to capture the interface for a SW flow is the Level set method.
 The Level set method is another Eulerian interface capturig method; it was introduced by Osher and Sethian in 1988 \cite{Osher1988}.
 The basis of the method is to capture the interface by means of solving a hyperbolic Hamilton-Jacobi PDE on 
-the computational domain which follows the boundaries. The level set variable $\varPsi (X,t)$ explicitly 
-represents the interface. In this method, $\varPsi (X,t)$ is defined such that its value is zero on the interface, and 
-changes in the domain with respect to the distance of each point to the zero level set or interface of the flow. 
-In other words, $\varPsi (X,t)$  is a distance function, so that its value is negative for the points inside the boundaries, 
-positive for points outside of the boundary, and is zero on the interface. 
-This method is not originally mass conservative, but with doing some 
-techniques like fast reinitialization mass conservation can be achieved. 
-To derive the level set equation, given the initial location of the boundary an initial signed distance function on 
-the domain which can be found by the initialization techniques that will be discussed later. The evolution of initial 
-boundary in a moving continuum Eulerian frame of work only depends on the normal velocity of the boundary $F$, 
-and the tangential velocity does not cause any topological change. Consequently, the following equation could 
-be written for the $\varPsi (X,t)$ :
-
+the computational domain which follows the boundaries. The level set variable $\varPsi (X,t)$ implicitly represents the interface. In this method, $\varPsi (X,t)$ is a signed distance function which means it is zero on the interface, and its absolute value changes in the domain with respect to the distance to the zero level, and its sign is positive outside of the interface, and is negative inside of the interface. 
+Given the initial condition $\varPsi (X,t)_0$ the advection of the interface ($\varPsi (X,t)=0$) only depends on the normal velocity $F$:
 \begin{equation}\label{levelseteq1}
-	\frac{\partial \varPsi}{\partial t} + F |\bigtriangledown \varPsi| = 0
+	\frac{\partial \varPsi}{\partial t} + F |\nabla \varPsi| = 0,
 \end{equation}
 
-Substituting $F = \overrightarrow{V} \overrightarrow{n} $, and 
-$\overrightarrow{n} = \frac{\bigtriangledown \varPsi}{|\bigtriangledown \varPsi|}$
-relations into eq. \eqref{levelseteq1} leads to \eqref{levelseteq2}
+substituting $F = \overrightarrow{V} \overrightarrow{n} $ which  $\overrightarrow{n} $ is the normal vector, and is equal to
+$ \frac{\nabla \varPsi}{|\nabla \varPsi|}$ leads to:
 
 \begin{equation}\label{levelseteq2}
-	\frac{\partial \varPsi}{\partial t} + \overrightarrow{V} \bigtriangledown \varPsi = 0
+	\frac{\partial \varPsi}{\partial t} + \overrightarrow{V} \nabla \varPsi = 0
 \end{equation}
-
-%Equation \eqref{levelseteq2} is a non-conservative hyperbolic equation. We used a first order upwind scheme  that is explained in detail in \cite{} to solve this equation. 
-%
-%\begin{equation}
-%   \label{explicit}
-%   U_i^{n+1} = U_i^n - \frac{\bigtriangleup t}{\bigtriangleup x} \{F_{i+\frac{1}{2}}^- + F_{i-\frac{1}{2}}^+ \}
-%   - \frac{\bigtriangleup t}{\bigtriangleup y} \{G_{i+\frac{1}{2}}^- + G_{i-\frac{1}{2}}^+ \}
-%  \end{equation}
-%Where $F$ and $G$ are the flux terms and are coming from the flux term for in upwind scheme:
-%{\huge I have to correct the following formula and add reference above}
-%
-%
-% \[ F_{i+\frac{1}{2}}^- = \left\{ \begin{array}{ll}
-%          \mathop{\mathlarger{\frac{v_r+v_l}{2}(v_r-v_l)}} \ \ \ \ \   & \  \\
-%          \ \ &\ v_l < 0, \\
-%          0 \ \ \ \ \   & \   .\end{array} \right. \] 
-% 
-%and 
-% 
-% \[ F_{i+\frac{1}{2}}^+ = \left\{ \begin{array}{ll}
-%          0 \ \ \ \ \   & \  \\
-%          \ & \ v_l > 0,\\
-%          \mathop{\mathlarger{\frac{v_r+v_l}{2}(v_r-v_l)}} \ \ \ \ \   & \ .\end{array} \right. \] 
-%         
-%and the same formulation can be used to find G fluxes.
 
 \subsubsection{Reinitialization} \label{reinitialization}
 
-To generate the initial signed distance function in the beginning and also to keep the solution of the level set equation during 
-the time, we need a procedure that is called initialization or reinitialization. There are several techniques to make the obtained 
-solution a signed distance function \cite{Osher1988}, but what we implemented here is the method presented by 
-Sussman et al \cite{Sussman1994}. In this reinitialization technique another hyperbolic equation is solved to adjust the $\varPsi$ value 
-in the domain:
+Solution of equation \eqref{levelseteq2} is not essentially a signed distance function, to keep $\varPsi$ a signed distance function, we need a procedure that is called initialization or reinitialization. There are several techniques for this purpose \cite{Osher1988}, but what we implemented here is a composition of the method presented in Chopp's work \cite{Chopp2001} with some modifications for near the interface, and a PDE based initialization for the further places\cite{Sussman1994a}.
+PDE based initialization is easy for parallelization, though it suffers from preserving the interface location that causes loose of conservation mass/area. The initialization that we use here is very accurate near the interface to preserve the interface. After finding $\varPsi$ for the points that are adjucent to the interface, we use these points to update the signed distance function for the rest of the points by PDE based initialization. Since the goal of the level set method is to find the interface $\varPsi=0$, we just update it for the points that are located close enough to the interface. In this study we select $\varPsi_{thresh}<10\ \delta x$, which  $\delta x$ is the smallest size of the elements, as the threshold for updating $\varPsi$ in the initialization.
+The signed distance function is updated for adjucent points to the interface in following steps:
+\begin{enumerate}
+\item First we find the adjucent points to the interface, and store them in a list that is usually called accepted points list in the litrature \cite{Chopp2001}. 
+\item Second step is to find an interpolation for a level set function $p(X)$ that returns $\varPsi(X)$ given the position of the points. 
+\item The last step is to compute the distance of accepted points based on the following conditions:
+\begin{subequations}
+\begin{align}
+&p(y)=0,\label{dist_cond1} \\ 
+&\nabla p(y) \times (X_0-y)=0,\label{dist_cond2}
+\end{align}
+\end{subequations}
+where $y$ is the nearest point on the interface, and $X_0$ is the point in the accepted list that we want to compute its distance to the interface. First condition \eqref{dist_cond1} basically means that $y$ is on the interface, and the second condition says that if we draw a line from $X_0$ to closest point on the interface, it has to be perpendicular on intersection point with the interface. In this part, we followed the notation of Chopp's paper \citep{Chopp2001}.
+\end{enumerate}
+For the first step, we just need to find those points that sign of $\varPsi$ is different from their neighbors. Our experince shows that using set container of C++ standard library is a very proper data structure to store the list of accepted points, becasue by default it sorts its items, and do not allow to save an element more than once. To sort the elements of the list one just need to overload the less operator.
+
+In the second step, there are different ways for interpolation through the accepted points and finding $p$. In many applications, like in this study, initial interface has a specific geometrical shape like circle or ellipce, so we do not need to find it approximately, and we can use its equation. For example, in this study initial pile has elliptic shape, so the initial interface follows elliptic equation. If we do not know the equation of the interface which is usually the case, especially in the reinitialization, we need to find $p$ by interpolation. Chopp's suggested a bicubic approximation \cite{Chopp2001} to achive a fully second order accurate  result, but his method yealds to solve a 16 by 16 system of equations for every four neighbor points in the accepted list to find the coefficient of the bicubic interpolation. Since the whole point of this interpolation is to compute the distance to the interface more accurately, in order to preserve the location of the interface, in this study instead of bicubic approximation we used a bilinear interpolation. So the general form of $p$ is:
+\begin{equation}\label{interpolation}
+p=a_0+a_1 \ x+ a_2 \ y+ a_3 \ xy.
+\end{equation} 
+To find $a_0$ to $a_3$ we just need to solve a system of 4 by 4 equations resulted from value of $\varPsi$ and the position of the points. After finding $p$, we can compute the distance from equation \eqref{dist_cond1} and \eqref{dist_cond2}. These equations form a nonlinear system of equations that we use a varient of Newton's method presented in \cite{Chopp2001} to solve them:
+\begin{subequations}
+\label{eqnewton}
+\begin{align}
+&\delta_1=-p(X^k)\frac{\nabla p(X^k)}{\nabla p(X^k).\nabla p(X^k)},\\
+& X_{1+\frac{1}{2}}=X_k+\delta_1,\\
+& \delta_2=(X^0-X^k)-\frac{(X^0-X^k).\nabla p(X^k)}{\nabla p(X^k).\nabla p(X^k)}\nabla p(X^k),\\
+&X_{k+1}=X_{1+\frac{1}{2}}+\delta_2,
+\end{align}
+\end{subequations}
+
+equation \eqref{eqnewton} is an iterative method that starts from $X_0$ which is the point that we want to find its distance to the interface. Clearly, above equation gives the nearest point on the interface, and then the distance can be computed, and sign of $\varPsi$ is same as what it was before reinitialization.
+For interpolation in \eqref{interpolation}, we need four points. When we create accepted list, insted of storing points we store a pair of points that are neighbor and their sign of $\varPsi$ is different. Then to find two other points, it is enough to selecet a direction and find the neighbors of the first two points in the selected direction. Since we use AMR in TITAN2D, the selected four points created a quadilateral that are used to do the interpolation.
+
+
+After finding $\varPsi$ for the points adjucent to the interface, $\varPsi$ in other points can be updated with a PDE based reinitialization in an upwinding scheme. We used the following PDE for thie aim:
 
 \begin{equation}\label{initializationeq}
-	\frac{\partial \varPsi}{\partial \tau} + \sgn (\varPsi) (|\bigtriangledown \varPsi| - 1)= 0 
+	\frac{\partial \varPsi}{\partial \tau} + \sgn (\varPsi_0) (|\nabla \varPsi| - 1)= 0 
 \end{equation}
 
-In eq. \eqref{initializationeq} $\tau$ is a pseudo-time and the equation should be solved until it converges reasonably. 
-As it is clear from the equation the result of this equation does not change the zero level set, but it adjusts the other level sets 
-in a sense that $|\bigtriangledown \varPsi|=1$.
-The method that introduced by \cite{Adalsteinsson1999} was used to obtain the solution of re-initialization equation. Since the re-initialization 
-is not required for every time step, the re-initialization was performed after every five time steps.
+In equation \eqref{initializationeq} $\tau$ is a pseudo-time and the equation should be solved until it converges reasonably. This PDE adjusts $\varPsi$ such that $|\nabla \varPsi|=1$.
+We solve equation \eqref{initializationeq} by the method introduced in \cite{Adalsteinsson1999}. 
 
 \begin{equation}
 	\varPsi_{ijk}^{n+1}=\varPsi_{ijk}^{n}-\bigtriangleup t \left(max(F,0)\bigtriangledown_{ijk}^{+}+min(F,0)\bigtriangledown_{ijk}^{-} \right),
@@ -877,6 +811,8 @@ where
 
 In the above equations $D^+$, and $D^-$ are  respectively the backward and forward differences in the corresponding directions.
 
+We solve equation \eqref{initializationeq} until we reach the convergence or make sure that we have updated the points far enough from the interface. The threshold that we used for convergence was $.5 (\delta x)^3$.
+
 
 \section{Results} \label{results}
 \subsection{Inclined plane}
@@ -894,11 +830,9 @@ Table 1 shows the applied initial condition for these results.
 		\hline           
 		Bed friction angle        & $32.47^o$ \\
 		\hline
-		Initial friction angle    & $37.3^o$ \\
+		Initernal friction angle  & $37.3^o$ \\
 		\hline
 		Angle of incline          & $38.5^o$ \\
-		% \hline
-		% Initial velocity          & 2 m/s \\
 		\hline
 	\end{tabular}
 \end{center}
@@ -972,6 +906,30 @@ For quantitative comparison of the results, we compared different schemes on thr
 %{\huge keith wants the result of Atentique }\\
 In this section, we verify our different interface capturing methods with a field data of an eruption of Colima volcano. 
 Colima volcano in Mexico is one of the most active volcanos in North America, and this eruption happened on 16-17 April 1991 \cite{Charbonnier2008}. 
+
+\begin{center}
+	\begin{tabular}{|l|c|}
+%		\hline
+%		Colima volcano input parameters
+		\hline
+		Location of pile in X     & 644900.0 \\
+		\hline
+		Location of pile in Y     & 2157700.0 \\
+		\hline
+		Maximum pile height       & 40 m \\
+		\hline
+		Major extent of the pile  & 112.68 m \\
+		\hline
+		Minor extent of the pile  & 113 m \\
+		\hline           
+		Bed friction angle        & $37^o$ \\
+		\hline
+		Initernal friction angle  & $20^o$ \\
+		\hline
+	\end{tabular}
+\end{center}
+
+
 The topography of Colima volcano is such that small changes the initial location of the pile leads to a completely different 
 path of flow, so a good performance of any of the interface capturing methods for this case promises a reliable method for other volcanoes.
 To be able to compare our results with the outline of deposit of flow, we record the history of all points with the finest 
@@ -1131,72 +1089,6 @@ implementations.
 
 \newpage
 \appendix
-\section{Appendix 1} \label{app1}
-
-The constrain that we want to satisfy is to preserve the mass for entire flow. Since this flow is an incompressible flow, we can write:
-\begin{equation} 
-	\frac{D}{Dt} \int_\Omega \varphi h \ \ dx= 0.
-\end{equation}
-
-with using Reynold's theorem, we can expand the above integral in to:
-
-\begin{equation} \label{reycons}
-	\int_\Omega \frac{\partial (\varphi h)}{\partial t} \ dx + \int_\Gamma (\overrightarrow{V}.\overrightarrow{n}) (\varphi h)\  ds = 0,
-\end{equation}
-
-where $ \Gamma $ is the boundary of $\Omega$, and $\overrightarrow{n}$ is its normal vector, and $\overrightarrow{V}$ is velocity vector. The boundary and initial conditions for $\varphi$ and velocity are:
-
-\begin{gather*} 
-	\overrightarrow{V}_{t=0}=\overrightarrow{V}_0(\textbf{x}), \ \ \ 
-	\varphi_{t=0}=\varphi_0(\textbf{x}), \ \ \ \ x\in \Omega \\
-	\frac{\partial \varphi}{\partial n}\vert_{\Gamma} = 0.
-\end{gather*}
-With the above initial and boundary conditions, and Gauss' identity, the equation \eqref{reycons} can be written:
-\begin{equation}
-	\label{expand}
-	\underbrace{\int_\Omega \varphi \frac{\partial h}{\partial t} dx}_\text{a} + 
-	\underbrace{\int_\Omega h \frac{\partial \varphi}{\partial t} dx}_\text{b} +
-	\underbrace{\int_\Omega \varphi \nabla.(h\overrightarrow{V}) dx}_\text{c} +
-	\underbrace{\int_\Omega h\overrightarrow{V}.\nabla \varphi }_\text{d}
-	= 0.
-\end{equation}
-
-We know $a+c=0$ from conservation of mass (equation \eqref{governingeq}), so   $b+d=0$:
-\begin{equation}
-	\label{expand1}
-	\int_\Omega h (\frac{\partial \varphi}{\partial t} \  + \
-	\overrightarrow{V}.\nabla \varphi) \ \ dx = 0.
-\end{equation}
-
-Since in the above equation, the expression inside the preanthesis is the LHS of phase field equation \eqref{allencahn}, we can substitute it with the RHS of the same equation, so:
-
-\begin{equation}
-	\label{rhssubs}
-	\int_\Omega h (\frac{\partial \varphi}{\partial t} \  + \
-	\overrightarrow{V}.\nabla \varphi) \ \ dx = 
-	\int_\Omega h \gamma (\bigtriangleup \varphi -F'(\varphi)+\xi(t))  \ \ dx \ = 0 .
-\end{equation}
-
-Applying the Gauss' theorem on laplacian term, with considering the boundary conditions on $\varphi$:
-
-\begin{equation}
-	\label{lapbound}
-	\int_\Omega h \gamma  \nabla. \nabla \varphi \ dx = 
-	\int_\Gamma h \gamma \nabla \varphi \ ds = 0,
-\end{equation}
-consequently equation \eqref{rhssubs} leads to:
-\begin{equation}
-	\label{xitcon}
-	\xi(t)  \int_\Omega h  \ dx = 
-	\int_\Gamma h F'(\varphi) dx, 
-\end{equation}
-
-
-and we know intial volume is equal to $\int_\Omega h  \ dx $, therefore we can conclude:
-\begin{equation}
-	\label{finalxi}
-	\xi(t)  = \frac{1}{V_0} \int_\Gamma h F'(\varphi) dx. 
-\end{equation}
 
  
 \bibliographystyle{plain}

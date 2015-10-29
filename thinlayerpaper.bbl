@@ -18,8 +18,8 @@ a.K. Patra, a.C. Bauer, C.C. Nichita, E.B. Pitman, M.F. Sheridan, M.~Bursik,
   January 2005.
 
 \bibitem{Anderson1998}
-D.~M. Anderson, G.~B. McFadden, and A.~A. Wheeler.
-\newblock Diffuse-interface methods in fluid mechanics.
+D~M Anderson, G~B McFadden, and A~A Wheeler.
+\newblock {Diffuse-Interface Methods in Fluid Mechanics}.
 \newblock {\em Annual Review of Fluid Mechanics}, 30(1):139--165, 1998.
 
 \bibitem{Aureli2008}
@@ -29,10 +29,11 @@ F.~Aureli, a.~Maranzoni, P.~Mignosa, and C.~Ziveri.
 \newblock {\em Advances in Water Resources}, 31(7):962--974, July 2008.
 
 \bibitem{petsc-user-ref}
-Satish Balay, Shrirang Abhyankar, Mark~F. Adams, Jed Brown, Peter Brune, Kris
-  Buschelman, Victor Eijkhout, William~D. Gropp, Dinesh Kaushik, Matthew~G.
-  Knepley, Lois~Curfman McInnes, Karl Rupp, Barry~F. Smith, and Hong Zhang.
-\newblock {PETS}c users manual.
+Satish Balay, Shrirang Abhyankar, Mark\~{}F. Adams, Jed Brown, Peter Brune,
+  Kris Buschelman, Victor Eijkhout, William\~{}D. Gropp, Dinesh Kaushik,
+  Matthew\~{}G. Knepley, Lois~Curfman McInnes, Karl Rupp, Barry\~{}F. Smith,
+  and Hong Zhang.
+\newblock {\{PETS\}c Users Manual}.
 \newblock Technical Report ANL-95/11 - Revision 3.5, Argonne National
   Laboratory, 2014.
 
@@ -43,36 +44,36 @@ Andrea Balzano.
 \newblock {\em Coastal Engineering}, pages 83--107, 1998.
 
 \bibitem{Boettinger2002}
-W.~J. Boettinger, J.~a. Warren, C.~Beckermann, and a.~Karma.
-\newblock {P Hase -F Ield S Imulation of S Olidification 1}.
+W~J Boettinger, J~a. Warren, C~Beckermann, and A.~Karma.
+\newblock {Phase -Field Simulation of Solidification 1}.
 \newblock {\em Annual Review of Materials Research}, 32(1):163--194, August
   2002.
 
 \bibitem{Bronsard1990}
-Lia Bronsard and Robert~V. Kohn.
-\newblock On the slowness of phase boundary motion in one space dimension.
+Lia Bronsard and Robert~V Kohn.
+\newblock {On the slowness of phase boundary motion in one space dimension}.
 \newblock {\em Communications on Pure and Applied Mathematics}, 43(8):983--997,
   1990.
 
 \bibitem{Bunya2009}
-Shintaro Bunya, Ethan~J. Kubatko, Joannes~J. Westerink, and Clint Dawson.
+Shintaro Bunya, Ethan~J Kubatko, Joannes~J Westerink, and Clint Dawson.
 \newblock {A wetting and drying treatment for the Runge–Kutta discontinuous
   Galerkin solution to the shallow water equations}.
 \newblock {\em Computer Methods in Applied Mechanics and Engineering},
   198(17-20):1548--1562, April 2009.
 
 \bibitem{CahnHilliard1958ii}
-John~W. Cahn.
-\newblock Free energy of a nonuniform system. ii. thermodynamic basis.
+John~W Cahn.
+\newblock {Free Energy of a Nonuniform System. II. Thermodynamic Basis}.
 \newblock {\em The Journal of Chemical Physics}, 30(5), 1959.
 
 \bibitem{CahnHilliard1958i}
-John~W. Cahn and John~E. Hilliard.
-\newblock Free energy of a nonuniform system. i. interfacial free energy.
+John~W Cahn and John~E Hilliard.
+\newblock {Free Energy of a Nonuniform System. I. Interfacial Free Energy}.
 \newblock {\em The Journal of Chemical Physics}, 28(2), 1958.
 
-\bibitem{Castro2005a}
-M.J. Castro, a.M. {Ferreiro Ferreiro}, J.a. Garc\'{\i}a-Rodr\'{\i}guez, J.M.
+\bibitem{Castro2005}
+M.J. Castro, A.M. {Ferreiro Ferreiro}, J.A. Garc\'{\i}a-Rodr\'{\i}guez, J.M.
   Gonz\'{a}lez-Vida, J.~Mac\'{\i}as, C.~Par\'{e}s, and M.~{Elena
   V\'{a}zquez-Cend\'{o}n}.
 \newblock {The numerical treatment of wet/dry fronts in shallow flows:
@@ -88,99 +89,98 @@ Vincenzo Casulli.
   2008):391--408, 2009.
 
 \bibitem{Charbonnier2008}
-S.J. Charbonnier and R.~Gertisser.
-\newblock Field observations and surface characteristics of pristine
-  block-and-ash flow deposits from the 2006 eruption of merapi volcano, java,
-  indonesia.
-\newblock {\em Journal of Volcanology and Geothermal Research}, 177(4):971 --
-  982, 2008.
-\newblock Volcanic Flows and Falls A Special Issue to Honor Michael F.
-  Sheridan.
+S~J Charbonnier and R~Gertisser.
+\newblock {Field observations and surface characteristics of pristine
+  block-and-ash flow deposits from the 2006 eruption of Merapi Volcano, Java,
+  Indonesia}.
+\newblock {\em Journal of Volcanology and Geothermal Research},
+  177(4):971--982, 2008.
 
 \bibitem{Chen2002}
 Long-Qing Chen.
-\newblock Phase-field models for microstructure evolution.
-\newblock {\em Annual review of materials research}, 32(1):113--140, 2002.
+\newblock {\{PHASE\}-\{FIELD\} \{MODELS\} \{FOR\} \{MICROSTRUCTURE\}
+  \{EVOLUTION\}}.
+\newblock {\em Annual Review of Materials Research}, 32(1):113--140, August
+  2002.
 
 \bibitem{Cheng1995}
 Liang Cheng and Steven Armfield.
-\newblock A simplified marker and cell method for unsteady flows on
-  non-staggered grids.
+\newblock {A simplified marker and cell method for unsteady flows on
+  non-staggered grids}.
 \newblock {\em International Journal for Numerical Methods in Fluids},
   21(1):15--34, 1995.
 
+\bibitem{Chopp2001}
+David~L. Chopp.
+\newblock {Some Improvements of the Fast Marching Method}.
+\newblock {\em SIAM Journal on Scientific Computing}, 23(1):230--244, 2001.
+
 \bibitem{Dalbey2009}
-Keith~R. Dalbey.
-\newblock {\em {Predictive simulation and model based hazard maps of
-  geophysical mass flows}}.
-\newblock PhD thesis, State University of New York at Buffalo, 2009.
+Keith~R Dalbey.
+\newblock {PREDICTIVE SIMULATION AND MODEL BASED HAZARD MAPS UMI Number :
+  3356020 Copyright 2009 by Dalbey , Keith R . All rights reserved}.
+\newblock 2009.
 
 \bibitem{DAlpaos2007}
-L.~D’Alpaos and a.~Defina.
+L~D’Alpaos and a.~Defina.
 \newblock {Mathematical modeling of tidal hydrodynamics in shallow lagoons: A
   review of open issues and applications to the Venice lagoon}.
 \newblock {\em Computers \& Geosciences}, 33(4):476--496, May 2007.
 
 \bibitem{eglit1980mms}
-M.~E. Eglit and Ye~I Sveshnikova.
+M~E Eglit and Ye~I Sveshnikova.
 \newblock {Matematicheskoye modelirovaniye snezhnykh lavin; mathematical
   modeling of snowavalanches}.
 \newblock {\em Materialy Glyatsiologicheskikh Issledovaniy, Khronika
   Obsuzhdeniya}, 38:79--84, 1980.
 
 \bibitem{FraccarolloToro1995}
-L.~Fraccarollo and E.F. Toro.
-\newblock Experimental and numerical assessment of the shallow water model for
-  two dimensional dam-break type problems.
+L~Fraccarollo and E~F Toro.
+\newblock {Experimental and numerical assessment of the shallow water model for
+  two dimensional dam-break type problems}.
 \newblock {\em Journal of Hydraulic Research}, 33:843--864, 1995.
 
 \bibitem{gerlach2006cvf}
-D.~Gerlach, G.~Tomar, G.~Biswas, and F.~Durst.
+D~Gerlach, G~Tomar, G~Biswas, and F~Durst.
 \newblock {Comparison of volume-of-fluid methods for surface tension-dominant
   two-phase flows}.
 \newblock {\em International Journal of Heat and Mass Transfer},
   49(3-4):740--754, 2006.
 
 \bibitem{Glimm1995}
-James Glimm, John~W. Grove, Xiao~Lin Li, Keh-Ming Shyue, Yanni Zeng, and Qiang
+James Glimm, John~W Grove, Xiao~Lin Li, Keh-Ming Shyue, Yanni Zeng, and Qiang
   Zhang.
-\newblock Three dimensional front tracking.
+\newblock {Three Dimensional Front Tracking}.
 \newblock {\em SIAM J. Sci. Comp}, 19:703--727, 1995.
 
 \bibitem{gopala2008vfm}
-V.R. Gopala and B.G.M. van Wachem.
+V~R Gopala and B~G~M van Wachem.
 \newblock {Volume of fluid methods for immiscible-fluid and free-surface
   flows}.
 \newblock {\em Chemical Engineering Journal}, 2008.
 
 \bibitem{Gray1999}
-J.~M.~N.~T. {Gray}, M.~{Wieland}, and K.~{Hutter}.
+J.~M. N.~T. Gray, M.~Wieland, and K.~Hutter.
 \newblock {Gravity-driven free surface flow of granular avalanches over complex
   basal topography}.
-\newblock {\em Royal Society of London Proceedings Series A}, 455:1841--1874,
-  May 1999.
+\newblock {\em Proceedings of the Royal Society A: Mathematical, Physical and
+  Engineering Sciences}, 455(1985):1841--1874, May 1999.
 
 \bibitem{Harlow1965}
 Francis~H Harlow and J~Eddie Welch.
-\newblock Numerical calculation of time-dependent viscous incompressible flow
-  of fluid with free surface.
+\newblock {Numerical Calculation of Time-Dependent Viscous Incompressible Flow
+  of Fluid with Free Surface}.
 \newblock {\em Physics of Fluids}, 8:2182--2189, 1965.
 
 \bibitem{hirt1981vfv}
-C.W. HIRT and BD~NICHOLS.
+C~W HIRT and B~D NICHOLS.
 \newblock {Volume of fluid/VOF/ method for the dynamics of free boundaries}.
 \newblock {\em Journal of Computational Physics}, 39(1):201--225, 1981.
 
 \bibitem{Iverson1997}
-R.~M. {Iverson}.
+R.\~{}M. Iverson.
 \newblock {The physics of debris flows}.
 \newblock {\em Reviews of Geophysics}, 35:245--296, 1997.
-
-\bibitem{IversonDenlinger2001}
-R.~M. {Iverson} and R.~P. {Denlinger}.
-\newblock {Flow of variably fluidized granular masses across three-dimensional
-  terrain 1. Coulomb mixture theory}.
-\newblock {\em Journal of Geophysical Research}, 106:537--552, 2001.
 
 \bibitem{Kesserwani2011}
 Georges Kesserwani and Qiuhua Liang.
@@ -189,9 +189,9 @@ Georges Kesserwani and Qiuhua Liang.
 \newblock {\em Journal of Scientific Computing}, 50(1):120--144, March 2011.
 
 \bibitem{Hutter1993}
-K.Hutter, M.~Siegel, S.B. Savage, and Y.~Nohguchi.
-\newblock Two-dimensional spreading of a granular avalanche down an inclined
-  plane part i. theory.
+K.Hutter, M~Siegel, S~B Savage, and Y~Nohguchi.
+\newblock {Two-dimensional spreading of a granular avalanche down an inclined
+  plane part I. Theory}.
 \newblock {\em Acta Mechanica}, 100:37--68, 1993.
 
 \bibitem{Kim2012}
@@ -200,113 +200,106 @@ Junseok Kim.
 \newblock {\em Commun. Comput. Phys}, 12(3):613--661, 2012.
 
 \bibitem{Larson1999}
-R.G. Larson.
-\newblock {\em The Structure and Rheology of Complex Fluids}.
+R~G Larson.
+\newblock {\em {The Structure and Rheology of Complex Fluids}}.
 \newblock Topics in Chemical Engineering. OUP USA, 1999.
 
 \bibitem{NamikawaPhD}
-Laercio~M. Namikawa.
-\newblock {\em Multiple Representations of Elevation for Dynamic Process
-  Modeling}.
+Laercio~M Namikawa.
+\newblock {\em {Multiple Representations of Elevation for Dynamic Process
+  Modeling}}.
 \newblock PhD thesis, Department of Geography, University at Buffalo, July
   2006.
 
 \bibitem{Osher1988}
 Stanley Osher and James~A Sethian.
-\newblock Fronts propagating with curvature-dependent speed: Algorithms based
-  on hamilton-jacobi formulations.
-\newblock {\em Journal of Computational Physics}, 79(1):12 -- 49, 1988.
-
-\bibitem{gmfg1}
-A.K. Patra, A.C. Bauer, C.C. Nichita, E.B. Pitman, M.F. Sheridan, M.I. Bursik,
-  B.~Rupp, A.~Webber, A.J. Stinton, L.M. Namikawa, and C.S. Renschler.
-\newblock Parallel adaptive numerical simulation of dry avalanches over natural
-  terrain.
-\newblock {\em Journal of Volcanology and Geothermal Research}, 139:1--21,
-  2005.
-
-\bibitem{dgtitanpaper}
-A.K. Patra, C.C. Nichita, A.C. Bauer, E.B. Pitman, M.I. Bursik, and M.F.
-  Sheridan.
-\newblock Parallel adaptive discontinuous galerkin approximation for thin layer
-  avalanche modeling.
-\newblock {\em Computers and Geosciences}, 32:912--926, 2006.
+\newblock {Fronts propagating with curvature-dependent speed: Algorithms based
+  on Hamilton-Jacobi formulations}.
+\newblock {\em Journal of Computational Physics}, 79(1):12--49, 1988.
 
 \bibitem{pitmanpof}
-E.B. Pitman, A.~Patra, A.~Bauer, C.~Nichita, M.~Sheridan, and M.Bursik.
-\newblock Computing debris flows.
+E~B Pitman, A~Patra, A~Bauer, C~Nichita, M~Sheridan, and M.Bursik.
+\newblock {Computing debris flows}.
 \newblock {\em Physics of Fluids}, 15:3638--3646, 2003.
 
 \bibitem{PudasainiHutter2003}
-S.~P. {Pudasaini} and K.~{Hutter}.
+S.\~{}P. Pudasaini and K~Hutter.
 \newblock {Rapid shear flows of dry granular masses down curved and twisted
   channels}.
 \newblock {\em Journal of Fluid Mechanics}, 495:193--208, November 2003.
 
 \bibitem{quecedo2002rtg}
-M.~Quecedo and M.~Pastor.
+M~Quecedo and M~Pastor.
 \newblock {A reappraisal of Taylor-Galerkin algorithm for drying-wetting areas
   in shallow water computations}.
 \newblock {\em International Journal for Numerical Methods in Fluids},
   38(6):515--531, 2002.
 
-\bibitem{SavageHutter1989}
-S.B. Savage and K.~Hutter.
-\newblock The motion of a finite mass of granular material down a rough
-  incline.
+\bibitem{SavageHutter}
+S~B Savage and K~Hutter.
+\newblock {The motion of a finite mass of granular material down a rough
+  incline}.
 \newblock {\em Journal of Fluid Mechanics}, 199:177--215, 1989.
 
 \bibitem{SavageIverson2003}
-SB~Savage and RM~Iverson.
+S~B Savage and R~M Iverson.
 \newblock {Surge dynamics coupled to pore-pressure evolution in debris flows}.
 \newblock {\em Debris-Flow Hazards Mitigation: Mechanics, Prediction and
   Assessment, edited by: Rickenmann, D. and Chen, C.-L., Millpress},
   1:503--514, 2003.
 
-\bibitem{Sussman1994}
+\bibitem{Sussman1994a}
 Mark Sussman, Peter Smereka, and Stanley Osher.
-\newblock A level set approach for computing solutions to incompressible
-  two-phase flow.
-\newblock {\em Journal of Computational Physics}, 114(1):146 -- 159, 1994.
+\newblock {A Level Set Approach for Computing Solutions to Incompressible
+  Two-Phase Flow}.
+\newblock {\em Journal of Computational Physics}, 114(1):146--159, 1994.
 
 \bibitem{Tai2002}
-Y.~C. Tai, S.~Noelle, J.~M. N.~T. Gray, and K.~Hutter.
-\newblock Shock-capturing and front-tracking methods for granular avalanches.
-\newblock {\em Journal of Computational Physics}, 175(1):269--301, 2002.
+Y~C Tai, S~Noelle, J.M.N.T. Gray, and K~Hutter.
+\newblock {Shock-Capturing and Front-Tracking Methods for Granular Avalanches}.
+\newblock {\em Journal of Computational Physics}, 175(1):269--301, January
+  2002.
+
+\bibitem{Medeiros2013}
+Tayfun~E Tezduyar, Sunil Sathe, Matthew Schwaab, and Brian~S Conklin.
+\newblock {Arterial fluid mechanics modeling with the stabilized space – time
+  fluid – structure interaction technique}.
+\newblock {\em International Journal for Numerical Methods in Fluids}, (October
+  2007):601--629, 2008.
 
 \bibitem{ToroBook2001}
-E.F. Toro.
-\newblock {\em Shock-Capturing Methods for Free-Surface Shallow Flows}.
+E~F Toro.
+\newblock {\em {Shock-Capturing Methods for Free-Surface Shallow Flows}}.
 \newblock Wiley, New York, 2001.
 
 \bibitem{Toro2009riemann}
-E.F. Toro.
-\newblock {\em Riemann Solvers and Numerical Methods for Fluid Dynamics: A
-  Practical Introduction}.
+E~F Toro.
+\newblock {\em {Riemann Solvers and Numerical Methods for Fluid Dynamics: A
+  Practical Introduction}}.
 \newblock Springer, 2009.
 
 \bibitem{Unverdi1992}
-Salih~Ozen Unverdi and Gr{\'e}tar Tryggvason.
-\newblock A front-tracking method for viscous, incompressible, multi-fluid
-  flows.
+Salih~Ozen Unverdi and Gr\'{e}tar Tryggvason.
+\newblock {A Front-tracking Method for Viscous, Incompressible, Multi-fluid
+  Flows}.
 \newblock {\em J. Comput. Phys.}, 100(1):25--37, May 1992.
 
 \bibitem{Wrobel1991}
-Luiz~C Wrobel and CA~Brebbia.
-\newblock {\em Computational Modelling of Free and Moving Boundary Problems:
-  Fluid flow}, volume~1.
+Luiz~C Wrobel and C~A Brebbia.
+\newblock {\em {Computational Modelling of Free and Moving Boundary Problems:
+  Fluid flow}}, volume~1.
 \newblock Walter de Gruyter, 1991.
 
 \bibitem{Yang2006}
-Xiaofeng Yang, James~J. Feng, Chun Liu, and Jie Shen.
-\newblock Numerical simulations of jet pinching-off and drop formation using an
-  energetic variational phase-field method.
-\newblock {\em Journal of Computational Physics}, 218(1):417 -- 428, 2006.
+Xiaofeng Yang, James~J Feng, Chun Liu, and Jie Shen.
+\newblock {Numerical simulations of jet pinching-off and drop formation using
+  an energetic variational phase-field method}.
+\newblock {\em Journal of Computational Physics}, 218(1):417--428, 2006.
 
 \bibitem{youngs1982tdm}
-DL~Youngs.
+D~L Youngs.
 \newblock {Time-dependent multi-material flow with large fluid distortion}.
-\newblock In K.~W. Morton and M.~J. Baines, editors, {\em Numerical Methods for
+\newblock In K~W Morton and M~J Baines, editors, {\em Numerical Methods for
   Fluid Dynamics}, pages 273--285. Academic Press, 1982.
 
 \end{thebibliography}
