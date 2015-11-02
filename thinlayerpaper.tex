@@ -646,16 +646,14 @@ As GMRES only needs the result of matrix-vector multiplication, we used the matr
 The last method that we use to capture the interface for a SW flow is the Level set method.
 The Level set method is another Eulerian interface capturig method; it was introduced by Osher and Sethian in 1988 \cite{Osher1988}.
 The basis of the method is to capture the interface by means of solving a hyperbolic Hamilton-Jacobi PDE on 
-the computational domain which follows the boundaries. The level set variable $\varPsi (X,t)$ implicitly represents the interface. In this method, $\varPsi (X,t)$ is a signed distance function which means it is zero on the interface, and its absolute value changes in the domain with respect to the distance to the zero level, and its sign is positive outside of the interface, and is negative inside of the interface. 
-Given the initial condition $\varPsi (X,t)_0$ the advection of the interface ($\varPsi (X,t)=0$) only depends on the normal velocity $F$:
-\begin{equation}\label{levelseteq1}
-        \frac{\partial \varPsi}{\partial t} + F |\nabla \varPsi| = 0,
-\end{equation}
-substituting $F = \overrightarrow{V} \overrightarrow{n} $ which  $\overrightarrow{n} $ is the normal vector, and is equal to
-$ \frac{\nabla \varPsi}{|\nabla \varPsi|}$ leads to:
+the computational domain. The level set variable, $\varPsi (X,t)$, implicitly represents the interface. In this method, $\varPsi (X,t)$ is a signed distance function which 
+means it is zero on the interface, and its absolute value denotes the distance of a spatial point to the interface, 
+and its sign is positive outside of the interface and negative inside of the interface. 
+The movement of the interface is captured by advecting the level set due to the underlying fluid flow field, $overrightarrow{V}$:
 \begin{equation}\label{levelseteq2}
-        \frac{\partial \varPsi}{\partial t} + \overrightarrow{V} \nabla \varPsi = 0
+        \frac{\partial \varPsi}{\partial t} + \overrightarrow{V}\cdot\nabla \varPsi = 0.
 \end{equation}
+
 \subsubsection{Reinitialization} \label{reinitialization}
 Solution of equation \eqref{levelseteq2} is not essentially a signed distance function, to keep $\varPsi$ a signed distance function, we need a procedure that is called initialization or reinitialization. There are several techniques for this purpose \cite{Osher1988}, but what we implemented here is a composition of the method presented in Chopp's work \cite{Chopp2001} with some modifications for near the interface, and a PDE based initialization for the further places\cite{Sussman1994a}.
 PDE based initialization is easy for parallelization, though it suffers from preserving the interface location that causes loose of conservation mass/area. The initialization that we use here is very accurate near the interface to preserve the interface. After finding $\varPsi$ for the points that are adjacent to the interface, we use these points to update the signed distance function for the rest of the points by PDE based initialization. Since the goal of the level set method is to find the interface $\varPsi=0$, we just update it for the points that are located close enough to the interface. In this study we select $\varPsi_{thresh}<10\ \delta x$, which  $\delta x$ is the smallest size of the elements, as the threshold for updating $\varPsi$ in the initialization.
