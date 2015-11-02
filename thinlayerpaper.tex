@@ -198,12 +198,12 @@ While our new multi-faceted thin-layer mitigation strategies were developed in t
 much of this approach should be appropriate for use in depth-averaged flow solvers with different numerical implementations. 
 The depth-averaged equations that Titan2D solves are:
 \begin{equation}
-\label{governingeq}
-\begin{tabular}{lllllll}
-        {\Large $\frac{\partial h}{\partial t}$} &+& {\Large $\frac{\partial \left(V_x\cdot h\right)}{\partial x}$} &+& {\Large $\frac{\partial \left(V_y\cdot h\right)}{\partial y}$} &=& $S_h$, \\
-        {\Large $\frac{\partial hV_x}{\partial t}$} &+& {\Large $\frac{\partial \left(V_x\cdot hV_x+0.5 k_{ap}g_zh^2\right)}{\partial x}$} &+& {\Large $\frac{\partial \left(V_y\cdot hV_x\right)}{\partial y}$} &=&$S_x$, \\
-        {\Large $\frac{\partial hV_y}{\partial t}$} &+& {\Large $\frac{\partial \left(V_x\cdot hV_y\right)}{\partial x}$}&+& {\Large $\frac{\partial \left(V_y\cdot hV_y+0.5 k_{ap}g_zh^2\right)}{\partial y}$} &=&$S_y$.
-\end{tabular}
+	\label{governingeq}
+	\begin{tabular}{lllllll}
+		{\Large $\frac{\partial h}{\partial t}$} &+& {\Large $\frac{\partial \left(V_x\cdot h\right)}{\partial x}$} &+& {\Large $\frac{\partial \left(V_y\cdot h\right)}{\partial y}$} &=& $S_h$, \\
+		{\Large $\frac{\partial hV_x}{\partial t}$} &+& {\Large $\frac{\partial \left(V_x\cdot hV_x+0.5 k_{ap}g_zh^2\right)}{\partial x}$} &+& {\Large $\frac{\partial \left(V_y\cdot hV_x\right)}{\partial y}$} &=&$S_x$, \\
+		{\Large $\frac{\partial hV_y}{\partial t}$} &+& {\Large $\frac{\partial \left(V_x\cdot hV_y\right)}{\partial x}$}&+& {\Large $\frac{\partial \left(V_y\cdot hV_y+0.5 k_{ap}g_zh^2\right)}{\partial y}$} &=&$S_y$.
+	\end{tabular}
 \end{equation}
 In these equations:
 \begin{itemize}
@@ -579,7 +579,7 @@ In this method the state variables are augmented by a continuous
 order parameter. This order parameter, $\varphi$, 
 implicitly represents the interface in the domain. To this aim, a new transfer equation must be solved which is coupled with the other state variables. 
 Papers \cite{Chen2002,Anderson1998,Boettinger2002,Kim2012} are good references about the history and evolution of the method.
-Phase diffusion methods and particularly the phase field method is based upon the notion that the interface between phases is a diffusive region rather than a sharp interface. 
+Phase diffusion methods, and particularly the phase field method, is based upon the notion that the interface between phases is a diffusive region rather than a sharp interface. 
 The value of $\phi$ is constant within a bulk phase but changes smoothly between the phases. In this work $\phi$ is 1 for the fluid phase $ \lbrace \textbf{x}: \phi(\textbf{x},t)=1 \rbrace  $, 
 and it is -1 for void regions $ \lbrace \textbf{x}: \phi(\textbf{x},t)=-1 \rbrace  $, and is between -1 to 1 on the diffusion region $ \lbrace \textbf{x}: -1 < \phi(\textbf{x},t) < 1 \rbrace  $. 
 We can implicitly assume the interface of the flow is where $ \lbrace \textbf{x}: \phi(\textbf{x},t)= 0 \rbrace  $.
@@ -598,42 +598,50 @@ where
 \end{equation}
 In above equation $\eta$ is a constant that regulates the capillary width or diffusion width, and $ \gamma $ denotes an elastic relaxation constant, and $F(\varphi)$ is 
 a mixing free energy which is the well-known double-well potential function, and represents the interactions of different volume fractions of individual species \cite{Bronsard1990,Larson1999}.
-This formulation is easier to solve, but is not mass conservative, to conserve the mass a Lagrange multiplier in form of $(\varphi^2-1)\xi(t)$ is added as a source term to the right hand side of equation \eqref{allencahn}. The reason that we select this form for the Lagrange multiplier is because we do not want to change $\varphi$ on the bulk region as well as when on the interface i.e when $\varphi=\pm1$. So the final for of equation $\xi(t)$ would be:  
+This formulation is not mass conservative. Therefore, to conserve the mass a Lagrange multiplier in form of $(\varphi^2-1)\xi(t)$ is added as a source term to 
+the right hand side of equation \eqref{allencahn}, where $\xi(t)$ is the Lagrange multipler to be determined. 
+The reason that we select this form for the Lagrange multiplier is because we do not want to change $\varphi$ on the bulk region as well as when on the interface i.e when $\varphi=\pm1$. 
+The modified Allen-Cahn equation is now:
 \begin{equation} 
         \label{allencahn_mod}
         \frac{\partial \varphi }{\partial t} + \overrightarrow{V}\cdot \nabla \varphi = 
         \gamma (\bigtriangleup\varphi -F'(\varphi)+ (\varphi^2-1)\xi(t)),
 \end{equation}
-and the constrain that has to be satisfied is:
+where the constrain to be satisfied is:
 \begin{equation} 
         \label{constrain}
         \frac{D}{Dt} \int_\Omega \varphi h \ \ dx= 0,
 \end{equation}
-which basically means the initial volume of pile must be constant during the simulation. Consequently $\xi(t)$ is derived as follow:
+which basically means the volume of pile must be constant during the simulation. Consequently $\xi(t)$ is derived as follow:
 \begin{equation} 
         \label{eta}
-        \frac{D}{Dt} \int_\Omega \varphi h \ \ dx= h \int_\Omega \frac{D}{Dt}  \varphi  \ \ dx+\underbrace{\varphi \int_\Omega  \frac{D}{Dt} h  \ \ dx}_{=0 \text{\ \ continuity}}=h\int_\Omega \gamma (\bigtriangleup\varphi -F'(\varphi)+\varphi (\varphi^2-1)\ \xi(t)) \ \ dx,
+        \frac{D}{Dt} \int_\Omega \varphi h \ \ dx= h \int_\Omega \frac{D}{Dt}  \varphi  \ \ dx+\underbrace{\varphi \int_\Omega  \frac{D}{Dt} h  \ \ dx}_{=0 \text{\ \ continuity}}=h\int_\Omega \gamma (\bigtriangleup\varphi -F'(\varphi)+\varphi (\varphi^2-1)\ \xi(t)) \ \ dx.
 \end{equation}
-the first term in above relation will be neglected by applying the Gauss' theorem with considering the boundary conditions($
+The first term in above relation will be neglected by applying the Gauss' theorem with consideration of the boundary conditions($
         \frac{\partial \varphi}{\partial n}\vert_{\Gamma} = 0,
 $):
 \begin{equation}
         \label{lapbound}
         \int_\Omega h \gamma  \nabla. \nabla \varphi \ dx = 
-        \int_\Gamma h \gamma \nabla \varphi \ ds = 0,
+        \int_\Gamma h \gamma \nabla \varphi \ ds = 0.
 \end{equation}
-so to always satisfy the constrain \eqref{constrain} we end up with:
+To ensure that constraint \eqref{constrain} is satisfied $\xi(t)$ must be given by:
 \begin{equation} 
         \label{eta_cont}
-\frac{1}{\eta^2} \int_\Omega  \varphi (\varphi^2 -1) \ \ dx = \xi(t) \int_\Omega (\varphi^2-1)  \ \ dx \Rightarrow \xi(t) = \frac{\int_\Omega  \varphi (\varphi^2 -1) \ \ dx}{\eta^2 \int_\Omega (\varphi^2-1)  \ \ dx }
+\frac{1}{\eta^2} \int_\Omega  \varphi (\varphi^2 -1) \ \ dx = \xi(t) \int_\Omega (\varphi^2-1)  \ \ dx \Rightarrow \xi(t) = \frac{\int_\Omega  \varphi (\varphi^2 -1) \ \ dx}{\eta^2 \int_\Omega (\varphi^2-1)  \ \ dx }.
 \end{equation}
 We set $\eta=n\  \delta x$, where $\delta x$ is equal to the smallest cell length of all elements and $n$ is the number of the buffer layers explained in section \ref{adaptivemeshing}.
-Form time integration of equation \eqref{allencahn_mod} we use operator splitting to get benefit of propper scheme for each part of the equation. We use the Euler explicit method for time integrarion of all terms except the laplacian terms, and update the Laplacian term by the Euler implicit scheme. The length of time step is based on CFL condition for the explicit scheme. 
-\begin{align}
-\frac{\varphi^{i+.5}-\varphi^i}{\bigtriangleup t}&= \gamma (-F'(\varphi^i)+\varphi^i (1-(\varphi^i)^2)\ \xi(t^i)) \label{eq1.exp}\\
-\frac{\varphi^{i+1}-\varphi^{i+.5}}{\bigtriangleup t} &= \gamma \nabla .\nabla \varphi^{i+1} \label{eq2.exp}
-\end{align}
-We used GMRES solver of the PETSc \cite{petsc-user-ref} library to solve equation \eqref{eq2.exp}. Since the Krylov subspace solvers just needs the result of matrix-vector multiplication, we used matrix-free method to compute the laplacian term to decrease the memory cost of implicit solver.
+
+The phase-field time-evolution equation, Eq. \eqref{allencahn_mod}, is updated using a semi-implicit scheme. The non-linear terms are approximated using an explicit method
+while the linear, Laplacian term is solved implicitly:
+\begin{equation}
+	\frac{\varphi^{n+1}-\varphi^n}{\bigtriangleup t}= \gamma \nabla .\nabla \varphi^{n+1}+\gamma (-F'(\varphi^n)+\varphi^n (1-(\varphi^n)^2)\ \xi(t^n)).
+\end{equation}
+Note that the Lagrange multiplier is determined using the explicit information available at time $t^n$.
+The resulting linear system is solved using the GMRES algorithm available in the 
+PETSc \cite{petsc-user-ref} library.
+As GMRES only needs the result of matrix-vector multiplication, we used the matrix-free version to compute the laplacian term to decrease the memory cost of implicit solver.
+
 \subsection{Third: Level Set Method} \label{level set}
 The last method that we use to capture the interface for a SW flow is the Level set method.
 The Level set method is another Eulerian interface capturig method; it was introduced by Osher and Sethian in 1988 \cite{Osher1988}.
