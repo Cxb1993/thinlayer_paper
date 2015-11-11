@@ -198,12 +198,12 @@ While our new multi-faceted thin-layer mitigation strategies were developed in t
 much of this approach should be appropriate for use in depth-averaged flow solvers with different numerical implementations. 
 The depth-averaged equations that Titan2D solves are:
 \begin{equation}
-	\label{governingeq}
-	\begin{tabular}{lllllll}
-		{\Large $\frac{\partial h}{\partial t}$} &+& {\Large $\frac{\partial \left(V_x\cdot h\right)}{\partial x}$} &+& {\Large $\frac{\partial \left(V_y\cdot h\right)}{\partial y}$} &=& $S_h$, \\
-		{\Large $\frac{\partial hV_x}{\partial t}$} &+& {\Large $\frac{\partial \left(V_x\cdot hV_x+0.5 k_{ap}g_zh^2\right)}{\partial x}$} &+& {\Large $\frac{\partial \left(V_y\cdot hV_x\right)}{\partial y}$} &=&$S_x$, \\
-		{\Large $\frac{\partial hV_y}{\partial t}$} &+& {\Large $\frac{\partial \left(V_x\cdot hV_y\right)}{\partial x}$}&+& {\Large $\frac{\partial \left(V_y\cdot hV_y+0.5 k_{ap}g_zh^2\right)}{\partial y}$} &=&$S_y$.
-	\end{tabular}
+\label{governingeq}
+\begin{tabular}{lllllll}
+        {\Large $\frac{\partial h}{\partial t}$} &+& {\Large $\frac{\partial \left(V_x\cdot h\right)}{\partial x}$} &+& {\Large $\frac{\partial \left(V_y\cdot h\right)}{\partial y}$} &=& $S_h$, \\
+        {\Large $\frac{\partial hV_x}{\partial t}$} &+& {\Large $\frac{\partial \left(V_x\cdot hV_x+0.5 k_{ap}g_zh^2\right)}{\partial x}$} &+& {\Large $\frac{\partial \left(V_y\cdot hV_x\right)}{\partial y}$} &=&$S_x$, \\
+        {\Large $\frac{\partial hV_y}{\partial t}$} &+& {\Large $\frac{\partial \left(V_x\cdot hV_y\right)}{\partial x}$}&+& {\Large $\frac{\partial \left(V_y\cdot hV_y+0.5 k_{ap}g_zh^2\right)}{\partial y}$} &=&$S_y$.
+\end{tabular}
 \end{equation}
 In these equations:
 \begin{itemize}
@@ -579,7 +579,7 @@ In this method the state variables are augmented by a continuous
 order parameter. This order parameter, $\varphi$, 
 implicitly represents the interface in the domain. To this aim, a new transfer equation must be solved which is coupled with the other state variables. 
 Papers \cite{Chen2002,Anderson1998,Boettinger2002,Kim2012} are good references about the history and evolution of the method.
-Phase diffusion methods, and particularly the phase field method, is based upon the notion that the interface between phases is a diffusive region rather than a sharp interface. 
+Phase diffusion methods and particularly the phase field method is based upon the notion that the interface between phases is a diffusive region rather than a sharp interface. 
 The value of $\phi$ is constant within a bulk phase but changes smoothly between the phases. In this work $\phi$ is 1 for the fluid phase $ \lbrace \textbf{x}: \phi(\textbf{x},t)=1 \rbrace  $, 
 and it is -1 for void regions $ \lbrace \textbf{x}: \phi(\textbf{x},t)=-1 \rbrace  $, and is between -1 to 1 on the diffusion region $ \lbrace \textbf{x}: -1 < \phi(\textbf{x},t) < 1 \rbrace  $. 
 We can implicitly assume the interface of the flow is where $ \lbrace \textbf{x}: \phi(\textbf{x},t)= 0 \rbrace  $.
@@ -598,65 +598,61 @@ where
 \end{equation}
 In above equation $\eta$ is a constant that regulates the capillary width or diffusion width, and $ \gamma $ denotes an elastic relaxation constant, and $F(\varphi)$ is 
 a mixing free energy which is the well-known double-well potential function, and represents the interactions of different volume fractions of individual species \cite{Bronsard1990,Larson1999}.
-This formulation is not mass conservative. Therefore, to conserve the mass a Lagrange multiplier in form of $(\varphi^2-1)\xi(t)$ is added as a source term to 
-the right hand side of equation \eqref{allencahn}, where $\xi(t)$ is the Lagrange multipler to be determined. 
-The reason that we select this form for the Lagrange multiplier is because we do not want to change $\varphi$ on the bulk region as well as when on the interface i.e when $\varphi=\pm1$. 
-The modified Allen-Cahn equation is now:
+This formulation is easier to solve, but is not mass conservative, to conserve the mass a Lagrange multiplier in form of $(\varphi^2-1)\xi(t)$ is added as a source term to the right hand side of equation \eqref{allencahn}. The reason that we select this form for the Lagrange multiplier is because we do not want to change $\varphi$ on the bulk region as well as when on the interface i.e when $\varphi=\pm1$. So the final for of equation $\xi(t)$ would be:  
 \begin{equation} 
         \label{allencahn_mod}
         \frac{\partial \varphi }{\partial t} + \overrightarrow{V}\cdot \nabla \varphi = 
         \gamma (\bigtriangleup\varphi -F'(\varphi)+ (\varphi^2-1)\xi(t)),
 \end{equation}
-where the constrain to be satisfied is:
+and the constrain that has to be satisfied is:
 \begin{equation} 
         \label{constrain}
         \frac{D}{Dt} \int_\Omega \varphi h \ \ dx= 0,
 \end{equation}
-which basically means the volume of pile must be constant during the simulation. Consequently $\xi(t)$ is derived as follow:
+which basically means the initial volume of pile must be constant during the simulation. Consequently $\xi(t)$ is derived as follow:
 \begin{equation} 
         \label{eta}
-        \frac{D}{Dt} \int_\Omega \varphi h \ \ dx= h \int_\Omega \frac{D}{Dt}  \varphi  \ \ dx+\underbrace{\varphi \int_\Omega  \frac{D}{Dt} h  \ \ dx}_{=0 \text{\ \ continuity}}=h\int_\Omega \gamma (\bigtriangleup\varphi -F'(\varphi)+\varphi (\varphi^2-1)\ \xi(t)) \ \ dx.
+        \frac{D}{Dt} \int_\Omega \varphi h \ \ dx= h \int_\Omega \frac{D}{Dt}  \varphi  \ \ dx+\underbrace{\varphi \int_\Omega  \frac{D}{Dt} h  \ \ dx}_{=0 \text{\ \ continuity}}=h\int_\Omega \gamma (\bigtriangleup\varphi -F'(\varphi)+\varphi (\varphi^2-1)\ \xi(t)) \ \ dx,
 \end{equation}
-The first term in above relation will be neglected by applying the Gauss' theorem with consideration of the boundary conditions($
+the first term in above relation will be neglected by applying the Gauss' theorem with considering the boundary conditions($
         \frac{\partial \varphi}{\partial n}\vert_{\Gamma} = 0,
 $):
 \begin{equation}
         \label{lapbound}
         \int_\Omega h \gamma  \nabla. \nabla \varphi \ dx = 
-        \int_\Gamma h \gamma \nabla \varphi \ ds = 0.
+        \int_\Gamma h \gamma \nabla \varphi \ ds = 0,
 \end{equation}
-To ensure that constraint \eqref{constrain} is satisfied $\xi(t)$ must be given by:
+so to always satisfy the constrain \eqref{constrain} we end up with:
 \begin{equation} 
         \label{eta_cont}
-\frac{1}{\eta^2} \int_\Omega  \varphi (\varphi^2 -1) \ \ dx = \xi(t) \int_\Omega (\varphi^2-1)  \ \ dx \Rightarrow \xi(t) = \frac{\int_\Omega  \varphi (\varphi^2 -1) \ \ dx}{\eta^2 \int_\Omega (\varphi^2-1)  \ \ dx }.
+\frac{1}{\eta^2} \int_\Omega  \varphi (\varphi^2 -1) \ \ dx = \xi(t) \int_\Omega (\varphi^2-1)  \ \ dx \Rightarrow \xi(t) = \frac{\int_\Omega  \varphi (\varphi^2 -1) \ \ dx}{\eta^2 \int_\Omega (\varphi^2-1)  \ \ dx }
 \end{equation}
 We set $\eta=n\  \delta x$, where $\delta x$ is equal to the smallest cell length of all elements and $n$ is the number of the buffer layers explained in section \ref{adaptivemeshing}.
-
-The phase-field time-evolution equation, Eq. \eqref{allencahn_mod}, is updated using a semi-implicit scheme. The non-linear terms are approximated using an explicit method
-while the linear, Laplacian term is solved implicitly:
-\begin{equation}
-	\frac{\varphi^{n+1}-\varphi^n}{\bigtriangleup t}= \gamma \nabla .\nabla \varphi^{n+1}+\gamma (-F'(\varphi^n)+\varphi^n (1-(\varphi^n)^2)\ \xi(t^n)).
-\end{equation}
-Note that the Lagrange multiplier is determined using the explicit information available at time $t^n$.
-The resulting linear system is solved using the GMRES algorithm available in the 
-PETSc \cite{petsc-user-ref} library.
-As GMRES only needs the result of matrix-vector multiplication, we used the matrix-free version to compute the laplacian term to decrease the memory cost of implicit solver.
-
+Form time integration of equation \eqref{allencahn_mod} we use operator splitting to get benefit of propper scheme for each part of the equation. We use the Euler explicit method for time integrarion of all terms except the laplacian terms, and update the Laplacian term by the Euler implicit scheme. The length of time step is based on CFL condition for the explicit scheme. 
+\begin{align}
+\frac{\varphi^{i+.5}-\varphi^i}{\bigtriangleup t}&= \gamma (-F'(\varphi^i)+\varphi^i (1-(\varphi^i)^2)\ \xi(t^i)) \label{eq1.exp}\\
+\frac{\varphi^{i+1}-\varphi^{i+.5}}{\bigtriangleup t} &= \gamma \nabla .\nabla \varphi^{i+1} \label{eq2.exp}
+\end{align}
+We used GMRES solver of the PETSc \cite{petsc-user-ref} library to solve equation \eqref{eq2.exp}. Since the Krylov subspace solvers just needs the result of matrix-vector multiplication, we used matrix-free method to compute the laplacian term to decrease the memory cost of implicit solver.
 \subsection{Third: Level Set Method} \label{level set}
 The last method that we use to capture the interface for a SW flow is the Level set method.
 The Level set method is another Eulerian interface capturig method; it was introduced by Osher and Sethian in 1988 \cite{Osher1988}.
 The basis of the method is to capture the interface by means of solving a hyperbolic Hamilton-Jacobi PDE on 
-the computational domain. The level set variable, $\varPsi (X,t)$, implicitly represents the interface. In this method, $\varPsi (X,t)$ is a signed distance function which 
-means it is zero on the interface, and its absolute value denotes the distance of a spatial point to the interface, 
-and its sign is positive outside of the interface and negative inside of the interface. 
-The movement of the interface is captured by advecting the level set due to the underlying fluid flow field, $overrightarrow{V}$:
-\begin{equation}\label{levelseteq2}
-        \frac{\partial \varPsi}{\partial t} + \overrightarrow{V}\cdot\nabla \varPsi = 0.
+the computational domain which follows the boundaries. The level set variable $\varPsi (X,t)$ implicitly represents the interface. In this method, $\varPsi (X,t)$ is a signed distance function which means it is zero on the interface, and its absolute value changes in the domain with respect to the distance to the zero level, and its sign is positive outside of the interface, and is negative inside of the interface. 
+Given the initial condition $\varPsi (X,t)_0$ the advection of the interface ($\varPsi (X,t)=0$) only depends on the normal velocity $F$:
+\begin{equation}\label{levelseteq1}
+        \frac{\partial \varPsi}{\partial t} + F |\nabla \varPsi| = 0,
 \end{equation}
-
+substituting $F = \overrightarrow{V} \overrightarrow{n} $ which  $\overrightarrow{n} $ is the normal vector, and is equal to
+$ \frac{\nabla \varPsi}{|\nabla \varPsi|}$ leads to:
+\begin{equation}\label{levelseteq2}
+        \frac{\partial \varPsi}{\partial t} + \overrightarrow{V} \nabla \varPsi = 0
+\end{equation}
 \subsubsection{Reinitialization} \label{reinitialization}
-Solution of equation \eqref{levelseteq2} is not essentially a signed distance function, to keep $\varPsi$ a signed distance function, we need a procedure that is called initialization or reinitialization. There are several techniques for this purpose \cite{Osher1988}, but what we implemented here is a composition of the method presented in Chopp's work \cite{Chopp2001} with some modifications for near the interface, and a PDE based initialization for the further places\cite{Sussman1994a}.
-PDE based initialization is easy for parallelization, though it suffers from preserving the interface location that causes loose of conservation mass/area. The initialization that we use here is very accurate near the interface to preserve the interface. After finding $\varPsi$ for the points that are adjacent to the interface, we use these points to update the signed distance function for the rest of the points by PDE based initialization. Since the goal of the level set method is to find the interface $\varPsi=0$, we just update it for the points that are located close enough to the interface. In this study we select $\varPsi_{thresh}<10\ \delta x$, which  $\delta x$ is the smallest size of the elements, as the threshold for updating $\varPsi$ in the initialization.
+Solution of equation \eqref{levelseteq2} is not essentially a signed distance function, to keep $\varPsi$ a signed distance function, we need a procedure that is called initialization or reinitialization. There are several techniques for this purpose \cite{Osher1988}, but what we implemented here is a composition of the method presented in Chopp's work \cite{Chopp2001} with some modifications, for the points close to the interface, and a PDE based initialization for the further places\cite{Sussman1994a}.
+
+PDE based initialization is easy for parallelization, though it suffers from preserving the interface location that causes loose of conservation mass/area. Chopp's suggests a bicubic interpolation for the points near the interface \cite{Chopp2001}, but here we use a bilinear interpolation which is not as accurate as what he suggested, but it is accurate enough to preserve the interface. For further distances we do not need very accurate $\varPsi$, so we use a PDE based reinitialization which is easier to implement and has lower computational cost. In our approach, we first find $\varPsi$ for the points that are adjacent to the interface, then use these points to update the signed distance function for rest of the points by PDE based initialization. In this way, the interface $( \varPsi=0 )$ is preserved with an afordable computational cost and effort. Moreover, since just $\varPsi$ is required for the points that are located near the interface, there is no need to update it for whole of the domain, so in this work we select $\varPsi_{thresh}<10\ \delta x$, which  $\delta x$ is the smallest size of the elements, as the threshold for updating $\varPsi$ in the initialization.
+
 The signed distance function is updated for adjacent points to the interface in following steps:
 \begin{enumerate}
 \item First we find the adjacent points to the interface, and store them in a list that is usually called accepted points list in the literature \cite{Chopp2001}. 
@@ -664,17 +660,20 @@ The signed distance function is updated for adjacent points to the interface in 
 \item The last step is to compute the distance of accepted points based on the following conditions:
 \begin{subequations}
 \begin{align}
-&p(y)=0,\label{dist_cond1} \\ 
-&\nabla p(y) \times (X_0-y)=0,\label{dist_cond2}
+&p(X_{int})=0,\label{dist_cond1} \\ 
+&\nabla p(y) \times (X_0-X_{int})=0,\label{dist_cond2}
 \end{align}
 \end{subequations}
-where $y$ is the nearest point on the interface, and $X_0$ is the point in the accepted list that we want to compute its distance to the interface. First condition \eqref{dist_cond1} basically means that $y$ is on the interface, and the second condition says that if we draw a line from $X_0$ to closest point on the interface, it has to be perpendicular on intersection point with the interface. In this part, we followed the notation of Chopp's paper \citep{Chopp2001}.
+where $X_{int}$ is the nearest point on the interface, and $X_0$ is the point in the accepted list that we want to compute its distance to the interface. First condition \eqref{dist_cond1} basically means that $X_{int}$ is on the interface, and the second condition says that if we draw a line from $X_0$ to closest point on the interface, it has to be perpendicular on intersection point with the interface. In this part, we followed the notation of Chopp's paper \citep{Chopp2001}.
 \end{enumerate}
-For the first step, we just need to find those points that sign of $\varPsi$ is different from their neighbors. Our experience shows that using set container of C++ standard library is a very proper data structure to store the list of accepted points, because by default it sorts its items, and do not allow to save an element more than once. To sort the elements of the list one just need to overload the less operator.
-In the second step, there are different ways for interpolation through the accepted points and finding $p$. In many applications, like in this study, initial interface has a specific geometrical shape like circle or ellipse, so we do not need to find it approximately, and we can use its equation. For example, in this study initial pile has elliptic shape, so the initial interface follows elliptic equation. If we do not know the equation of the interface which is usually the case, especially in the reinitialization, we need to find $p$ by interpolation. Chopp's suggested a bicubic approximation \cite{Chopp2001} to achieve a fully second order accurate  result, but his method yields to solve a 16 by 16 system of equations for every four neighbor points in the accepted list to find the coefficient of the bicubic interpolation. Since the whole point of this interpolation is to compute the distance to the interface more accurately, in order to preserve the location of the interface, in this study instead of bicubic approximation we used a bilinear interpolation. So the general form of $p$ is:
+
+In the first step, we just need to find those points that sign of $\varPsi$ is different from their neighbors, and store them in a list that we call them accpeted points list. 
+
+For the second step, there are different ways for interpolation through the accepted points and finding $p$. In many applications, like in this study, initial interface has a specific geometrical shape like circle or ellipse, so we do not need to find it approximately, and its equation can be used directly as $p(X)$. For example, in this study initial pile has elliptic shape, so the initial interface follows elliptic equation. If we do not know the equation of the interface which is usually the case, especially in the reinitialization, we need to find $p$ by interpolation. Chopp's suggested a bicubic approximation \cite{Chopp2001} to achieve a fully second order accurate  result, but his method yields to solve a 16 by 16 system of equations for every four neighbor points in the accepted list to find the coefficient of the bicubic interpolation. Since the whole point of this interpolation is to compute the distance to the interface more accurately, in order to preserve the location of the interface, in this study instead of bicubic approximation we used a bilinear interpolation. So the general form of $p$ is:
 \begin{equation}\label{interpolation}
 p=a_0+a_1 \ x+ a_2 \ y+ a_3 \ xy.
 \end{equation} 
+
 To find $a_0$ to $a_3$ we just need to solve a system of 4 by 4 equations resulted from value of $\varPsi$ and the position of the points. After finding $p$, we can compute the distance from equation \eqref{dist_cond1} and \eqref{dist_cond2}. These equations form a nonlinear system of equations that we use a variant of Newton's method presented in \cite{Chopp2001} to solve them:
 \begin{subequations}
 \label{eqnewton}
@@ -686,7 +685,10 @@ To find $a_0$ to $a_3$ we just need to solve a system of 4 by 4 equations result
 \end{align}
 \end{subequations}
 equation \eqref{eqnewton} is an iterative method that starts from $X_0$ which is the point that we want to find its distance to the interface. Clearly, above equation gives the nearest point on the interface, and then the distance can be computed, and sign of $\varPsi$ is same as what it was before reinitialization.
-For interpolation in \eqref{interpolation}, we need four points. When we create accepted list, instead of storing points we store a pair of points that are neighbor and their sign of $\varPsi$ is different. Then to find two other points, it is enough to select a direction and find the neighbors of the first two points in the selected direction. Since we use AMR in TITAN2D, the selected four points created a quadrilateral that are used to do the interpolation.
+For interpolation in \eqref{interpolation}, we need four points. When we create accepted list, instead of storing points we store a pair of points that are neighbor and their sign of $\varPsi$ is different. Then to find two other points, it is enough to select a direction and find the neighbors of the first two points in the selected direction. Since we use AMR with structured grid in TITAN2D, the selected four points creates a quadrilateral (and not essentially a rectangle or squre) that are used for the interpolation.
+
+Our experience shows using set container of C++ standard library is a very proper data structure for storing the adjacent points near the interface in the first step. The reason is that this container keeps its item in a sorted way, and does not let to store duplicated items. So when we search to find those neighbors that have different $\varPsi$ signs to store them in the list, we will not worry to store an element more than once, and there is no need to check the list everytime that we want to save a new element to make sure that we have not saved it before. Only thing that one has to do is to overload the less operator by the desired properties of the elements, that could be element's position or key, to have a sorted list with the unique items.
+
 After finding $\varPsi$ for the points adjacent to the interface, $\varPsi$ in other points can be updated with a PDE based reinitialization in an unwinding scheme. We used the following PDE for this aim:
 \begin{equation}\label{initializationeq}
         \frac{\partial \varPsi}{\partial \tau} + \sgn (\varPsi_0) (|\nabla \varPsi| - 1)= 0 
