@@ -19,6 +19,7 @@
 \usepackage{relsize}
 \usepackage{color}
 \usepackage{multicol}
+\usepackage{titlesec}
 \newcommand{\red}[1]{\textcolor{red}{#1}}
 %
 %\marginsize{1.in}{1.in}{1in}{1in}
@@ -113,12 +114,12 @@ categorized into two basic groups which we call heuristic methods and interface 
 The basic idea of heuristic methods is to reconstruct the flow interface based upon 
 some simple heuristic or some algebraic relations. In this approach, the reconstruction could take into account the physics of the problem, but this is not required. 
 For example, to mitigate the thin layer problem a threshold could be defined to control the thin layer, the entire domain could be filled with a shallow level of fluid,
-the flow could be recontructed, or the flux could be adjusted. It is possible to use any combination of these heuristic fixes.
+the flow could be reconstructed, or the flux could be adjusted. It is possible to use any combination of these heuristic fixes.
 Most of attempts that are made to address the thin layer problem are categorized under this sort of method \cite{Aureli2008,Bunya2009,Castro2005,Kesserwani2011}.
 In interface tracking/capturing approaches
 an auxiliary set of equations is coupled to the original problem. This auxiliary set of equations is used to follow the flow interface over time. 
-Unlike hueuristic method in interface tracking/capturing methods one can find the interface of a moving boundary flow in a more rigorous way. 
-The particular choice of the auxilary equations leads to either interface tracking, or Lagrangian, methods or interface capturing, or Eulerian, methods.
+Unlike heuristic method in interface tracking/capturing methods one can find the interface of a moving boundary flow in a more rigorous way. 
+The particular choice of the auxiliary equations leads to either interface tracking, or Lagrangian, methods or interface capturing, or Eulerian, methods.
 In Lagrangian methods the front is replaced with a set of interfacial points which explicitly define the location of the interface.
 During each time step these points move due to the numerically computed velocity field.
 Mark And Cell (MAC) \cite{Harlow1965}, Simplified Mark And Cell (SMAC) \cite{Cheng1995} and the Surface Marker \citep{Wrobel1991} methods are some examples of Lagrangian interface tracking techniques.
@@ -170,11 +171,11 @@ In the level set and phase field approaches we used the result of these two meth
 Details of each approach and how we select the cells for refinement discussed in the relevant section.
 We verified the numerical results by comparing to experimental results of a granular SW flow over an inclined plane ending in a horizontal surface as well as the field data for the Colima volcano.
 Results of these tests indicate that
-the heuristic approach is less expensive than the phase field and level set methods, but the interface using the heurisitc method moves faster than the 
-experimentally obtain interface. Additinally, our analysis shows that finding a good threshold that is appropriate for all problems is not easy. 
+the heuristic approach is less expensive than the phase field and level set methods, but the interface using the heuristic method moves faster than the 
+experimentally obtain interface. Additionally, our analysis shows that finding a good threshold that is appropriate for all problems is not easy. 
 On other hand, the interface capturing methods have stronger mathematical and physical structure, and can be coupled with the conservation equations but are computationally more expensive and harder 
 to implement. We used several techniques to decrease the computational cost. For example, in the phase field we used the Allen-Cahn formulation which is easier to implement and computationally less 
-expensive compared to the Cahn-Hillard formulatoin, but it is not mass conservative. To preserve the mass we have included a Lagrange multiplier to satisfy this constraint. 
+expensive compared to the Cahn-Hillard formulation, but it is not mass conservative. To preserve the mass we have included a Lagrange multiplier to satisfy this constraint. 
 To decrease the computational cost even more we used operator splitting for time integration. The obtained results show that all of the methods can address the thin layer problem and other 
 related issues, however the phase field results have demonstrated better consistence with the experimental and field data. 
 Finally, although we have implemented these methods for granular type SW flows the methods themselves are applicable for other type of SW flows.  
@@ -289,7 +290,7 @@ simulation at Colima Volcano, Mexico, is displayed in Figure \ref{bufcell}.
 \begin{figure}[!h]
         \begin{center}
                 \includegraphics[scale=.3]{IMAGES/buffercells.png}
-                \caption{Buffer cells. \red{A BETTER CAPTION IS NEEDED.}}
+                \caption{This figure shows four layers of the maximally refined elements near the interface that we call them buffer layer. Creating buffer layers is one of the key strategies that we do to control the thin layer problem in all of the methods that we studied in this work.}
                 \label{bufcell}
         \end{center}
 \end{figure} 
@@ -336,7 +337,7 @@ Usually, heuristic methods use one or a combination of the following four strate
          volume/free-surface relationship (VFR) in the literature,
         \item Permitting fluid height to be negative, which means that it is below the topographical surface.
 \end{enumerate}
-Table \ref{table1} compares these heuristim methods.
+Table \ref{table1} compares these heuristic methods.
 \begin{center}\label{table1}
         \begin{tabular}{|c|p{5cm}|p{5cm}|}
                 \hline
@@ -354,7 +355,7 @@ Table \ref{table1} compares these heuristim methods.
                 % \caption{Comparison of different strategies for WD problem in SWE}
         \end{tabular}
 \end{center}
-\red{What is the heuristic method that is actually used? This is not stated yet.}
+The heuristic method that we used in this study can be categorized as a VFR method. That its detail is explained the related part.
 \subsubsection{Selecting appropriate threshold} \label{Threshold}
 In this approach we use a very small threshold for flow height to segregate the wet, partially wet and dry cells.
 The critical contribution of this scaling is to allow other
@@ -427,7 +428,7 @@ As noted above, the use of a standard Eulerian grid imposes discrete
 fixed increments to the flow extent which contributes to the wicking problem
 (Problem \ref{problemwicking} ) at the 
 boundary.  Use of adaptive mesh refinement 
-reduces this error by reducing the amont of the increment. 
+reduces this error by reducing the amount of the increment. 
 The Lagrangian approach does not have this 
 limitation, which Tai et al. \cite{Tai2002} took advantage
 of when they augmented their one dimensional NOC scheme with 
@@ -628,7 +629,7 @@ so to always satisfy the constrain \eqref{constrain} we end up with:
 \frac{1}{\eta^2} \int_\Omega  \varphi (\varphi^2 -1) \ \ dx = \xi(t) \int_\Omega (\varphi^2-1)  \ \ dx \Rightarrow \xi(t) = \frac{\int_\Omega  \varphi (\varphi^2 -1) \ \ dx}{\eta^2 \int_\Omega (\varphi^2-1)  \ \ dx }
 \end{equation}
 We set $\eta=n\  \delta x$, where $\delta x$ is equal to the smallest cell length of all elements and $n$ is the number of the buffer layers explained in section \ref{adaptivemeshing}.
-Form time integration of equation \eqref{allencahn_mod} we use operator splitting to get benefit of propper scheme for each part of the equation. We use the Euler explicit method for time integrarion of all terms except the laplacian terms, and update the Laplacian term by the Euler implicit scheme. The length of time step is based on CFL condition for the explicit scheme. 
+Form time integration of equation \eqref{allencahn_mod} we use operator splitting to get benefit of propper scheme for each part of the equation. We use the Euler explicit method for time integration of all terms except the Laplacian terms, and update the Laplacian term by the Euler implicit scheme. The length of time step is based on CFL condition for the explicit scheme. 
 \begin{align}
 \frac{\varphi^{i+.5}-\varphi^i}{\bigtriangleup t}&= \gamma (-F'(\varphi^i)+\varphi^i (1-(\varphi^i)^2)\ \xi(t^i)) \label{eq1.exp}\\
 \frac{\varphi^{i+1}-\varphi^{i+.5}}{\bigtriangleup t} &= \gamma \nabla .\nabla \varphi^{i+1} \label{eq2.exp}
@@ -650,9 +651,7 @@ $ \frac{\nabla \varPsi}{|\nabla \varPsi|}$ leads to:
 \end{equation}
 \subsubsection{Reinitialization} \label{reinitialization}
 Solution of equation \eqref{levelseteq2} is not essentially a signed distance function, to keep $\varPsi$ a signed distance function, we need a procedure that is called initialization or reinitialization. There are several techniques for this purpose \cite{Osher1988}, but what we implemented here is a composition of the method presented in Chopp's work \cite{Chopp2001} with some modifications, for the points close to the interface, and a PDE based initialization for the further places\cite{Sussman1994a}.
-
-PDE based initialization is easy for parallelization, though it suffers from preserving the interface location that causes loose of conservation mass/area. Chopp's suggests a bicubic interpolation for the points near the interface \cite{Chopp2001}, but here we use a bilinear interpolation which is not as accurate as what he suggested, but it is accurate enough to preserve the interface. For further distances we do not need very accurate $\varPsi$, so we use a PDE based reinitialization which is easier to implement and has lower computational cost. In our approach, we first find $\varPsi$ for the points that are adjacent to the interface, then use these points to update the signed distance function for rest of the points by PDE based initialization. In this way, the interface $( \varPsi=0 )$ is preserved with an afordable computational cost and effort. Moreover, since just $\varPsi$ is required for the points that are located near the interface, there is no need to update it for whole of the domain, so in this work we select $\varPsi_{thresh}<10\ \delta x$, which  $\delta x$ is the smallest size of the elements, as the threshold for updating $\varPsi$ in the initialization.
-
+PDE based initialization is easy for parallelization, though it suffers from preserving the interface location that causes loose of conservation mass/area. Chopp's suggests a bicubic interpolation for the points near the interface \cite{Chopp2001}, but here we use a bilinear interpolation which is not as accurate as what he suggested, but it is accurate enough to preserve the interface. For further distances we do not need very accurate $\varPsi$, so we use a PDE based reinitialization which is easier to implement and has lower computational cost. In our approach, we first find $\varPsi$ for the points that are adjacent to the interface, then use these points to update the signed distance function for rest of the points by PDE based initialization. In this way, the interface $( \varPsi=0 )$ is preserved with an affordable computational cost and effort. Moreover, since just $\varPsi$ is required for the points that are located near the interface, there is no need to update it for whole of the domain, so in this work we select $\varPsi_{thresh}<10\ \delta x$, which  $\delta x$ is the smallest size of the elements, as the threshold for updating $\varPsi$ in the initialization.
 The signed distance function is updated for adjacent points to the interface in following steps:
 \begin{enumerate}
 \item First we find the adjacent points to the interface, and store them in a list that is usually called accepted points list in the literature \cite{Chopp2001}. 
@@ -666,15 +665,51 @@ The signed distance function is updated for adjacent points to the interface in 
 \end{subequations}
 where $X_{int}$ is the nearest point on the interface, and $X_0$ is the point in the accepted list that we want to compute its distance to the interface. First condition \eqref{dist_cond1} basically means that $X_{int}$ is on the interface, and the second condition says that if we draw a line from $X_0$ to closest point on the interface, it has to be perpendicular on intersection point with the interface. In this part, we followed the notation of Chopp's paper \citep{Chopp2001}.
 \end{enumerate}
-
 In the first step, we just need to find those points that sign of $\varPsi$ is different from their neighbors, and store them in a list that we call them accpeted points list. 
-
 For the second step, there are different ways for interpolation through the accepted points and finding $p$. In many applications, like in this study, initial interface has a specific geometrical shape like circle or ellipse, so we do not need to find it approximately, and its equation can be used directly as $p(X)$. For example, in this study initial pile has elliptic shape, so the initial interface follows elliptic equation. If we do not know the equation of the interface which is usually the case, especially in the reinitialization, we need to find $p$ by interpolation. Chopp's suggested a bicubic approximation \cite{Chopp2001} to achieve a fully second order accurate  result, but his method yields to solve a 16 by 16 system of equations for every four neighbor points in the accepted list to find the coefficient of the bicubic interpolation. Since the whole point of this interpolation is to compute the distance to the interface more accurately, in order to preserve the location of the interface, in this study instead of bicubic approximation we used a bilinear interpolation. So the general form of $p$ is:
 \begin{equation}\label{interpolation}
 p=a_0+a_1 \ x+ a_2 \ y+ a_3 \ xy.
 \end{equation} 
-
-To find $a_0$ to $a_3$ we just need to solve a system of 4 by 4 equations resulted from value of $\varPsi$ and the position of the points. After finding $p$, we can compute the distance from equation \eqref{dist_cond1} and \eqref{dist_cond2}. These equations form a nonlinear system of equations that we use a variant of Newton's method presented in \cite{Chopp2001} to solve them:
+A general way to find $a_0$ to $a_3$ for a grid with different element sizes is to solve a system of 4 by 4 equations \eqref{bilin_system} resulted from value of $\varPsi$ and the positions of the points. 
+\begin{equation}
+\label{bilin_system}
+\begin{bmatrix}
+    1 & x_1 & y_1 & x_1 y_1 \\
+    1 & x_2 & y_2 & x_2 y_2 \\
+    1 & x_3 & y_3 & x_3 y_3 \\
+    1 & x_4 & y_4 & x_4 y_4 \\
+\end{bmatrix}
+\begin{bmatrix}
+    a_0 \\
+    a_1 \\
+    a_2 \\
+    a_3
+\end{bmatrix}
+=
+\begin{bmatrix}
+    \varPsi_1  \\
+   \varPsi_2  \\
+    \varPsi_3  \\
+     \varPsi_4  
+\end{bmatrix}
+\end{equation} 
+But since here we maximally refine the elements near the interface, all of the elements that are selected for the interpolation have the same size and four cell centers can be considered as the vertices of a rectangle, so the coefficients of equation \eqref{interpolation} can be computed as following:
+\begin{subequations}
+\begin{align}
+a_0&=\frac{(\varPsi_1 x_2 y_2 - \varPsi_2 x_2 y_1 - \varPsi_3 x_1 y_2 + \varPsi_4 x_1 y_1)}{(x_2-x_1)(y_2-y_1)}, \\ 
+a_1&=\frac{(-\varPsi_1 y_2 + \varPsi_2 y_1 + \varPsi_3 y_2 - \varPsi_4 y_1)}{(x_2-x_1)(y_2-y_1)},\\
+a_2&=\frac{(-\varPsi_1 x_2 + \varPsi_2 x_2 + \varPsi_3 x_1 - \varPsi_4 x_1 )}{(x_2-x_1)(y_2-y_1)}, \\ 
+a_4&=\frac{(\varPsi_1 - \varPsi_2 - \varPsi_3 + \varPsi_4)}{(x_2-x_1)(y_2-y_1)}, \\ 
+\end{align}
+\end{subequations}
+where $\varPsi_1=(x_1,y_1), \varPsi_2=(x_1,y_2), \varPsi_3=(x_2,y_1)$ and $\varPsi_4=(x_2,y_2)$ as can be seen in the figure \ref{fig:bilinear_interp}.
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=.15]{IMAGES/bilinear_interp.png}
+\caption{Configuration of the four elements that have been selected for bilinear interpolation. In this schematic example the interface passes through two hypothetical edges of (2-4) and (1-2) edges. This is just for demonstration purpose and has no effect on the equations.}
+                \label{fig:bilinear_interp}
+\end{figure}
+After finding the interpolation $p$, we can compute the distance from equation \eqref{dist_cond1} and \eqref{dist_cond2}. These equations form a nonlinear system of equations that we use a variant of Newton's method presented in \cite{Chopp2001} to solve them:
 \begin{subequations}
 \label{eqnewton}
 \begin{align}
@@ -685,10 +720,55 @@ To find $a_0$ to $a_3$ we just need to solve a system of 4 by 4 equations result
 \end{align}
 \end{subequations}
 equation \eqref{eqnewton} is an iterative method that starts from $X_0$ which is the point that we want to find its distance to the interface. Clearly, above equation gives the nearest point on the interface, and then the distance can be computed, and sign of $\varPsi$ is same as what it was before reinitialization.
-For interpolation in \eqref{interpolation}, we need four points. When we create accepted list, instead of storing points we store a pair of points that are neighbor and their sign of $\varPsi$ is different. Then to find two other points, it is enough to select a direction and find the neighbors of the first two points in the selected direction. Since we use AMR with structured grid in TITAN2D, the selected four points creates a quadrilateral (and not essentially a rectangle or squre) that are used for the interpolation.
-
-Our experience shows using set container of C++ standard library is a very proper data structure for storing the adjacent points near the interface in the first step. The reason is that this container keeps its item in a sorted way, and does not let to store duplicated items. So when we search to find those neighbors that have different $\varPsi$ signs to store them in the list, we will not worry to store an element more than once, and there is no need to check the list everytime that we want to save a new element to make sure that we have not saved it before. Only thing that one has to do is to overload the less operator by the desired properties of the elements, that could be element's position or key, to have a sorted list with the unique items.
-
+For interpolation in \eqref{interpolation}, we need four points. When we create accepted list, instead of storing points we store a pair of points that are neighbor and their sign of $\varPsi$ is different. Then to find two other points, it is enough to select a direction perpendicular to the direction that connects the selected pair, and find the neighbors of the first two points in this direction. 
+%Since we use AMR with structured grid in TITAN2D, the selected four points creates a quadrilateral (and not essentially a rectangle or squre) that are used for the interpolation.
+Before proceeding to the next step about PDE based initialization that we use for the rest of the points, we like to mention some computational remarks about the aforementioned step. In parallel computation we decompose the domain between the processors, and each processor is responsible for a part of the domain. On other hand, in finite volume we need the information of the neighboring cells to compute the fluxes and the derivatives. For those elements that are on the boundary of the decomposed parts these information are living in the other processors, so to have this information one solution that avoids excessive inter-processor communications is to make a copy of these off-processors cells on the other processor that we need their information to update the cells. This group of cells that are updated in the other cells, but we need their information in another processor are called ghost cells. Depend on the stencil that is used in computing the derivatives and fluxes different layers of the ghost cells are required. For example for a five point stecil we need the information of neighbor and neighbor of neighbor cells, and in TITAN2D, we just need the neighbor information. 
+We mentioned this here because in selecting the points for interpolation, we have the information of the neighbor cells, but as described earlier, we also need the information of neighbor of a neighbor for the interpolation. This case is a challenge when the interface exactly passes on the decomposition boundary which means a cell that id inside of the flow has a neighbor ghost cell which is outside of the boundary. Compare to the number of accepted cells that is a rare case, and  so to avoid the communication to get the information of the neighbor of neighbor ghost cell we find the interpolation here in a different way. For this cases, instead of using a bilinear interpolation we use three points to make a surface and do the interpolation in form of \eqref{Surface}:
+\begin{equation}
+\label{Surface}
+p=a_0+a_1 x+a_2 y
+\end{equation} 
+Two of these three points are coming from the pair that we know the interface is passing through them and previously have been stored in the accepted list, and the third point is of the the neighbors that we have its information which is perpendicular to the hypothetical edge that connects the selected pair (figure \ref{fig:surf_interp}). Having these three points we first make two vectors and then the normal vector to these two vectors which is the normal vector of the surface. With the normal vector and one of the points we can find the $p$ equation which satisfies the three points as follow: 
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=.25]{IMAGES/surf_interp.png}
+\caption{In this figure $p_1$ and $p_2$ are updated in processor j and $p_3$ is updated in processor i, but its informations is available in processor j as ghost cell. }
+                \label{fig:surf_interp}
+\end{figure}
+\begin{align}
+&p_1=
+\begin{bmatrix}
+    x_1 \\
+    y_1 \\
+    \varPsi_1
+\end{bmatrix}
+,\ \ 
+p_2=
+\begin{bmatrix}
+    x_2 \\
+    y_2 \\
+    \varPsi_2
+\end{bmatrix} 
+,\ \ p_3=
+\begin{bmatrix}
+    x_3 \\
+    y_3 \\
+    \varPsi_3
+\end{bmatrix}, \nonumber\\
+&\overrightarrow{n}=\overrightarrow{p_2p_1}\times\overrightarrow{p_3p_1}=
+\begin{bmatrix}
+    n_1 \\
+    n_2 \\
+    n_3
+\end{bmatrix}=
+\begin{bmatrix}
+    (y_2-y_1)(\varPsi_3-\varPsi_1)-(y_3-y_1)(\varPsi_2-\varPsi_1) \\
+    (x_3-x_1)(\varPsi_2-\varPsi_1)-(x_2-x_1)(\varPsi_3-\varPsi_1) \\
+    (x_2-x_1)(y_3-y_1)-(x_3-x_1)(y_2-y_1)
+\end{bmatrix},\\
+&a_0=\frac{n_1}{n_3}x_1+\frac{n_2}{n_3}y_1+\varPsi_1 \ \ \  \ a_1=\frac{-n_1}{n_3}, \ \ \ a_2=\frac{-n_2}{n_3}
+\end{align}
+Another point that we want to make here is that our experience shows using set container of C++ standard library is a very proper data structure for storing the adjacent points near the interface in the first step. The reason is that this container keeps its item in a sorted way, and does not let to store duplicated items. So when we search to find those neighbors that have different $\varPsi$ signs to store them in the list, we will not worry to store an element more than once, and there is no need to check the list every time that we want to save a new element to make sure that we have not saved it before. Only thing that one has to do is to overload the less operator by the desired properties of the elements, that could be element's position or key, to have a sorted list with the unique items.
 After finding $\varPsi$ for the points adjacent to the interface, $\varPsi$ in other points can be updated with a PDE based reinitialization in an unwinding scheme. We used the following PDE for this aim:
 \begin{equation}\label{initializationeq}
         \frac{\partial \varPsi}{\partial \tau} + \sgn (\varPsi_0) (|\nabla \varPsi| - 1)= 0 
@@ -721,6 +801,8 @@ Table 1 shows the applied initial condition for these results.
 \begin{center}
         \begin{tabular}{|l|c|}
                 % \caption{Initial condition}
+                \hline
+                Pile shape       & Cylinderical \\
                 \hline
                 Maximum pile height       & .061 m \\
                 \hline
@@ -802,11 +884,13 @@ Colima volcano in Mexico is one of the most active volcanoes in North America, a
 %               \hline
 %               Colima volcano input parameters
                 \hline
+                Pile shape       & Parabolic \\
+                \hline
                 Location of pile in X     & 644900.0 \\
                 \hline
                 Location of pile in Y     & 2157700.0 \\
                 \hline
-                Maximum pile height       & 40 m \\
+                Maximum pile height       & 30 m \\
                 \hline
                 Major extent of the pile  & 112.68 m \\
                 \hline

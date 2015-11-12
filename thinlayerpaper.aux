@@ -49,7 +49,7 @@
 \newlabel{Riemann}{{3.1}{6}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Adaptive Meshing}{6}}
 \newlabel{adaptivemeshing}{{3.2}{6}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Buffer cells. \leavevmode {\color  {red}A BETTER CAPTION IS NEEDED.}\relax }}{6}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces This figure shows four layers of the maximally refined elements near the interface that we call them buffer layer. Creating buffer layers is one of the key strategies that we do to control the thin layer problem in all of the methods that we studied in this work.\relax }}{6}}
 \newlabel{bufcell}{{3}{6}}
 \citation{Medeiros2013}
 \@writefile{toc}{\contentsline {section}{\numberline {4}Interface Capturing Strategies}{7}}
@@ -60,8 +60,8 @@
 \newlabel{table1}{{4.1}{8}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.1}Selecting appropriate threshold}{8}}
 \newlabel{Threshold}{{4.1.1}{8}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.2}Interface Reconstruction}{8}}
-\newlabel{Interfacerecon}{{4.1.2}{8}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.2}Interface Reconstruction}{9}}
+\newlabel{Interfacerecon}{{4.1.2}{9}}
 \@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Interface Reconstruction in TITAN2D\relax }}{9}}
 \newlabel{interface}{{4}{9}}
 \citation{Chen2002,Anderson1998,Boettinger2002,Kim2012}
@@ -73,12 +73,9 @@
 \newlabel{phase field}{{4.2}{10}}
 \newlabel{allencahn}{{8}{10}}
 \newlabel{fprime}{{9}{10}}
-\newlabel{allencahn_mod}{{10}{10}}
 \citation{petsc-user-ref}
 \citation{Osher1988}
-\citation{Osher1988}
-\citation{Chopp2001}
-\citation{Sussman1994a}
+\newlabel{allencahn_mod}{{10}{11}}
 \newlabel{constrain}{{11}{11}}
 \newlabel{eta}{{12}{11}}
 \newlabel{lapbound}{{13}{11}}
@@ -88,50 +85,59 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Third: Level Set Method}{11}}
 \newlabel{level set}{{4.3}{11}}
 \newlabel{levelseteq1}{{17}{11}}
-\newlabel{levelseteq2}{{18}{11}}
+\citation{Osher1988}
+\citation{Chopp2001}
+\citation{Sussman1994a}
 \citation{Chopp2001}
 \citation{Chopp2001}
 \citation{Chopp2001}
 \citation{Chopp2001}
-\citation{Chopp2001}
+\newlabel{levelseteq2}{{18}{12}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.1}Reinitialization}{12}}
 \newlabel{reinitialization}{{4.3.1}{12}}
 \newlabel{dist_cond1}{{19a}{12}}
 \newlabel{dist_cond2}{{19b}{12}}
 \newlabel{interpolation}{{20}{12}}
+\citation{Chopp2001}
+\newlabel{bilin_system}{{21}{13}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Configuration of the four elements that have been selected for bilinear interpolation. In this schematic example the interface passes through two hypothetical edges of (2-4) and (1-2) edges. This is just for demonstration purpose and has no effect on the equations.\relax }}{13}}
+\newlabel{fig:bilinear_interp}{{5}{13}}
+\newlabel{eqnewton}{{23}{13}}
+\newlabel{Surface}{{24}{14}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces In this figure $p_1$ and $p_2$ are updated in processor j and $p_3$ is updated in processor i, but its informations is available in processor j as ghost cell. \relax }}{14}}
+\newlabel{fig:surf_interp}{{6}{14}}
 \citation{Adalsteinsson1999}
-\newlabel{eqnewton}{{21}{13}}
-\newlabel{initializationeq}{{22}{13}}
-\@writefile{toc}{\contentsline {section}{\numberline {5}Results}{13}}
-\newlabel{results}{{5}{13}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Inclined plane}{13}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Initial configuration of the pile on the incline\relax }}{14}}
-\newlabel{initialconf}{{5}{14}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Pile height contour and interface location at different time steps\relax }}{15}}
-\newlabel{odinary}{{6}{15}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.1.1}Comparison}{15}}
+\newlabel{initializationeq}{{27}{15}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Results}{15}}
+\newlabel{results}{{5}{15}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Inclined plane}{15}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Initial configuration of the pile on the incline\relax }}{16}}
+\newlabel{initialconf}{{7}{16}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Pile height contour and interface location at different time steps\relax }}{16}}
+\newlabel{odinary}{{8}{16}}
 \citation{Charbonnier2008}
-\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Comparison of the methods for flow on inclined plane\relax }}{16}}
-\newlabel{compinc}{{7}{16}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Colima Volcano}{16}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.1.1}Comparison}{17}}
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Comparison of the methods for flow on inclined plane\relax }}{17}}
+\newlabel{compinc}{{9}{17}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Colima Volcano}{17}}
 \citation{NamikawaPhD}
 \citation{NamikawaPhD}
-\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Skeleton line (white line) and outline of the deposit of eruption 1991 (green line)\relax }}{17}}
-\newlabel{skel_outline}{{9}{17}}
-\newlabel{fig:Outline}{{8a}{18}}
-\newlabel{sub@fig:Outline}{{a}{18}}
-\newlabel{fig:Delaunay}{{8b}{18}}
-\newlabel{sub@fig:Delaunay}{{b}{18}}
-\newlabel{fig:veroni}{{8c}{18}}
-\newlabel{sub@fig:veroni}{{c}{18}}
-\newlabel{fig:skeleton}{{8d}{18}}
-\newlabel{sub@fig:skeleton}{{d}{18}}
-\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces In this set of pictures the steps that have to be taken for finding the outline of the flow is displayed respectively\relax }}{18}}
-\newlabel{fig:skeleton_line_proc}{{8}{18}}
-\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces Comparison of the obtained outline of flow from Heuristic, Level set, and Phase field methods for Colima Volcano\relax }}{19}}
-\newlabel{Colimapic}{{10}{19}}
-\@writefile{toc}{\contentsline {section}{\numberline {6}Conclusions}{19}}
-\newlabel{conclusions}{{6}{19}}
+\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces Skeleton line (white line) and outline of the deposit of eruption 1991 (green line)\relax }}{18}}
+\newlabel{skel_outline}{{11}{18}}
+\newlabel{fig:Outline}{{10a}{19}}
+\newlabel{sub@fig:Outline}{{a}{19}}
+\newlabel{fig:Delaunay}{{10b}{19}}
+\newlabel{sub@fig:Delaunay}{{b}{19}}
+\newlabel{fig:veroni}{{10c}{19}}
+\newlabel{sub@fig:veroni}{{c}{19}}
+\newlabel{fig:skeleton}{{10d}{19}}
+\newlabel{sub@fig:skeleton}{{d}{19}}
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces In this set of pictures the steps that have to be taken for finding the outline of the flow is displayed respectively\relax }}{19}}
+\newlabel{fig:skeleton_line_proc}{{10}{19}}
+\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces Comparison of the obtained outline of flow from Heuristic, Level set, and Phase field methods for Colima Volcano\relax }}{20}}
+\newlabel{Colimapic}{{12}{20}}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Conclusions}{20}}
+\newlabel{conclusions}{{6}{20}}
 \bibstyle{plain}
 \bibdata{mybib}
 \bibcite{}{{1}{}{{}}{{}}}
