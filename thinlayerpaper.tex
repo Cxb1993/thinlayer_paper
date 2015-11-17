@@ -1,4 +1,4 @@
- \documentclass[letterpaper,10pt]{article}
+\documentclass[letterpaper,10pt]{article}
 \usepackage{amsmath}
 \usepackage[utf8x]{inputenc}
 \usepackage{caption}
@@ -795,9 +795,11 @@ where
 In the above equations $D^+$, and $D^-$ are  respectively the backward and forward differences in the corresponding directions.
 We solve equation \eqref{initializationeq} until we reach the convergence or make sure that we have updated the points far enough from the interface. The threshold that we used for convergence was $.5 (\delta x)^3$.
 \section{Results} \label{results}
+We use two cases to study the effects of the introduced interface capturing schemes in the section. The first case is the inclined plane, and the second one is the Colima Volcano. The reason that we selected these two cases is that for the inclined plane we have conducted experimental test, so the numerical study results could be verified with the experimental results. For the later one, i.e Colima Volcano, we used the field observation data of the outline and characteristic of the flow to simulate an eruption numerically and compare the results.
+
+Since the computational cost of the methods are not same, we have also compared these methods from computational point of view by the required time for simulation and the number of elements during the simulation. 
 \subsection{Inclined plane}
-In this section the results of the study is presented in the same order they were introduced in the paper.
-Table 1 shows the applied initial condition for these results.
+In this section the results of the inclined plane is presented. The input parameters and initial conditions of the flow could be seen in  table 1.
 \begin{center}
         \begin{tabular}{|l|c|}
                 % \caption{Initial condition}
@@ -820,6 +822,10 @@ Table 1 shows the applied initial condition for these results.
                 \hline
         \end{tabular}
 \end{center}
+
+The experimental test results were reported in \cite{AmyWebb2004}, and we have used them to verify our different numerical results with them in our previous works.
+
+
 \begin{figure}[H]
         \begin{minipage}[b]{.5\linewidth}
                 \centering
@@ -892,7 +898,7 @@ For quantitative comparison of the results, we compared different schemes on thr
                 
         \end{minipage}
         \caption{Comparison of the methods based on computational cost }
-        \label{compinc}
+        \label{compinc_comput}
 \end{figure}
 % \end{figure}
 \subsection{Colima Volcano}
