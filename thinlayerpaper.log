@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2015.4.26)  12 NOV 2015 17:59
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2015.4.26)  16 NOV 2015 21:39
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -295,7 +295,14 @@ Package: titlesec 2011/12/15 v2.10.0 Sectioning titles
 \titlewidthlast=\dimen145
 \titlewidthfirst=\dimen146
 )
-(./thinlayerpaper.aux)
+(./thinlayerpaper.aux
+
+LaTeX Warning: Label `compinc' multiply defined.
+
+
+LaTeX Warning: Label `compinc' multiply defined.
+
+)
 \openout1 = `thinlayerpaper.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 31.
@@ -317,7 +324,8 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: subfig package v1.3 is loaded.
 Package caption Info: float package is loaded.
 Package caption Info: End \AtBeginDocument code.
- (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
+
+(/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count117
 \scratchdimen=\dimen147
@@ -462,195 +470,232 @@ Package pdftex.def Info: IMAGES/surf_interp.png used on input line 734.
 File: IMAGES/expinitialconf.png Graphic file (type png)
 
 <use IMAGES/expinitialconf.png>
-Package pdftex.def Info: IMAGES/expinitialconf.png used on input line 824.
-(pdftex.def)             Requested size: 226.57297pt x 151.04733pt.
+Package pdftex.def Info: IMAGES/expinitialconf.png used on input line 826.
+(pdftex.def)             Requested size: 236.01561pt x 157.34036pt.
 
 <IMAGES/initialconf.png, id=77, 1542.76375pt x 796.9775pt>
 File: IMAGES/initialconf.png Graphic file (type png)
 
 <use IMAGES/initialconf.png>
-Package pdftex.def Info: IMAGES/initialconf.png used on input line 830.
-(pdftex.def)             Requested size: 226.57297pt x 117.03632pt.
+Package pdftex.def Info: IMAGES/initialconf.png used on input line 832.
+(pdftex.def)             Requested size: 236.01561pt x 121.91283pt.
+
+Overfull \hbox (2.2222pt too wide) in paragraph at lines 824--835
+[][] [] 
+ []
 
 <IMAGES/interface165.png, id=78, 578.16pt x 433.62pt>
 File: IMAGES/interface165.png Graphic file (type png)
 
 <use IMAGES/interface165.png>
-Package pdftex.def Info: IMAGES/interface165.png used on input line 840.
-(pdftex.def)             Requested size: 226.57297pt x 169.92494pt.
+Package pdftex.def Info: IMAGES/interface165.png used on input line 842.
+(pdftex.def)             Requested size: 236.01561pt x 177.01122pt.
 
 <IMAGES/interface330.png, id=79, 578.16pt x 433.62pt>
 File: IMAGES/interface330.png Graphic file (type png)
 
 <use IMAGES/interface330.png>
-Package pdftex.def Info: IMAGES/interface330.png used on input line 842.
-(pdftex.def)             Requested size: 226.57297pt x 169.92494pt.
+Package pdftex.def Info: IMAGES/interface330.png used on input line 844.
+(pdftex.def)             Requested size: 236.01561pt x 177.01122pt.
 
 <IMAGES/interface495.png, id=80, 578.16pt x 433.62pt>
 File: IMAGES/interface495.png Graphic file (type png)
 
 <use IMAGES/interface495.png>
-Package pdftex.def Info: IMAGES/interface495.png used on input line 848.
-(pdftex.def)             Requested size: 226.57297pt x 169.92494pt.
+Package pdftex.def Info: IMAGES/interface495.png used on input line 850.
+(pdftex.def)             Requested size: 236.01561pt x 177.01122pt.
 
 <IMAGES/interface660.png, id=81, 578.16pt x 433.62pt>
 File: IMAGES/interface660.png Graphic file (type png)
 
 <use IMAGES/interface660.png>
-Package pdftex.def Info: IMAGES/interface660.png used on input line 850.
-(pdftex.def)             Requested size: 226.57297pt x 169.92494pt.
- [15]
-<IMAGES/xextend.png, id=85, 578.16pt x 433.62pt>
+Package pdftex.def Info: IMAGES/interface660.png used on input line 852.
+(pdftex.def)             Requested size: 236.01561pt x 177.01122pt.
+
+Overfull \hbox (2.2222pt too wide) in paragraph at lines 840--855
+[][] [] 
+ []
+
+[15] [16 <./IMAGES/expinitialconf.png> <./IMAGES/initialconf.png (PNG copy)>]
+<IMAGES/xextend.png, id=89, 578.16pt x 433.62pt>
 File: IMAGES/xextend.png Graphic file (type png)
  <use IMAGES/xextend.png>
-Package pdftex.def Info: IMAGES/xextend.png used on input line 861.
+Package pdftex.def Info: IMAGES/xextend.png used on input line 863.
 (pdftex.def)             Requested size: 260.16959pt x 195.1272pt.
 
-Overfull \hbox (33.59662pt too wide) in paragraph at lines 861--862
+Overfull \hbox (24.15398pt too wide) in paragraph at lines 863--864
  [][] 
  []
 
-<IMAGES/area.png, id=86, 578.16pt x 433.62pt>
+<IMAGES/area.png, id=90, 578.16pt x 433.62pt>
 File: IMAGES/area.png Graphic file (type png)
  <use IMAGES/area.png>
-Package pdftex.def Info: IMAGES/area.png used on input line 863.
+Package pdftex.def Info: IMAGES/area.png used on input line 865.
 (pdftex.def)             Requested size: 260.16959pt x 195.1272pt.
 
-Overfull \hbox (33.59662pt too wide) in paragraph at lines 863--864
+Overfull \hbox (24.15398pt too wide) in paragraph at lines 865--866
  [][] 
  []
 
-<IMAGES/yextend.png, id=87, 578.16pt x 433.62pt>
+<IMAGES/yextend.png, id=91, 578.16pt x 433.62pt>
 File: IMAGES/yextend.png Graphic file (type png)
  <use IMAGES/yextend.png>
-Package pdftex.def Info: IMAGES/yextend.png used on input line 869.
+Package pdftex.def Info: IMAGES/yextend.png used on input line 871.
 (pdftex.def)             Requested size: 260.16959pt x 195.1272pt.
 
-Overfull \hbox (33.59662pt too wide) in paragraph at lines 869--870
+Overfull \hbox (24.15398pt too wide) in paragraph at lines 871--872
  [][] 
  []
 
-<IMAGES/perimeter.png, id=88, 578.16pt x 433.62pt>
+<IMAGES/perimeter.png, id=92, 578.16pt x 433.62pt>
 File: IMAGES/perimeter.png Graphic file (type png)
  <use IMAGES/perimeter.png>
-Package pdftex.def Info: IMAGES/perimeter.png used on input line 871.
+Package pdftex.def Info: IMAGES/perimeter.png used on input line 873.
 (pdftex.def)             Requested size: 260.16959pt x 195.1272pt.
 
-Overfull \hbox (33.59662pt too wide) in paragraph at lines 871--872
+Overfull \hbox (24.15398pt too wide) in paragraph at lines 873--874
  [][] 
  []
 
-[16 <./IMAGES/expinitialconf.png> <./IMAGES/initialconf.png (PNG copy)> <./IMAG
-ES/interface165.png> <./IMAGES/interface330.png> <./IMAGES/interface495.png> <.
-/IMAGES/interface660.png>] [17 <./IMAGES/xextend.png (PNG copy)> <./IMAGES/area
-.png (PNG copy)> <./IMAGES/yextend.png (PNG copy)> <./IMAGES/perimeter.png (PNG
- copy)>] <IMAGES/pics/outline.png, id=98, 578.16pt x 433.62pt>
-File: IMAGES/pics/outline.png Graphic file (type png)
 
-<use IMAGES/pics/outline.png>
-Package pdftex.def Info: IMAGES/pics/outline.png used on input line 924.
-(pdftex.def)             Requested size: 212.41261pt x 159.30547pt.
+Overfull \hbox (2.2222pt too wide) in paragraph at lines 861--876
+[][] [] 
+ []
 
-<IMAGES/pics/Delaunay_Triangulation_of_Colima_clean.png, id=99, 578.16pt x 433.
-62pt>
-File: IMAGES/pics/Delaunay_Triangulation_of_Colima_clean.png Graphic file (type
- png)
- <use IMAGES/pics/Delaunay_Triangulation_of_Colima_clean.png>
-Package pdftex.def Info: IMAGES/pics/Delaunay_Triangulation_of_Colima_clean.png
- used on input line 929.
-(pdftex.def)             Requested size: 212.41261pt x 159.30547pt.
+[17 <./IMAGES/interface165.png> <./IMAGES/interface330.png> <./IMAGES/interface
+495.png> <./IMAGES/interface660.png>]
+<IMAGES/incline_num_elem.png, id=98, 578.16pt x 433.62pt>
+File: IMAGES/incline_num_elem.png Graphic file (type png)
 
-<IMAGES/pics/Skeleton_line.png, id=100, 578.16pt x 433.62pt>
-File: IMAGES/pics/Skeleton_line.png Graphic file (type png)
+<use IMAGES/incline_num_elem.png>
+Package pdftex.def Info: IMAGES/incline_num_elem.png used on input line 883.
+(pdftex.def)             Requested size: 260.16959pt x 195.1272pt.
 
-<use IMAGES/pics/Skeleton_line.png>
-Package pdftex.def Info: IMAGES/pics/Skeleton_line.png used on input line 934.
-(pdftex.def)             Requested size: 212.41261pt x 159.30547pt.
+Overfull \hbox (24.15398pt too wide) in paragraph at lines 883--884
+ [][] 
+ []
 
-<IMAGES/pics/Outline_Skeleton_line.png, id=101, 578.16pt x 433.62pt>
-File: IMAGES/pics/Outline_Skeleton_line.png Graphic file (type png)
+<IMAGES/incline_timing1.png, id=99, 578.16pt x 433.62pt>
+File: IMAGES/incline_timing1.png Graphic file (type png)
 
-<use IMAGES/pics/Outline_Skeleton_line.png>
-Package pdftex.def Info: IMAGES/pics/Outline_Skeleton_line.png used on input li
-ne 939.
-(pdftex.def)             Requested size: 212.41261pt x 159.30547pt.
+<use IMAGES/incline_timing1.png>
+Package pdftex.def Info: IMAGES/incline_timing1.png used on input line 890.
+(pdftex.def)             Requested size: 260.16959pt x 195.1272pt.
 
-<IMAGES/skeleton_outline1.jpg, id=102, 1004.75375pt x 801.99625pt>
-File: IMAGES/skeleton_outline1.jpg Graphic file (type jpg)
+Overfull \hbox (24.15398pt too wide) in paragraph at lines 890--891
+ [][] 
+ []
 
-<use IMAGES/skeleton_outline1.jpg>
-Package pdftex.def Info: IMAGES/skeleton_outline1.jpg used on input line 952.
-(pdftex.def)             Requested size: 165.2138pt x 131.87088pt.
 
-<IMAGES/tiny1.jpg, id=103, 1001.7425pt x 827.09pt>
+Overfull \hbox (2.2222pt too wide) in paragraph at lines 881--894
+[][] [] 
+ []
+
+[18 <./IMAGES/xextend.png (PNG copy)> <./IMAGES/area.png (PNG copy)> <./IMAGES/
+yextend.png (PNG copy)> <./IMAGES/perimeter.png (PNG copy)>]
+<IMAGES/tiny1.jpg, id=103, 1232.605pt x 860.21375pt>
 File: IMAGES/tiny1.jpg Graphic file (type jpg)
  <use IMAGES/tiny1.jpg>
-Package pdftex.def Info: IMAGES/tiny1.jpg used on input line 959.
-(pdftex.def)             Requested size: 215.24362pt x 177.70729pt.
+Package pdftex.def Info: IMAGES/tiny1.jpg used on input line 981.
+(pdftex.def)             Requested size: 224.2141pt x 156.4725pt.
 
-<IMAGES/levelset1.jpg, id=104, 1002.74625pt x 800.9925pt>
+<IMAGES/levelset1.jpg, id=104, 1228.59pt x 860.21375pt>
 File: IMAGES/levelset1.jpg Graphic file (type jpg)
 
 <use IMAGES/levelset1.jpg>
-Package pdftex.def Info: IMAGES/levelset1.jpg used on input line 961.
-(pdftex.def)             Requested size: 215.24362pt x 171.92891pt.
+Package pdftex.def Info: IMAGES/levelset1.jpg used on input line 983.
+(pdftex.def)             Requested size: 224.2141pt x 156.98442pt.
 
-<IMAGES/phasefield1.jpg, id=105, 1002.74625pt x 831.105pt>
+<IMAGES/phasefield1.jpg, id=105, 1239.63126pt x 860.21375pt>
 File: IMAGES/phasefield1.jpg Graphic file (type jpg)
 
 <use IMAGES/phasefield1.jpg>
-Package pdftex.def Info: IMAGES/phasefield1.jpg used on input line 967.
-(pdftex.def)             Requested size: 215.24362pt x 178.39241pt.
+Package pdftex.def Info: IMAGES/phasefield1.jpg used on input line 989.
+(pdftex.def)             Requested size: 224.2141pt x 155.57996pt.
 
-<IMAGES/comparison1.jpg, id=106, 1001.7425pt x 825.0825pt>
+<IMAGES/comparison1.jpg, id=106, 1229.59375pt x 860.21375pt>
 File: IMAGES/comparison1.jpg Graphic file (type jpg)
 
 <use IMAGES/comparison1.jpg>
-Package pdftex.def Info: IMAGES/comparison1.jpg used on input line 969.
-(pdftex.def)             Requested size: 215.24362pt x 177.27597pt.
- [18 <./IMAGES/skeleton_outline1.jpg>] [19 <./IMAGES/pics/outline.png (PNG copy
-)> <./IMAGES/pics/Delaunay_Triangulation_of_Colima_clean.png (PNG copy)> <./IMA
-GES/pics/Skeleton_line.png (PNG copy)> <./IMAGES/pics/Outline_Skeleton_line.png
- (PNG copy)>] [20 <./IMAGES/tiny1.jpg> <./IMAGES/levelset1.jpg> <./IMAGES/phase
-field1.jpg> <./IMAGES/comparison1.jpg>] [21]
-(./thinlayerpaper.bbl
+Package pdftex.def Info: IMAGES/comparison1.jpg used on input line 991.
+(pdftex.def)             Requested size: 224.2141pt x 156.85316pt.
+
+Overfull \hbox (2.2222pt too wide) in paragraph at lines 979--994
+[][] [] 
+ []
+
+<IMAGES/colima_num_elem.png, id=107, 578.16pt x 433.62pt>
+File: IMAGES/colima_num_elem.png Graphic file (type png)
+
+<use IMAGES/colima_num_elem.png>
+Package pdftex.def Info: IMAGES/colima_num_elem.png used on input line 1029.
+(pdftex.def)             Requested size: 260.16959pt x 195.1272pt.
+
+Overfull \hbox (24.15398pt too wide) in paragraph at lines 1029--1030
+ [][] 
+ []
+
+<IMAGES/colima_timing1.png, id=108, 578.16pt x 433.62pt>
+File: IMAGES/colima_timing1.png Graphic file (type png)
+
+<use IMAGES/colima_timing1.png>
+Package pdftex.def Info: IMAGES/colima_timing1.png used on input line 1036.
+(pdftex.def)             Requested size: 260.16959pt x 195.1272pt.
+
+Overfull \hbox (24.15398pt too wide) in paragraph at lines 1036--1037
+ [][] 
+ []
+
+
+Overfull \hbox (2.2222pt too wide) in paragraph at lines 1027--1040
+[][] [] 
+ []
+
+[19 <./IMAGES/incline_num_elem.png (PNG copy)> <./IMAGES/incline_timing1.png (P
+NG copy)>] [20 <./IMAGES/tiny1.jpg> <./IMAGES/levelset1.jpg> <./IMAGES/phasefie
+ld1.jpg> <./IMAGES/comparison1.jpg>] [21 <./IMAGES/colima_num_elem.png (PNG cop
+y)> <./IMAGES/colima_timing1.png (PNG copy)>] (./thinlayerpaper.bbl
 (/usr/share/texlive/texmf-dist/tex/latex/ucs/data/uni-32.def
 File: uni-32.def 2013/05/13 UCS: Unicode data U+2000..U+20FF
 ) [22] [23])
 
 Package natbib Warning: There were undefined citations.
 
-[24] (./thinlayerpaper.aux) ) 
+[24] (./thinlayerpaper.aux)
+
+LaTeX Warning: There were multiply-defined labels.
+
+ ) 
 Here is how much of TeX's memory you used:
- 5520 strings out of 494977
- 81696 string characters out of 6180183
- 150926 words of memory out of 5000000
- 8597 multiletter control sequences out of 15000+600000
+ 5504 strings out of 494977
+ 81197 string characters out of 6180183
+ 150866 words of memory out of 5000000
+ 8583 multiletter control sequences out of 15000+600000
  15644 words of font info for 63 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 38i,20n,41p,1225b,463s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmbx9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.
-pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></
-usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/sha
-re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texl
-ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
-blic/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pf
-b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share
-/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texli
-ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on thinlayerpaper.pdf (24 pages, 5527290 bytes).
+ 38i,20n,41p,1225b,462s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+r5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><
+/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmtt10.pfb>
+Output written on thinlayerpaper.pdf (24 pages, 4385449 bytes).
 PDF statistics:
- 190 PDF objects out of 1000 (max. 8388607)
+ 189 PDF objects out of 1000 (max. 8388607)
  112 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 131 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 126 words of extra memory for PDF output out of 10000 (max. 10000000)
 
