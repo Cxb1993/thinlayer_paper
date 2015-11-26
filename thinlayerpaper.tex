@@ -39,7 +39,7 @@ Results of the methods for flow over a simple inclined plane and Colima volcano 
 Colima volcano they have been compared with field data. We successfully captured the interface of the flow and solved the accuracy and stability problems related to the thin layer problem in 
 SW numerical solution. The comparison of results shows that although all of the methods can be used to address this problem, 
 each of them has its own advantages/disadvantages and methods have to be chosen carefully for each problem.
-\textbf{Keywords:} Shallow water flow, Thin layer, Wetting/Drying, Phase field, Level set}
+\textbf{Keywords:} Shallow water flow, Thin layer, Wetting/Drying, Phase field, Level Set}
 \end{abstract}
 % =============================================================================
 %                 INTRODUCTION
@@ -146,8 +146,8 @@ The Cahn-Hilliard and Allen-Cahn formulations are two principal formulation for 
 that the first one is mass conservative while the second is not. Mathematically, the conservative form has a forth order derivative while the other one has a second order derivative. 
 This difference in the highest order of derivative will make the later form much easier to implement.
 Based on our best knowledge no published work has used the phase field method to capture an interface in the shallow water equations.
-%%%%%%%%%%%%%%%%%%%%%%%%%% Level set method %%%%%%%%%%%%%%%%%%%%%%%%%%%
-The Level set method is another Eulerian interface capturing technique. It was introduced by Osher and Sethian in 1988 \cite{Osher1988}. In this method, the scalar variable is typically 
+%%%%%%%%%%%%%%%%%%%%%%%%%% Level Set method %%%%%%%%%%%%%%%%%%%%%%%%%%%
+The Level Set method is another Eulerian interface capturing technique. It was introduced by Osher and Sethian in 1988 \cite{Osher1988}. In this method, the scalar variable is typically 
 a signed distance function which indicates the distance of a grid point to the interface. 
 The only work that used the level set method to mitigate the wetting-drying problem is Quecedo and Pastor \cite{quecedo2002rtg}. 
 They developed a Taylor-Galerkin approach to solve the SW equations. They presented two 
@@ -199,12 +199,12 @@ While our new multi-faceted thin-layer mitigation strategies were developed in t
 much of this approach should be appropriate for use in depth-averaged flow solvers with different numerical implementations. 
 The depth-averaged equations that Titan2D solves are:
 \begin{equation}
-\label{governingeq}
-\begin{tabular}{lllllll}
+	\label{governingeq}
+	\begin{tabular}{lllllll}
         {\Large $\frac{\partial h}{\partial t}$} &+& {\Large $\frac{\partial \left(V_x\cdot h\right)}{\partial x}$} &+& {\Large $\frac{\partial \left(V_y\cdot h\right)}{\partial y}$} &=& $S_h$, \\
         {\Large $\frac{\partial hV_x}{\partial t}$} &+& {\Large $\frac{\partial \left(V_x\cdot hV_x+0.5 k_{ap}g_zh^2\right)}{\partial x}$} &+& {\Large $\frac{\partial \left(V_y\cdot hV_x\right)}{\partial y}$} &=&$S_x$, \\
-        {\Large $\frac{\partial hV_y}{\partial t}$} &+& {\Large $\frac{\partial \left(V_x\cdot hV_y\right)}{\partial x}$}&+& {\Large $\frac{\partial \left(V_y\cdot hV_y+0.5 k_{ap}g_zh^2\right)}{\partial y}$} &=&$S_y$.
-\end{tabular}
+       {\Large $\frac{\partial hV_y}{\partial t}$} &+& {\Large $\frac{\partial \left(V_x\cdot hV_y\right)}{\partial x}$}&+& {\Large $\frac{\partial \left(V_y\cdot hV_y+0.5 k_{ap}g_zh^2\right)}{\partial y}$} &=&$S_y$.
+	\end{tabular}
 \end{equation}
 In these equations:
 \begin{itemize}
@@ -586,7 +586,7 @@ and it is -1 for void regions $ \lbrace \textbf{x}: \phi(\textbf{x},t)=-1 \rbrac
 We can implicitly assume the interface of the flow is where $ \lbrace \textbf{x}: \phi(\textbf{x},t)= 0 \rbrace  $.
 %The strong thermodynamical and physical derivation of the method make it so powerful for capturing the complicated topological changes especially for the problems that the interface motion depends 
 %on gradients of an external field normal to the interface and on the local curvature of the interface.
-In this study we used Allen-Cahn form of the phase field. 
+In this study we used the Allen-Cahn form of the phase field. 
 \begin{equation} 
         \label{allencahn}
         \frac{\partial \varphi }{\partial t} + \overrightarrow{V}\cdot \nabla \varphi = 
@@ -597,9 +597,9 @@ where
         \label{fprime}
         F(\varphi)=\frac{1}{4\eta^2} (\varphi^2-1)^2 ,\text{\ so \ \ } F'(\varphi)= \frac{\delta F}{\delta \varphi} = \frac{1}{\eta^2} \varphi (\varphi^2 -1).
 \end{equation}
-In above equation $\eta$ is a constant that regulates the capillary width or diffusion width, and $ \gamma $ denotes an elastic relaxation constant, and $F(\varphi)$ is 
-a mixing free energy which is the well-known double-well potential function, and represents the interactions of different volume fractions of individual species \cite{Bronsard1990,Larson1999}.
-This formulation is easier to solve, but is not mass conservative, to conserve the mass a Lagrange multiplier in form of $(\varphi^2-1)\xi(t)$ is added as a source term to the right hand side of equation \eqref{allencahn}. The reason that we select this form for the Lagrange multiplier is because we do not want to change $\varphi$ on the bulk region as well as when on the interface i.e when $\varphi=\pm1$. So the final for of equation $\xi(t)$ would be:  
+In above equation $\eta$ is a constant that regulates the capillary width or diffusion width, $ \gamma $ denotes an elastic relaxation constant, and $F(\varphi)$ is 
+a mixing free energy which is the well-known double-well potential function and represents the interactions of different volume fractions of individual species \cite{Bronsard1990,Larson1999}.
+This formulation is easier to solve, but is not mass conservative. To conserve the mass a Lagrange multiplier in form of $(\varphi^2-1)\xi(t)$ is added as a source term to the right hand side of equation \eqref{allencahn}. The reason that we select this form for the Lagrange multiplier is because we do not want to change $\varphi$ on the bulk region as well as when on the interface i.e when $\varphi=\pm1$. So the final for of equation $\xi(t)$ would be:  
 \begin{equation} 
         \label{allencahn_mod}
         \frac{\partial \varphi }{\partial t} + \overrightarrow{V}\cdot \nabla \varphi = 
@@ -610,7 +610,7 @@ and the constrain that has to be satisfied is:
         \label{constrain}
         \frac{D}{Dt} \int_\Omega \varphi h \ \ dx= 0,
 \end{equation}
-which basically means the initial volume of pile must be constant during the simulation. Consequently $\xi(t)$ is derived as follow:
+which basically means the volume of pile must be constant during the simulation. Consequently $\xi(t)$ is derived as follow:
 \begin{equation} 
         \label{eta}
         \frac{D}{Dt} \int_\Omega \varphi h \ \ dx= h \int_\Omega \frac{D}{Dt}  \varphi  \ \ dx+\underbrace{\varphi \int_\Omega  \frac{D}{Dt} h  \ \ dx}_{=0 \text{\ \ continuity}}=h\int_\Omega \gamma (\bigtriangleup\varphi -F'(\varphi)+\varphi (\varphi^2-1)\ \xi(t)) \ \ dx,
@@ -629,15 +629,16 @@ so to always satisfy the constrain \eqref{constrain} we end up with:
 \frac{1}{\eta^2} \int_\Omega  \varphi (\varphi^2 -1) \ \ dx = \xi(t) \int_\Omega (\varphi^2-1)  \ \ dx \Rightarrow \xi(t) = \frac{\int_\Omega  \varphi (\varphi^2 -1) \ \ dx}{\eta^2 \int_\Omega (\varphi^2-1)  \ \ dx }
 \end{equation}
 We set $\eta=n\  \delta x$, where $\delta x$ is equal to the smallest cell length of all elements and $n$ is the number of the buffer layers explained in section \ref{adaptivemeshing}.
-Form time integration of equation \eqref{allencahn_mod} we use operator splitting to get benefit of propper scheme for each part of the equation. We use the Euler explicit method for time integration of all terms except the Laplacian terms, and update the Laplacian term by the Euler implicit scheme. The length of time step is based on CFL condition for the explicit scheme. 
+For time integration of equation \eqref{allencahn_mod} we use operator splitting. The Euler explicit method is used for time integration of all terms except the Laplacian terms, 
+which are updated implicitly. The size of time step is based on CFL condition for the explicit scheme. \red{Do you mean that the time step is chosen based on the velocity?}
 \begin{align}
 \frac{\varphi^{i+.5}-\varphi^i}{\bigtriangleup t}&= \gamma (-F'(\varphi^i)+\varphi^i (1-(\varphi^i)^2)\ \xi(t^i)) \label{eq1.exp}\\
 \frac{\varphi^{i+1}-\varphi^{i+.5}}{\bigtriangleup t} &= \gamma \nabla .\nabla \varphi^{i+1} \label{eq2.exp}
 \end{align}
 We used GMRES solver of the PETSc \cite{petsc-user-ref} library to solve equation \eqref{eq2.exp}. Since the Krylov subspace solvers just needs the result of matrix-vector multiplication, we used matrix-free method to compute the laplacian term to decrease the memory cost of implicit solver.
 \subsection{Third: Level Set Method} \label{level set}
-The last method that we use to capture the interface for a SW flow is the Level set method.
-The Level set method is another Eulerian interface capturig method; it was introduced by Osher and Sethian in 1988 \cite{Osher1988}.
+The last method that we use to capture the interface for a SW flow is the Level Set method.
+The Level Set method is another Eulerian interface capturig method, originally introduced by Osher and Sethian in 1988 \cite{Osher1988}.
 The basis of the method is to capture the interface by means of solving a hyperbolic Hamilton-Jacobi PDE on 
 the computational domain which follows the boundaries. The level set variable $\varPsi (X,t)$ implicitly represents the interface. In this method, $\varPsi (X,t)$ is a signed distance function which means it is zero on the interface, and its absolute value changes in the domain with respect to the distance to the zero level, and its sign is positive outside of the interface, and is negative inside of the interface. 
 Given the initial condition $\varPsi (X,t)_0$ the advection of the interface ($\varPsi (X,t)=0$) only depends on the normal velocity $F$:
@@ -650,27 +651,48 @@ $ \frac{\nabla \varPsi}{|\nabla \varPsi|}$ leads to:
         \frac{\partial \varPsi}{\partial t} + \overrightarrow{V} \nabla \varPsi = 0
 \end{equation}
 \subsubsection{Reinitialization} \label{reinitialization}
-Solution of equation \eqref{levelseteq2} is not essentially a signed distance function, to keep $\varPsi$ a signed distance function, we need a procedure that is called initialization or reinitialization. There are several techniques for this purpose \cite{Osher1988}, but what we implemented here is a composition of the method presented in Chopp's work \cite{Chopp2001} with some modifications, for the points close to the interface, and a PDE based initialization for the further places\cite{Sussman1994a}.
-PDE based initialization is easy for parallelization, though it suffers from preserving the interface location that causes loose of conservation mass/area. Chopp's suggests a bicubic interpolation for the points near the interface \cite{Chopp2001}, but here we use a bilinear interpolation which is not as accurate as what he suggested, but it is accurate enough to preserve the interface. For further distances we do not need very accurate $\varPsi$, so we use a PDE based reinitialization which is easier to implement and has lower computational cost. In our approach, we first find $\varPsi$ for the points that are adjacent to the interface, then use these points to update the signed distance function for rest of the points by PDE based initialization. In this way, the interface $( \varPsi=0 )$ is preserved with an affordable computational cost and effort. Moreover, since just $\varPsi$ is required for the points that are located near the interface, there is no need to update it for whole of the domain, so in this work we select $\varPsi_{thresh}<10\ \delta x$, which  $\delta x$ is the smallest size of the elements, as the threshold for updating $\varPsi$ in the initialization.
-The signed distance function is updated for adjacent points to the interface in following steps:
+The solution of equation \eqref{levelseteq2} might no remain a signed distance function. To keep $\varPsi$ a signed distance function, we need a procedure that is called 
+reinitialization. There are several techniques for this purpose \cite{Osher1988}, but what we implemented here is a composition of the method presented in Chopp's work \cite{Chopp2001} with 
+some modifications for the points close to the interface, and a PDE based reinitialization for the further places\cite{Sussman1994a}.
+PDE based reinitialization is easy for parallelization, though it has been known to induce mass loss. Chopp's suggests a bicubic interpolation for the points near the interface \cite{Chopp2001},
+but here we use a bilinear interpolation which is not as accurate as what he suggested, but it is accurate enough to preserve the interface. 
+For points far from the interface we do not need a very accurate $\varPsi$, so we use a PDE based reinitialization which is easier to implement and has lower computational cost. 
+In our approach, we first find $\varPsi$ for the points that are adjacent to the interface, then use these points to update the signed distance function for rest of the domain using a PDE based method.
+In this way, the interface $( \varPsi=0 )$ is preserved with an affordable computational cost and effort. Moreover, since just $\varPsi$ is required for the points that are located near the interface, 
+there is no need to update it for whole of the domain, so in this work we select $\varPsi_{thresh}<10\ \delta x$, where $\delta x$ is the smallest size of the elements, 
+as the threshold for updating $\varPsi$ in the PDE-based reinitialization process.
+The signed distance function is updated for adjacent points to the interface in the following steps:
 \begin{enumerate}
-\item First we find the adjacent points to the interface, and store them in a list that is usually called accepted points list in the literature \cite{Chopp2001}. 
-\item Second step is to find an interpolation for a level set function $p(X)$ that returns $\varPsi(X)$ given the position of the points. 
-\item The last step is to compute the distance of accepted points based on the following conditions:
+\item First we find the adjacent points to the interface, and store them in a list that is usually called the accepted point list in the literature \cite{Chopp2001}. 
+\item The next step is to determine the interpolant for the level set function, $p(X)$, that returns $\varPsi(X)$ for a point $X$.
+\item The last step is to compute the distance of the accepted points based on the following conditions:
 \begin{subequations}
 \begin{align}
 &p(X_{int})=0,\label{dist_cond1} \\ 
 &\nabla p(y) \times (X_0-X_{int})=0,\label{dist_cond2}
 \end{align}
 \end{subequations}
-where $X_{int}$ is the nearest point on the interface, and $X_0$ is the point in the accepted list that we want to compute its distance to the interface. First condition \eqref{dist_cond1} basically means that $X_{int}$ is on the interface, and the second condition says that if we draw a line from $X_0$ to closest point on the interface, it has to be perpendicular on intersection point with the interface. In this part, we followed the notation of Chopp's paper \citep{Chopp2001}.
+where $X_{int}$ is the nearest point on the interface, and $X_0$ is the point in the accepted list that we want to compute its distance to the interface. 
+The first condition \eqref{dist_cond1} requires that $X_{int}$ is on the interface, and the second condition states that the interface normal at the closest point 
+must pass through $X_0$. In this part, we followed the notation of Chopp's paper \citep{Chopp2001}.
 \end{enumerate}
-In the first step, we just need to find those points that sign of $\varPsi$ is different from their neighbors, and store them in a list that we call them accpeted points list. 
-For the second step, there are different ways for interpolation through the accepted points and finding $p$. In many applications, like in this study, initial interface has a specific geometrical shape like circle or ellipse, so we do not need to find it approximately, and its equation can be used directly as $p(X)$. For example, in this study initial pile has elliptic shape, so the initial interface follows elliptic equation. If we do not know the equation of the interface which is usually the case, especially in the reinitialization, we need to find $p$ by interpolation. Chopp's suggested a bicubic approximation \cite{Chopp2001} to achieve a fully second order accurate  result, but his method yields to solve a 16 by 16 system of equations for every four neighbor points in the accepted list to find the coefficient of the bicubic interpolation. Since the whole point of this interpolation is to compute the distance to the interface more accurately, in order to preserve the location of the interface, in this study instead of bicubic approximation we used a bilinear interpolation. So the general form of $p$ is:
+
+In the first step, we just need to find those points where the sign of $\varPsi$ is different from their neighbors, and store them in a list that we call them accpeted points list. 
+For the second step, there are different ways to perform the interpolation. In many applications, like in this study, the initial interface has a specific geometrical shape such as a circle or ellipse, 
+so we do not need to find this interpolant approximately, and its equation can be used directly as $p(X)$. 
+For example, in this study the initial pile has an elliptic shape, so the initial interface follows the elliptic equation. 
+
+If we do not know the equation of the interface, which is usually the case, 
+we need to approximate the interface using interpolation. Chopp suggested a bicubic approximation \cite{Chopp2001} to achieve a fully second order accurate 
+result, but this method requires the solution of a 16 by 16 system of equations for cell containing the interface to determine the coefficients 
+of the bicubic interpolation. 
+The purpose of the interpolation based method is to ensure that the interface does not undergo spurious motion.
+Therefore, the use of bilinear interpolation should be sufficiency. The general form of $p$ is:
 \begin{equation}\label{interpolation}
 p=a_0+a_1 \ x+ a_2 \ y+ a_3 \ xy.
 \end{equation} 
-A general way to find $a_0$ to $a_3$ for a grid with different element sizes is to solve a system of 4 by 4 equations \eqref{bilin_system} resulted from value of $\varPsi$ and the positions of the points. 
+A general way to find $a_0$ to $a_3$ for a grid with different element sizes is to solve a system of 4 by 4 equations \eqref{bilin_system} resulted from value of $\varPsi$ and the 
+positions of the points. 
 \begin{equation}
 \label{bilin_system}
 \begin{bmatrix}
@@ -693,7 +715,8 @@ A general way to find $a_0$ to $a_3$ for a grid with different element sizes is 
      \varPsi_4  
 \end{bmatrix}
 \end{equation} 
-But since here we maximally refine the elements near the interface, all of the elements that are selected for the interpolation have the same size and four cell centers can be considered as the vertices of a rectangle, so the coefficients of equation \eqref{interpolation} can be computed as following:
+In our case the elements near the interface are of uniform size, and the four cell centers can be considered as the vertices of a rectangle, so the coefficients of 
+equation \eqref{interpolation} can be computed as following:
 \begin{subequations}
 \begin{align}
 a_0&=\frac{(\varPsi_1 x_2 y_2 - \varPsi_2 x_2 y_1 - \varPsi_3 x_1 y_2 + \varPsi_4 x_1 y_1)}{(x_2-x_1)(y_2-y_1)}, \\ 
@@ -709,26 +732,37 @@ where $\varPsi_1=(x_1,y_1), \varPsi_2=(x_1,y_2), \varPsi_3=(x_2,y_1)$ and $\varP
 \caption{Configuration of the four elements that have been selected for bilinear interpolation. In this schematic example the interface passes through two hypothetical edges of (2-4) and (1-2) edges. This is just for demonstration purpose and has no effect on the equations.}
                 \label{fig:bilinear_interp}
 \end{figure}
-After finding the interpolation $p$, we can compute the distance from equation \eqref{dist_cond1} and \eqref{dist_cond2}. These equations form a nonlinear system of equations that we use a variant of Newton's method presented in \cite{Chopp2001} to solve them:
+After finding the interpolation function $p$, we can compute the distance from a point to the interface using equations \eqref{dist_cond1} and \eqref{dist_cond2}. 
+The solution is calculated using a variant of Newton's method as presented in \cite{Chopp2001}:
 \begin{subequations}
 \label{eqnewton}
 \begin{align}
 &\delta_1=-p(X^k)\frac{\nabla p(X^k)}{\nabla p(X^k).\nabla p(X^k)},\\
 & X_{1+\frac{1}{2}}=X_k+\delta_1,\\
 & \delta_2=(X^0-X^k)-\frac{(X^0-X^k).\nabla p(X^k)}{\nabla p(X^k).\nabla p(X^k)}\nabla p(X^k),\\
-&X_{k+1}=X_{1+\frac{1}{2}}+\delta_2,
+&X_{k+1}=X_{1+\frac{1}{2}}+\delta_2.
 \end{align}
 \end{subequations}
-equation \eqref{eqnewton} is an iterative method that starts from $X_0$ which is the point that we want to find its distance to the interface. Clearly, above equation gives the nearest point on the interface, and then the distance can be computed, and sign of $\varPsi$ is same as what it was before reinitialization.
-For interpolation in \eqref{interpolation}, we need four points. When we create accepted list, instead of storing points we store a pair of points that are neighbor and their sign of $\varPsi$ is different. Then to find two other points, it is enough to select a direction perpendicular to the direction that connects the selected pair, and find the neighbors of the first two points in this direction. 
-%Since we use AMR with structured grid in TITAN2D, the selected four points creates a quadrilateral (and not essentially a rectangle or squre) that are used for the interpolation.
-Before proceeding to the next step about PDE based initialization that we use for the rest of the points, we like to mention some computational remarks about the aforementioned step. In parallel computation we decompose the domain between the processors, and each processor is responsible for a part of the domain. On other hand, in finite volume we need the information of the neighboring cells to compute the fluxes and the derivatives. For those elements that are on the boundary of the decomposed parts these information are living in the other processors, so to have this information one solution that avoids excessive inter-processor communications is to make a copy of these off-processors cells on the other processor that we need their information to update the cells. This group of cells that are updated in the other cells, but we need their information in another processor are called ghost cells. Depend on the stencil that is used in computing the derivatives and fluxes different layers of the ghost cells are required. For example for a five point stecil we need the information of neighbor and neighbor of neighbor cells, and in TITAN2D, we just need the neighbor information. 
-We mentioned this here because in selecting the points for interpolation, we have the information of the neighbor cells, but as described earlier, we also need the information of neighbor of a neighbor for the interpolation. This case is a challenge when the interface exactly passes on the decomposition boundary which means a cell that id inside of the flow has a neighbor ghost cell which is outside of the boundary. Compare to the number of accepted cells that is a rare case, and  so to avoid the communication to get the information of the neighbor of neighbor ghost cell we find the interpolation here in a different way. For this cases, instead of using a bilinear interpolation we use three points to make a surface and do the interpolation in form of \eqref{Surface}:
+This is an iterative method that starts from $X_0$, which is the point that we want to find its distance to the interface. 
+On the nearest point on the interface is determined, the distance can be computed, and sign of $\varPsi$ is the same as it was before reinitialization.
+For interpolation as shown in equation \eqref{interpolation}, we need four points. When we create the accepted list, instead of storing points we store a pair of points that are 
+neighbors where their sign of $\varPsi$ differs. Then to find two other points, it is enough to select a direction perpendicular to the direction that connects the selected pair, 
+and find the neighbors of the first two points in this direction. 
+
+
+Before proceeding to the PDE-based step, we would like to make some remarks about the aforementioned step. 
+In parallel computation the domain is decomposed between multiple processors, with each processor holding a port responsible for a part of the domain. 
+The information on neighboring processors is stored in ``ghost"-cells, which are updated using inter-processor communication. In TITAN2D only the neighboring ghost
+cells in the $x$ and $y$ directions are provided. Thus, a cell at location $(i,j)$ does not have direct access to the information stored at location $(i+1, j+1)$. 
+This causes issues in the rare instances that the interface is near the corner of a processor's domain, figure \ref{fig:surf_interp}. To avoid 
+excessive inter-processor communication the bilinear interpolation described before is modified to purely linear interpolation method requiring 
+only three points:
 \begin{equation}
 \label{Surface}
-p=a_0+a_1 x+a_2 y
+p=a_0+a_1 x+a_2 y.
 \end{equation} 
-Two of these three points are coming from the pair that we know the interface is passing through them and previously have been stored in the accepted list, and the third point is of the the neighbors that we have its information which is perpendicular to the hypothetical edge that connects the selected pair (figure \ref{fig:surf_interp}). Having these three points we first make two vectors and then the normal vector to these two vectors which is the normal vector of the surface. With the normal vector and one of the points we can find the $p$ equation which satisfies the three points as follow: 
+When choosing the three points needed for interpolation we ensure that only the points in Cartesian directions are used.
+With these three points the interpolant is given by:
 \begin{figure}[ht]
 \centering
 \includegraphics[scale=.25]{IMAGES/surf_interp.png}
@@ -768,13 +802,17 @@ p_2=
 \end{bmatrix},\\
 &a_0=\frac{n_1}{n_3}x_1+\frac{n_2}{n_3}y_1+\varPsi_1 \ \ \  \ a_1=\frac{-n_1}{n_3}, \ \ \ a_2=\frac{-n_2}{n_3}
 \end{align}
-Another point that we want to make here is that our experience shows using set container of C++ standard library is a very proper data structure for storing the adjacent points near the interface in the first step. The reason is that this container keeps its item in a sorted way, and does not let to store duplicated items. So when we search to find those neighbors that have different $\varPsi$ signs to store them in the list, we will not worry to store an element more than once, and there is no need to check the list every time that we want to save a new element to make sure that we have not saved it before. Only thing that one has to do is to overload the less operator by the desired properties of the elements, that could be element's position or key, to have a sorted list with the unique items.
-After finding $\varPsi$ for the points adjacent to the interface, $\varPsi$ in other points can be updated with a PDE based reinitialization in an unwinding scheme. We used the following PDE for this aim:
+Another point that we want would like make is that standardized structures, such as the set container of the C++ standard library, are very proper data structures for storing the 
+adjacent points near the interface. The reason for this is that this container keeps its item in a sorted way, and does not allow the storage of duplicate items. 
+This simplifies the coding effort as we do not need manually to check list every time that we want to save a new element. 
+
+After finding $\varPsi$ for the points adjacent to the interface, $\varPsi$ in other points can be updated with a PDE based reinitialization using an unwinding scheme. 
+We use the following PDE for this aim:
 \begin{equation}\label{initializationeq}
-        \frac{\partial \varPsi}{\partial \tau} + \sgn (\varPsi_0) (|\nabla \varPsi| - 1)= 0 
+        \frac{\partial \varPsi}{\partial \tau} + \sgn (\varPsi_0) (|\nabla \varPsi| - 1)= 0.
 \end{equation}
-In equation \eqref{initializationeq} $\tau$ is a pseudo-time and the equation should be solved until it converges reasonably. This PDE adjusts $\varPsi$ such that $|\nabla \varPsi|=1$.
-We solve equation \eqref{initializationeq} by the method introduced in \cite{Adalsteinsson1999}. 
+In equation \eqref{initializationeq}, $\tau$ is a pseudo-time and the equation should be solved until it converges reasonably. This PDE adjusts $\varPsi$ such that $|\nabla \varPsi|=1$.
+We solve equation \eqref{initializationeq} by the method introduced in \cite{Adalsteinsson1999}:
 \begin{equation}
         \varPsi_{ijk}^{n+1}=\varPsi_{ijk}^{n}-\bigtriangleup t \left(max(F,0)\bigtriangledown_{ijk}^{+}+min(F,0)\bigtriangledown_{ijk}^{-} \right),
 \end{equation}
@@ -785,15 +823,15 @@ where
                 \\& \max(D^{-y}\varPsi_{ijk}^{n})^2 + \min(D^{+y}\varPsi_{ijk}^{n})^2 \big]^{1/2}
         \end{aligned}
 \end{equation}
- 
 \begin{equation}
         \begin{aligned}
                 \bigtriangledown_{ijk}^{-} = \big[ & \min(D^{-x}\varPsi_{ijk}^{n})^2 + \max(D^{+x}\varPsi_{ijk}^{n})^2
                 \\& \min(D^{-y}\varPsi_{ijk}^{n})^2 + \max(D^{+y}\varPsi_{ijk}^{n})^2 \big]^{1/2}
         \end{aligned}
 \end{equation} 
-In the above equations $D^+$, and $D^-$ are  respectively the backward and forward differences in the corresponding directions.
-We solve equation \eqref{initializationeq} until we reach the convergence or make sure that we have updated the points far enough from the interface. The threshold that we used for convergence was $.5 (\delta x)^3$.
+In the above equations $D^+$, and $D^-$ are the backward and forward differences,respectively, in the corresponding directions.
+We solve equation \eqref{initializationeq} until we reach the convergence until points far enough from the interface have been updated.
+The threshold that we used for convergence was $.5 (\delta x)^3$. \red{Threshold for what? $\|\nabla\varPsi\|$?}
 \section{Results} \label{results}
 We use two cases to study the effects of the introduced interface capturing schemes in the section. The first case is the inclined plane, and the second one is the Colima Volcano. The reason that we selected these two cases is that for the inclined plane we have conducted experimental test, so the numerical study results could be verified with the experimental results. For the later one, i.e Colima Volcano, we used the field observation data of the outline and characteristic of the flow to simulate an eruption numerically and compare the results.
 
@@ -987,7 +1025,7 @@ In these results, we used Keyhole Markup Language (KML)  to plot them on real te
                 \includegraphics[width=.95\textwidth]{IMAGES/tiny1.jpg}
                 \subcaption{Outline from Heuristic Method}
                 \includegraphics[width=.95\textwidth]{IMAGES/levelset1.jpg}
-                \subcaption{Outline from Level set Method}
+                \subcaption{Outline from Level Set Method}
 \end{minipage}
         %   \hfill
 \begin{minipage}[b]{.5 \linewidth}
@@ -997,7 +1035,7 @@ In these results, we used Keyhole Markup Language (KML)  to plot them on real te
                 \includegraphics[width=.95\textwidth]{IMAGES/comparison1.jpg}
                 \subcaption{Comparison of all three methods}
         \end{minipage}
-        \caption{Comparison of the obtained outline of flow from Heuristic, Level set, and Phase field methods for Colima Volcano}
+        \caption{Comparison of the obtained outline of flow from Heuristic, Level Set, and Phase field methods for Colima Volcano}
         \label{Colimapic}
 \end{figure}
 %\begin{figure}[H]
