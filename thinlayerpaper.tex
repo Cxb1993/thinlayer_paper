@@ -811,7 +811,7 @@ Another point that we want would like make is that standardized structures, such
 adjacent points near the interface. The reason for this is that this container keeps its item in a sorted way, and does not allow the storage of duplicate items. 
 This simplifies the coding effort as we do not need manually to check list every time that we want to save a new element. 
 
-After finding $\varPsi$ for the points adjacent to the interface, $\varPsi$ in other points can be updated with a PDE based reinitialization using an unwinding scheme. 
+After finding $\varPsi$ for the points adjacent to the interface, $\varPsi$ in other points can be updated with a PDE based reinitialization using an upwinding scheme. 
 We use the following PDE for this aim:
 \begin{equation}\label{initializationeq}
         \frac{\partial \varPsi}{\partial \tau} + \sgn (\varPsi_0) (|\nabla \varPsi| - 1)= 0.
@@ -834,9 +834,9 @@ where
                 \\& \min(D^{-y}\varPsi_{ij}^{n})^2 + \max(D^{+y}\varPsi_{ij}^{n})^2 \big]^{1/2}
         \end{aligned}
 \end{equation} 
-In the above equations $D^+$, and $D^-$ are the backward and forward differences,respectively, in the corresponding directions.
-We solve equation \eqref{initializationeq} until we reach the convergence until points far enough from the interface have been updated.
-The criteria for convergence was selected $\sum\limits_{ij}|\varPsi_{ij}^{n+1} -\varPsi_{ij}^{n}| < .5 (\delta x)^3$. 
+In the above equations $D^+$, and $D^-$ are the backward and forward differences, respectively, in the corresponding directions.
+We solve equation \eqref{initializationeq} until $\sum\limits_{ij}|\varPsi_{ij}^{n+1} -\varPsi_{ij}^{n}| < .5 (\delta x)^3$ over all points being updated.
+
 \section{Results} \label{results}
 We use two cases to study the effects of the introduced interface capturing schemes. The first case is the inclined plane, and the second one is the Colima Volcano. The reason we selected these two cases is that for the inclined plane we have conducted experimental test, so the numerical study results could be verified with the experimental results. For the later one, i.e Colima Volcano, we used the field observation data of the outline and characteristic of the flow to simulate an eruption numerically and compare the results.
 
