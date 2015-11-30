@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2015.4.26)  29 NOV 2015 20:18
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2015.4.26)  29 NOV 2015 22:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -295,14 +295,7 @@ Package: titlesec 2011/12/15 v2.10.0 Sectioning titles
 \titlewidthlast=\dimen145
 \titlewidthfirst=\dimen146
 )
-(./thinlayerpaper.aux
-
-LaTeX Warning: Label `y_extent' multiply defined.
-
-
-LaTeX Warning: Label `sub@y_extent' multiply defined.
-
-)
+(./thinlayerpaper.aux)
 \openout1 = `thinlayerpaper.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 31.
@@ -324,8 +317,7 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: subfig package v1.3 is loaded.
 Package caption Info: float package is loaded.
 Package caption Info: End \AtBeginDocument code.
-
-(/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
+ (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count117
 \scratchdimen=\dimen147
@@ -589,107 +581,111 @@ Overfull \hbox (2.2222pt too wide) in paragraph at lines 949--964
  []
 
 [18 <./IMAGES/xextend.png (PNG copy)> <./IMAGES/area.png (PNG copy)> <./IMAGES/
-yextend.png (PNG copy)> <./IMAGES/perimeter.png (PNG copy)>]
-<IMAGES/tiny1.jpg, id=103, 1159.33125pt x 860.21375pt>
+yextend.png (PNG copy)> <./IMAGES/perimeter.png (PNG copy)>] [19 <./IMAGES/incl
+ine_num_elem.png (PNG copy)> <./IMAGES/incline_timing1.png (PNG copy)>]
+<IMAGES/outline1.jpg, id=107, 1159.33125pt x 860.21375pt>
+File: IMAGES/outline1.jpg Graphic file (type jpg)
+
+<use IMAGES/outline1.jpg>
+Package pdftex.def Info: IMAGES/outline1.jpg used on input line 1016.
+(pdftex.def)             Requested size: 236.01561pt x 175.11113pt.
+
+<IMAGES/tiny1.jpg, id=108, 1159.33125pt x 860.21375pt>
 File: IMAGES/tiny1.jpg Graphic file (type jpg)
  <use IMAGES/tiny1.jpg>
-Package pdftex.def Info: IMAGES/tiny1.jpg used on input line 1054.
+Package pdftex.def Info: IMAGES/tiny1.jpg used on input line 1025.
 (pdftex.def)             Requested size: 224.2141pt x 166.35623pt.
 
-<IMAGES/levelset1.jpg, id=104, 1159.33125pt x 860.21375pt>
+<IMAGES/levelset1.jpg, id=109, 1159.33125pt x 860.21375pt>
 File: IMAGES/levelset1.jpg Graphic file (type jpg)
 
 <use IMAGES/levelset1.jpg>
-Package pdftex.def Info: IMAGES/levelset1.jpg used on input line 1056.
+Package pdftex.def Info: IMAGES/levelset1.jpg used on input line 1027.
 (pdftex.def)             Requested size: 224.2141pt x 166.35623pt.
 
-<IMAGES/phasefield1.jpg, id=105, 1159.33125pt x 860.21375pt>
+<IMAGES/phasefield1.jpg, id=110, 1159.33125pt x 860.21375pt>
 File: IMAGES/phasefield1.jpg Graphic file (type jpg)
 
 <use IMAGES/phasefield1.jpg>
-Package pdftex.def Info: IMAGES/phasefield1.jpg used on input line 1062.
+Package pdftex.def Info: IMAGES/phasefield1.jpg used on input line 1033.
 (pdftex.def)             Requested size: 224.2141pt x 166.35623pt.
 
-<IMAGES/comparison1.jpg, id=106, 1159.33125pt x 860.21375pt>
+<IMAGES/comparison1.jpg, id=111, 1159.33125pt x 860.21375pt>
 File: IMAGES/comparison1.jpg Graphic file (type jpg)
 
 <use IMAGES/comparison1.jpg>
-Package pdftex.def Info: IMAGES/comparison1.jpg used on input line 1064.
+Package pdftex.def Info: IMAGES/comparison1.jpg used on input line 1035.
 (pdftex.def)             Requested size: 224.2141pt x 166.35623pt.
 
-Overfull \hbox (2.2222pt too wide) in paragraph at lines 1052--1067
+Overfull \hbox (2.2222pt too wide) in paragraph at lines 1023--1038
 [][] [] 
  []
 
-[19 <./IMAGES/incline_num_elem.png (PNG copy)> <./IMAGES/incline_timing1.png (P
-NG copy)>] <IMAGES/colima_num_elem.png, id=111, 578.16pt x 433.62pt>
+[20 <./IMAGES/outline1.jpg>]
+<IMAGES/colima_num_elem.png, id=115, 578.16pt x 433.62pt>
 File: IMAGES/colima_num_elem.png Graphic file (type png)
 
 <use IMAGES/colima_num_elem.png>
-Package pdftex.def Info: IMAGES/colima_num_elem.png used on input line 1102.
+Package pdftex.def Info: IMAGES/colima_num_elem.png used on input line 1047.
 (pdftex.def)             Requested size: 260.16959pt x 195.1272pt.
 
-Overfull \hbox (24.15398pt too wide) in paragraph at lines 1102--1103
+Overfull \hbox (24.15398pt too wide) in paragraph at lines 1047--1048
  [][] 
  []
 
-<IMAGES/colima_timing1.png, id=112, 578.16pt x 433.62pt>
+<IMAGES/colima_timing1.png, id=116, 578.16pt x 433.62pt>
 File: IMAGES/colima_timing1.png Graphic file (type png)
 
 <use IMAGES/colima_timing1.png>
-Package pdftex.def Info: IMAGES/colima_timing1.png used on input line 1109.
+Package pdftex.def Info: IMAGES/colima_timing1.png used on input line 1055.
 (pdftex.def)             Requested size: 260.16959pt x 195.1272pt.
 
-Overfull \hbox (24.15398pt too wide) in paragraph at lines 1109--1110
+Overfull \hbox (24.15398pt too wide) in paragraph at lines 1055--1056
  [][] 
  []
 
 
-Overfull \hbox (2.2222pt too wide) in paragraph at lines 1100--1113
+Overfull \hbox (2.2222pt too wide) in paragraph at lines 1045--1059
 [][] [] 
  []
 
-[20 <./IMAGES/tiny1.jpg> <./IMAGES/levelset1.jpg> <./IMAGES/phasefield1.jpg> <.
-/IMAGES/comparison1.jpg>] [21 <./IMAGES/colima_num_elem.png (PNG copy)> <./IMAG
-ES/colima_timing1.png (PNG copy)>] (./thinlayerpaper.bbl
+[21 <./IMAGES/tiny1.jpg> <./IMAGES/levelset1.jpg> <./IMAGES/phasefield1.jpg> <.
+/IMAGES/comparison1.jpg>] [22 <./IMAGES/colima_num_elem.png (PNG copy)> <./IMAG
+ES/colima_timing1.png (PNG copy)>] [23] (./thinlayerpaper.bbl
 (/usr/share/texlive/texmf-dist/tex/latex/ucs/data/uni-32.def
 File: uni-32.def 2013/05/13 UCS: Unicode data U+2000..U+20FF
-) [22] [23])
-[24] (./thinlayerpaper.aux)
-
-LaTeX Warning: There were multiply-defined labels.
-
- ) 
+) [24] [25]
+[26]) [27] (./thinlayerpaper.aux) ) 
 Here is how much of TeX's memory you used:
- 5522 strings out of 494977
- 81495 string characters out of 6180183
- 150033 words of memory out of 5000000
- 8601 multiletter control sequences out of 15000+600000
+ 5535 strings out of 494977
+ 81712 string characters out of 6180183
+ 150060 words of memory out of 5000000
+ 8613 multiletter control sequences out of 15000+600000
  15644 words of font info for 63 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 38i,20n,41p,1161b,462s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share/texli
-ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-r5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><
-/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/sha
-re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texli
-ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf
--dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/t
-ype1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmtt10.pfb>
-Output written on thinlayerpaper.pdf (24 pages, 4425726 bytes).
+ 38i,20n,41p,1247b,462s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmbx9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.
+pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></u
+sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pf
+b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr
+/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share
+/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on thinlayerpaper.pdf (27 pages, 4796713 bytes).
 PDF statistics:
- 189 PDF objects out of 1000 (max. 8388607)
- 112 compressed objects within 2 object streams
+ 200 PDF objects out of 1000 (max. 8388607)
+ 119 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 126 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 131 words of extra memory for PDF output out of 10000 (max. 10000000)
 

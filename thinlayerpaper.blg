@@ -3,47 +3,48 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: thinlayerpaper.aux
 The style file: plain.bst
 Database file #1: mybib.bib
+Warning--empty journal in Rupp2006
 Warning--there's a number but no volume in Medeiros2013
 Warning--there's a number but no volume in Casulli2009
-You've used 52 entries,
+You've used 53 entries,
             2118 wiz_defined-function locations,
-            853 strings with 13600 characters,
-and the built_in function-call counts, 17797 in all, are:
-= -- 1772
-> -- 906
+            860 strings with 13870 characters,
+and the built_in function-call counts, 18315 in all, are:
+= -- 1818
+> -- 949
 < -- 4
-+ -- 356
-- -- 304
-* -- 1402
-:= -- 3045
-add.period$ -- 157
-call.type$ -- 52
-change.case$ -- 301
++ -- 373
+- -- 320
+* -- 1453
+:= -- 3135
+add.period$ -- 160
+call.type$ -- 53
+change.case$ -- 312
 chr.to.int$ -- 0
-cite$ -- 54
-duplicate$ -- 583
-empty$ -- 1303
-format.name$ -- 304
-if$ -- 3571
+cite$ -- 56
+duplicate$ -- 594
+empty$ -- 1330
+format.name$ -- 320
+if$ -- 3668
 int.to.chr$ -- 0
-int.to.str$ -- 52
-missing$ -- 52
-newline$ -- 262
-num.names$ -- 106
-pop$ -- 244
+int.to.str$ -- 53
+missing$ -- 53
+newline$ -- 267
+num.names$ -- 108
+pop$ -- 255
 preamble$ -- 1
-purify$ -- 255
+purify$ -- 265
 quote$ -- 0
-skip$ -- 396
+skip$ -- 403
 stack$ -- 0
-substring$ -- 1229
+substring$ -- 1259
 swap$ -- 69
 text.length$ -- 4
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 200
-warning$ -- 2
-while$ -- 187
-width$ -- 54
-write$ -- 570
-(There were 2 warnings)
+type$ -- 204
+warning$ -- 3
+while$ -- 191
+width$ -- 55
+write$ -- 580
+(There were 3 warnings)
