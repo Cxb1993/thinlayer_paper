@@ -1004,8 +1004,8 @@ All of the simulation were performed on one Intel(R) Xeon(R) CPU E3-1220 v3 3.10
 % \end{figure}
 \subsection{Colima Volcano}
 %{\huge keith wants the result of Atentique }\\
-In this section, we verify our different interface capturing methods with a field data of an eruption of Colima volcano. 
-Colima volcano in Mexico is one of the most active volcanoes in North America, and this eruption happened on 16-17 April 1991 \cite{Charbonnier2008}. 
+In this section, we verify our different interface capturing methods using field data from an eruption of the Colima volcano. 
+The Colima volcano in Mexico is one of the most active volcanoes in North America, and this eruption happened on 16-17 April 1991 \cite{Charbonnier2008}. 
 \begin{center}
         \begin{tabular}{|l|c|}
 %               \hline
@@ -1031,19 +1031,27 @@ Colima volcano in Mexico is one of the most active volcanoes in North America, a
                 \hline
         \end{tabular}
 \end{center}
-The topography of Colima volcano is such that small changes the initial location of the pile leads to a completely different 
-path of flow, so a good performance of any of the interface capturing methods for this case promises a reliable method for other volcanoes. Unfortunately, there are very rare cases that data during the eruption available for a volcano. So we cannot compare the numerical results with the field data during the time of the event. Usually for this application, the deposit of the volcanic events is used to find the outline of the flow and to validate the numerical results.
+The topography of the Colima volcano is such that small changes in the initial location of the pile leads to a completely different 
+path of flow, so good performance of any of the interface capturing methods for this case promises a reliable method for other volcanoes. 
+Unfortunately, only in very rare cases is data during a volcanic eruption available, and thus we cannot perform a direct comparision between the numerical results 
+with time-resolved field data.
+Usually for such applications, the deposit of the volcanic event is used to find the outline of the flow and to validate the numerical results.
 
-In figure \ref{Colimapic} we compared the results of the three methods with the outline of the flow from the eruption obtained from the field data \cite{Rupp2006}. In numerical simulations the outline of the flow is the boundary between wet and dry areas of the domain for whole the simulation. In other words, the points at least flow pass them once are inside the outline, and rest of the points are located outside of the outline of the flow. 
+In figure \ref{Colimapic} we compared the results of the three methods with the outline of the flow from the eruption obtained from the field data \cite{Rupp2006}. 
+In the numerical simulations the outline of the flow is the boundary between wet and dry areas of the domain for whole the simulation. In other words, the points where the flow has
+passed are inside the outline, while the rest of the points are located outside of the outline of the flow. 
 
-Here like what we did in inclined plane case, we use the same definition for the interface for the three methods. Thus $\phi=0$ and $\varPsi=0$ for the Phase Field and the Level Set methods respectively and $h=\sqrt[3]{Vol} \times GEOFLOW\_TINY $ for the heuristic method is used to discrementae between wet and dry areas.
+As in the inclined plane case, we use the same definition for the interface.
+Thus $\phi=0$ and $\varPsi=0$ are used for the Phase Field and the Level Set methods, respectively, and $h=\sqrt[3]{Vol} \times GEOFLOW\_TINY $ 
+is used for the heuristic method to determine the wet and dry areas.
  
-The resolution of the digital elevation model (DEM) of Colima volcano that here we used is 5 meter which is the finest DEM 
+The resolution of the digital elevation model (DEM) of Colima volcano that we use here is 5 meters, which is the finest DEM 
 that we have ever used for this volcano.
 The outline of this eruption is available in \cite{NamikawaPhD}.
-In these results, we used Keyhole Markup Language (KML)  to plot them on real terrain by using Google earth application \ref{Colimapic}. 
+We used the Keyhole Markup Language (KML) to plot the results on real terrain information by using the Google earth application \ref{Colimapic}. 
 
-In figure \ref{colima_outline} you can see the plotted outline of the eruption on Colima volcano. To be able to compare the outline of each numerical methods with this outline we plot it in all of the results in figure  \ref{Colimapic} with the same color.
+In figure \ref{colima_outline} you can see the plotted outline of the eruption on Colima volcano. 
+This outline is compared to the numerically determined results in figure \ref{Colimapic}.
 
 \begin{figure}[H]
 \centering
@@ -1073,7 +1081,11 @@ In figure \ref{colima_outline} you can see the plotted outline of the eruption o
         \label{Colimapic}
 \end{figure}
 
-Results of figure \ref{Colimapic} shows that all of the method are successful to control the thin layer problem. The length of the flow has been captured in all of the methods very good which is very important for generating the hazard maps. Width of the flow is also reasonable in all of the three methods, though the Eulerian methods are more successful. However the heuristic method is the only method that captured the channeling of the flow that can be seen in the field data, but there are two small channels in the heuristic method which are not present in the field outline.
+Results of figure \ref{Colimapic} shows that all of the method are successful in controlling the thin layer problem. 
+The length of the flow has been captured in all of the methods very well, which is very important for generating hazard maps. 
+The width of the flow is also reasonable in all of the three methods, although the Eulerian methods are slightly more accurate.
+The heuristic method is the only method that captured the channeling of the flow that can be seen in the field data, 
+but there are two small channels in the heuristic method which are not present in the field outline.
 
 \begin{figure}[H]
         \begin{minipage}[b]{.5\linewidth}
@@ -1094,7 +1106,14 @@ Results of figure \ref{Colimapic} shows that all of the method are successful to
         \label{compinc}
 \end{figure}
 
-The computational comparison of the methods for Colima volcano is shown in figure \ref{compinc}. We used 16 x 2.27GHz Intel(R) Xeon(R) L5520 for this case. Figure \ref{col_amr} shows the number of the elements during the simulation for the three methods.  This figures shows the heuristic method and level set have higher number of elements than the phase field method, but requires more number of iteration to perform 1 hr physical time simulation. The right figure (figure \ref{comp_col}) shows the required time for the simulation. In this figure we can see all of the methods take almost same amount of time for computation which means that although the Level Set and the Phase Field methods are more computationally expensive per time step, but lower number of elements and less number of iterations help them to have the same computational cost as the heuristic method.  
+The computational cost comparison of the methods for the Colima volcano simulations are shown in figure \ref{compinc}. 
+We used 16 x 2.27GHz Intel(R) Xeon(R) L5520 for this case. Figure \ref{col_amr} shows the number of the elements during the simulation for the three methods.  
+This figures shows the heuristic method and level set have a higher number of elements than the phase field method, 
+and both require a higher number of iterations to perform 1 hr physical time simulation. 
+The right figure (figure \ref{comp_col}) shows the required time for the simulation. 
+In this figure we can see all of the methods take almost the same amount of computational time, which means that although the 
+Level Set and the Phase Field methods are more computationally expensive per time step, the lower number of elements and lower
+number of iterations help them to have the same computational cost as the heuristic method.  
 
 \section{Conclusions} \label{conclusions}
 The numerical solution of the Savage-Hutter (and similar 
