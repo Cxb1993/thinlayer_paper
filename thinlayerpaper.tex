@@ -140,7 +140,7 @@ in the VOF by adding a piecewise linear interface calculation (PLIC) representat
 Youngs' method has been shown to be robust and efficient, but it is only first-order accurate. 
 More advanced VOF methods are also available in \cite{gerlach2006cvf} and Gopala and van Wachem\cite{gopala2008vfm}, but these method require more complicated logic to 
 reconstruct the interface.
-%%%%%%%%%%%%%%%%%%%%%%%%%% Phse field method %%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%% Phase field method %%%%%%%%%%%%%%%%%%%%%%%%%%%
 %The last method that we will overview here is phase field method. 
 The phase field method is an Eulerian interface capturing scheme where the interface is implicitly related to an order parameter which shows the phase variation on the domain \cite{Anderson1998}. 
 In this method the interface is a diffusive region between phases. 
@@ -177,7 +177,7 @@ the heuristic approach is less expensive than the phase field and level set meth
 experimentally obtain interface. Additionally, our analysis shows that finding a good threshold that is appropriate for all problems is not easy. 
 On other hand, the interface capturing methods have stronger mathematical and physical structure, and can be coupled with the conservation equations but are computationally more expensive and harder 
 to implement. We used several techniques to decrease the computational cost. For example, in the phase field we used the Allen-Cahn formulation which is easier to implement and computationally less 
-expensive compared to the Cahn-Hillard formulation, but it is not mass conservative. To preserve the mass we have included a Lagrange multiplier \cite{Kim2014,Yang2006} to satisfy this constraint. 
+expensive compared to the Cahn-Hilliard formulation, but it is not mass conservative. To preserve the mass we have included a Lagrange multiplier \cite{Kim2014,Yang2006} to satisfy this constraint. 
 To decrease the computational cost even more we used operator splitting for time integration. The obtained results show that all of the methods can address the thin layer problem and other 
 related issues, however the phase field results have demonstrated better consistence with the experimental and field data. 
 Finally, although we have implemented these methods for granular type SW flows the methods themselves are applicable for other type of SW flows.  
@@ -448,7 +448,7 @@ compute inter-cellular fluxes into/out-of partially wet cells.  The
 interface reconstruction scheme is illustrated in figure \ref{interface}.
 \begin{figure}[!h]
         \centerline{\includegraphics[scale=0.3]{IMAGES/flux.png}}
-        \caption{Interface Reconstruction in TITAN2D}
+        \caption{Interface Reconstruction in TITAN2D.}
         \label{interface}
 \end{figure} 
 %\clearpage
@@ -527,7 +527,7 @@ fluxes and the rings of buffer cells strategy).
 % 
 % {\bf 1D Analysis of partially wet flux adjustment}
 % 
-% There are 3 cells L, M, R.  $h_R=V_R=0$, $h_L>2 h_M>0$ (the middle cell is partially wet), $V_L>0$, $V_M>0$.  The timestep is set by the middle cell with a Courant number $C$. 
+% There are 3 cells L, M, R.  $h_R=V_R=0$, $h_L>2 h_M>0$ (the middle cell is partially wet), $V_L>0$, $V_M>0$.  The time step is set by the middle cell with a Courant number $C$. 
 % 
 % The wet area of the {\it partially wet} middle cell is defined as follows
 % \begin{eqnarray}
@@ -543,7 +543,7 @@ fluxes and the rings of buffer cells strategy).
 % \hat{h}_m&=&h_m\frac{A}{A_{wet}} \\
 % \widehat{(hV)}_m &=& hV\frac{A}{A_{wet}}
 % \end{eqnarray}
-% The adjusted wave speeds in the middle cell are $s=V_m \pm 2\alpha\sqrt{\hat{h}_m}=V_m \pm 2 \alpha \sqrt{h_m} \sqrt{\frac{A}{A_{wet}}}$.  This makes the timestep
+% The adjusted wave speeds in the middle cell are $s=V_m \pm 2\alpha\sqrt{\hat{h}_m}=V_m \pm 2 \alpha \sqrt{h_m} \sqrt{\frac{A}{A_{wet}}}$.  This makes the time step
 % \begin{equation}
 % \Delta t = C \frac{\Delta X_m}{V_m+2\alpha\sqrt{h}\sqrt{\frac{A}{A_{wet}}}}
 % \end{equation}
@@ -574,7 +574,7 @@ fluxes and the rings of buffer cells strategy).
 % \begin{equation}
 % W_{ML}=\frac{A}{A_{wet}}
 % \end{equation}
-% Note that if the wet-dry line does not reach the edge shared by the middle and right cells within the timestep then $W_{MR}=0$.  Assuming that this is the case then
+% Note that if the wet-dry line does not reach the edge shared by the middle and right cells within the time step then $W_{MR}=0$.  Assuming that this is the case then
 % $h_R'=V_R'=0$ and ... 
 % $h_M'$, and $V_M'$ also depend on $h_L$ and $V_L$ so their values must be known/assumed in order to compute/simplify $h_M'$ and $V_M'$
 \subsection{Second: Phase Field Method} \label{phase field}
@@ -643,7 +643,7 @@ which are updated implicitly. For a stable explicit time integrator, the size of
 We used GMRES solver of the PETSc \cite{petsc-user-ref} library to solve equation \eqref{eq2.exp}. Since the Krylov subspace solvers just needs the result of matrix-vector multiplication, we used matrix-free method to compute the Laplacian term to decrease the memory cost of implicit solver.
 \subsection{Third: Level Set Method} \label{level set}
 The last method that we use to capture the interface for a SW flow is the Level Set method.
-The Level Set method is another Eulerian interface capturig method, originally introduced by Osher and Sethian in 1988 \cite{Osher1988}.
+The Level Set method is another Eulerian interface capturing method, originally introduced by Osher and Sethian in 1988 \cite{Osher1988}.
 The basis of the method is to capture the interface by means of solving a hyperbolic Hamilton-Jacobi PDE on 
 the computational domain which follows the boundaries. The level set variable $\varPsi (X,t)$ implicitly represents the interface. In this method, $\varPsi (X,t)$ is a signed distance function which means it is zero on the interface, and its absolute value changes in the domain with respect to the distance to the zero level, and its sign is positive outside of the interface, and is negative inside of the interface. 
 Given the initial condition $\varPsi (X,t)_0$ the advection of the interface ($\varPsi (X,t)=0$) only depends on the normal velocity $F$:
@@ -839,7 +839,7 @@ We solve equation \eqref{initializationeq} until $\sum\limits_{ij}|\varPsi_{ij}^
 
 \section{Results} \label{results}
 We use two cases to study the effects of the introduced interface capturing schemes. The first case is the inclined plane while the second is the Colima Volcano. 
-The reason we selected these two cases is that for the inclined plane experimental data is availalble, so the numerical study results could be verified with the experimental results. 
+The reason we selected these two cases is that for the inclined plane experimental data is available, so the numerical study results could be verified with the experimental results. 
 For the later one, i.e Colima Volcano, we used the field observation data of the outline and characteristic of the flow to simulate an eruption numerically and compare the results.
 
 Since the computational cost of the methods are not same, we have also compared these methods from a computational point of view by the required simulation time and the number of elements 
@@ -851,7 +851,7 @@ In this section the results of the inclined plane is presented. The input parame
         \begin{tabular}{|l|c|}
                 % \caption{Initial condition}
                 \hline
-                Pile shape       & Cylinderical \\
+                Pile shape       & Cylindrical \\
                 \hline
                 Maximum pile height       & .061 m \\
                 \hline
@@ -884,7 +884,7 @@ In this section the results of the inclined plane is presented. The input parame
                 \includegraphics[width=1\textwidth]{IMAGES/initialconf.png}
                 \subcaption{Numerical simulation}
         \end{minipage}
-        \caption{Initial configuration of the pile on the incline}
+        \caption{Initial configuration of the pile on the incline.}
         \label{initialconf}
 \end{figure}
 %\subsubsection{Heuristic Method}
@@ -905,7 +905,7 @@ In this section the results of the inclined plane is presented. The input parame
                 \includegraphics[width=1\textwidth]{IMAGES/interface660.png}
                 \subcaption{T=0.66 sec}
         \end{minipage}
-        \caption{Pile height contour and interface location at different time steps}
+        \caption{Pile height contour and interface location at different time steps.}
         \label{Pile_height_contour}
 \end{figure}
 The experimental results were reported in \cite{AmyWebb2004}, and we have used them to verify our different numerical results with them in our previous works. 
@@ -918,24 +918,24 @@ The plotted interfaces in figure \ref{Pile_height_contour} are for $\phi=0$ and 
 and $h=\sqrt[3]{Vol} \times GEOFLOW\_TINY $ for the heuristic method where $Vol$ is the volume of flow and $GEOFLOW\_TINY= .0001$, as was described in section \ref{Threshold}.
 
 Figure \ref{Pile_height_contour} shows the results of the Eulerian interface capturing schemes are very similar for the inclined plane, 
-and are closer to the experiment than the heuristic method. In all four plotted time steps, the heuristc method overpredicts the interface. 
-One may suggest by changing the $GEOFLOW\_TINY $ better results can be acheived, but in that case we will end up with a  $GEOFLOW\_TINY $ that depends on the scale of the flow. 
+and are closer to the experiment than the heuristic method. In all four plotted time steps, the heuristic method over-predicts the interface. 
+One may suggest by changing the $GEOFLOW\_TINY $ better results can be achieved, but in that case we will end up with a  $GEOFLOW\_TINY $ that depends on the scale of the flow. 
 One of very important goal we pursued in this study is to find a method that can predict the interface of a geophysical flow independent of the scale of the flow, 
 and for this reason we selected two very different scale of flows (i.e flow over the inclined plane and Colima volcano), 
 and the $GEOFLOW\_TINY $ that we use here have been tested in many of our previous works, and showed reasonable results \cite{Patra2005,Patra2006}. 
 
 In figure \ref{x_extent} the extent of flow in X direction was plotted. This plot shows the length of flow during its travel. 
 The maximum of the flow length happens when the flow reaches the horizontal plane. All of the methods are successful in predicting the time 
-that flow reaches the horizontal plane, but like the interface results (figure \ref{Pile_height_contour}) the heuristic methods overpredicts the length of the flow, 
+that flow reaches the horizontal plane, but like the interface results (figure \ref{Pile_height_contour}) the heuristic methods over-predicts the length of the flow, 
 and the Phase Field and the Level Set results are a better match with the experimental result.
 
 The width of the flow or extent of the flow in Y direction can be seen in figure \ref{y_extent}. 
 There is larger difference between the experiment and the Eulerian interface capturing methods results in this figure than the other results, 
-and based on our previouse work \cite{Patra2006}, we believe the main reason of this difference is due to the accuracy of the solver. 
+and based on our previous work \cite{Patra2006}, we believe the main reason of this difference is due to the accuracy of the solver. 
 In that work, we showed with more accurate simulations using a Discontinuous Galerkin method we can better capture the width of the flow.
 
 The other measure we use to compare the results is the area of the flow. 
-In figure \ref{area} you can see the Eulerian methods caputure the area of the flow fairly well,
+In figure \ref{area} you can see the Eulerian methods capture the area of the flow fairly well,
 especially before the flow hits the horizontal surface, while the heuristic method over-estimates the area of the flow. 
 The last result is that of the perimeter of the flow (figure \ref{Perimeter}), which shows a similar behavior 
 to the other results that have been discussed earlier. 
@@ -946,23 +946,23 @@ while the Eulerian interface capturing methods generally captured the flow with 
         \begin{minipage}[b]{.5\linewidth}
                 \centering
                 \includegraphics[scale=0.45]{IMAGES/xextend.png}
-                \subcaption{Extension of pile in X direction}
+                \subcaption{Extension of pile in X direction.}
                   \label{x_extent}
                 \includegraphics[scale=0.45]{IMAGES/area.png}
-                \subcaption{Area of pile}
+                \subcaption{Area of pile.}
                   \label{area}
         \end{minipage}
         %   \hfill
         \begin{minipage}[b]{.5 \linewidth}
                 \centering
                 \includegraphics[scale=0.45]{IMAGES/yextend.png}
-                \subcaption{Extension of pile in Y direction}
+                \subcaption{Extension of pile in Y direction.}
                   \label{y_extent}
                 \includegraphics[scale=0.45]{IMAGES/perimeter.png}
-                \subcaption{Perimeter of pile}
+                \subcaption{Perimeter of pile.}
                   \label{Perimeter}
         \end{minipage}
-        \caption{Comparison of the methods for flow on inclined plane}
+        \caption{Comparison of the methods for flow on inclined plane.}
         \label{compinc_inclined}
 \end{figure}
 
@@ -973,7 +973,7 @@ while the Eulerian interface capturing methods generally captured the flow with 
         \begin{minipage}[b]{.5\linewidth}
                 \centering
                 \includegraphics[scale=0.45]{IMAGES/incline_num_elem.png}
-                \subcaption{Number of the elements for different method of interface capturing during the simulation}
+                \subcaption{Number of the elements for different method of interface capturing during the simulation.}
                 \label{mesh_inc}
                 
         \end{minipage}
@@ -981,11 +981,11 @@ while the Eulerian interface capturing methods generally captured the flow with 
         \begin{minipage}[b]{.5 \linewidth}
                 \centering
                 \includegraphics[scale=0.45]{IMAGES/incline_timing1.png}
-                \subcaption{Time spent for each simulation}
+                \subcaption{Time spent for each simulation.}
                 \label{barplot_inc}
                 
         \end{minipage}
-        \caption{Comparison of the methods based on computational cost }
+        \caption{Comparison of the methods based on computational cost.}
         \label{compinc_comput}
 \end{figure}
 
@@ -997,7 +997,7 @@ Based on these results, as can be predicted from similarity of the results in th
 and \ref{Pile_height_contour}, both Eulerian interface capturing methods have very similar number of elements during the simulation while the 
 interface capturing with the heuristic method results in a larger number of elements. 
 Despite the higher number of elements in the heuristic method, the overall time needed to complete a simulation, figure \ref{barplot_inc},
-is lowest for the heuristic method. Overall the heurisitic method took 70\% of the time required for the Phase Field method and only 55\% 
+is lowest for the heuristic method. Overall the heuristic method took 70\% of the time required for the Phase Field method and only 55\% 
 of the time required for the Level Set method.
 All of the simulation were performed on one Intel(R) Xeon(R) CPU E3-1220 v3 3.10GHz.
 
@@ -1033,7 +1033,7 @@ The Colima volcano in Mexico is one of the most active volcanoes in North Americ
 \end{center}
 The topography of the Colima volcano is such that small changes in the initial location of the pile leads to a completely different 
 path of flow, so good performance of any of the interface capturing methods for this case promises a reliable method for other volcanoes. 
-Unfortunately, only in very rare cases is data during a volcanic eruption available, and thus we cannot perform a direct comparision between the numerical results 
+Unfortunately, only in very rare cases is data during a volcanic eruption available, and thus we cannot perform a direct comparison between the numerical results 
 with time-resolved field data.
 Usually for such applications, the deposit of the volcanic event is used to find the outline of the flow and to validate the numerical results.
 
@@ -1056,7 +1056,7 @@ This outline is compared to the numerically determined results in figure \ref{Co
 \begin{figure}[H]
 \centering
 \includegraphics[width=.5\textwidth]{IMAGES/outline1.jpg}
-\caption{outline of flow for Colima volcano for erruption 16-17 April 1991}
+\caption{Outline of flow for Colima volcano for eruption 16-17 April 1991.}
  \label{colima_outline}
 
 \end{figure}
@@ -1065,19 +1065,19 @@ This outline is compared to the numerically determined results in figure \ref{Co
 \begin{minipage}[b]{.5\linewidth}
         \centering
                 \includegraphics[width=.95\textwidth]{IMAGES/tiny1.jpg}
-                \subcaption{Outline from Heuristic Method}
+                \subcaption{Outline from Heuristic Method.}
                 \includegraphics[width=.95\textwidth]{IMAGES/levelset1.jpg}
-                \subcaption{Outline from Level Set Method}
+                \subcaption{Outline from Level Set Method.}
 \end{minipage}
         %   \hfill
 \begin{minipage}[b]{.5 \linewidth}
                 \centering
                 \includegraphics[width=.95\textwidth]{IMAGES/phasefield1.jpg}
-                \subcaption{Outline from Phase field Method}
+                \subcaption{Outline from Phase field Method.}
                 \includegraphics[width=.95\textwidth]{IMAGES/comparison1.jpg}
-                \subcaption{Comparison of all three methods}
+                \subcaption{Comparison of all three methods.}
         \end{minipage}
-        \caption{Comparison of the obtained outline of flow from Heuristic, Level Set, and Phase field methods for Colima Volcano}
+        \caption{Comparison of the obtained outline of flow from Heuristic, Level Set, and Phase field methods for Colima Volcano.}
         \label{Colimapic}
 \end{figure}
 
@@ -1091,7 +1091,7 @@ but there are two small channels in the heuristic method which are not present i
         \begin{minipage}[b]{.5\linewidth}
                 \centering
                 \includegraphics[scale=0.45]{IMAGES/colima_num_elem.png}
-                \subcaption{Number of the elements for different method of interface capturing during the simulation}
+                \subcaption{Number of the elements for different method of interface capturing during the simulation.}
                 \label{col_amr}
                 
         \end{minipage}
@@ -1099,10 +1099,10 @@ but there are two small channels in the heuristic method which are not present i
         \begin{minipage}[b]{.5 \linewidth}
                 \centering
                 \includegraphics[scale=0.45]{IMAGES/colima_timing1.png}
-                \subcaption{Time spent for each simulation}
+                \subcaption{Time spent for each simulation.}
                 \label{comp_col}
         \end{minipage}
-        \caption{Comparison of the methods based on computational cost }
+        \caption{Comparison of the methods based on computational cost.}
         \label{compinc}
 \end{figure}
 
