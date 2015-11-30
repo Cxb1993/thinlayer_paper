@@ -838,9 +838,13 @@ In the above equations $D^+$, and $D^-$ are the backward and forward differences
 We solve equation \eqref{initializationeq} until $\sum\limits_{ij}|\varPsi_{ij}^{n+1} -\varPsi_{ij}^{n}| < .5 (\delta x)^3$ over all points being updated.
 
 \section{Results} \label{results}
-We use two cases to study the effects of the introduced interface capturing schemes. The first case is the inclined plane, and the second one is the Colima Volcano. The reason we selected these two cases is that for the inclined plane we have conducted experimental test, so the numerical study results could be verified with the experimental results. For the later one, i.e Colima Volcano, we used the field observation data of the outline and characteristic of the flow to simulate an eruption numerically and compare the results.
+We use two cases to study the effects of the introduced interface capturing schemes. The first case is the inclined plane while the second is the Colima Volcano. 
+The reason we selected these two cases is that for the inclined plane experimental data is availalble, so the numerical study results could be verified with the experimental results. 
+For the later one, i.e Colima Volcano, we used the field observation data of the outline and characteristic of the flow to simulate an eruption numerically and compare the results.
 
-Since the computational cost of the methods are not same, we have also compared these methods from computational point of view by the required time for simulation and the number of elements during the simulation. 
+Since the computational cost of the methods are not same, we have also compared these methods from a computational point of view by the required simulation time and the number of elements 
+during the simulation. 
+
 \subsection{Inclined plane}
 In this section the results of the inclined plane is presented. The input parameters and initial conditions of the flow could be seen in  table 1.
 \begin{center}
@@ -904,20 +908,40 @@ In this section the results of the inclined plane is presented. The input parame
         \caption{Pile height contour and interface location at different time steps}
         \label{Pile_height_contour}
 \end{figure}
-The experimental results were reported in \cite{AmyWebb2004}, and we have used them to verify our different numerical results with them in our previous works. Figure \ref{initialconf} shows the initial configuration of the pile in both the experimental setup and the numerical study. As can be seen in the experimental setup, there are markers in the inclined plane that are used for measurements. We used a digital camera and image processing techniques to compute the extents of the flow in x and y directions as well as its area and perimeter, and then compared the obtained results with the numerical results in figure \ref{compinc_inclined}. We also plotted the interface of the flow for the three interface capturing schemes and the experimental results in figure \ref{Pile_height_contour}.
+The experimental results were reported in \cite{AmyWebb2004}, and we have used them to verify our different numerical results with them in our previous works. 
+Figure \ref{initialconf} shows the initial configuration of the pile in both the experimental setup and the numerical study. As can be seen in the experimental setup, 
+there are markers in the inclined plane that are used for measurements. We used a digital camera and image processing techniques to compute the extents of the flow in 
+x and y directions as well as its area and perimeter, and then compared the obtained results with the numerical results in figure \ref{compinc_inclined}. We also plotted 
+the interface of the flow for the three interface capturing schemes and the experimental results in figure \ref{Pile_height_contour}.
 
-The plotted interfaces in figure \ref{Pile_height_contour} are for $\phi=0$ and $\varPsi=0$ for the Phase Field and the Level Set methods respectively and $h=\sqrt[3]{Vol} \times GEOFLOW\_TINY $ for the heuristic method which $Vol$ is the volume of flow and $GEOFLOW\_TINY= .0001 $ as we described in section \ref{Threshold}.
+The plotted interfaces in figure \ref{Pile_height_contour} are for $\phi=0$ and $\varPsi=0$ for the Phase Field and the Level Set methods respectively 
+and $h=\sqrt[3]{Vol} \times GEOFLOW\_TINY $ for the heuristic method where $Vol$ is the volume of flow and $GEOFLOW\_TINY= .0001$, as was described in section \ref{Threshold}.
 
-Figure \ref{Pile_height_contour} shows the results of the Eulerian interface capturing schemes are very similar for the inclined plane, and are closer to the experiment than the heuristic method. In all four plotted time steps, the heuristc method overpredicts the interface. One may suggest by changing the $GEOFLOW\_TINY $ better results can be acheived, but in that case we will end up with a  $GEOFLOW\_TINY $ that deponds to the scale of the flow. One of very important goals we persue in this study is to find a method that can predict the interface of a geophysical flow independent of the scale of the flow, and for this reason we selected two very different sacale of the flows (i.e flow over the inclined plane and Colima volcano), and the $GEOFLOW\_TINY $ that we use here have been tested in many of our previous works, and showed reasonable results \cite{Patra2005,Patra2006}. 
+Figure \ref{Pile_height_contour} shows the results of the Eulerian interface capturing schemes are very similar for the inclined plane, 
+and are closer to the experiment than the heuristic method. In all four plotted time steps, the heuristc method overpredicts the interface. 
+One may suggest by changing the $GEOFLOW\_TINY $ better results can be acheived, but in that case we will end up with a  $GEOFLOW\_TINY $ that depends on the scale of the flow. 
+One of very important goal we pursued in this study is to find a method that can predict the interface of a geophysical flow independent of the scale of the flow, 
+and for this reason we selected two very different scale of flows (i.e flow over the inclined plane and Colima volcano), 
+and the $GEOFLOW\_TINY $ that we use here have been tested in many of our previous works, and showed reasonable results \cite{Patra2005,Patra2006}. 
 
-In figure \ref{x_extent} the extent of flow in X direction was plotted. This plot shows the length of flow during its travel. The maximum of the flow length happens when the flow reaches the horizontal plane. All of the methods are successful in predicting the time that flow reaches the horizontal plane, but like interface results (figure \ref{Pile_height_contour}) the heuristic methods overpredict the length of the flow, and the Phase Field and the Level Set results are better match with the experiment. 
+In figure \ref{x_extent} the extent of flow in X direction was plotted. This plot shows the length of flow during its travel. 
+The maximum of the flow length happens when the flow reaches the horizontal plane. All of the methods are successful in predicting the time 
+that flow reaches the horizontal plane, but like the interface results (figure \ref{Pile_height_contour}) the heuristic methods overpredicts the length of the flow, 
+and the Phase Field and the Level Set results are a better match with the experimental result.
 
-Width of the flow or extent of the flow in Y direction can be seen in figure \ref{y_extent}. There is more difference between the experiment and the Eulerian interface capturing methods results in this figure than the other results, and based on our previouse work \cite{Patra2006}, we believe the main reason of this difference is due to the accuracy of the solver. In that work, we showed with more accurate simulation with Discontinuous Galerkin method we can better capture the width of the flow.
+The width of the flow or extent of the flow in Y direction can be seen in figure \ref{y_extent}. 
+There is larger difference between the experiment and the Eulerian interface capturing methods results in this figure than the other results, 
+and based on our previouse work \cite{Patra2006}, we believe the main reason of this difference is due to the accuracy of the solver. 
+In that work, we showed with more accurate simulations using a Discontinuous Galerkin method we can better capture the width of the flow.
 
-The other measure we use to compare the results is the area of the flow. In figure \ref{area} you can see the Eulerian methods can very good simulate the area of the flow  especially before the time flow hits the horizontal surface, and the heuristic method gives greater results for the area of the flow. 
+The other measure we use to compare the results is the area of the flow. 
+In figure \ref{area} you can see the Eulerian methods caputure the area of the flow fairly well,
+especially before the flow hits the horizontal surface, while the heuristic method over-estimates the area of the flow. 
+The last result is that of the perimeter of the flow (figure \ref{Perimeter}), which shows a similar behavior 
+to the other results that have been discussed earlier. 
 
-The last figure in this set of figures is the results of the perimeter of the flow (figure \ref{Perimeter}) which shows a similar behavior like the other results that we discussed earlier in this part, and we can summarize it as a conclusion of the inclined plane results. In this set figures, we showed all of the three methods successfully overcome the thin layer problems that we introduced (problems 1-4 section \ref{introduction}), and Eulerian interface capturing showed better performance than the heuristic method for this case
-%For quantitative comparison of the results, we compared different schemes on three measurable quantities. The first measure is the extent of pile in X direction, the second one the extent of pile in Y direction, and the last one is the area of pile.
+From these results, all three methods successfully overcome the thin layer problems that were introduced earlier (problems 1-4 section \ref{introduction}), 
+while the Eulerian interface capturing methods generally captured the flow with higher accuracy than the heuristic method.
 \begin{figure}[H]
         \begin{minipage}[b]{.5\linewidth}
                 \centering
@@ -965,7 +989,17 @@ The last figure in this set of figures is the results of the perimeter of the fl
         \label{compinc_comput}
 \end{figure}
 
-In figure \ref{compinc_comput} the computational cost of the three methods have been compared in two plots. The first plot is the number of elements during the simulation and the second one is the wall clock time spent for each simulation. Since we are using the results of the interface capturing methods for adaptive mesh refinement as described in section \ref{adaptivemeshing}, the number of elements during the simulation changes and depends on the different interface capturing methods we use. Based on these results, as can be predicted from similarity of the results in the Eulerian interface capturing methods figures \ref{compinc_inclined} and \ref{Pile_height_contour}, Eulerian interface capturing methods have very similar number of elements during the simulation while the interface capturing with the heuristic method results in different number of elements. But the bar plot (figure \ref{barplot_inc}) shows even though the number of elements are greater for the heuristic method the time spent for the simulation is 70\% and 55\% of this time for the Phase Field and the Level Set methods respectively. All of the simulation were performed on one Intel(R) Xeon(R) CPU E3-1220 v3 3.10GHz.
+Finally, consider the computational cost of the three methods, as shown in figure \ref{compinc_comput}.
+The first plot is the number of elements during the simulation and the second one is the wall clock time spent for each simulation
+Since we are using the results of the interface capturing methods for adaptive mesh refinement as described in section \ref{adaptivemeshing}, 
+the number of elements during the simulation changes and depends on the different interface capturing methods we use. 
+Based on these results, as can be predicted from similarity of the results in the Eulerian interface capturing methods figures \ref{compinc_inclined} 
+and \ref{Pile_height_contour}, both Eulerian interface capturing methods have very similar number of elements during the simulation while the 
+interface capturing with the heuristic method results in a larger number of elements. 
+Despite the higher number of elements in the heuristic method, the overall time needed to complete a simulation, figure \ref{barplot_inc},
+is lowest for the heuristic method. Overall the heurisitic method took 70\% of the time required for the Phase Field method and only 55\% 
+of the time required for the Level Set method.
+All of the simulation were performed on one Intel(R) Xeon(R) CPU E3-1220 v3 3.10GHz.
 
 % \end{figure}
 \subsection{Colima Volcano}
