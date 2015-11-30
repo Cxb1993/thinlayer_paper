@@ -50,9 +50,9 @@ each of them has its own advantages/disadvantages and methods have to be chosen 
 %%{\bf NEED MORE CITATIONS}
 Shallow water (SW) flows include a wide range of fluid flows. In SW flows the fluid depth is much 
 smaller (${\cal O}(10^{-1})$) than the characteristic length of the fluid body. In deriving the corresponding 
-governing equations the shallowness of flow allows us to approximate the variation of state variables in the direction perpendicular to the basal surface and replace
-them with an integrated average \cite{SavageHutter}, which
-reduces a three dimension flow into a two-dimensional problem.
+governing equations, the shallowness of flow allows us to approximate the effect of the variation of state variables in the direction perpendicular to the basal surface and replace
+it with an integrated average \cite{SavageHutter}, which
+reduces a three dimension flow problem into a two-dimensional one.
 This approximation holds for many circumstances in geophysical flows and the same 
 conservation equations with some minor variations can be used to study varying physical situations.
 Eglit and Sveshnikova \cite{eglit1980mms} modified the depth-averaged Saint Venant equations to simulate granular snow avalanches and almost a decade later 
@@ -60,10 +60,9 @@ Savage and Hutter \cite{SavageHutter} popularized these in the modeling of many 
 % introducing WD problem
 Since this type of flow has free moving boundaries one of the basic difficulties 
 of the numerical solution is identifying the location of flow interface. 
-Furthermore, the governing equations are valid only in the wet areas so we need an strategy to discriminate between wet and dry areas in the numerical simulation. 
+Furthermore, the governing equations are valid only in the wet areas so we need a strategy to discriminate between wet and dry areas in the numerical simulation. 
 In the SW context this is usually called the {\it wetting and drying (WD)} problem. %or {\it thin-Layer} problem 
-In our previous work, see Ref. \cite{Patra2005}, we showed how the speed of waves has to be modified for flow near the vacuum region based on Toro \cite{ToroBook2001} to mitigate 
-the stability problem. However, this still leads to the formation of a non-physical thin layer in the numerical solution, see figure \ref{thinlayerproblem} for an illustration.
+In our previous work, see Ref. \cite{Patra2005}, we showed how the speed of waves has to be modified for flow near the vacuum region based on Toro \cite{ToroBook2001} to mitigate stability concerns. However, this still leads to the formation of a non-physical thin layer in the numerical solution (see figure \ref{thinlayerproblem} for an illustration).
 This non-physical thin layer could extend large distances from the realistic main 
 body of the flow, which can cause inaccurate construction of the boundary, loss of conservation or severe 
 numerical instabilities in the numerical solution. 
@@ -100,13 +99,16 @@ To summarize, the following major difficulties arise in numerical solutions of S
              Unphysically fast estimate of the flow speed. As the solution of SW equations are momentum, $\{hV_x,hV_y\}$, to find velocities, $\{V_x,V_y\}$, used during the solution process the
              momentum must be divided by flow depth, $h$, which causes a numerical error if $h$ is small and results in overly large velocities.
         \item \label{problemtoothin}
-              Unphysical thin layer (orders of magnitude thinner than a grain of sand). This results from the combination of conservation of mass and the numerical wicking away of material.
+              Unphysical thin layer (orders of magnitude thinner than a grain of sand). This results from unphysical speeds and the numerical wicking away of material.
         \item \label{problemunstable}
               Loss of numerical stability. Due to the above reasons wave-speeds can become infinite at the flow boundary which means that flow equations lose their hyperbolicity  
               at the vacuum state interface.
 \end{enumerate}\label{thinprob}
+
+In addition to scaling issues, correct identifying of interface regions will allow us to construct models for the other interesting physics (e.g. entrainment) that happens at the interface.
+
 \subsection{Background and Review}
-A review of the literature shows numerous attempts have been made to overcome these problems \cite{Medeiros2013,Balzano1998,Aureli2008,Bunya2009,Casulli2009a,
+A review of the literature shows numerous attempts have been made to overcome these problems \cite{Medeiros2013,Balzano1998,Aureli2008,Bunya2009,Casulli2009,
 Kesserwani2011,DAlpaos2007,Castro2005}.
 Here we briefly review the problem and recent approaches and refer the interested reader to available references for more information.
 Generally, all of the approaches can be 
@@ -118,11 +120,11 @@ the flow could be reconstructed, or the flux could be adjusted. It is possible t
 Most of attempts that are made to address the thin layer problem are categorized under this sort of method \cite{Aureli2008,Bunya2009,Castro2005,Kesserwani2011}.
 In interface tracking/capturing approaches
 an auxiliary set of equations is coupled to the original problem. This auxiliary set of equations is used to follow the flow interface over time. 
-Unlike heuristic method in interface tracking/capturing methods one can find the interface of a moving boundary flow in a more rigorous way. 
+Unlike heuristic method in interface tracking/capturing methods one can find the interface of a moving boundary flow in a rigorous way. 
 The particular choice of the auxiliary equations leads to either interface tracking, or Lagrangian, methods or interface capturing, or Eulerian, methods.
 In Lagrangian methods the front is replaced with a set of interfacial points which explicitly define the location of the interface.
 During each time step these points move due to the numerically computed velocity field.
-Mark And Cell (MAC) \cite{Harlow1965}, Simplified Mark And Cell (SMAC) \cite{Cheng1995} and the Surface Marker \citep{Wrobel1991} methods are some examples of Lagrangian interface tracking techniques.
+Marker And Cell (MAC) \cite{Harlow1965}, Simplified Marker And Cell (SMAC) \cite{Cheng1995} and the Surface Marker \citep{Wrobel1991} methods are some examples of Lagrangian interface tracking techniques.
 The accuracy of the method is highly dependent on the number of particles that form the boundary.
 High computational cost, a tendency to form numerical instabilities and the inability to track complex topological changes are the most important drawbacks of Lagrangian techniques.
 For more information about this group of methods please see \cite{Glimm1995,Unverdi1992,Osher1988,Anderson1998,hirt1981vfv}.
@@ -145,7 +147,7 @@ In this method the interface is a diffusive region between phases.
 The Cahn-Hilliard and Allen-Cahn formulations are two principal formulation for this method \cite{CahnHilliard1958i,CahnHilliard1958ii,Yang2006}. The difference between these two forms is 
 that the first one is mass conservative while the second is not. Mathematically, the conservative form has a forth order derivative while the other one has a second order derivative. 
 This difference in the highest order of derivative will make the later form much easier to implement.
-Based on our best knowledge no published work has used the phase field method to capture an interface in the shallow water equations.
+To our best knowledge no published work has used the phase field method to capture an interface in the shallow water equations.
 %%%%%%%%%%%%%%%%%%%%%%%%%% Level Set method %%%%%%%%%%%%%%%%%%%%%%%%%%%
 The Level Set method is another Eulerian interface capturing technique. It was introduced by Osher and Sethian in 1988 \cite{Osher1988}. In this method, the scalar variable is typically 
 a signed distance function which indicates the distance of a grid point to the interface. 
@@ -155,8 +157,8 @@ different options for handling the wetting-drying areas. The first approach used
 Although they claimed that they used level set as the second approach, they did not report any results using the method.
 They finally concluded that the level set is expensive and unnecessary for their problem.
 %============= Introduction of next parts of paper =====================
-\subsection{Our Contribution}
-In this paper we describe an approach to the thin layer issue (problems 1-4 discussed in the introduction section), in two parts. 
+\subsection{Contribution}
+In this paper, we describe an approach to the thin layer issue (problems 1-4 discussed in the introduction section), in two parts. 
 The first part is to describe the interface of the 
 flow and the next is to make suitable modifications to meshes, state variables and fluxes based on the result of the first part to resolve the aforementioned issues.
 To capture the interface we study three different methods. The first one is a new multifaceted Heuristic approach that uses a very small dimensionless threshold, which we call it GEOFLOW\_TINY, to 
@@ -175,10 +177,11 @@ the heuristic approach is less expensive than the phase field and level set meth
 experimentally obtain interface. Additionally, our analysis shows that finding a good threshold that is appropriate for all problems is not easy. 
 On other hand, the interface capturing methods have stronger mathematical and physical structure, and can be coupled with the conservation equations but are computationally more expensive and harder 
 to implement. We used several techniques to decrease the computational cost. For example, in the phase field we used the Allen-Cahn formulation which is easier to implement and computationally less 
-expensive compared to the Cahn-Hillard formulation, but it is not mass conservative. To preserve the mass we have included a Lagrange multiplier to satisfy this constraint. 
+expensive compared to the Cahn-Hillard formulation, but it is not mass conservative. To preserve the mass we have included a Lagrange multiplier \cite{Kim2014,Yang2006} to satisfy this constraint. 
 To decrease the computational cost even more we used operator splitting for time integration. The obtained results show that all of the methods can address the thin layer problem and other 
 related issues, however the phase field results have demonstrated better consistence with the experimental and field data. 
 Finally, although we have implemented these methods for granular type SW flows the methods themselves are applicable for other type of SW flows.  
+
 The structure of the rest of this paper is as follows. In the next section the shallow-water equations for geophysical flows and 
 the common features of the solver that we used for all of the three methods are 
 introduced. In section \ref{solution} the different methods that were employed to mitigate the wetting-drying problem are explained. 
@@ -191,7 +194,7 @@ Discussion and conclusions complete the presentation.
 The Savage-Hutter equation for geophysical flows was first introduced in the late 1980's. 
 The original model has subsequently been 
 improved upon by Savage-Hutter themselves as well as others  \cite{Hutter1993,Iverson1997,Gray1999,Denlinger2001,PudasainiHutter2003,SavageIverson2003}.
-In our earlier work \cite{pitmanpof,gmfg1,dgtitanpaper}, we developed the Titan2D depth-averaged geophysical 
+In our earlier work \cite{Pitman2003,Patra2005,Patra2006}, we developed the Titan2D depth-averaged geophysical 
 flow simulator.  Titan2D is a parallel computational tool with dynamic re-partitioning, high order, slope-limiting, upwinding, 
 two-dimensional Godunov solver (without splitting), with adaptive mesh refinement and Geographic Information System 
 (GIS) integration which lets it use Digital Elevation Models (DEMs) of real terrain.  
@@ -219,6 +222,7 @@ In these equations:
                         k_{ap}=2\frac{1\mp\sqrt{1-\cos^2(\phi_{int})\left(1+\tan^2(\phi_{bed})\right)}}{\cos^2(\phi_{int})}-1.
                 \end{equation}
              }
+             
 \end{itemize}
 \begin{figure}[!t]
         \begin{center}
@@ -297,8 +301,7 @@ simulation at Colima Volcano, Mexico, is displayed in Figure \ref{bufcell}.
 During normal adaptivity cells are selected for refinement if they meet 
 either of two requirements:
 \begin{enumerate} 
-        \item They have large, as compared to the average, inter-cellular fluxes. \footnote{More systematic error estimate driven approaches have been tried \red{THIS NEEDS A CITATION}\cite{} but 
-        empirical experience suggests that these simple indicators provide sufficient information for reliable and fast simulations.}
+        \item They have large, as compared to the average, inter-cellular fluxes.
         \item They are at or within a few cells near the interface.
 \end{enumerate}
 The former condition allows for the accurate capture of sharp changes in state variables. The latter results in banded regions of the flow separated into ``rings'' of maximally refined buffer cells.  
@@ -355,7 +358,8 @@ Table \ref{table1} compares these heuristic methods.
                 % \caption{Comparison of different strategies for WD problem in SWE}
         \end{tabular}
 \end{center}
-The heuristic method that we used in this study can be categorized as a VFR method. That its detail is explained the related part.
+Note that the heuristic method we used in this study can be categorized as a VFR method. 
+
 \subsubsection{Selecting appropriate threshold} \label{Threshold}
 In this approach we use a very small threshold for flow height to segregate the wet, partially wet and dry cells.
 The critical contribution of this scaling is to allow other
@@ -599,7 +603,7 @@ where
 \end{equation}
 In above equation $\eta$ is a constant that regulates the capillary width or diffusion width, $ \gamma $ denotes an elastic relaxation constant, and $F(\varphi)$ is 
 a mixing free energy which is the well-known double-well potential function and represents the interactions of different volume fractions of individual species \cite{Bronsard1990,Larson1999}.
-This formulation is easier to solve, but is not mass conservative. To conserve the mass a Lagrange multiplier in form of $(\varphi^2-1)\xi(t)$ is added as a source term to the right hand side of equation \eqref{allencahn}. The reason that we select this form for the Lagrange multiplier is because we do not want to change $\varphi$ on the bulk region as well as when on the interface i.e when $\varphi=\pm1$. So the final for of equation $\xi(t)$ would be:  
+This formulation is easier to solve, but is not mass conservative. To conserve the mass, a Lagrange multiplier in form of $(\varphi^2-1)\xi(t)$ is added as a source term to the right hand side of equation \eqref{allencahn} \cite{Kim2014,Yang2006}. The reason that we select this form for the Lagrange multiplier is because we do not want to change $\varphi$ on the bulk region as well as when on the interface i.e when $\varphi=\pm1$. So the final for of equation $\xi(t)$ would be:  
 \begin{equation} 
         \label{allencahn_mod}
         \frac{\partial \varphi }{\partial t} + \overrightarrow{V}\cdot \nabla \varphi = 
@@ -630,7 +634,8 @@ so to always satisfy the constrain \eqref{constrain} we end up with:
 \end{equation}
 We set $\eta=n\  \delta x$, where $\delta x$ is equal to the smallest cell length of all elements and $n$ is the number of the buffer layers explained in section \ref{adaptivemeshing}.
 For time integration of equation \eqref{allencahn_mod} we use operator splitting. The Euler explicit method is used for time integration of all terms except the Laplacian terms, 
-which are updated implicitly. The size of time step is based on CFL condition for the explicit scheme. \red{Do you mean that the time step is chosen based on the velocity?}
+which are updated implicitly. For a stable explicit time integrator, the size of the time step has to satisfy the CFL condition.
+
 \begin{align}
 \frac{\varphi^{i+.5}-\varphi^i}{\bigtriangleup t}&= \gamma (-F'(\varphi^i)+\varphi^i (1-(\varphi^i)^2)\ \xi(t^i)) \label{eq1.exp}\\
 \frac{\varphi^{i+1}-\varphi^{i+.5}}{\bigtriangleup t} &= \gamma \nabla .\nabla \varphi^{i+1} \label{eq2.exp}
@@ -654,7 +659,7 @@ $ \frac{\nabla \varPsi}{|\nabla \varPsi|}$ leads to:
 The solution of equation \eqref{levelseteq2} might no remain a signed distance function. To keep $\varPsi$ a signed distance function, we need a procedure that is called 
 reinitialization. There are several techniques for this purpose \cite{Osher1988}, but what we implemented here is a composition of the method presented in Chopp's work \cite{Chopp2001} with 
 some modifications for the points close to the interface, and a PDE based reinitialization for the further places\cite{Sussman1994a}.
-PDE based reinitialization is easy for parallelization, though it has been known to induce mass loss. Chopp's suggests a bicubic interpolation for the points near the interface \cite{Chopp2001},
+PDE based reinitialization is easy for parallelization, though it has been known to induce mass loss. Chopp suggests a bicubic interpolation for the points near the interface \cite{Chopp2001},
 but here we use a bilinear interpolation which is not as accurate as what he suggested, but it is accurate enough to preserve the interface. 
 For points far from the interface we do not need a very accurate $\varPsi$, so we use a PDE based reinitialization which is easier to implement and has lower computational cost. 
 In our approach, we first find $\varPsi$ for the points that are adjacent to the interface, then use these points to update the signed distance function for rest of the domain using a PDE based method.
@@ -814,26 +819,26 @@ We use the following PDE for this aim:
 In equation \eqref{initializationeq}, $\tau$ is a pseudo-time and the equation should be solved until it converges reasonably. This PDE adjusts $\varPsi$ such that $|\nabla \varPsi|=1$.
 We solve equation \eqref{initializationeq} by the method introduced in \cite{Adalsteinsson1999}:
 \begin{equation}
-        \varPsi_{ijk}^{n+1}=\varPsi_{ijk}^{n}-\bigtriangleup t \left(max(F,0)\bigtriangledown_{ijk}^{+}+min(F,0)\bigtriangledown_{ijk}^{-} \right),
+        \varPsi_{ij}^{n+1}=\varPsi_{ij}^{n}-\bigtriangleup t \left(max(F,0)\bigtriangledown_{ij}^{+}+min(F,0)\bigtriangledown_{ij}^{-} \right),
 \end{equation}
 where 
 \begin{equation}
         \begin{aligned}
-                \bigtriangledown_{ijk}^{+} = \big[ & \max(D^{-x}\varPsi_{ijk}^{n})^2 + \min(D^{+x}\varPsi_{ijk}^{n})^2
-                \\& \max(D^{-y}\varPsi_{ijk}^{n})^2 + \min(D^{+y}\varPsi_{ijk}^{n})^2 \big]^{1/2}
+                \bigtriangledown_{ij}^{+} = \big[ & \max(D^{-x}\varPsi_{ij}^{n})^2 + \min(D^{+x}\varPsi_{ij}^{n})^2
+                \\& \max(D^{-y}\varPsi_{ij}^{n})^2 + \min(D^{+y}\varPsi_{ij}^{n})^2 \big]^{1/2}
         \end{aligned}
 \end{equation}
 \begin{equation}
         \begin{aligned}
-                \bigtriangledown_{ijk}^{-} = \big[ & \min(D^{-x}\varPsi_{ijk}^{n})^2 + \max(D^{+x}\varPsi_{ijk}^{n})^2
-                \\& \min(D^{-y}\varPsi_{ijk}^{n})^2 + \max(D^{+y}\varPsi_{ijk}^{n})^2 \big]^{1/2}
+                \bigtriangledown_{ij}^{-} = \big[ & \min(D^{-x}\varPsi_{ij}^{n})^2 + \max(D^{+x}\varPsi_{ijk}^{n})^2
+                \\& \min(D^{-y}\varPsi_{ij}^{n})^2 + \max(D^{+y}\varPsi_{ij}^{n})^2 \big]^{1/2}
         \end{aligned}
 \end{equation} 
 In the above equations $D^+$, and $D^-$ are the backward and forward differences,respectively, in the corresponding directions.
 We solve equation \eqref{initializationeq} until we reach the convergence until points far enough from the interface have been updated.
-The threshold that we used for convergence was $.5 (\delta x)^3$. \red{Threshold for what? $\|\nabla\varPsi\|$?}
+The criteria for convergence was selected $\sum\limits_{ij}|\varPsi_{ij}^{n+1} -\varPsi_{ij}^{n}| < .5 (\delta x)^3$. 
 \section{Results} \label{results}
-We use two cases to study the effects of the introduced interface capturing schemes in the section. The first case is the inclined plane, and the second one is the Colima Volcano. The reason that we selected these two cases is that for the inclined plane we have conducted experimental test, so the numerical study results could be verified with the experimental results. For the later one, i.e Colima Volcano, we used the field observation data of the outline and characteristic of the flow to simulate an eruption numerically and compare the results.
+We use two cases to study the effects of the introduced interface capturing schemes. The first case is the inclined plane, and the second one is the Colima Volcano. The reason we selected these two cases is that for the inclined plane we have conducted experimental test, so the numerical study results could be verified with the experimental results. For the later one, i.e Colima Volcano, we used the field observation data of the outline and characteristic of the flow to simulate an eruption numerically and compare the results.
 
 Since the computational cost of the methods are not same, we have also compared these methods from computational point of view by the required time for simulation and the number of elements during the simulation. 
 \subsection{Inclined plane}
@@ -861,11 +866,10 @@ In this section the results of the inclined plane is presented. The input parame
         \end{tabular}
 \end{center}
 
-The experimental test results were reported in \cite{AmyWebb2004}, and we have used them to verify our different numerical results with them in our previous works.
 
 
-\begin{figure}[H]
-        \begin{minipage}[b]{.5\linewidth}
+\begin{figure}[!ht]
+        \begin{minipage}[b]{.5\linewidth}        
                 \centering
                 \includegraphics[width=1\textwidth]{IMAGES/expinitialconf.png}
                 \subcaption{Experimental setup}
@@ -882,11 +886,12 @@ The experimental test results were reported in \cite{AmyWebb2004}, and we have u
 %\subsubsection{Heuristic Method}
 \begin{figure}[H]
         \begin{minipage}[b]{.5\linewidth}
-                \centering
-                \includegraphics[width=1\textwidth]{IMAGES/interface165.png}
-                \subcaption{T=0.165 sec}
+                \centering                
+                \includegraphics[width=1\textwidth]{IMAGES/interface165.png}                
+                \subcaption{T=0.165 sec}              
                 \includegraphics[width=1\textwidth]{IMAGES/interface330.png}
                 \subcaption{T=0.33 sec}
+                \label{y_extent}
         \end{minipage}
         %   \hfill
         \begin{minipage}[b]{.5 \linewidth}
@@ -897,35 +902,55 @@ The experimental test results were reported in \cite{AmyWebb2004}, and we have u
                 \subcaption{T=0.66 sec}
         \end{minipage}
         \caption{Pile height contour and interface location at different time steps}
-        \label{odinary}
+        \label{Pile_height_contour}
 \end{figure}
-\subsubsection{Comparison}
-For quantitative comparison of the results, we compared different schemes on three measurable quantities. The first measure is the extent of pile in X direction, the second one the extent of pile in Y direction, and the last one is the area of pile.
+The experimental results were reported in \cite{AmyWebb2004}, and we have used them to verify our different numerical results with them in our previous works. Figure \ref{initialconf} shows the initial configuration of the pile in both the experimental setup and the numerical study. As can be seen in the experimental setup, there are markers in the inclined plane that are used for measurements. We used a digital camera and image processing techniques to compute the extents of the flow in x and y directions as well as its area and perameter, and then compared the obtained results with the numerical results in figure \ref{compinc_inclined}. We also plotted the interface of the flow for the three interface cpturing schemes and the experimental results in figure \ref{Pile_height_contour}.
+
+The plotted interfaces in figure \ref{Pile_height_contour} are for $\phi=0$ and $\varPsi=0$ for the Phase Field and the Level Set methods respectively and $h=\sqrt[3]{Vol} \times GEOFLOW\_TINY $ for the heuristic method which $Vol$ is the volume of flow and $GEOFLOW\_TINY= .0001 $ as we described in section \ref{Threshold}.
+
+Figure \ref{Pile_height_contour} shows the results of the Eulerian interface capturing schemes are very similar for the inclined plane, and are closer to the experiment than the heuristic method. In all four plotted time steps, the heuristc method overpredicts the interface. One may suggest by changing the $GEOFLOW\_TINY $ better results can be acheived, but in that case we will end up with a  $GEOFLOW\_TINY $ that deponds to the scale of the flow. One of very important goals we persue in this study is to find a method that can predict the interface of a geophysical flow independent of the scale of the flow, and for this reason we selected two very different sacale of the flows (i.e flow over the inclined plane and Colima volcano), and the $GEOFLOW\_TINY $ that we use here have been tested in many of our previous works, and showed reasonable results \cite{Patra2005,Patra2006}. 
+
+In fgiure \ref{x_extent} the extent of flow in X direction was plotted. This plot shows the length of flow during its travel. The maximum of the flow length happens when the flow reaches the horizontal plane. All of the methods are successfull in predicting the time that flow reaches the hprizontal plane, but like interface results (figure \ref{Pile_height_contour}) the heuristic methos overpredict the length of the flow, and the Phase Field and the Level Set results are better match with the experiment. 
+
+Width of the flow or extent of the flow in Y direction can be seen in figure \ref{y_extent}. There is more difference between the experiment and the Eulerian interface capturing methods results in this figure than the other results, and based on our previouse work \cite{Patra2006}, we believe the main reason of this difference is due to the accuracy of the solver. In that work, we showed with more accurate simulation with Dicontinous Galerkin method we can better capture the width of the flow.
+
+The other measure we use to compare the results is the area of the flow. In figure \ref{area} you can see the Eulerian methods can very good simulate the area of the flow  especially before the time flow hits the horizontal surface, and the heuristic method gives greater results for the area of the flow. 
+
+The last figure in this set of figures is the results of the perimeter of the flow (figure \ref{Perimeter}) which shows a similar behavior like the other results that we discussed earlier in this part, and we can summerize it as a conclusion of the inclined plane results. In this set figures, we showed all of the three methods successfully overcome the thin layer problems that we introsuced (problems 1-4 section \ref{introduction}), and Eulerian interface capturing showed better performance than the heuristic method for this case
+%For quantitative comparison of the results, we compared different schemes on three measurable quantities. The first measure is the extent of pile in X direction, the second one the extent of pile in Y direction, and the last one is the area of pile.
 \begin{figure}[H]
         \begin{minipage}[b]{.5\linewidth}
                 \centering
                 \includegraphics[scale=0.45]{IMAGES/xextend.png}
                 \subcaption{Extension of pile in X direction}
+                  \label{x_extent}
                 \includegraphics[scale=0.45]{IMAGES/area.png}
                 \subcaption{Area of pile}
+                  \label{area}
         \end{minipage}
         %   \hfill
         \begin{minipage}[b]{.5 \linewidth}
                 \centering
                 \includegraphics[scale=0.45]{IMAGES/yextend.png}
                 \subcaption{Extension of pile in Y direction}
+                  \label{y_extent}
                 \includegraphics[scale=0.45]{IMAGES/perimeter.png}
                 \subcaption{Perimeter of pile}
+                  \label{Perimeter}
         \end{minipage}
         \caption{Comparison of the methods for flow on inclined plane}
-        \label{compinc}
+        \label{compinc_inclined}
 \end{figure}
 
+
+
+  
 \begin{figure}[H]
         \begin{minipage}[b]{.5\linewidth}
                 \centering
                 \includegraphics[scale=0.45]{IMAGES/incline_num_elem.png}
                 \subcaption{Number of the elements for different method of interface capturing during the simulation}
+                \label{mesh_inc}
                 
         \end{minipage}
         %   \hfill
@@ -933,11 +958,15 @@ For quantitative comparison of the results, we compared different schemes on thr
                 \centering
                 \includegraphics[scale=0.45]{IMAGES/incline_timing1.png}
                 \subcaption{Time spent for each simulation}
+                \label{barplot_inc}
                 
         \end{minipage}
         \caption{Comparison of the methods based on computational cost }
         \label{compinc_comput}
 \end{figure}
+
+In figure \ref{compinc_comput} the computational cost of the three methods have been compared by two plots. The first plot is the number of elements during the simulation and the second one is the wall clock time spent for each simulation. Since we are using the results of the interface capturing methods for adaptive mesh refinement as described in section \ref{adaptivemeshing}, the number of elements during the simulation changes and deponds on the different interface capturing methods we use. Based on these results, as can be predicted from similarity of the results in the Eulerian interface capturing methods figures \ref{compinc_inclined} and \ref{Pile_height_contour}, Eulerian interface capturing methods have very similar number of elements during the simulation while the interface capturing with the heuristic method results in different number of elements. But the bar plot (figure \ref{barplot_inc}) shows eventhough the number of elements are greater for the heuristic method the time spent for the simulation is 70\% and 55\% of this time for the Phase Field and the Level Set methods respectively.
+
 % \end{figure}
 \subsection{Colima Volcano}
 %{\huge keith wants the result of Atentique }\\
@@ -1095,17 +1124,15 @@ prevents any simulation of a particular event.
 In this paper, we 
 have described some features of the thin-layer problem,
 some underlying causes that are common to virtually all numerical 
-solution methodologies.  Moreover, we presented a heuristic method and compared 
-two interface capturing approaches that 
-mitigate this problem by addressing its root causes. In heuristic method we used a threshold to distinguish between wet and dry areas, and in the level set and phase field methods we solved a 
+solution methodologies. We presented a heuristic method and compared it to Eulerian interface capturing approaches that 
+mitigate this problem. In heuristic method we used a threshold to distinguish between wet and dry areas, and in the level set and phase field methods we solved a 
 transport equation that implicitly represents the interface of the flow. Then we used the result of previous step for mesh refinement in all of the three solvers to control the thin layer problem and other related problems. Moreover in the heuristic approach we also used this result for interface reconstruction  and adjusting the flux. 
 We implemented these thin-layer control strategies in TITAN2D, our high 
 performance finite volume solver of the depth-averaged granular 
-flow equations.  Numerical simulations were performed for 
-geophysical mass flows at two different cases.
+flow equations.  Numerical simulations were performed for two different geophysical mass flows.
 To verify the solvers, numerical experiments were conducted for an inclined plate that finally continues horizontally, and Colima volcano. For the first case we verified the numerical results 
-with experimental results, and for the second case we compared the results with field data. These analysis showed that with all of the approaches,
-which not only prevented the loss of numerical stability but also demonstrated behavior that is consistent with expectations.
+with experimental results, and for the second case we compared the results with field data. These analyses showe with all of the approaches,
+we not only prevented the loss of numerical stability but also demonstrated behavior that is consistent with observations of the flows.
 %
 %As the second case, we tested our solvers on Colima volcano, which is an active volcano 
 %in Mexico, was selected on the basis that the DEM had provoked 
@@ -1127,7 +1154,7 @@ thin-layer control strategy, and interface capturing approach provides sufficien
 While all of these approaches to thin-layer mitigation was developed in the 
 context of TITAN2D's capabilities, much of it should be appropriate 
 for use in depth-averaged flow solvers with different numerical 
-implementations.
+schemes and physics of the problem.
 \newpage
 \appendix
  

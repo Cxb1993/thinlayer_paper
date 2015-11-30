@@ -8,7 +8,7 @@
 \citation{Dalbey2009}
 \@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{1}}
 \newlabel{introduction}{{1}{1}}
-\citation{Medeiros2013,Balzano1998,Aureli2008,Bunya2009,Casulli2009a,Kesserwani2011,DAlpaos2007,Castro2005}
+\citation{Medeiros2013,Balzano1998,Aureli2008,Bunya2009,Casulli2009,Kesserwani2011,DAlpaos2007,Castro2005}
 \citation{Aureli2008,Bunya2009,Castro2005,Kesserwani2011}
 \citation{Harlow1965}
 \citation{Cheng1995}
@@ -30,9 +30,10 @@
 \newlabel{problemunstable}{{4}{2}}
 \newlabel{thinprob}{{1}{2}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {1.1}Background and Review}{2}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {1.2}Our Contribution}{3}}
+\citation{Kim2014,Yang2006}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.2}Contribution}{3}}
 \citation{Hutter1993,Iverson1997,Gray1999,Denlinger2001,PudasainiHutter2003,SavageIverson2003}
-\citation{pitmanpof,gmfg1,dgtitanpaper}
+\citation{Pitman2003,Patra2005,Patra2006}
 \@writefile{toc}{\contentsline {section}{\numberline {2}Governing Equations }{4}}
 \newlabel{Method}{{2}{4}}
 \newlabel{governingeq}{{1}{4}}
@@ -43,7 +44,6 @@
 \newlabel{momsourceterms}{{3}{5}}
 \newlabel{integrator}{{4}{5}}
 \citation{FraccarolloToro1995}
-\citation{}
 \@writefile{toc}{\contentsline {section}{\numberline {3}SW Solution and Adaptive Strategy for WD Interface }{6}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Using Appropriate Riemann Fluxes}{6}}
 \newlabel{Riemann}{{3.1}{6}}
@@ -60,12 +60,13 @@
 \newlabel{table1}{{4.1}{8}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.1}Selecting appropriate threshold}{8}}
 \newlabel{Threshold}{{4.1.1}{8}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.2}Interface Reconstruction}{9}}
-\newlabel{Interfacerecon}{{4.1.2}{9}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.2}Interface Reconstruction}{8}}
+\newlabel{Interfacerecon}{{4.1.2}{8}}
 \@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Interface Reconstruction in TITAN2D\relax }}{9}}
 \newlabel{interface}{{4}{9}}
 \citation{Chen2002,Anderson1998,Boettinger2002,Kim2012}
 \citation{Bronsard1990,Larson1999}
+\citation{Kim2014,Yang2006}
 \newlabel{wetnessfactor}{{7}{10}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.3}Adjusting Fluxes in Partially Wet Cells}{10}}
 \newlabel{adjustfluxes}{{4.1.3}{10}}
@@ -73,9 +74,13 @@
 \newlabel{phase field}{{4.2}{10}}
 \newlabel{allencahn}{{8}{10}}
 \newlabel{fprime}{{9}{10}}
+\newlabel{allencahn_mod}{{10}{10}}
 \citation{petsc-user-ref}
 \citation{Osher1988}
-\newlabel{allencahn_mod}{{10}{11}}
+\citation{Osher1988}
+\citation{Chopp2001}
+\citation{Sussman1994a}
+\citation{Chopp2001}
 \newlabel{constrain}{{11}{11}}
 \newlabel{eta}{{12}{11}}
 \newlabel{lapbound}{{13}{11}}
@@ -85,46 +90,57 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Third: Level Set Method}{11}}
 \newlabel{level set}{{4.3}{11}}
 \newlabel{levelseteq1}{{17}{11}}
-\citation{Osher1988}
-\citation{Chopp2001}
-\citation{Sussman1994a}
+\newlabel{levelseteq2}{{18}{11}}
 \citation{Chopp2001}
 \citation{Chopp2001}
 \citation{Chopp2001}
-\citation{Chopp2001}
-\newlabel{levelseteq2}{{18}{12}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.1}Reinitialization}{12}}
 \newlabel{reinitialization}{{4.3.1}{12}}
 \newlabel{dist_cond1}{{19a}{12}}
 \newlabel{dist_cond2}{{19b}{12}}
 \newlabel{interpolation}{{20}{12}}
+\newlabel{bilin_system}{{21}{12}}
 \citation{Chopp2001}
-\newlabel{bilin_system}{{21}{13}}
 \@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Configuration of the four elements that have been selected for bilinear interpolation. In this schematic example the interface passes through two hypothetical edges of (2-4) and (1-2) edges. This is just for demonstration purpose and has no effect on the equations.\relax }}{13}}
 \newlabel{fig:bilinear_interp}{{5}{13}}
 \newlabel{eqnewton}{{23}{13}}
+\citation{Adalsteinsson1999}
 \newlabel{Surface}{{24}{14}}
 \@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces In this figure $p_1$ and $p_2$ are updated in processor j and $p_3$ is updated in processor i, but its informations is available in processor j as ghost cell. \relax }}{14}}
 \newlabel{fig:surf_interp}{{6}{14}}
-\citation{Adalsteinsson1999}
-\newlabel{initializationeq}{{27}{15}}
+\newlabel{initializationeq}{{27}{14}}
 \@writefile{toc}{\contentsline {section}{\numberline {5}Results}{15}}
 \newlabel{results}{{5}{15}}
-\citation{AmyWebb2004}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Inclined plane}{16}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Inclined plane}{15}}
 \@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Initial configuration of the pile on the incline\relax }}{16}}
 \newlabel{initialconf}{{7}{16}}
-\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Pile height contour and interface location at different time steps\relax }}{17}}
-\newlabel{odinary}{{8}{17}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.1.1}Comparison}{17}}
+\newlabel{y_extent}{{8b}{16}}
+\newlabel{sub@y_extent}{{b}{16}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Pile height contour and interface location at different time steps\relax }}{16}}
+\newlabel{Pile_height_contour}{{8}{16}}
+\citation{AmyWebb2004}
+\citation{Patra2005,Patra2006}
+\citation{Patra2006}
+\newlabel{x_extent}{{9a}{18}}
+\newlabel{sub@x_extent}{{a}{18}}
+\newlabel{area}{{9b}{18}}
+\newlabel{sub@area}{{b}{18}}
+\newlabel{y_extent}{{9c}{18}}
+\newlabel{sub@y_extent}{{c}{18}}
+\newlabel{Perimeter}{{9d}{18}}
+\newlabel{sub@Perimeter}{{d}{18}}
 \@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Comparison of the methods for flow on inclined plane\relax }}{18}}
-\newlabel{compinc}{{9}{18}}
+\newlabel{compinc_inclined}{{9}{18}}
 \citation{Charbonnier2008}
 \citation{NamikawaPhD}
+\newlabel{mesh_inc}{{10a}{19}}
+\newlabel{sub@mesh_inc}{{a}{19}}
+\newlabel{barplot_inc}{{10b}{19}}
+\newlabel{sub@barplot_inc}{{b}{19}}
 \@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces Comparison of the methods based on computational cost \relax }}{19}}
 \newlabel{compinc_comput}{{10}{19}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Colima Volcano}{19}}
-\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces Comparison of the obtained outline of flow from Heuristic, Level set, and Phase field methods for Colima Volcano\relax }}{20}}
+\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces Comparison of the obtained outline of flow from Heuristic, Level Set, and Phase field methods for Colima Volcano\relax }}{20}}
 \newlabel{Colimapic}{{11}{20}}
 \@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces Comparison of the methods based on computational cost \relax }}{21}}
 \newlabel{compinc}{{12}{21}}
@@ -132,43 +148,43 @@
 \newlabel{conclusions}{{6}{21}}
 \bibstyle{plain}
 \bibdata{mybib}
-\bibcite{}{{1}{}{{}}{{}}}
-\bibcite{Adalsteinsson1999}{{2}{}{{}}{{}}}
-\bibcite{Patra2005}{{3}{}{{}}{{}}}
-\bibcite{Anderson1998}{{4}{}{{}}{{}}}
-\bibcite{Aureli2008}{{5}{}{{}}{{}}}
-\bibcite{petsc-user-ref}{{6}{}{{}}{{}}}
-\bibcite{Balzano1998}{{7}{}{{}}{{}}}
-\bibcite{Boettinger2002}{{8}{}{{}}{{}}}
-\bibcite{Bronsard1990}{{9}{}{{}}{{}}}
-\bibcite{Bunya2009}{{10}{}{{}}{{}}}
-\bibcite{CahnHilliard1958ii}{{11}{}{{}}{{}}}
-\bibcite{CahnHilliard1958i}{{12}{}{{}}{{}}}
-\bibcite{Castro2005}{{13}{}{{}}{{}}}
-\bibcite{Casulli2009a}{{14}{}{{}}{{}}}
-\bibcite{Charbonnier2008}{{15}{}{{}}{{}}}
-\bibcite{Chen2002}{{16}{}{{}}{{}}}
-\bibcite{Cheng1995}{{17}{}{{}}{{}}}
-\bibcite{Chopp2001}{{18}{}{{}}{{}}}
-\bibcite{Dalbey2009}{{19}{}{{}}{{}}}
-\bibcite{Denlinger2001}{{20}{}{{}}{{}}}
-\bibcite{DAlpaos2007}{{21}{}{{}}{{}}}
-\bibcite{eglit1980mms}{{22}{}{{}}{{}}}
-\bibcite{FraccarolloToro1995}{{23}{}{{}}{{}}}
-\bibcite{gerlach2006cvf}{{24}{}{{}}{{}}}
-\bibcite{Glimm1995}{{25}{}{{}}{{}}}
-\bibcite{gopala2008vfm}{{26}{}{{}}{{}}}
-\bibcite{Gray1999}{{27}{}{{}}{{}}}
-\bibcite{Harlow1965}{{28}{}{{}}{{}}}
-\bibcite{hirt1981vfv}{{29}{}{{}}{{}}}
-\bibcite{Iverson1997}{{30}{}{{}}{{}}}
-\bibcite{Kesserwani2011}{{31}{}{{}}{{}}}
-\bibcite{Hutter1993}{{32}{}{{}}{{}}}
-\bibcite{Kim2012}{{33}{}{{}}{{}}}
-\bibcite{Larson1999}{{34}{}{{}}{{}}}
-\bibcite{NamikawaPhD}{{35}{}{{}}{{}}}
-\bibcite{Osher1988}{{36}{}{{}}{{}}}
-\bibcite{pitmanpof}{{37}{}{{}}{{}}}
+\bibcite{Adalsteinsson1999}{{1}{}{{}}{{}}}
+\bibcite{Anderson1998}{{2}{}{{}}{{}}}
+\bibcite{Aureli2008}{{3}{}{{}}{{}}}
+\bibcite{petsc-user-ref}{{4}{}{{}}{{}}}
+\bibcite{Balzano1998}{{5}{}{{}}{{}}}
+\bibcite{Boettinger2002}{{6}{}{{}}{{}}}
+\bibcite{Bronsard1990}{{7}{}{{}}{{}}}
+\bibcite{Bunya2009}{{8}{}{{}}{{}}}
+\bibcite{CahnHilliard1958ii}{{9}{}{{}}{{}}}
+\bibcite{CahnHilliard1958i}{{10}{}{{}}{{}}}
+\bibcite{Castro2005}{{11}{}{{}}{{}}}
+\bibcite{Charbonnier2008}{{12}{}{{}}{{}}}
+\bibcite{Chen2002}{{13}{}{{}}{{}}}
+\bibcite{Cheng1995}{{14}{}{{}}{{}}}
+\bibcite{Chopp2001}{{15}{}{{}}{{}}}
+\bibcite{Dalbey2009}{{16}{}{{}}{{}}}
+\bibcite{Denlinger2001}{{17}{}{{}}{{}}}
+\bibcite{DAlpaos2007}{{18}{}{{}}{{}}}
+\bibcite{eglit1980mms}{{19}{}{{}}{{}}}
+\bibcite{FraccarolloToro1995}{{20}{}{{}}{{}}}
+\bibcite{gerlach2006cvf}{{21}{}{{}}{{}}}
+\bibcite{Glimm1995}{{22}{}{{}}{{}}}
+\bibcite{gopala2008vfm}{{23}{}{{}}{{}}}
+\bibcite{Gray1999}{{24}{}{{}}{{}}}
+\bibcite{Harlow1965}{{25}{}{{}}{{}}}
+\bibcite{hirt1981vfv}{{26}{}{{}}{{}}}
+\bibcite{Iverson1997}{{27}{}{{}}{{}}}
+\bibcite{Kesserwani2011}{{28}{}{{}}{{}}}
+\bibcite{Hutter1993}{{29}{}{{}}{{}}}
+\bibcite{Kim2012}{{30}{}{{}}{{}}}
+\bibcite{Kim2014}{{31}{}{{}}{{}}}
+\bibcite{Larson1999}{{32}{}{{}}{{}}}
+\bibcite{NamikawaPhD}{{33}{}{{}}{{}}}
+\bibcite{Osher1988}{{34}{}{{}}{{}}}
+\bibcite{Patra2005}{{35}{}{{}}{{}}}
+\bibcite{Patra2006}{{36}{}{{}}{{}}}
+\bibcite{Pitman2003}{{37}{}{{}}{{}}}
 \bibcite{PudasainiHutter2003}{{38}{}{{}}{{}}}
 \bibcite{quecedo2002rtg}{{39}{}{{}}{{}}}
 \bibcite{SavageHutter}{{40}{}{{}}{{}}}
@@ -176,11 +192,12 @@
 \bibcite{Sussman1994a}{{42}{}{{}}{{}}}
 \bibcite{Tai2002}{{43}{}{{}}{{}}}
 \bibcite{Medeiros2013}{{44}{}{{}}{{}}}
-\bibcite{ToroBook2001}{{45}{}{{}}{{}}}
-\bibcite{Toro2009riemann}{{46}{}{{}}{{}}}
-\bibcite{Unverdi1992}{{47}{}{{}}{{}}}
-\bibcite{AmyWebb2004}{{48}{}{{}}{{}}}
-\bibcite{Wrobel1991}{{49}{}{{}}{{}}}
-\bibcite{Yang2006}{{50}{}{{}}{{}}}
-\bibcite{youngs1982tdm}{{51}{}{{}}{{}}}
+\bibcite{Casulli2009}{{45}{}{{}}{{}}}
+\bibcite{ToroBook2001}{{46}{}{{}}{{}}}
+\bibcite{Toro2009riemann}{{47}{}{{}}{{}}}
+\bibcite{Unverdi1992}{{48}{}{{}}{{}}}
+\bibcite{AmyWebb2004}{{49}{}{{}}{{}}}
+\bibcite{Wrobel1991}{{50}{}{{}}{{}}}
+\bibcite{Yang2006}{{51}{}{{}}{{}}}
+\bibcite{youngs1982tdm}{{52}{}{{}}{{}}}
 \providecommand\NAT@force@numbers{}\NAT@force@numbers

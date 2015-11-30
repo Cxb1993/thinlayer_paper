@@ -1,21 +1,9 @@
 \begin{thebibliography}{10}
 
-\bibitem{}
-{Operators on Inner-Product Spaces}.
-\newblock pages 127--161.
-
 \bibitem{Adalsteinsson1999}
 D~Adalsteinsson and J.a Sethian.
 \newblock {The Fast Construction of Extension Velocities in Level Set Methods}.
 \newblock {\em Journal of Computational Physics}, 148(1):2--22, January 1999.
-
-\bibitem{Patra2005}
-a.K. Patra, a.C. Bauer, C.C. Nichita, E.B. Pitman, M.F. Sheridan, M.~Bursik,
-  B.~Rupp, a.~Webber, a.J. Stinton, L.M. Namikawa, and C.S. Renschler.
-\newblock {Parallel adaptive numerical simulation of dry avalanches over
-  natural terrain}.
-\newblock {\em Journal of Volcanology and Geothermal Research}, 139(1-2):1--21,
-  January 2005.
 
 \bibitem{Anderson1998}
 D~M Anderson, G~B McFadden, and A~A Wheeler.
@@ -44,8 +32,8 @@ Andrea Balzano.
 \newblock {\em Coastal Engineering}, pages 83--107, 1998.
 
 \bibitem{Boettinger2002}
-W~J Boettinger, J~a. Warren, C~Beckermann, and A.~Karma.
-\newblock {Phase -Field Simulation of Solidification 1}.
+W.~J. Boettinger, J.~a. Warren, C.~Beckermann, and A.~Karma.
+\newblock {Phase -Field Simulation of Solidification}.
 \newblock {\em Annual Review of Materials Research}, 32(1):163--194, August
   2002.
 
@@ -56,7 +44,7 @@ Lia Bronsard and Robert~V Kohn.
   1990.
 
 \bibitem{Bunya2009}
-Shintaro Bunya, Ethan~J Kubatko, Joannes~J Westerink, and Clint Dawson.
+Shintaro Bunya, Ethan~J. Kubatko, Joannes~J. Westerink, and Clint Dawson.
 \newblock {A wetting and drying treatment for the Runge–Kutta discontinuous
   Galerkin solution to the shallow water equations}.
 \newblock {\em Computer Methods in Applied Mechanics and Engineering},
@@ -80,13 +68,6 @@ M.J. Castro, A.M. {Ferreiro Ferreiro}, J.A. Garc\'{\i}a-Rodr\'{\i}guez, J.M.
   application to one-layer and two-layer systems}.
 \newblock {\em Mathematical and Computer Modelling}, 42(3-4):419--439, August
   2005.
-
-\bibitem{Casulli2009a}
-Vincenzo Casulli.
-\newblock {Ahigh-resolution wetting and drying algorithm for free-surface
-  hydrodynamics}.
-\newblock {\em International journal for numerical methods in fluids}, (August
-  2008):391--408, 2009.
 
 \bibitem{Charbonnier2008}
 S~J Charbonnier and R~Gertisser.
@@ -117,18 +98,17 @@ David~L. Chopp.
 
 \bibitem{Dalbey2009}
 Keith~R Dalbey.
-\newblock {PREDICTIVE SIMULATION AND MODEL BASED HAZARD MAPS UMI Number :
-  3356020 Copyright 2009 by Dalbey , Keith R . All rights reserved}.
-\newblock 2009.
+\newblock {\em {Predictive Simulation and Model Based Hazard Maps}}.
+\newblock PhD thesis, University at Buffalo, 2009.
 
 \bibitem{Denlinger2001}
-Roger~P Denlinger and Richard~M Iverson.
+Roger~P. Denlinger and Richard~M. Iverson.
 \newblock {Flow of variably fluidized granular masses across three-dimensional
   terrain: 2. Numerical predictions and experimental tests}.
 \newblock {\em Journal of Geophysical Research}, 106(B1):553, 2001.
 
 \bibitem{DAlpaos2007}
-L~D’Alpaos and a.~Defina.
+L.~D’Alpaos and a.~Defina.
 \newblock {Mathematical modeling of tidal hydrodynamics in shallow lagoons: A
   review of open issues and applications to the Venice lagoon}.
 \newblock {\em Computers \& Geosciences}, 33(4):476--496, May 2007.
@@ -205,6 +185,12 @@ Junseok Kim.
 \newblock {Phase-Field Models for Multi-Component Fluid Flows}.
 \newblock {\em Commun. Comput. Phys}, 12(3):613--661, 2012.
 
+\bibitem{Kim2014}
+Junseok Kim, Seunggyu Lee, and Yongho Choi.
+\newblock {A conservative Allen – Cahn equation with a space – time
+  dependent Lagrange multiplier}.
+\newblock {\em International Journal of Engineering Science}, 84:11--17, 2014.
+
 \bibitem{Larson1999}
 R~G Larson.
 \newblock {\em {The Structure and Rheology of Complex Fluids}}.
@@ -223,10 +209,26 @@ Stanley Osher and James~A Sethian.
   on Hamilton-Jacobi formulations}.
 \newblock {\em Journal of Computational Physics}, 79(1):12--49, 1988.
 
-\bibitem{pitmanpof}
-E~B Pitman, A~Patra, A~Bauer, C~Nichita, M~Sheridan, and M.Bursik.
-\newblock {Computing debris flows}.
-\newblock {\em Physics of Fluids}, 15:3638--3646, 2003.
+\bibitem{Patra2005}
+Abani~K. Patra, a.~C. Bauer, C.~C. Nichita, E.~B. Pitman, M.~F. Sheridan,
+  M.~Bursik, B.~Rupp, a.~Webber, a.~J. Stinton, L.~M. Namikawa, and C.~S.
+  Renschler.
+\newblock {Parallel adaptive numerical simulation of dry avalanches over
+  natural terrain}.
+\newblock {\em Journal of Volcanology and Geothermal Research}, 139(1-2):1--21,
+  January 2005.
+
+\bibitem{Patra2006}
+Abani~K. Patra, C~Nichita, A~Bauer, E~Pitman, M~Bursik, and M~Sheridan.
+\newblock {Parallel adaptive discontinuous Galerkin approximation for thin
+  layer avalanche modeling}.
+\newblock {\em Computers \& Geosciences}, 32(7):912--926, August 2006.
+
+\bibitem{Pitman2003}
+E~Bruce Pitman, C~Camil Nichita, Abani Patra, Andy Bauer, Michael Sheridan, and
+  Marcus Bursik.
+\newblock {Computing granular avalanches and landslides}.
+\newblock {\em Physics of Fluids}, 15(12):3638, 2003.
 
 \bibitem{PudasainiHutter2003}
 S.\~{}P. Pudasaini and K~Hutter.
@@ -261,12 +263,19 @@ Mark Sussman, Peter Smereka, and Stanley Osher.
 \newblock {\em Journal of Computational Physics}, 114(1):146--159, 1994.
 
 \bibitem{Tai2002}
-Y~C Tai, S~Noelle, J.M.N.T. Gray, and K~Hutter.
+Y.C. Tai, S.~Noelle, J.M.N.T. Gray, and K.~Hutter.
 \newblock {Shock-Capturing and Front-Tracking Methods for Granular Avalanches}.
 \newblock {\em Journal of Computational Physics}, 175(1):269--301, January
   2002.
 
 \bibitem{Medeiros2013}
+Tayfun~E Tezduyar, Sunil Sathe, Matthew Schwaab, and Brian~S Conklin.
+\newblock {Arterial fluid mechanics modeling with the stabilized space – time
+  fluid – structure interaction technique}.
+\newblock {\em International Journal for Numerical Methods in Fluids}, (October
+  2007):601--629, 2008.
+
+\bibitem{Casulli2009}
 Tayfun~E Tezduyar, Sunil Sathe, Matthew Schwaab, and Brian~S Conklin.
 \newblock {Arterial fluid mechanics modeling with the stabilized space – time
   fluid – structure interaction technique}.

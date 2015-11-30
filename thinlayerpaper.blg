@@ -3,91 +3,47 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: thinlayerpaper.aux
 The style file: plain.bst
 Database file #1: mybib.bib
-Repeated entry---line 566 of file mybib.bib
- : @article{Boettinger2002
- :                        ,
-I'm skipping whatever remains of this entry
-Repeated entry---line 753 of file mybib.bib
- : @article{Bunya2009
- :                   ,
-I'm skipping whatever remains of this entry
-Repeated entry---line 1257 of file mybib.bib
- : @article{DAlpaos2007
- :                     ,
-I'm skipping whatever remains of this entry
-Repeated entry---line 1313 of file mybib.bib
- : @article{Dalbey2009
- :                    ,
-I'm skipping whatever remains of this entry
-Repeated entry---line 1390 of file mybib.bib
- : @article{Denlinger2001
- :                       ,
-I'm skipping whatever remains of this entry
-Repeated entry---line 5286 of file mybib.bib
- : @article{Tai2002
- :                 ,
-I'm skipping whatever remains of this entry
-Repeated entry---line 6041 of file mybib.bib
- : @misc{
- :       ,
-I'm skipping whatever remains of this entry
-Repeated entry---line 6045 of file mybib.bib
- : @misc{
- :       ,
-I'm skipping whatever remains of this entry
-Repeated entry---line 6051 of file mybib.bib
- : @misc{
- :       ,
-I'm skipping whatever remains of this entry
-Warning--I didn't find a database entry for "gmfg1"
-Warning--I didn't find a database entry for "dgtitanpaper"
-Warning--to sort, need author or key in 
-Warning--empty author in 
-Warning--empty booktitle in 
-Warning--empty publisher in 
-Warning--empty year in 
-Warning--there's a number but no volume in Casulli2009a
-Warning--empty journal in Dalbey2009
 Warning--there's a number but no volume in Medeiros2013
-You've used 51 entries,
+Warning--there's a number but no volume in Casulli2009
+You've used 52 entries,
             2118 wiz_defined-function locations,
-            848 strings with 13398 characters,
-and the built_in function-call counts, 17336 in all, are:
-= -- 1734
-> -- 840
-< -- 5
-+ -- 331
-- -- 280
-* -- 1347
-:= -- 2931
-add.period$ -- 153
-call.type$ -- 51
-change.case$ -- 287
+            853 strings with 13600 characters,
+and the built_in function-call counts, 17797 in all, are:
+= -- 1772
+> -- 906
+< -- 4
++ -- 356
+- -- 304
+* -- 1402
+:= -- 3045
+add.period$ -- 157
+call.type$ -- 52
+change.case$ -- 301
 chr.to.int$ -- 0
-cite$ -- 59
-duplicate$ -- 585
-empty$ -- 1299
-format.name$ -- 280
-if$ -- 3503
+cite$ -- 54
+duplicate$ -- 583
+empty$ -- 1303
+format.name$ -- 304
+if$ -- 3571
 int.to.chr$ -- 0
-int.to.str$ -- 51
+int.to.str$ -- 52
 missing$ -- 52
-newline$ -- 256
-num.names$ -- 102
+newline$ -- 262
+num.names$ -- 106
 pop$ -- 244
 preamble$ -- 1
-purify$ -- 241
+purify$ -- 255
 quote$ -- 0
-skip$ -- 400
+skip$ -- 396
 stack$ -- 0
-substring$ -- 1231
-swap$ -- 75
-text.length$ -- 5
+substring$ -- 1229
+swap$ -- 69
+text.length$ -- 4
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 196
-warning$ -- 8
-while$ -- 183
-width$ -- 53
-write$ -- 553
-(There were 9 error messages)
+type$ -- 200
+warning$ -- 2
+while$ -- 187
+width$ -- 54
+write$ -- 570
+(There were 2 warnings)
