@@ -1125,14 +1125,15 @@ prevents any simulation of a particular event.
 In this paper, we 
 have described some features of the thin-layer problem,
 some underlying causes that are common to virtually all numerical 
-solution methodologies. We presented a heuristic method and compared it to Eulerian interface capturing approaches that 
-mitigate this problem. In heuristic method we used a threshold to distinguish between wet and dry areas, and in the level set and phase field methods we solved a 
-transport equation that implicitly represents the interface of the flow. Then we used the result of previous step for mesh refinement in all of the three solvers to control the thin layer problem and other related problems. Moreover in the heuristic approach we also used this result for interface reconstruction  and adjusting the flux. 
+solution methodologies. We presented a heuristic method and compared it to two Eulerian interface capturing approaches that 
+mitigate this problem. In the heuristic method we used a threshold to distinguish between the wet and dry areas, and in the level set and phase field methods we solved a 
+transport equation that implicitly represents the interface of the flow. Then we used the result of a previous step for mesh refinement in all of the three solvers to control 
+the thin layer problem and other related problems. Moreover, in the heuristic approach we also used this result for interface reconstruction and the adjustment of the flux. 
 We implemented these thin-layer control strategies in TITAN2D, our high 
 performance finite volume solver of the depth-averaged granular 
-flow equations.  Numerical simulations were performed for two different geophysical mass flows.
-To verify the solvers, numerical experiments were conducted for an inclined plate that finally continues horizontally, and Colima volcano. For the first case we verified the numerical results 
-with experimental results, and for the second case we compared the results with field data. These analyses showe with all of the approaches,
+flow equations. Numerical simulations were performed for two different geophysical mass flows.
+To verify the solvers, numerical experiments were conducted for an inclined plate and the Colima volcano. For the first case we verified the numerical results 
+with experimental results, and for the second case we compared the results with field data. These analyses show that with all of the approaches,
 we not only prevented the loss of numerical stability but also demonstrated behavior that is consistent with observations of the flows.
 %
 %As the second case, we tested our solvers on Colima volcano, which is an active volcano 
