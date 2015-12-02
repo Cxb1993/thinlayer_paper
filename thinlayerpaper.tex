@@ -1,4 +1,4 @@
-\documentclass[letterpaper,10pt]{article}
+\documentclass[letterpaper]{article}
 \usepackage{amsmath}
 \usepackage[utf8x]{inputenc}
 \usepackage{caption}
@@ -31,14 +31,14 @@
 \begin{document}
 \maketitle
 \begin {abstract}{
-Determining the wet-dry boundary and the related spurious thin-layer problem has historically been a challenge when 
+Determining the wet-dry boundary and avoiding the related spurious thin-layer problem has historically been a challenge when 
 solving the depth-averaged shallow-water (SW) equations (or similar granular flow's equations), and has 
-been the focus of much research effort. In this paper we introduce the use of level set and phase field based methods to solve this issue and related problems. We also propose new heuristic 
+been the focus of much research effort. In this paper, we introduce the use of level set and phase field based methods to solve this issue and related problems. We also propose new heuristic 
 methods to address this problem. We implemented all of these methods in TITAN2D, which is a parallel adaptive mesh refinement toolkit designed for numerical simulation of granular flows. 
 Results of the methods for flow over a simple inclined plane and Colima volcano are used to illustrate the methods. For the inclined plane we verified the results with experimental data and for 
 Colima volcano they have been compared with field data. We successfully captured the interface of the flow and solved the accuracy and stability problems related to the thin layer problem in 
 SW numerical solution. The comparison of results shows that although all of the methods can be used to address this problem, 
-each of them has its own advantages/disadvantages and methods have to be chosen carefully for each problem.
+each of them has its own advantages/disadvantages and methods have to be chosen carefully for each problem. \\
 \textbf{Keywords:} Shallow water flow, Thin layer, Wetting/Drying, Phase field, Level Set}
 \end{abstract}
 % =============================================================================
@@ -838,15 +838,15 @@ In the above equations $D^+$, and $D^-$ are the backward and forward differences
 We solve equation \eqref{initializationeq} until $\sum\limits_{ij}|\varPsi_{ij}^{n+1} -\varPsi_{ij}^{n}| < .5 (\delta x)^3$ over all points being updated.
 
 \section{Results} \label{results}
-We use two cases to study the effects of the introduced interface capturing schemes. The first case is the inclined plane while the second is the Colima Volcano. 
-The reason we selected these two cases is that for the inclined plane experimental data is available, so the numerical study results could be verified with the experimental results. 
-For the later one, i.e Colima Volcano, we used the field observation data of the outline and characteristic of the flow to simulate an eruption numerically and compare the results.
-
-Since the computational cost of the methods are not same, we have also compared these methods from a computational point of view by the required simulation time and the number of elements 
+We use two cases to illustrate the  interface capturing schemes. The first case is flow down an inclined plane while the second is past eruptions at the Colima Volcano. 
+The first case provides detailed and accurate  experimental data. The second is more characteristic of typical field observations available to calibrate and validate TITAN flows.
+%
+%For the later one, i.e Colima Volcano, we used the field observation data of the outline and characteristic of the flow to simulate an eruption numerically and compare the results.
+Since the computational cost of the methods are not same, we have also compared these methods from a computational point of view by the required simulation time and the number of elements generate in the adaptive meshing process
 during the simulation. 
 
 \subsection{Inclined plane}
-In this section the results of the inclined plane is presented. The input parameters and initial conditions of the flow could be seen in  table 1.
+In this section the results of the inclined plane are presented. The input parameters and initial conditions of the flow could be seen in  table 1.
 \begin{center}
         \begin{tabular}{|l|c|}
                 % \caption{Initial condition}
@@ -910,32 +910,37 @@ In this section the results of the inclined plane is presented. The input parame
 \end{figure}
 The experimental results were reported in \cite{AmyWebb2004}, and we have used them to verify our different numerical results with them in our previous works. 
 Figure \ref{initialconf} shows the initial configuration of the pile in both the experimental setup and the numerical study. As can be seen in the experimental setup, 
-there are markers in the inclined plane that are used for measurements. We used a digital camera and image processing techniques to compute the extents of the flow in 
-x and y directions as well as its area and perimeter, and then compared the obtained results with the numerical results in figure \ref{compinc_inclined}. We also plotted 
+there are markers in the inclined plane that are used for measurements. Webb \cite{AmyWebb2004}
+  used a digital camera and image processing techniques to compute the extents of the flow in 
+x and y directions as well as its area and perimeter, and then compared the obtained results with the numerical results in figure \ref{compinc_inclined}. The raw data
+from observation was re-analyzed in the course of this investigation and the actual flow depth data was updated to account for a small error in the original calculations
+reported in \cite{AmyWebb2004}.
+We also plotted 
 the interface of the flow for the three interface capturing schemes and the experimental results in figure \ref{Pile_height_contour}.
-
 The plotted interfaces in figure \ref{Pile_height_contour} are for $\phi=0$ and $\varPsi=0$ for the Phase Field and the Level Set methods respectively 
 and $h=\sqrt[3]{Vol} \times GEOFLOW\_TINY $ for the heuristic method where $Vol$ is the volume of flow and $GEOFLOW\_TINY= .0001$, as was described in section \ref{Threshold}.
 
-Figure \ref{Pile_height_contour} shows the results of the Eulerian interface capturing schemes are very similar for the inclined plane, 
-and are closer to the experiment than the heuristic method. In all four plotted time steps, the heuristic method over-predicts the interface. 
-One may suggest by changing the $GEOFLOW\_TINY $ better results can be achieved, but in that case we will end up with a  $GEOFLOW\_TINY $ that depends on the scale of the flow. 
-One of very important goal we pursued in this study is to find a method that can predict the interface of a geophysical flow independent of the scale of the flow, 
-and for this reason we selected two very different scale of flows (i.e flow over the inclined plane and Colima volcano), 
-and the $GEOFLOW\_TINY $ that we use here have been tested in many of our previous works, and showed reasonable results \cite{Patra2005,Patra2006}. 
+Figure \ref{Pile_height_contour} shows that the results of the Eulerian interface capturing schemes are very similar for the inclined plane, 
+and are closer to the experiment than the heuristic method. In all four plotted time steps, the heuristic method appears to move ahead of the true  interface. 
+It is possible to obtain better agreement by tuning the value of  $GEOFLOW\_TINY $  but in that case we will end up with a  $GEOFLOW\_TINY $ that
+ depends on the particular flow rendering the use of TITAN for anything but hindcasts problematic. 
+A primary goal of  this study is to find a method that can predict the interface of a geophysical flow independent of the scale of the flow, 
+and for this reason we selected two very different scales of flows (i.e flow over the inclined plane and Colima volcano), 
+and the $GEOFLOW\_TINY $ that we use here have been tested in much of our previous work, and has showed reasonable results \cite{Patra2005,Patra2006}. 
 
 In figure \ref{x_extent} the extent of flow in X direction was plotted. This plot shows the length of flow during its travel. 
 The maximum of the flow length happens when the flow reaches the horizontal plane. All of the methods are successful in predicting the time 
-that flow reaches the horizontal plane, but like the interface results (figure \ref{Pile_height_contour}) the heuristic methods over-predicts the length of the flow, 
-and the Phase Field and the Level Set results are a better match with the experimental result.
+that flow reaches the horizontal plane, but like the interface results (figure \ref{Pile_height_contour}) the heuristic method over-predicts the length of the flow.
+The Phase Field and the Level Set results are a better match with the experimental result.
 
 The width of the flow or extent of the flow in Y direction can be seen in figure \ref{y_extent}. 
 There is larger difference between the experiment and the Eulerian interface capturing methods results in this figure than the other results, 
-and based on our previous work \cite{Patra2006}, we believe the main reason of this difference is due to the accuracy of the solver. 
-In that work, we showed with more accurate simulations using a Discontinuous Galerkin method we can better capture the width of the flow.
+and based on our previous work \cite{Patra2006}, we believe the main reason for this difference is due to the accuracy of the solver. 
+In that work, we showed with more accurate simulations using a higher order Discontinuous Galerkin method we can better capture the width of the flow.
+Future work will address the combination of such higher order methods and the interface capturing schemes.
 
 The other measure we use to compare the results is the area of the flow. 
-In figure \ref{area} you can see the Eulerian methods capture the area of the flow fairly well,
+In figure \ref{area}  one can see that the Eulerian methods capture the area of the flow fairly well,
 especially before the flow hits the horizontal surface, while the heuristic method over-estimates the area of the flow. 
 The last result is that of the perimeter of the flow (figure \ref{Perimeter}), which shows a similar behavior 
 to the other results that have been discussed earlier. 
@@ -999,7 +1004,7 @@ interface capturing with the heuristic method results in a larger number of elem
 Despite the higher number of elements in the heuristic method, the overall time needed to complete a simulation, figure \ref{barplot_inc},
 is lowest for the heuristic method. Overall the heuristic method took 70\% of the time required for the Phase Field method and only 55\% 
 of the time required for the Level Set method.
-All of the simulation were performed on one Intel(R) Xeon(R) CPU E3-1220 v3 3.10GHz.
+All of the simulations were performed on one Intel(R) Xeon(R) CPU E3-1220 v3 3.10GHz. Clearly, there is a tradeoff in accuracy and cost.
 
 % \end{figure}
 \subsection{Colima Volcano}
@@ -1050,7 +1055,7 @@ that we have ever used for this volcano.
 The outline of this eruption is available in \cite{NamikawaPhD}.
 We used the Keyhole Markup Language (KML) to plot the results on real terrain information by using the Google earth application \ref{Colimapic}. 
 
-In figure \ref{colima_outline} you can see the plotted outline of the eruption on Colima volcano. 
+In figure \ref{colima_outline} one can see the plotted outline of the eruption on Colima volcano. 
 This outline is compared to the numerically determined results in figure \ref{Colimapic}.
 
 \begin{figure}[H]
@@ -1081,12 +1086,12 @@ This outline is compared to the numerically determined results in figure \ref{Co
         \label{Colimapic}
 \end{figure}
 
-Results of figure \ref{Colimapic} shows that all of the method are successful in controlling the thin layer problem. 
-The length of the flow has been captured in all of the methods very well, which is very important for generating hazard maps. 
+Results of figure \ref{Colimapic} shows that all of the methods are successful in controlling the thin layer problem. 
+The length of the flow has been captured in all of the methods very well.  This is very important for generating hazard maps. 
 The width of the flow is also reasonable in all of the three methods, although the Eulerian methods are slightly more accurate.
-The heuristic method is the only method that captured the channeling of the flow that can be seen in the field data, 
-but there are two small channels in the heuristic method which are not present in the field outline.
-
+The heuristic method captures the separation of the flow into two channels that can be seen in the field deposit data. The heuristic method 
+also indicates the presence of two small channels that are not present in the field outline. Note that we are comparing deposits to 
+field data.
 \begin{figure}[H]
         \begin{minipage}[b]{.5\linewidth}
                 \centering
@@ -1111,7 +1116,7 @@ We used 16 x 2.27GHz Intel(R) Xeon(R) L5520 for this case. Figure \ref{col_amr} 
 This figures shows the heuristic method and level set have a higher number of elements than the phase field method, 
 and both require a higher number of iterations to perform 1 hr physical time simulation. 
 The right figure (figure \ref{comp_col}) shows the required time for the simulation. 
-In this figure we can see all of the methods take almost the same amount of computational time, which means that although the 
+In this figure, we can see all of the methods take almost the same amount of computational time, which means that although the 
 Level Set and the Phase Field methods are more computationally expensive per time step, the lower number of elements and lower
 number of iterations help them to have the same computational cost as the heuristic method.  
 
@@ -1125,7 +1130,8 @@ prevents any simulation of a particular event.
 In this paper, we 
 have described some features of the thin-layer problem,
 some underlying causes that are common to virtually all numerical 
-solution methodologies. We presented a heuristic method and compared it to two Eulerian interface capturing approaches that 
+solution methodologies for SW equations. We presented a heuristic method and compared it to two Eulerian interface capturing approaches, namely phase filed and level set
+based methods, that 
 mitigate this problem. In the heuristic method we used a threshold to distinguish between the wet and dry areas, and in the level set and phase field methods we solved a 
 transport equation that implicitly represents the interface of the flow. Then we used the result of a previous step for mesh refinement in all of the three solvers to control 
 the thin layer problem and other related problems. Moreover, in the heuristic approach we also used this result for interface reconstruction and the adjustment of the flux. 
@@ -1151,15 +1157,16 @@ we not only prevented the loss of numerical stability but also demonstrated beha
 %a very good consistency between these approaches.
 % Therefore the phase field method could be used for finding the flow boundary 
 % of flow and handle the WD problem. 
-On the basis of these very positive results, we concluded that our 
+On the basis of these very positive results, we conclude that our 
 thin-layer control strategy, and interface capturing approach provides sufficient benefit. 
 While all of these approaches to thin-layer mitigation was developed in the 
 context of TITAN2D's capabilities, much of it should be appropriate 
 for use in depth-averaged flow solvers with different numerical 
 schemes and physics of the problem.
 \newpage
-\appendix
- 
+%\appendix
+\section*{Acknowledgements}
+ We acknowledge the Colima deposit  and experiment data made available to us by Prof. M. I. Bursik and for helpful discussions on the use of that data.
 \bibliographystyle{plain}
 \bibliography{mybib}
 \end{document}
