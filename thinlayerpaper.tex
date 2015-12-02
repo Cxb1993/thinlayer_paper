@@ -1,36 +1,67 @@
-\documentclass[letterpaper]{article}
-\usepackage{amsmath}
-\usepackage[utf8x]{inputenc}
-\usepackage{caption}
+\documentclass[review]{elsarticle}
+
+\usepackage{lineno,hyperref}
 \usepackage{subcaption}
-\usepackage{graphicx}
-\usepackage{subfig}
-\usepackage{float}
-\usepackage{natbib}
-\usepackage{anysize}
-\usepackage{float}
-\usepackage{tabularx}
 \usepackage{amsmath}
+\usepackage{float}
+\modulolinenumbers[5]
+
 \DeclareMathOperator{\sgn}{sgn}
-\usepackage{amssymb}
-\usepackage{amsfonts}
-\usepackage{mathrsfs}
-\usepackage{setspace}
-\usepackage{relsize}
-\usepackage{color}
-\usepackage{multicol}
-\usepackage{titlesec}
-\newcommand{\red}[1]{\textcolor{red}{#1}}
-%
-%\marginsize{1.in}{1.in}{1in}{1in}
-%\linespread{1.25}
-%\setlength\parindent{0pt}
-\title{Heuristic and Eulerian Interface Capturing Approaches for Shallow Water Type Flow and Application to Granular Flows }
-\author{Hossein Aghakhani, Keith Dalbey, Abani Patra, David Salac}
-\date{}
+
+\journal{CMAME}
+
+%%%%%%%%%%%%%%%%%%%%%%%
+%% Elsevier bibliography styles
+%%%%%%%%%%%%%%%%%%%%%%%
+%% To change the style, put a % in front of the second line of the current style and
+%% remove the % from the second line of the style you would like to use.
+%%%%%%%%%%%%%%%%%%%%%%%
+
+%% Numbered
+%\bibliographystyle{model1-num-names}
+
+%% Numbered without titles
+%\bibliographystyle{model1a-num-names}
+
+%% Harvard
+%\bibliographystyle{model2-names.bst}\biboptions{authoryear}
+
+%% Vancouver numbered
+%\usepackage{numcompress}\bibliographystyle{model3-num-names}
+
+%% Vancouver name/year
+%\usepackage{numcompress}\bibliographystyle{model4-names}\biboptions{authoryear}
+
+%% APA style
+%\bibliographystyle{model5-names}\biboptions{authoryear}
+
+%% AMA style
+%\usepackage{numcompress}\bibliographystyle{model6-num-names}
+
+%% `Elsevier LaTeX' style
+\bibliographystyle{elsarticle-num}
+%%%%%%%%%%%%%%%%%%%%%%%
+
 \begin{document}
-\maketitle
-\begin {abstract}{
+
+\begin{frontmatter}
+
+\title{Heuristic and Eulerian Interface Capturing Approaches for Shallow Water Type Flow and Application to Granular Flows}
+
+
+%% Group authors per affiliation:
+\author[maeaddress]{Hossein Aghakhani}
+\author[sandiaaddress]{Keith Dalbey}
+\author[maeaddress]{David Salac}
+\author[maeaddress]{Abani K. Patra\corref{correspondingauthor}}
+
+\cortext[correspondingauthor]{Corresponding author}
+\ead{abani@buffalo.edu}
+
+\address[maeaddress]{Department of Mechanical and Aerospace Engineering, University at Buffalo, Buffalo, New York, United States}
+\address[sandiaaddress]{Sandia National Laboratories, Albuquerque, New Mexico, United States}
+
+\begin{abstract}
 Determining the wet-dry boundary and avoiding the related spurious thin-layer problem has historically been a challenge when 
 solving the depth-averaged shallow-water (SW) equations (or similar granular flow's equations), and has 
 been the focus of much research effort. In this paper, we introduce the use of level set and phase field based methods to solve this issue and related problems. We also propose new heuristic 
@@ -38,12 +69,19 @@ methods to address this problem. We implemented all of these methods in TITAN2D,
 Results of the methods for flow over a simple inclined plane and Colima volcano are used to illustrate the methods. For the inclined plane we verified the results with experimental data and for 
 Colima volcano they have been compared with field data. We successfully captured the interface of the flow and solved the accuracy and stability problems related to the thin layer problem in 
 SW numerical solution. The comparison of results shows that although all of the methods can be used to address this problem, 
-each of them has its own advantages/disadvantages and methods have to be chosen carefully for each problem. \\
-\textbf{Keywords:} Shallow water flow, Thin layer, Wetting/Drying, Phase field, Level Set}
+each of them has its own advantages/disadvantages and methods have to be chosen carefully for each problem. 
 \end{abstract}
-% =============================================================================
-%                 INTRODUCTION
-% =============================================================================
+
+\begin{keyword}
+
+Shallow water flow \sep Thin layer \sep Wetting/Drying \sep Phase field \sep Level Set
+
+\end{keyword}
+
+\end{frontmatter}
+
+\linenumbers
+
 \section{Introduction} 
 \label{introduction}
 % Basic introduction about the Shallow water
@@ -71,14 +109,14 @@ for a volcano or a flood it is crucial to know the location of the front of the 
 risk locations from civil infrastructure? 
 The answer of all the above questions is not possible without good information about the interface of the flow along its flow path.
 \begin{figure}[t]
-  \begin{minipage}[b]{.45\linewidth}
+  \begin{minipage}[b]{.45\textwidth}
     \centering
     \includegraphics[width=1\textwidth]{IMAGES/rupps1.png}
-    \subcaption{ Without thin layer control}
+    \subcaption{ Result without any control. A thin layer of flow covers most of the domain }
   \end{minipage}
 \hspace{0.5cm}
 %   \hfill
-  \begin{minipage}[b]{.45\linewidth}
+  \begin{minipage}[b]{.45\textwidth}
     \centering
     \includegraphics[width=1\textwidth]{IMAGES/rupps2.png}
     \subcaption{Only flow with depth greater than 0.5 m is displayed.}
@@ -226,7 +264,7 @@ In these equations:
 \end{itemize}
 \begin{figure}[!t]
         \begin{center}
-                 \includegraphics[height=2.8 truein]{IMAGES/1.jpg}
+                 \includegraphics[width=1\textwidth]{IMAGES/1.jpg}
                 \caption{In the local coordinate system the {\itshape z} direction is normal to the surface; 
                 the {\itshape x} and {\itshape y} directions are tangential to the surface.}
                 \label{xzeast}
@@ -342,7 +380,7 @@ Usually, heuristic methods use one or a combination of the following four strate
 \end{enumerate}
 Table \ref{table1} compares these heuristic methods.
 \begin{center}\label{table1}
-        \begin{tabular}{|c|p{5cm}|p{5cm}|}
+        \begin{tabular}{|p{.3\textwidth}|p{.3\textwidth}|p{.3\textwidth}|}
                 \hline
                 {\bf Strategy}                  & {\bf Mass Conservation}                                          & {\bf Physics} \\
                 \hline
@@ -616,8 +654,10 @@ and the constrain that has to be satisfied is:
 \end{equation}
 which basically means the volume of pile must be constant during the simulation. Consequently $\xi(t)$ is derived as follow:
 \begin{equation} 
+    \begin{aligned}
         \label{eta}
-        \frac{D}{Dt} \int_\Omega \varphi h \ \ dx= h \int_\Omega \frac{D}{Dt}  \varphi  \ \ dx+\underbrace{\varphi \int_\Omega  \frac{D}{Dt} h  \ \ dx}_{=0 \text{\ \ continuity}}=h\int_\Omega \gamma (\bigtriangleup\varphi -F'(\varphi)+\varphi (\varphi^2-1)\ \xi(t)) \ \ dx,
+        \frac{D}{Dt} \int_\Omega \varphi h \ \ dx &= h \int_\Omega \frac{D}{Dt}  \varphi  \ \ dx+\underbrace{\varphi \int_\Omega  \frac{D}{Dt} h  \ \ dx}_{=0 \text{\ \ continuity}} \\ &=h\int_\Omega \gamma (\bigtriangleup\varphi -F'(\varphi)+\varphi (\varphi^2-1)\ \xi(t)) \ \ dx,
+            \end{aligned}
 \end{equation}
 the first term in above relation will be neglected by applying the Gauss' theorem with considering the boundary conditions($
         \frac{\partial \varphi}{\partial n}\vert_{\Gamma} = 0,
@@ -889,7 +929,7 @@ In this section the results of the inclined plane are presented. The input param
 \end{figure}
 %\subsubsection{Heuristic Method}
 \begin{figure}[H]
-        \begin{minipage}[b]{.5\linewidth}
+        \begin{minipage}[b]{.5\textwidth}
                 \centering                
                 \includegraphics[width=1\textwidth]{IMAGES/interface165.png}                
                 \subcaption{T=0.165 sec}              
@@ -898,7 +938,7 @@ In this section the results of the inclined plane are presented. The input param
               
         \end{minipage}
         %   \hfill
-        \begin{minipage}[b]{.5 \linewidth}
+        \begin{minipage}[b]{.5 \textwidth}
                 \centering
                 \includegraphics[width=1\textwidth]{IMAGES/interface495.png}
                 \subcaption{T=0.495 sec}
@@ -948,22 +988,22 @@ to the other results that have been discussed earlier.
 From these results, all three methods successfully overcome the thin layer problems that were introduced earlier (problems 1-4 section \ref{introduction}), 
 while the Eulerian interface capturing methods generally captured the flow with higher accuracy than the heuristic method.
 \begin{figure}[H]
-        \begin{minipage}[b]{.5\linewidth}
+        \begin{minipage}[b]{.5\textwidth}
                 \centering
-                \includegraphics[scale=0.45]{IMAGES/xextend.png}
+                \includegraphics[width=1\textwidth]{IMAGES/xextend.png}
                 \subcaption{Extension of pile in X direction.}
                   \label{x_extent}
-                \includegraphics[scale=0.45]{IMAGES/area.png}
+                \includegraphics[width=1\textwidth]{IMAGES/area.png}
                 \subcaption{Area of pile.}
                   \label{area}
         \end{minipage}
         %   \hfill
-        \begin{minipage}[b]{.5 \linewidth}
+        \begin{minipage}[b]{.5\textwidth}
                 \centering
-                \includegraphics[scale=0.45]{IMAGES/yextend.png}
+                \includegraphics[width=1\textwidth]{IMAGES/yextend.png}
                 \subcaption{Extension of pile in Y direction.}
                   \label{y_extent}
-                \includegraphics[scale=0.45]{IMAGES/perimeter.png}
+                \includegraphics[width=1\textwidth]{IMAGES/perimeter.png}
                 \subcaption{Perimeter of pile.}
                   \label{Perimeter}
         \end{minipage}
@@ -975,18 +1015,18 @@ while the Eulerian interface capturing methods generally captured the flow with 
 
   
 \begin{figure}[H]
-        \begin{minipage}[b]{.5\linewidth}
+        \begin{minipage}[b]{.5\textwidth}
                 \centering
-                \includegraphics[scale=0.45]{IMAGES/incline_num_elem.png}
+                \includegraphics[width=1\textwidth]{IMAGES/incline_num_elem.png}
                 \subcaption{Number of the elements for different method of interface capturing during the simulation.}
                 \label{mesh_inc}
                 
         \end{minipage}
         %   \hfill
-        \begin{minipage}[b]{.5 \linewidth}
+        \begin{minipage}[b]{.5\textwidth}
                 \centering
-                \includegraphics[scale=0.45]{IMAGES/incline_timing1.png}
-                \subcaption{Time spent for each simulation.}
+                \includegraphics[width=1\textwidth]{IMAGES/incline_timing1.png}
+                \subcaption{Time spent for each simulation.\vspace{.375in}}
                 \label{barplot_inc}
                 
         \end{minipage}
@@ -1067,19 +1107,19 @@ This outline is compared to the numerically determined results in figure \ref{Co
 \end{figure}
 
 \begin{figure}[H]
-\begin{minipage}[b]{.5\linewidth}
+\begin{minipage}[b]{.5\textwidth}
         \centering
-                \includegraphics[width=.95\textwidth]{IMAGES/tiny1.jpg}
+                \includegraphics[width=1\textwidth]{IMAGES/tiny1.jpg}
                 \subcaption{Outline from Heuristic Method.}
-                \includegraphics[width=.95\textwidth]{IMAGES/levelset1.jpg}
+                \includegraphics[width=1\textwidth]{IMAGES/levelset1.jpg}
                 \subcaption{Outline from Level Set Method.}
 \end{minipage}
         %   \hfill
-\begin{minipage}[b]{.5 \linewidth}
+\begin{minipage}[b]{.5 \textwidth}
                 \centering
-                \includegraphics[width=.95\textwidth]{IMAGES/phasefield1.jpg}
+                \includegraphics[width=1\textwidth]{IMAGES/phasefield1.jpg}
                 \subcaption{Outline from Phase field Method.}
-                \includegraphics[width=.95\textwidth]{IMAGES/comparison1.jpg}
+                \includegraphics[width=1\textwidth]{IMAGES/comparison1.jpg}
                 \subcaption{Comparison of all three methods.}
         \end{minipage}
         \caption{Comparison of the obtained outline of flow from Heuristic, Level Set, and Phase field methods for Colima Volcano.}
@@ -1095,7 +1135,7 @@ field data.
 \begin{figure}[H]
         \begin{minipage}[b]{.5\linewidth}
                 \centering
-                \includegraphics[scale=0.45]{IMAGES/colima_num_elem.png}
+                \includegraphics[width=1\textwidth]{IMAGES/colima_num_elem.png}
                 \subcaption{Number of the elements for different method of interface capturing during the simulation.}
                 \label{col_amr}
                 
@@ -1103,8 +1143,8 @@ field data.
         %   \hfill
         \begin{minipage}[b]{.5 \linewidth}
                 \centering
-                \includegraphics[scale=0.45]{IMAGES/colima_timing1.png}
-                \subcaption{Time spent for each simulation.}
+                \includegraphics[width=1\textwidth]{IMAGES/colima_timing1.png}
+                \subcaption{Time spent for each simulation.\vspace{.4in}}
                 \label{comp_col}
         \end{minipage}
         \caption{Comparison of the methods based on computational cost.}
@@ -1163,10 +1203,13 @@ While all of these approaches to thin-layer mitigation was developed in the
 context of TITAN2D's capabilities, much of it should be appropriate 
 for use in depth-averaged flow solvers with different numerical 
 schemes and physics of the problem.
-\newpage
+
 %\appendix
 \section*{Acknowledgements}
  We acknowledge the Colima deposit  and experiment data made available to us by Prof. M. I. Bursik and for helpful discussions on the use of that data.
-\bibliographystyle{plain}
+
+\section*{References}
+
 \bibliography{mybib}
+
 \end{document}
