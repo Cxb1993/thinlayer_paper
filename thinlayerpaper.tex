@@ -342,18 +342,16 @@ either of two requirements:
         \item They have large, as compared to the average, inter-cellular fluxes.
         \item They are at or within a few cells near the interface.
 \end{enumerate}
-The former condition allows for the accurate capture of sharp changes in state variables. The latter results in banded regions of the flow separated into ``rings'' of maximally refined buffer cells.  
-This limits artificially high transportation of material from the inside of the interface to outside of the interface and guarantees that material will only flow into maximally refined dry 
+The former condition allows for the accurate capture of sharp changes in state variables. The latter results in banded regions of the flow separated into ``rings'' of maximally refined buffer cells. The number of rings are equal to or greater than the number of iterations between mesh adaptations. We usually adapt the mesh after every 5 time steps. This strategy limits artificially high transportation of material from the inside of the interface to outside of the interface and guarantees that material will only flow into maximally refined dry 
 cells at the wet-dry front.
 However, some material that are outside of the recognized boundary may be left outside the outermost band of buffer cells. These cells are not updated until the interface passes them.
 The rings of buffer cells strategy decreases the numerical wicking problem and when combined with interface capturing scheme it is sufficient to decrease other thin layer problems to a level that 
 prevents the loss of stability.
-Clearly this strategy depends on the way that we describe the interface. In the heuristic approach, after using a threshold to find the wet and dry areas the number of rings are a number of cells wide 
-equal to or greater than the number of iterations between mesh adaptations (we adapt the mesh after every 5 to 10 time steps). In the level set approach we can use a narrow band method for adaption 
-and selecting of these buffer rings, but we simply select the elements such that their distance to the interface are less than a normalized distance that is obtained from the maximum distance 
-to the interface. Note that in the level set method distance of the cells to the interface is the level set function itself and we do not pay any additional computational cost for that information. 
-In the phase field method we have a diffusive region between two phases that we can control with a capillary width (please refer to section \ref{phase field}).
-We are thus able to select those cells such that $|\phi| <1 $ where $\phi$ the phase field value. We set the capillary width equal to the number of time steps between successive adaptivity steps.
+
+Clearly this strategy depends on the way that we describe the interface. In the heuristic approach, we use GEOGLOW\_TINY for selecting the buffer layers. Since this threshold does not exactly show the interface which is very depend on the scale of the flow and may vary for different DEMs, based on our experience we select 4 buffer layers each composed of 5 rings of refined cells at $h$ equal to 1, 5, 15 and 40 times of the GEOGLOW\_TINY.
+
+In the level set and the phase field methods we approach we know the location of the interface. Thus we just make 2 buffer layers one exactly before and the other after the interface, each of them having 5 rings of refined cells. Knowing the interface location allows us to decrease the number of buffer layers from 4 to 2 which helps to pay off what we spent for computing the transport equation that we need to do to fine the interface for the interface capturing schemes.
+
 Unrefinement takes place immediately after refinement; a group of four ``sibling'' cells will be selected to merge into their mutual ``parent'' cell if the sum of their inter-cellular fluxes is very 
 low compared to the average flux.  Cells that have either just been refined or are otherwise in any of the current bands of buffer cells are immune 
 to unrefinement.  
@@ -683,7 +681,7 @@ which are updated implicitly. For a stable explicit time integrator, the size of
 We used GMRES solver of the PETSc \cite{petsc-user-ref} library to solve equation \eqref{eq2.exp}. Since the Krylov subspace solvers just needs the result of matrix-vector multiplication, we used matrix-free method to compute the Laplacian term to decrease the memory cost of implicit solver.
 \subsection{Third: Level Set Method} \label{level set}
 The last method that we use to capture the interface for a SW flow is the Level Set method.
-The Level Set method is another Eulerian interface capturing method, originally introduced by Osher and Sethian in 1988 \cite{Osher1988}.
+The Level Set method is another Eulerian interface capturing method, originally introduced by Osher and Sethian in 1988 \cite{Osher1988}. There are many papers about using this method for the interface capturing of the flow \citep{Kees2011,Losasso2006,Sethian2003}, but the application of the method is not limited to this \citep{Li2011b,Lie2006}.
 The basis of the method is to capture the interface by means of solving a hyperbolic Hamilton-Jacobi PDE on 
 the computational domain which follows the boundaries. The level set variable $\varPsi (X,t)$ implicitly represents the interface. In this method, $\varPsi (X,t)$ is a signed distance function which means it is zero on the interface, and its absolute value changes in the domain with respect to the distance to the zero level, and its sign is positive outside of the interface, and is negative inside of the interface. 
 Given the initial condition $\varPsi (X,t)_0$ the advection of the interface ($\varPsi (X,t)=0$) only depends on the normal velocity $F$:
