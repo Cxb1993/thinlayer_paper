@@ -177,7 +177,7 @@ In this method, the scalar variable is the fraction/volume of a particular fluid
 To construct the interface based on this method, an interface  reconstruction technique is performed at each time step. 
 Youngs \cite{youngs1982tdm} achieved a significant improvement 
 in the VOF by adding a piecewise linear interface   (PLIC) representation of the fluid boundary. 
-Youngs' method has been shown to be robust and efficient, but it is only first-order accurate. 
+Youngs' method has been shown to be robust and efficient, but it is only first order accurate. 
 More advanced VOF methods are also available in Gerlach \cite{gerlach2006cvf} and Gopala and van Wachem\cite{gopala2008vfm}, but these methods require more complicated logic to 
 reconstruct the interface.
 %%%%%%%%%%%%%%%%%%%%%%%%%% Phase field method %%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -185,7 +185,7 @@ reconstruct the interface.
 The phase field method is an Eulerian interface capturing scheme where the interface is implicitly related to an order parameter which shows the phase variation on the domain \cite{Anderson1998}. 
 In this method, the interface is a well-defined diffusive region between phases. 
 The mass conserving Cahn-Hilliard and non-conservative Allen-Cahn formulations are two principal formulations of this method \cite{CahnHilliard1958i,CahnHilliard1958ii,Yang2006}. %The difference between these two forms is that the first one is mass conservative while the second is not.
- Mathematically, the conservative form requires a numerically challenging fourth order derivative while the other one has only second-order derivatives. 
+ Mathematically, the conservative form requires a numerically challenging fourth order derivative while the other one has only second order derivatives. 
 %This difference in the highest order of derivative will make the later form much easier to implement.
 To date, no published work has used the phase field method to capture an interface in the shallow water equations.
 %%%%%%%%%%%%%%%%%%%%%%%%%% Level Set method %%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -661,7 +661,7 @@ a mixing free energy which is the well-known double-well potential function and 
 
 %{\bf THE FOLLOWING NEEDS HELP!}
 This formulation is easier to solve, but is not mass conservative. To conserve the mass, we follow \cite{Kim2014,Yang2006}, and use a Lagrange multiplier $\xi(t)$ modified as $(\varphi^2-1)\xi(t)$ to enforce the depth
-averaged conservation of form of the mass $ \frac{D}{Dt} \int_\Omega \varphi h \ \ dx= 0$.. This results in an additional source term in  \eqref{allencahn}.
+averaged conservation of form of the mass $ \frac{D}{Dt} \int_\Omega \varphi h \ \ dx= 0$. This results in an additional source term in  \eqref{allencahn}.
  The $(\varphi^2-1)$ modification  for the Lagrange multiplier minimizes the  change $\varphi$ on the bulk region  i.e when $\varphi=\pm1$. 
  The final form of equation \eqref{allencahn} and the constraint are:  
 \begin{align} 
