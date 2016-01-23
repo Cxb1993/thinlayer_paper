@@ -78,7 +78,7 @@ each of them has its own advantages/disadvantages and methods have to be chosen 
 Shallow water flow \sep Thin layer \sep Wetting/Drying \sep Phase field \sep Level Set
 
 \end{keyword}
-
+%\thanks{ Grant numbers xxx, yyy}
 \end{frontmatter}
 
 \linenumbers
@@ -552,7 +552,7 @@ to account for only part of the cell being wet, i.e.
 $a=\sqrt{k_{ap}gh\frac{A}{A_{wet}}}$.  Here $A$ is the whole cell's 
 area and $A_{wet}$ is the portion of the cell's area that is wet.  
 Since the wet-dry boundary within each partially wet cell is assumed 
-to be a straight line with, during the time-step, fixed orientation, 
+to be a straight line with (during the time-step) fixed orientation, 
 convecting a single point, in this case, the midpoint on the line, is 
 equivalent to convecting the entire wet-dry line.  A spatial and time 
 average of the wetness factor for the edge over the time-step can 
@@ -569,10 +569,11 @@ $\Delta t_{wet}$ is the portion of the time-step for which the edge is
 completely wet, $w_{beg}$ is the edge's fraction of wetness at the 
 beginning of the time-step, and $w_{end}$ is the edge's fraction of 
 wetness at the end of the time-step.
-In section \ref{Interfacerecon} we explained in detail how the wet, dry and partially wet part of the cell can be computed.
+As explained above the wet, dry and partially wet part of the cell can be computed.
  Given this information, we do not actually need to calculate the amount of time that a cell is partially wet, completely dry, 
- and completely wet. Instead, when it starts dry and ends wet, we calculate the wetness factor that we would have, 
- if we did calculate the partially wet and completely wet times. More clearly, the wet-dry line has an initial orientation and a "one-dimensional" position measured from the wettest node to the wet dry line. Moreover, we know that it is convected with constant wave speed  during the updating scheme, and we can calculate the point in time at which each node changes from wet to dry (or vice versa). Consequently, the amount of time that a cell edge is completely dry is the amount of time that both of its end points are dry and the amount of time it is completely wet is the amount of time that both  endpoints are wet.
+ and completely wet. Instead, when it starts dry and ends wet, we calculate the wetness factor. 
+% that we would have, if we did calculate the partially wet and completely wet times. 
+The wet-dry line has an initial orientation and a ``one-dimensional" position measured from the wettest node to the wet dry line. Since, we know that it is convected with constant wave speed  during the updating scheme, we can calculate the point in time at which each node changes from wet to dry (or vice versa). Consequently, the amount of time that a cell edge is completely dry is the amount of time that both of its end points are dry and the amount of time it is completely wet is the amount of time that both  endpoints are wet.
  
 \subsubsection{Adjusting Fluxes in Partially Wet Cells} \label{adjustfluxes}
 The state variables used to compute the physical fluxes are the whole
@@ -1247,7 +1248,8 @@ schemes and physics.
 
 %\appendix
 \section*{Acknowledgements}
- We acknowledge the Colima deposit  and experiment data made available to us by Prof. M. I. Bursik and for helpful discussions on the use of that data.
+ We acknowledge the Colima deposit  and experiment data made available to us by Prof. M. I. Bursik and for helpful discussions on the use of that data. The 
+ work described above was funded by NSF awards ACI 1339765 and IDR 1131074.
 
 \section*{References}
 
