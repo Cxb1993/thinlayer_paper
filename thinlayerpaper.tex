@@ -715,7 +715,7 @@ For time integration of equation \eqref{allencahn_mod} we use operator splitting
 which are updated implicitly. For a stable explicit time integrator, the size of the time step has to satisfy the CFL condition.
 
 \begin{align}
-\frac{\varphi^{i+.5}-\varphi^i}{\bigtriangleup t}&= \gamma (-F'(\varphi^i)+\varphi^i (1-(\varphi^i)^2)\ \xi(t^i)) \label{eq1.exp}\\
+\frac{\varphi^{i+.5}-\varphi^i}{\bigtriangleup t}&= \gamma (-F'(\varphi^i)+\varphi^i (1-(\varphi^i)^2)\ \xi(t^i)-(\overrightarrow{V}\cdot \nabla \varphi)^i) \label{eq1.exp}\\
 \frac{\varphi^{i+1}-\varphi^{i+.5}}{\bigtriangleup t} &= \gamma \nabla .\nabla \varphi^{i+1} \label{eq2.exp}
 \end{align}
 We used GMRES solver of the PETSc \cite{petsc-user-ref} library to solve equation \eqref{eq2.exp}. Since the Krylov subspace solvers just needs the result of matrix-vector multiplication, we used matrix-free method to compute the Laplacian term to decrease the memory cost of implicit solver.
@@ -807,7 +807,7 @@ equation \eqref{interpolation} can be computed as following:
 a_0&=\frac{(\varPsi_1 x_2 y_2 - \varPsi_2 x_2 y_1 - \varPsi_3 x_1 y_2 + \varPsi_4 x_1 y_1)}{(x_2-x_1)(y_2-y_1)}, \\ 
 a_1&=\frac{(-\varPsi_1 y_2 + \varPsi_2 y_1 + \varPsi_3 y_2 - \varPsi_4 y_1)}{(x_2-x_1)(y_2-y_1)},\\
 a_2&=\frac{(-\varPsi_1 x_2 + \varPsi_2 x_2 + \varPsi_3 x_1 - \varPsi_4 x_1 )}{(x_2-x_1)(y_2-y_1)}, \\ 
-a_4&=\frac{(\varPsi_1 - \varPsi_2 - \varPsi_3 + \varPsi_4)}{(x_2-x_1)(y_2-y_1)}, \\ 
+a_4&=\frac{(\varPsi_1 - \varPsi_2 - \varPsi_3 + \varPsi_4)}{(x_2-x_1)(y_2-y_1)}, 
 \end{align}
 \end{subequations}
 where $\varPsi_1=(x_1,y_1), \varPsi_2=(x_1,y_2), \varPsi_3=(x_2,y_1)$ and $\varPsi_4=(x_2,y_2)$ as can be seen in the figure \ref{fig:bilinear_interp}.
